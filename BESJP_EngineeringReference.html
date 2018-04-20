@@ -550,7 +550,7 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#_計算の流れ">2.3. 計算の流れ</a></li>
 <li><a href="#_室負荷の算出">2.4. 室負荷の算出</a>
-<ul class="sectlevel4">
+<ul class="sectlevel3">
 <li><a href="#_室負荷計算対象面積">2.4.1. 室負荷計算対象面積</a></li>
 <li><a href="#_外皮からの定常熱取得">2.4.2. 外皮からの定常熱取得</a>
 <ul class="sectlevel4">
@@ -586,15 +586,14 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#_二次ポンプ群の熱負荷">2.6.2. 二次ポンプ群の熱負荷</a>
 <ul class="sectlevel4">
-<li><a href="#_外気冷房時の給気風量">2.6.2.1. 外気冷房時の給気風量</a></li>
-<li><a href="#_外気冷房制御による負荷削減量">2.6.2.2. 外気冷房制御による負荷削減量</a></li>
-<li><a href="#_ファン発熱量">2.6.2.3. ファン発熱量</a></li>
-<li><a href="#_二次ポンプ負荷">2.6.2.4. 二次ポンプ負荷</a></li>
+<li><a href="#_外気冷房制御による負荷削減量">2.6.2.1. 外気冷房制御による負荷削減量</a></li>
+<li><a href="#_ファン発熱量">2.6.2.2. ファン発熱量</a></li>
+<li><a href="#_二次ポンプ負荷">2.6.2.3. 二次ポンプ負荷</a></li>
 </ul>
 </li>
 <li><a href="#_熱源群の熱負荷">2.6.3. 熱源群の熱負荷</a>
 <ul class="sectlevel4">
-<li><a href="#_ポンプの発熱量">2.6.3.1. ポンプの発熱量</a></li>
+<li><a href="#_二次ポンプの発熱量">2.6.3.1. 二次ポンプの発熱量</a></li>
 <li><a href="#_蓄熱槽の熱損失">2.6.3.2. 蓄熱槽の熱損失</a></li>
 <li><a href="#_熱源機負荷">2.6.3.3. 熱源機負荷</a></li>
 </ul>
@@ -608,7 +607,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_空調機群の定格消費電力">2.7.1.1. 空調機群の定格消費電力</a></li>
 <li><a href="#_空調機群の負荷率">2.7.1.2. 空調機群の負荷率</a></li>
 <li><a href="#_風量制御方式によって定まる係数">2.7.1.3. 風量制御方式によって定まる係数</a></li>
-<li><a href="#_空調機群の消費電力">2.7.1.4. 空調機群の消費電力</a></li>
+<li><a href="#_送風機の消費電力">2.7.1.4. 送風機の消費電力</a></li>
 <li><a href="#_全熱交換機の消費電力">2.7.1.5. 全熱交換機の消費電力</a></li>
 <li><a href="#_空調機群の年間エネルギー消費量">2.7.1.6. 空調機群の年間エネルギー消費量</a></li>
 </ul>
@@ -617,13 +616,52 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel4">
 <li><a href="#_二次ポンプ群の仮想定格能力">2.7.2.1. 二次ポンプ群の仮想定格能力</a></li>
 <li><a href="#_二次ポンプ群の負荷率">2.7.2.2. 二次ポンプ群の負荷率</a></li>
+<li><a href="#_二次ポンプの運転台数">2.7.2.3. 二次ポンプの運転台数</a></li>
+<li><a href="#_二次ポンプ単体の負荷率">2.7.2.4. 二次ポンプ単体の負荷率</a></li>
+<li><a href="#_流量制御方式によって定まる係数">2.7.2.5. 流量制御方式によって定まる係数</a></li>
+<li><a href="#_二次ポンプ群の年間一次エネルギー消費量">2.7.2.6. 二次ポンプ群の年間一次エネルギー消費量</a></li>
+</ul>
+</li>
+<li><a href="#_熱源群のエネルギー消費量">2.7.3. 熱源群のエネルギー消費量</a>
+<ul class="sectlevel4">
+<li><a href="#_熱源群の定格能力">2.7.3.1. 熱源群の定格能力</a></li>
+<li><a href="#_蓄熱を加味した仮想定格能力">2.7.3.2. 蓄熱を加味した仮想定格能力</a></li>
+<li><a href="#_熱源機器の定格一次エネルギー消費量">2.7.3.3. 熱源機器の定格一次エネルギー消費量</a></li>
+<li><a href="#_熱源水等の温度">2.7.3.4. 熱源水等の温度</a></li>
+<li><a href="#_熱源機器特性">2.7.3.5. 熱源機器特性</a></li>
+<li><a href="#_熱源群の負荷率">2.7.3.6. 熱源群の負荷率</a></li>
+<li><a href="#_熱源機器の運転台数">2.7.3.7. 熱源機器の運転台数</a></li>
+<li><a href="#_熱源機器の一次エネルギー消費量">2.7.3.8. 熱源機器の一次エネルギー消費量</a></li>
+<li><a href="#_熱源群の一次エネルギー消費量">2.7.3.9. 熱源群の一次エネルギー消費量</a></li>
+<li><a href="#_熱源群の年間一次エネルギー消費量">2.7.3.10. 熱源群の年間一次エネルギー消費量</a></li>
+</ul>
+</li>
+<li><a href="#_空気調和設備の設計一次エネルギー消費量">2.7.4. 空気調和設備の設計一次エネルギー消費量</a></li>
+</ul>
+</li>
+<li><a href="#_附属書a">2.8. 附属書A</a>
+<ul class="sectlevel3">
+<li><a href="#_外壁性能">2.8.1. 外壁性能</a></li>
+<li><a href="#_ガラスの性能から窓の性能を算定する方法">2.8.2. ガラスの性能から窓の性能を算定する方法</a>
+<ul class="sectlevel4">
+<li><a href="#_窓等の熱貫流率と日射熱取得率を直接入力する_様式2_3_span_class_blue_方法１_span">2.8.2.1. 窓等の熱貫流率と日射熱取得率を直接入力する（様式2-3②、③）: <span class="blue">方法１</span></a></li>
+<li><a href="#_建具の種類とガラスの種類を選択する_様式2_3_span_class_blue_方法２_span">2.8.2.2. 建具の種類とガラスの種類を選択する（様式2-3④、⑤）: <span class="blue">方法２</span></a></li>
+<li><a href="#_建具の種類を選択し_ガラスの熱貫流率と日射熱取得率を入力する_様式2_3_span_class_blue_方法３_span">2.8.2.3. 建具の種類を選択し、ガラスの熱貫流率と日射熱取得率を入力する（様式2-3④、⑥、⑦）: <span class="blue">方法３</span>：</a></li>
+</ul>
+</li>
+<li><a href="#_日射量">2.8.3. 日射量</a></li>
+<li><a href="#_ペリメータゾーン面積">2.8.4. ペリメータゾーン面積</a></li>
+<li><a href="#_空調機の運転モード">2.8.5. 空調機の運転モード</a></li>
+<li><a href="#_空調室の設定温度">2.8.6. 空調室の設定温度</a></li>
+<li><a href="#_平均外気温">2.8.7. 平均外気温</a></li>
+<li><a href="#_外気エンタルピー">2.8.8. 外気エンタルピー</a></li>
+<li><a href="#_内部発熱量">2.8.9. 内部発熱量</a></li>
+<li><a href="#_二次エネルギー換算">2.8.10. 二次エネルギー換算</a></li>
+<li><a href="#_室内エンタルピー">2.8.11. 室内エンタルピー</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#_ここで">ここで、</a></li>
 </ul>
 </div>
 </div>
@@ -688,6 +726,16 @@ table.CodeRay td.code>pre{padding:0}
 </td>
 </tr>
 </table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_空気調和設備の評価方法"><a class="link" href="#_空気調和設備の評価方法">2. 空気調和設備の評価方法</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>本章では、空気調和設備の一次エネルギー消費量算出ロジックを示す。
+本章で使用する共通の定数を以下に示す。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">表 1. 共通の定数</caption>
@@ -764,15 +812,6 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 </tbody>
 </table>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_空気調和設備の評価方法"><a class="link" href="#_空気調和設備の評価方法">2. 空気調和設備の評価方法</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>本章では、空気調和設備の一次エネルギー消費量算出ロジックを示す。</p>
-</div>
 <div class="sect2">
 <h3 id="_適用範囲"><a class="link" href="#_適用範囲">2.1. 適用範囲</a></h3>
 <div class="paragraph">
@@ -894,8 +933,8 @@ table.CodeRay td.code>pre{padding:0}
 <p>日積算室負荷は、各室の外皮構成に基づき単位床面積あたりの日積算定常熱取得を算出し、
 これに「定常熱取得から室負荷に変換するための係数」をかけることにより算出される。</p>
 </div>
-<div class="sect4">
-<h5 id="_室負荷計算対象面積"><a class="link" href="#_室負荷計算対象面積">2.4.1. 室負荷計算対象面積</a></h5>
+<div class="sect3">
+<h4 id="_室負荷計算対象面積"><a class="link" href="#_室負荷計算対象面積">2.4.1. 室負荷計算対象面積</a></h4>
 <div class="paragraph">
 <p>室負荷計算対象面積を算出する。一次エネルギー消費量を計算する場合とPAL＊を計算する場合で異なり、
 一次エネルギー消費量を計算する場合は、各室の床面積が計算対象面積となる。
@@ -2534,12 +2573,13 @@ O_{AC,ahu,i,d,t} = \cup_{j=1}^{n_i}O_{AC,room,j,d,t}\]
 </div>
 </div>
 <div class="paragraph">
-<p>また、外気カット制御の効果を見込んだ空調機群iの冷房運転時間\(T'_{AC,ahu,c,i,d}\)は次式で求める。</p>
+<p>また、外気カット制御の効果を見込んだ空調機群iの冷房運転時間\(T'_{AC,ahu,c,i,d}\)は次式で求める。
+冷房運転時間と暖房運転時間を比較して、各日において、運転時間が大きい方の負荷に対して外気カット制御の効果を見込むこととする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 外気カット制御があり、かつ ( \(T_{AC,ahu,c,i,d}&gt;1\) もしくは \(T_{AC,ahu,i,d}&gt;1\) ) かつ \(T_{AC,ahu,c,i,d} &gt; T_{AC,ahu,h,i,d}\)</p>
+<p>a) 外気カット制御があり、かつ ( \(T_{AC,ahu,c,i,d}&gt;1\) もしくは \(T_{AC,ahu,i,d}&gt;1\) ) かつ \(T_{AC,ahu,c,i,d} ≧ T_{AC,ahu,h,i,d}\)</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -2557,7 +2597,7 @@ O_{AC,ahu,i,d,t} = \cup_{j=1}^{n_i}O_{AC,room,j,d,t}\]
 </div>
 </div>
 <div class="paragraph">
-<p>外気カット制御の効果を見込んだ空調機群iの補正暖房運転時間\(T'_{AC,ahu,h,i,d}\)は次式で求める。</p>
+<p>外気カット制御の効果を見込んだ空調機群iの暖房運転時間\(T'_{AC,ahu,h,i,d}\)は次式で求める。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -3263,7 +3303,7 @@ C_{bal} = 0.67\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>日積算空調負荷は、冷房負荷と暖房負荷とを分けて算出する。
+<p>日積算空調負荷は、冷房負荷と暖房負荷に分けて算出する。
 ただし、算出された冷房負荷の値が負である場合はその値は暖房負荷とし、
 算出された暖房負荷の値が正である場合はその値は冷房負荷として扱うものとする。</p>
 </div>
@@ -3332,7 +3372,10 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 <div class="sect3">
 <h4 id="_二次ポンプ群の熱負荷"><a class="link" href="#_二次ポンプ群の熱負荷">2.6.2. 二次ポンプ群の熱負荷</a></h4>
 <div class="sect4">
-<h5 id="_外気冷房時の給気風量"><a class="link" href="#_外気冷房時の給気風量">2.6.2.1. 外気冷房時の給気風量</a></h5>
+<h5 id="_外気冷房制御による負荷削減量"><a class="link" href="#_外気冷房制御による負荷削減量">2.6.2.1. 外気冷房制御による負荷削減量</a></h5>
+<div class="paragraph">
+<p>日付dにおける空調機群iの外気冷房制御による負荷削減量を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">表 37. 入力</caption>
 <colgroup>
@@ -3351,10 +3394,10 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(H_{AC,oa,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける外気エンタルピー</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/kg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{h,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの内部発熱等計算用床面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.4.8</p></td>
 </tr>
 </tfoot>
 <tbody>
@@ -3385,100 +3428,6 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(H_{AC,room,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調時の室内空気エンタルピー</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/k</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A13</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 38. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,oacool,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外気冷房時給気風量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kg/s</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7.1.4</p></td>
-</tr>
-</tfoot>
-</table>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>a) 外気冷房制御が有効 かつ \(T_{AC,ahu,c,i,d}&gt;0\)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[V_{AC,ahu,oacool,i,d} = \min⁡(V_{AC,ahu,sa,i},\max⁡(V_{AC,ahu,oa,i},V)) - V_{AC,ahu,oa,i}  \\
-V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d} }\]
-</div>
-</div>
-<div class="paragraph">
-<p>b) 外気冷房制御が無効 または \(T_{AC,ahu,c,i,d}=0\)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[V_{AC,ahu,oacool,i,d} = 0\]
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_外気冷房制御による負荷削減量"><a class="link" href="#_外気冷房制御による負荷削減量">2.6.2.2. 外気冷房制御による負荷削減量</a></h5>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 39. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{h,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの内部発熱等計算用床面積</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7.4.8</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,oa,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの取入れ外気量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kg/s</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指定</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける空調（冷房）の運転時間数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5.1.3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(H_{AC,room,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調時の室内空気エンタルピー</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kJ/kg</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A13</p></td>
 </tr>
@@ -3489,12 +3438,6 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d}
 <td class="tableblock halign-left valign-top"><p class="tableblock">A10</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,oacool,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外気冷房時給気風量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kg/s</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7.1.5</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{p,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iの空調対象床面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
@@ -3503,7 +3446,7 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d}
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 40. 出力</caption>
+<caption class="title">表 38. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3526,7 +3469,43 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d}
 <td class="tableblock halign-left valign-top"><p class="tableblock">7.2.1</p></td>
 </tr>
 </tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,oacool,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">外気冷房時給気風量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kg/s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.1.4</p></td>
+</tr>
+</tbody>
 </table>
+<div class="paragraph">
+<p>まず、外気冷房時給気風量 \(V_{AC,ahu,oacool,i,d}\) を算出する。
+外気冷房時給気風量は給気ファンの定格風量 \(V_{AC,ahu,sa,i}\) を超えないものとする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) 外気冷房制御が有効 かつ \(T_{AC,ahu,c,i,d}&gt;0\)</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[V_{AC,ahu,oacool,i,d} = \min⁡(V_{AC,ahu,sa,i},\max⁡(V_{AC,ahu,oa,i},V)) - V_{AC,ahu,oa,i}  \\
+V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d} }\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) 外気冷房制御が無効 または \(T_{AC,ahu,c,i,d}=0\)</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[V_{AC,ahu,oacool,i,d} = 0\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>外気冷房制御による負荷削減量\(Q_{AC,ahu,oacool,i,d}\)は次式により算出する。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
@@ -3538,9 +3517,12 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d}
 </div>
 </div>
 <div class="sect4">
-<h5 id="_ファン発熱量"><a class="link" href="#_ファン発熱量">2.6.2.3. ファン発熱量</a></h5>
+<h5 id="_ファン発熱量"><a class="link" href="#_ファン発熱量">2.6.2.2. ファン発熱量</a></h5>
+<div class="paragraph">
+<p>空調機群のファンによる発熱量を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 41. 入力</caption>
+<caption class="title">表 39. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3603,7 +3585,7 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d}
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 42. 出力</caption>
+<caption class="title">表 40. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3635,10 +3617,14 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d}
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>空調機群のファンによる発熱量 \(Q_{AC,ahu,heat,c,i,d}\) 及び \(Q_{AC,ahu,heat,h,i,d}\)は次式で算出する。
+なお、発熱量を計上するのは、空調機群iに属する空調機の種類が「空調機」である場合のみとする。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 空調機群iに属する空調機の種類に「AHU」が含まれる場合</p>
+<p>a) 空調機群iに属する空調機の種類に「空調機」が含まれる場合</p>
 </div>
 <div class="paragraph">
 <p>a-1) \(L_{AC,ahu,A,i,d}≥0\) かつ \(L_{AC,ahu,B,i,d}&lt;0\)</p>
@@ -3687,14 +3673,14 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>空調機群iに属する空調機の種類は\(C_{AC,i,j} ∈ \{AHU,FCU,IDU,AEX,FAN,RAD\} \)</p>
-</div>
 </div>
 <div class="sect4">
-<h5 id="_二次ポンプ負荷"><a class="link" href="#_二次ポンプ負荷">2.6.2.4. 二次ポンプ負荷</a></h5>
+<h5 id="_二次ポンプ負荷"><a class="link" href="#_二次ポンプ負荷">2.6.2.3. 二次ポンプ負荷</a></h5>
+<div class="paragraph">
+<p>空調機群が処理する空調負荷より、各二次ポンプ群が処理する負荷（二次ポンプ負荷）を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 43. 入力</caption>
+<caption class="title">表 41. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3751,7 +3737,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 44. 出力</caption>
+<caption class="title">表 42. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3776,8 +3762,13 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tfoot>
 </table>
 <div class="paragraph">
-<p>添え字jは各ポンプ群が冷水を供給する空調機群について積算することを表している。</p>
+<p>各二次ポンプ群が処理する負荷は、二次ポンプ群が冷温水を供給する空調機群の空調負荷を積算し、
+外気冷房の効果と空調機ファンの発熱量を積算して算出する。ここで、二次ポンプは例え物理的に1台しかなくても、
+冷熱を処理する冷水二次ポンプと温熱を処理する温水二次ポンプが別々にあると想定して計算を行う。　
+添え字jは各ポンプ群が冷水を供給する空調機群について積算することを表している。</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>a) 二次ポンプが冷水ポンプの場合</p>
 </div>
@@ -3829,12 +3820,27 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>上式にて（-1）をかけているが、これはこれまで負の値として扱ってきた暖房負荷について、
+便宜上正の値になるように符号を反転させるための措置である。</p>
+</div>
+<div class="paragraph">
+<p>なお、外気冷房制御が有効であるシステムについては、ファンの発熱量は0であるとする。
+これは、外気冷房が有効であるシステムにおいて、全ての空調負荷が外気取り入れによって処理される場合は見かけ上の空調負荷は0となるが、
+この場合にファンの発熱量を別途足してしまうと極少量の負荷が計算上残ってしまい、これが熱源機器や二次ポンプのエネルギー消費量に大きな影響を与えてしまうからである。
+これを回避するために、外気冷房制御が有効であるシステムについては、ファンの発熱量は無視することにする。</p>
+</div>
+</div>
+</div>
 <div class="sect3">
 <h4 id="_熱源群の熱負荷"><a class="link" href="#_熱源群の熱負荷">2.6.3. 熱源群の熱負荷</a></h4>
 <div class="sect4">
-<h5 id="_ポンプの発熱量"><a class="link" href="#_ポンプの発熱量">2.6.3.1. ポンプの発熱量</a></h5>
+<h5 id="_二次ポンプの発熱量"><a class="link" href="#_二次ポンプの発熱量">2.6.3.1. 二次ポンプの発熱量</a></h5>
+<div class="paragraph">
+<p>二次ポンプの発熱量を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 45. 入力</caption>
+<caption class="title">表 43. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3867,7 +3873,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 46. 出力</caption>
+<caption class="title">表 44. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3891,6 +3897,9 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>二次ポンプの発熱量は次式で算出する。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
@@ -3903,8 +3912,11 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </div>
 <div class="sect4">
 <h5 id="_蓄熱槽の熱損失"><a class="link" href="#_蓄熱槽の熱損失">2.6.3.2. 蓄熱槽の熱損失</a></h5>
+<div class="paragraph">
+<p>蓄熱槽の熱損失による熱負荷の増加分を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 47. 入力</caption>
+<caption class="title">表 45. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3929,7 +3941,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tfoot>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 48. 出力</caption>
+<caption class="title">表 46. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3954,6 +3966,11 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tfoot>
 </table>
 <div class="paragraph">
+<p>日付dにおける熱源群iの蓄熱槽からの熱損失量\(Q_{AC,ref,ts,i,d}\)は次式で算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
 <p>a) 蓄熱槽がある場合</p>
 </div>
 <div class="stemblock">
@@ -3970,10 +3987,17 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="sect4">
 <h5 id="_熱源機負荷"><a class="link" href="#_熱源機負荷">2.6.3.3. 熱源機負荷</a></h5>
+<div class="paragraph">
+<p>各熱源群が処理する熱源負荷は、熱源群が冷温熱を供給する二次ポンプ群のポンプ負荷を積算し、
+これにポンプの発熱量と蓄熱槽があるシステムについては蓄熱槽の損失分を積算して算出する。
+熱源機器もポンプと同様に、冷熱を供給する冷熱源システムと温熱を供給する温熱源システムが別々にあると想定して計算を行う。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 49. 入力</caption>
+<caption class="title">表 47. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4024,7 +4048,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 50. 出力</caption>
+<caption class="title">表 48. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4049,7 +4073,8 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tfoot>
 </table>
 <div class="paragraph">
-<p>まず、次式で定義する \(Q_{AC,ref,base,i,d}\)を算出する。</p>
+<p>まず、次式で定義する \(Q_{AC,ref,base,i,d}\)を算出する。
+添え字jは各熱源群が冷熱を供給する二次ポンプ群について積算することを表している。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -4144,7 +4169,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <p>空調機群の定格消費電力は、当該空調機群に属する送風機の消費電力の総和とする。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 51. 入力</caption>
+<caption class="title">表 49. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4189,7 +4214,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 52. 出力</caption>
+<caption class="title">表 50. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4229,7 +4254,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <p>空調機群の負荷率は、当該空調機群が処理する空調負荷によって定まる。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 53. 入力</caption>
+<caption class="title">表 51. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4286,7 +4311,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 54. 出力</caption>
+<caption class="title">表 52. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4319,7 +4344,8 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>まず、日付dにおける空調機群iの冷房期の負荷率 \(L_{AC,ahu,mix,c,i,d}\)、日付dにおける空調機群iの暖房期の負荷率\(L_{AC,ahu,mix,h,i,d}\)を算出する。</p>
+<p>まず、日付dにおける空調機群iの冷房期の負荷率 \(L_{AC,ahu,mix,c,i,d}\)、日付dにおける空調機群iの暖房期の負荷率\(L_{AC,ahu,mix,h,i,d}\)を算出する。
+本計算法においては、日積算負荷を用いて日平均負荷率を算出し、一日を通してこの一定の負荷率で運転すると想定してエネルギー消費量の計算を行う。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -4342,7 +4368,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </div>
 </div>
 <div class="paragraph">
-<p>ここで、上記の式の関数Fは次のように定義する。</p>
+<p>ここで、上記の式の関数Fは次のように定義する。つまり、負荷率は0.05刻みの離散的な数値として算出するものとする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -4357,9 +4383,8 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </div>
 </div>
 <div class="paragraph">
-<p>冷暖同時運転時は、年間を通して暖冷房が利用可能である。冷暖切替運転時においては、
-その日の運転モードに合致しない負荷は処理できないため負荷率がとても小さな値εとなる。
-ここで、負荷率を0にしないのは、完全に停止するわけではなく低負荷で動いていると解釈するためである。</p>
+<p>冷暖同時運転がないシステムにおいて、負荷率をεとし0にしないのは、
+空調機群が完全に停止するわけではなく低負荷で動いているとしてエネルギー消費量を算出するためである。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -4373,7 +4398,7 @@ L_{AC,ahu,H,i,d} = L_{AC,ahu,mix,h,i,d}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 空調機群iが「冷暖同時運転なし」の場合<br>
+<p>b) 空調機群iが「冷暖同時運転なし」の場合
 b-1) Mode_d=冷房期の場合</p>
 </div>
 <div class="stemblock">
@@ -4397,10 +4422,10 @@ L_{AC,ahu,H,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 <div class="sect4">
 <h5 id="_風量制御方式によって定まる係数"><a class="link" href="#_風量制御方式によって定まる係数">2.7.1.3. 風量制御方式によって定まる係数</a></h5>
 <div class="paragraph">
-<p>風量制御による省エネルギー効果を算出するための係数を算出します。</p>
+<p>風量制御による省エネルギー効果を算出するための係数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 55. 入力</caption>
+<caption class="title">表 53. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4439,7 +4464,7 @@ L_{AC,ahu,H,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 56. 出力</caption>
+<caption class="title">表 54. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4471,6 +4496,9 @@ L_{AC,ahu,H,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>空調機群iの風量制御方式によって定まる係数\(f_{AC,ahu,C,i,j,d}\)、\(f_{AC,ahu,H,i,j,d}\)は次式で求める。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -4548,11 +4576,25 @@ f_{AC,ahu,H,i,d} = 0\]
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>これは、国土交通省による平成23、24年度建築基準整備促進事業の調査項目36「空調システム等の最適制御による省エネルギー効果に関する実証的評価」における
+実態調査結果に基づき値を定めた。ここで、回転数制御とは、送風機の回転数が室内温度等に応じて自動で変化する制御のことであり、
+ファンコイルユニットやパッケージ空調機の室内機に多くあるような手動による風量の切り替えは対象としない。
+回転数制御を行っている場合は、最小風量比率（定格風量に対する比率）を設定し、
+負荷率がこの最小風量比率を下回った場合は、
+それ以下の負荷率については、負荷率が最小風量比率\(f_{AC,ahu,i,j,min}\)を下回らない最小の負荷率のときの係数の値を用いる。
+なお、処理すべき負荷が定格能力を超えている（過負荷）場合は、定風量制御、回転数制御とも1.2としている。
+本来は過負荷の場合は、負荷は処理されずに室温が設定値から乖離することになるが、
+本計算法ではこの現象を再現せず、過負荷状態については定格消費電力の1.2倍を消費して設定温湿度に達した（負荷を処理した）と仮定してエネルギー消費量の計算を行う。</p>
+</div>
 </div>
 <div class="sect4">
-<h5 id="_空調機群の消費電力"><a class="link" href="#_空調機群の消費電力">2.7.1.4. 空調機群の消費電力</a></h5>
+<h5 id="_送風機の消費電力"><a class="link" href="#_送風機の消費電力">2.7.1.4. 送風機の消費電力</a></h5>
+<div class="paragraph">
+<p>空調機群に属する送風機の消費電力を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 57. 入力</caption>
+<caption class="title">表 55. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4597,7 +4639,7 @@ f_{AC,ahu,H,i,d} = 0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 58. 出力</caption>
+<caption class="title">表 56. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4641,6 +4683,10 @@ f_{AC,ahu,H,i,d} = 0\]
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>空調機群iに属する送風機jの冷房運転時の消費電力\(E_{AC,ahu,C,i,j,d}\)、及び暖房運転時の消費電力\(E_{AC,ahu,H,i,j,d}\)は
+次式により算出する。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
@@ -4652,7 +4698,7 @@ E_{AC,ahu,H,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,H,i,j,d}\]
 </div>
 </div>
 <div class="paragraph">
-<p>空調機群の送風機消費電力\(E_{AC,ahu,C,i,d}\)、\(E_{AC,ahu,H,i,d}\)は次式で求める。</p>
+<p>空調機群iに属する送風機の「消費電力\(E_{AC,ahu,C,i,d}\)、\(E_{AC,ahu,H,i,d}\)は次式により算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -4667,8 +4713,11 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </div>
 <div class="sect4">
 <h5 id="_全熱交換機の消費電力"><a class="link" href="#_全熱交換機の消費電力">2.7.1.5. 全熱交換機の消費電力</a></h5>
+<div class="paragraph">
+<p>空調機群iに属する全熱交換器の消費電力を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 59. 入力</caption>
+<caption class="title">表 57. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4693,7 +4742,7 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </tfoot>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 60. 出力</caption>
+<caption class="title">表 58. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4717,6 +4766,9 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>空調機群iに属する全熱交換器の消費電力 \(E_{AC,ahu,aex,i,d}\) は次式により算出する。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
@@ -4729,8 +4781,11 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </div>
 <div class="sect4">
 <h5 id="_空調機群の年間エネルギー消費量"><a class="link" href="#_空調機群の年間エネルギー消費量">2.7.1.6. 空調機群の年間エネルギー消費量</a></h5>
+<div class="paragraph">
+<p>空調機群の年間一次エネルギー消費量を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 61. 入力</caption>
+<caption class="title">表 59. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4799,7 +4854,7 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 62. 出力</caption>
+<caption class="title">表 60. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4844,7 +4899,7 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>空調機群の年間一次エネルギー消費量は次式で算出する。</p>
+<p>空調機群の年間一次エネルギー消費量 \(E_{AC,ahu,i}\) は次式で算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -4900,7 +4955,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <p>二次ポンプ群の定格能力は、設計流量に設計温度差を掛けた値として定義をする。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 63. 入力</caption>
+<caption class="title">表 61. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4939,7 +4994,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 64. 出力</caption>
+<caption class="title">表 62. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4999,8 +5054,11 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </div>
 <div class="sect4">
 <h5 id="_二次ポンプ群の負荷率"><a class="link" href="#_二次ポンプ群の負荷率">2.7.2.2. 二次ポンプ群の負荷率</a></h5>
+<div class="paragraph">
+<p>二次ポンプ群の負荷率を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 65. 入力</caption>
+<caption class="title">表 63. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5039,7 +5097,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 66. 出力</caption>
+<caption class="title">表 64. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5063,44 +5121,44 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>二次ポンプ群iの日付dにおける負荷率\(L_{AC,pump,i,d}\)は次式で求める。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
 \[L_{AC,pump,i,d} = \begin{cases}
- f(  \frac{Q_{AC,pump,i,d}/T_{AC,pump,i,d}}{q_{Ac,pump,i,rated}×3600×10^{-3}},     T_{AC,pump,i,d}&gt;0 \\
+ F(  \frac{Q_{AC,pump,i,d}/T_{AC,pump,i,d}}{q_{Ac,pump,i,rated}×3600×10^{-3}},     T_{AC,pump,i,d}&gt;0 \\
 0                     ,     T_{AC,pump,i,d}=0
 \end{cases}\]
 </div>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>関数Fは空調機群と同様に、次のように定義する。</p>
 </div>
-</div>
-</div>
-</div>
-</div>
-<h1 id="_ここで" class="sect0"><a class="link" href="#_ここで">ここで、</a></h1>
-<div class="openblock partintro">
+<div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[f(L) = \begin{cases}
+\[F(L) = \begin{cases}
  \frac{floor(L×10)}{10} + 0.05,　　L&gt;0の場合　\\
  L,　　それ以外の場合
 \end{cases}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>===== 二次ポンプの運転台数</p>
 </div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_二次ポンプの運転台数"><a class="link" href="#_二次ポンプの運転台数">2.7.2.3. 二次ポンプの運転台数</a></h5>
 <div class="paragraph">
 <p>二次ポンプ群のポンプ運転台数を算出する。台数制御の有無により運転台数が異なる。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 67. 入力</caption>
+<caption class="title">表 65. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5151,7 +5209,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 68. 出力</caption>
+<caption class="title">表 66. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5175,8 +5233,12 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>二次ポンプ群のポンプ運転台数は、台数制御が導入されているかどうかによって、次のa）またはb）の方法にて算出する。
+ここで、台数制御とは、二次ポンプ群にポンプが2台以上あり、負荷に応じて運転台数が自動で変更される制御であると定義する。</p>
 </div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>a) \(L_{AC,pump,i,d}&gt;0\) (負荷率が0を超えている場合)</p>
 </div>
@@ -5205,16 +5267,16 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 \[N_{AC,pump,i,d} = 0\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>===== 二次ポンプ単体の負荷率</p>
 </div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_二次ポンプ単体の負荷率"><a class="link" href="#_二次ポンプ単体の負荷率">2.7.2.4. 二次ポンプ単体の負荷率</a></h5>
 <div class="paragraph">
 <p>二次ポンプ群に属するポンプ単体の負荷率を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 69. 入力</caption>
+<caption class="title">表 67. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5301,7 +5363,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 70. 出力</caption>
+<caption class="title">表 68. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5348,31 +5410,30 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <div class="paragraph">
 <p>まず、台数制御が有効かつ変流量制御がある場合における処理熱量を算出する。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[q_{AC,pump,base,i,d} = \sum \{q_{AC,pump,i,j,rated} │ j ≤ N_{AC,pump,i,d}　and　C_{i,j} \}\]
 </div>
 </div>
+</div>
+</div>
 <div class="exampleblock">
 <div class="content">
-
-</div>
-</div>
 <div class="stemblock">
 <div class="content">
 \[N_{AC,pump,i,VWV,d}  = count \{ j | j≤N_{AC,pump,i,d}  and C_{i,j} \}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>\(C_{i,j}\)は二次ポンプ群iに属する二次ポンプjが定流量制御方式であることを示し、
 二次ポンプ群iに属する二次ポンプjが定流量制御方式である場合には真、流量制御方式である場合には偽の値を取ることとする。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[Q_{Ac,pump,i,j,d} = (q_{AC,pump,i,rated}×L_{AC,pump,i,d}-q_{AC,pump,base,i,d})/N_{AC,pump,i,VWV,d} ×1000/3600\]
@@ -5383,13 +5444,16 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 \[L_{Ac,pump,i,j,d} = Q_{AC,pump,i,j,d}/q_{AC,pump,i,j,rated} ×3600/1000\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_流量制御方式によって定まる係数"><a class="link" href="#_流量制御方式によって定まる係数">2.7.2.5. 流量制御方式によって定まる係数</a></h5>
 <div class="paragraph">
-<p>===== 流量制御方式によって定まる係数</p>
+<p>流量制御方式によって定まる係数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 71. 入力</caption>
+<caption class="title">表 69. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5422,7 +5486,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 72. 出力</caption>
+<caption class="title">表 70. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5449,8 +5513,8 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <div class="paragraph">
 <p>まず、最小流量比率\(L_{AC,pump,i,j,min}\)を次式で算出する。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>a) 変流量制御の場合</p>
 </div>
@@ -5467,11 +5531,18 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 \[L_{AC,pump,i,j,min} = 1\]
 </div>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>二次ポンプ群iの流量制御方式によって定まる\(f_{AC,pump,i,j,d}\)は次式で算出する。
+これは、国土交通省による平成23、24年度建築基準整備促進事業の調査項目36「空調システム等の最適制御による省エネルギー効果に関する実証的評価」における
+実態調査結果に基づき値を定めた。ここで、回転数制御とは、ポンプの回転数がインバータ等によって自動で変化する制御のことであると定義する。
+回転数制御を行っている場合は、最小流量比率（定格流量に対する比率）を設定し、
+負荷率がこの最小流量比率を下回った場合は、それ以下の負荷率については、最小流量比率のときの係数であるとする。
+なお、過負荷の際に定格消費電力の1.2倍の電力が消費されると想定している理由は、空調機群の風量制御方式と同じ理由によるものである。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
-
-</div>
-</div>
 <div class="paragraph">
 <p>a) \(0&lt;L_{AC,pump,i,d}&lt;1.0\) の場合</p>
 </div>
@@ -5497,8 +5568,8 @@ F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}�
 \[f_{AC,pump,i,j,d} = f_{AC,pump,over}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>\(f_{AC,pump,over}\)は、過負荷時の補正係数であり、1.2とする。
 係数 \(a_{i,j},b_{i.j},c_{i,j},d_{i,j},e_{i,j}\)は、二次ポンプ群iのエネルギー消費特性を表す係数であり、
@@ -5548,8 +5619,11 @@ F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}�
 <p> 
 ===== 二次ポンプ群の消費電力</p>
 </div>
+<div class="paragraph">
+<p>二次ポンプ群に属する二次ポンプの消費電力を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 73. 入力</caption>
+<caption class="title">表 71. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5600,7 +5674,7 @@ F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 74. 出力</caption>
+<caption class="title">表 72. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5627,18 +5701,20 @@ F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}�
 <div class="paragraph">
 <p>まず、日付dにおける二次ポンプ群iに属する二次ポンプjの消費電力 \(E_{AC,pump,i,j,d}\)を次式で算出する。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[E_{AC,pump,i,j,d} = E_{AC,pump,i,j,rated} \times f_{AC,pump,i,j,d}\]
 </div>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>次に、台数制御の有無を勘案して、二次ポンプ群iの日付dにおける消費電力\(E_{AC,pump,i,d}\)を算出する。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
-
-</div>
-</div>
 <div class="paragraph">
 <p>a) 台数制御が導入されていない場合</p>
 </div>
@@ -5672,16 +5748,19 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 \[E_{AC,pump,i,d} = \sum_{j=1}^{N_{AC,pump,i,d}} E_{AC,pump,i,j,d}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>ここで、\(f_{AC,pump,over}\)は過負荷時の補正係数であり、1.2とする。</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_二次ポンプ群の年間一次エネルギー消費量"><a class="link" href="#_二次ポンプ群の年間一次エネルギー消費量">2.7.2.6. 二次ポンプ群の年間一次エネルギー消費量</a></h5>
 <div class="paragraph">
-<p>===== 二次ポンプ群の年間一次エネルギー消費量</p>
+<p>二次ポンプ群の年間一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 75. 入力</caption>
+<caption class="title">表 73. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5714,7 +5793,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 76. 出力</caption>
+<caption class="title">表 74. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5731,35 +5810,18 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,pump,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iの年間一次エネルギー消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
-</tr>
-</tfoot>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 77. 中間出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 60%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,pump,e,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iの年間電力消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MWh/年</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,pump,i}\)</p></td>
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>二次ポンプ群の年間一次エネルギー消費量\(E_{AC,pump,i}\)は次式で算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[E_{AC,pump,i} = E_{AC,pump,e,i} \times 3600 \times 10^{-3} \times f_{prim,e}\]
@@ -5770,14 +5832,19 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 \[E_{AC,pump,e,i} = \sum_{d=1}^{365} ( E_{AC,pump,i,d} \times T_{AC,pump,i,d} ) \times 10^{-3}\]
 </div>
 </div>
-<div class="paragraph">
-<p>==== 熱源群のエネルギー消費量</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_熱源群のエネルギー消費量"><a class="link" href="#_熱源群のエネルギー消費量">2.7.3. 熱源群のエネルギー消費量</a></h4>
+<div class="sect4">
+<h5 id="_熱源群の定格能力"><a class="link" href="#_熱源群の定格能力">2.7.3.1. 熱源群の定格能力</a></h5>
 <div class="paragraph">
-<p>===== 熱源群の定格能力</p>
+<p>熱源群の定格能力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 78. 入力</caption>
+<caption class="title">表 75. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5810,7 +5877,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 79. 出力</caption>
+<caption class="title">表 76. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5834,16 +5901,26 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>熱源群iの定格能力\(q_{AC,ref,i,rated}\)は、熱源群iに属する熱源機器jの定格能力の総和とする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[q_{AC,ref,i,rated} = \sum_{j=1}^{N_{AC,ref,i}} q_{AC,ref,i,j,rated}\]
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_蓄熱を加味した仮想定格能力"><a class="link" href="#_蓄熱を加味した仮想定格能力">2.7.3.2. 蓄熱を加味した仮想定格能力</a></h5>
 <div class="paragraph">
-<p>===== 蓄熱を加味した仮想定格能力</p>
+<p>蓄熱槽があるシステムのエネルギー消費量計算に必要となる見かけ上の熱源処理能力（仮想定格能力）を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 80. 入力</caption>
+<caption class="title">表 77. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5906,7 +5983,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 81. 出力</caption>
+<caption class="title">表 78. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5924,7 +6001,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱を加味した仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">蓄熱を加味した熱源群iの仮想定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.5.2,6.5.5</p></td>
 </tr>
@@ -5932,20 +6009,25 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,j,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの補正定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">蓄熱を加味した熱源群iに属する熱源機器jの仮想定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.6.5</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <div class="paragraph">
-<p>a) \(StorageType_{i}\) = 放熱 であり \(RefType_{i,j}\) = 熱交換器 であり j =1　であれば</p>
+<p>まず、熱源群に蓄熱槽があり、追掛運転時に1番目に動く熱源機器が「熱交換器」である場合は、
+追掛運転時間を8時間として見かけ上の熱源処理能力（仮想定格能力）を算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) \(StorageType_{i}\) = 追掛運転 であり \(RefType_{i,j}\) = 熱交換器 であり j =1　であれば</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times 8 / \max⁡(T_{ACref,base,i,d})\]
+\[q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times 8 / \max⁡(T_{ACref,base,i,d})
+q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated} + (q'_{AC,ref,i,1,rated} - q_{AC,ref,i,1,rated})\]
 </div>
 </div>
 <div class="paragraph">
@@ -5953,37 +6035,20 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated}\]
+\[q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated}
+q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_熱源機器の定格一次エネルギー消費量"><a class="link" href="#_熱源機器の定格一次エネルギー消費量">2.7.3.3. 熱源機器の定格一次エネルギー消費量</a></h5>
 <div class="paragraph">
-<p>a) \(StorageType_{i}\) = 追掛運転 かつ \(RefType_{i,1}\) = 熱交換器</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated} + (q'_{AC,ref,i,1,rated} - q_{AC,ref,i,1,rated})\]
-</div>
-</div>
-<div class="paragraph">
-<p>b) 上記以外</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>=====  熱源機器の定格一次エネルギー消費量</p>
+<p>熱源機器の定格一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 82. 入力</caption>
+<caption class="title">表 79. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6028,7 +6093,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 83. 出力</caption>
+<caption class="title">表 80. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6052,8 +6117,13 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>熱源機器の定格一次エネルギー消費量を算出する。熱源機器のエネルギー源が「電力」の場合は、電力の一次エネルギー換算係数を掛ける。
+熱源機器のエネルギー源が「他人から供給された熱」の場合は、他人から供給された熱の一次エネルギー換算値を掛ける。
+これ以外の場合は、一次エネルギー換算された値が入力されているため、何も処理をしない。</p>
 </div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>a) \(fueltype_{i,j}\) = 電力　(エネルギー源が電力の場合)</p>
 </div>
@@ -6078,267 +6148,16 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 \[P_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times K_{prime,ex}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_熱源水等の温度"><a class="link" href="#_熱源水等の温度">2.7.3.4. 熱源水等の温度</a></h5>
 <div class="paragraph">
-<p>===== 熱源群の負荷率</p>
+<p>熱源機器の性能を推定するための、熱源水等の温度（水冷式の場合は冷却水温度、空冷式の場合は外気温度等）を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 84. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,max,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの最大能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.7</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(StorageType_{i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの蓄熱時運転モード</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">―</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指定</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源機iの熱負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7.3.1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,base,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源機群iの基本運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5.3.2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱層による補正定格能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.4</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの機器負荷率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.3</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 85. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(OV_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの過負荷を示す真偽値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">真偽値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.2</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの負荷率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.2,6.5.5,6.5.8,6.6.1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(xL_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの負荷率（蓄熱運転時の補正用）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5.3.1</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="paragraph">
-<p>a} StorageType_{i,j}=Charge (蓄熱の場合)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[L_{AC,ref,i,d} = 1.0\]
-</div>
-</div>
-<div class="paragraph">
-<p>b} StorageType_{i,j}≠Charge (蓄熱が無い場合)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[L_{AC,ref,i,d} = \begin{cases}
- F(Q_{AC,ref,i,d} / T_{AC,ref,base,i,d} ×1000/3600),       T_{AC,ref,base,i,d}≠0 \\
- 0,       T_{AC,ref,base,i,d}=0 \\
-\end{cases}\]
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[F(L) = floor(L×10)/10+0.05, L&gt;0\]
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-
-</div>
-</div>
-<div class="paragraph">
-<p>a} StorageType_{i,j} = Charge (蓄熱の場合)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[xL_{AC,ref,i,d} = 1.0\]
-</div>
-</div>
-<div class="paragraph">
-<p>b} StorageType_{i,j} ≠ Charge (蓄熱が無い場合)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} × L_{AC,ref,i,d} /q_{AC,ref,i,max,d}\]
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>機器負荷率が1を超える場合は過負荷であると見なす。</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[OV_{AC,ref,i,d} = L_{AC,ref,i,d} &gt; 1.0\]
-</div>
-</div>
-<div class="paragraph">
-<p>===== 熱源機器の運転台数</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 86. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ref,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの台数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指定</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,j,max,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの日付dにおける最大能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.5</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱層による補正定格能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.4</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ref,i,d}	\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの機器負荷率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.3</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 87. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの運転台数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.1,6.5.7,5.3.1</p></td>
-</tr>
-</tfoot>
-</table>
-</div>
-</div>
-<div class="paragraph">
-<p>a}台数制御が導入されている場合</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[N_{AC,ref,i,d} = min⁡( N │  A＜B  and N ≤ N_{AC,ref,i} ) \\
-A = q'_{AC,ref,i,rated} ×L_{AC,ref,i,d} \\
-B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
-</div>
-</div>
-<div class="paragraph">
-<p>b}台数制御が導入されていない場合</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[N_{AC,ref,i,d} = N_{AC,ref,i}\]
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>===== 熱源水等の温度</p>
-</div>
-<div class="paragraph">
-<p>熱源機器の性能を推定するための、熱源温度（水冷式の場合は冷却水温度、空冷式の場合は外気温度等）を算出する。</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 88. 入力</caption>
+<caption class="title">表 81. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6366,7 +6185,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(CoolingType_{i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの冷却モード</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">―</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指定</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源機種による定まる</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,i,d}\)</p></td>
@@ -6395,7 +6214,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 89. 出力</caption>
+<caption class="title">表 82. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6413,16 +6232,20 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,ref,base,i,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの基準温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの熱源水等の温度</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.6.4,6.6.5</p></td>
 </tr>
 </tfoot>
 </table>
-</div>
-</div>
 <div class="paragraph">
-<p>a} \(CoolingType_{i,j}\) = 水冷式</p>
+<p>日付dにおける熱源群iに属する熱源機器jの熱源水等の温度\(θ_{AC,ref,base,i,j,d}\)は
+次式で算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a} \(CoolingType\) が 水冷式　の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -6433,7 +6256,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b} \(CoolingType_{i,j}\) = 空冷式</p>
+<p>b} \(CoolingType\) が 空冷式　の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -6444,7 +6267,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </div>
 </div>
 <div class="paragraph">
-<p>c} \(CoolingType_{i,j}\) = 地中熱方式</p>
+<p>c} \(CoolingType\) が 地中熱方式　の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -6455,174 +6278,22 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </div>
 </div>
 <div class="paragraph">
-<p>d} その他</p>
+<p>d} 上記以外の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[θ_{AC,ref,base,i,j,d} = θ_{AC,oa,d}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>====== 湿球温度</p>
 </div>
+</div>
+<div class="sect5">
+<h6 id="_日平均外気温"><a class="link" href="#_日平均外気温">日平均外気温</a></h6>
 <div class="paragraph">
-<p>補正日平均外気温度から湿球温度へ変換する。</p>
+<p>熱源機器のエネルギー消費量を算出するための日平均外気温を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 90. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの補正日平均外気温</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.11</p></td>
-</tr>
-</tfoot>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 91. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-</table>
-<div class="stemblock">
-<div class="content">
-\[θ_{AC,wb,i,d} = a_{wb} × θ_{AC,oa,i,d} + b_{wb}\]
-</div>
-</div>
-<div class="paragraph">
-<p>\(a_{wb},b_{wb}\)は湿球温度変換係数。湿球温度変換係数は表の通り指定する。</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 92. 湿球温度変換係数表</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">地域区分</th>
-<th class="tableblock halign-left valign-top">\(a_{wb}\)</th>
-<th class="tableblock halign-left valign-top">\(b_{wb}\)</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0372</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-3.9758</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1,2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.8921</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-1.0759</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3,4,5,6,7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9034</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-1.4545</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>====== 冷却水温度</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 93. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,wb,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの湿球温度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.10</p></td>
-</tr>
-</tfoot>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 94. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,cw,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの冷却水温度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.8</p></td>
-</tr>
-</tfoot>
-</table>
-<div class="paragraph">
-<p>\(a_{cw}\)は冷却水温度変換係数であり、-3とする。</p>
-</div>
-<div class="paragraph">
-<p>湿球温度から冷却水温度へ変換する。</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[θ_{AC,cw,i,d} = θ_{AC,oawb,d} + a_{cw}\]
-</div>
-</div>
-<div class="paragraph">
-<p>====== 補正平均外気温</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 95. 入力</caption>
+<caption class="title">表 83. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6655,7 +6326,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 96. 出力</caption>
+<caption class="title">表 84. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6680,27 +6351,199 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </tfoot>
 </table>
 <div class="paragraph">
-<p>説明：
-熱源群が蓄熱槽を持つ場合、その効果による実質的な平均外気温を5度下がるとみなす。</p>
+<p>日平均外気温は次式で算出する。
+ただし、熱源群が蓄熱槽を持つ場合、熱源機器は夜間に運転すると想定し、日平均外気温を5℃マイナスする。</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[θ_{AC,oa,i,d} = \begin{cases}
-  g(θ_{AC,oa,d})     ,   StorageType_i = Charge (蓄熱の場合) \\
-  g(θ_{AC,oa,d}-5)  ,   StorageType_i ≠ Charge (蓄熱以外) \\
+  G(θ_{AC,oa,d})     ,   StorageType_i = Charge (蓄熱の場合) \\
+  G(θ_{AC,oa,d}-5)  ,   StorageType_i ≠ Charge (蓄熱以外) \\
 \end{cases}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[g(T_{o}) = floor(T_{O}/5) × 5 + 2.5\]
+\[G(T_{o}) = floor(T_{O}/5) × 5 + 2.5\]
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_湿球温度"><a class="link" href="#_湿球温度">湿球温度</a></h6>
+<div class="paragraph">
+<p>日平均外気温度から湿球温度を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 85. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの日平均外気温</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.11</p></td>
+</tr>
+</tfoot>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 86. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+</table>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[θ_{AC,wb,i,d} = a_{wb} × θ_{AC,oa,i,d} + b_{wb}\]
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
-<p>====== 	地中熱交換機からの熱源水温度</p>
+<p>\(a_{wb},b_{wb}\)は湿球温度変換係数であり、次表のとおり指定する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 97. 入力</caption>
+<caption class="title">表 87. 湿球温度変換係数表</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">地域区分</th>
+<th class="tableblock halign-left valign-top">\(a_{wb}\)</th>
+<th class="tableblock halign-left valign-top">\(b_{wb}\)</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0372</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-3.9758</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1,2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.8921</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-1.0759</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3,4,5,6,7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9034</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-1.4545</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_冷却水温度"><a class="link" href="#_冷却水温度">冷却水温度</a></h6>
+<div class="paragraph">
+<p>湿球温度から冷却水温度を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 88. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,wb,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの湿球温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.10</p></td>
+</tr>
+</tfoot>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 89. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,cw,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの冷却水温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.8</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="paragraph">
+<p>\(a_{cw}\)は冷却水温度変換係数であり、-3とする。</p>
+</div>
+<div class="paragraph">
+<p>湿球温度から冷却水温度へ変換する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[θ_{AC,cw,i,d} = θ_{AC,oawb,d} + a_{cw}\]
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_地中熱交換機からの熱源水温度"><a class="link" href="#_地中熱交換機からの熱源水温度">地中熱交換機からの熱源水温度</a></h6>
+<div class="paragraph">
+<p>地中熱交換器のタイプに基づき、地盤からの冷却水還り温度を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 90. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6757,7 +6600,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 98. 中間変数</caption>
+<caption class="title">表 91. 中間変数</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 55.5555%;">
@@ -6801,7 +6644,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 99. 出力</caption>
+<caption class="title">表 92. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6818,28 +6661,28 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,C,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの冷房時の地中熱交換器からの日平均熱源水温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの暖房運転時の地中熱交換器からの日平均熱源水温度</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.6.8</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,H,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの暖房運転時の地中熱交換器からの日平均熱源水温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの冷房運転時の地中熱交換器からの日平均熱源水温度</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.6.8</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>説明：
-係数\(a_{H,i},b_{H,i},c_{H,i},d_{H,i},a_{C,i},b_{C,i},c_{C,i},d_{C,i}\)は
+<p>地中熱交換器のタイプに基づき、地盤からの冷却水還り温度\(θ_{AC,w,C,i,d}\)及び\(θ_{AC,w,H,i,d}\)を算出する。
+ここで、係数\(a_{H,i},b_{H,i},c_{H,i},d_{H,i},a_{C,i},b_{C,i},c_{C,i},d_{C,i}\)は
 熱源群iの地中熱交換機のタイプ(１～５}によって下表によって定めるものとする。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[θ_{AC,w,H,i,d} = k_{H,i} (θ_{AC,oa,d}-θ_{AC,oa,H,ave} ) + (θ_{AC,oa,ave}+θ'_{w,H,i}) \\
@@ -6850,122 +6693,37 @@ k_{H,i,d} = c_{H,i} R_{Q,i,d}+d_{H,i} \\
 k_{C,i,d} = c_{C,i} R_{Q,i,d}+d_{C,i}\]
 </div>
 </div>
+</div>
+</div>
 <div class="exampleblock">
 <div class="content">
-
-</div>
-</div>
 <div class="stemblock">
 <div class="content">
 \[R_{Q,i,d} = \frac{|Q_{AC,ahu,c,i,d}^{MAX}| + |Q_{AC,ahu,h,i,d}^{MAX}|}{|Q_{AC,ahu,c,i,d}^{MAX} |+|Q_{AC,ahu,h,i,d}^{MAX}|} = \frac{Q_{AC,ahu,c,i,d}^{MAX} + Q_{AC,ahu,h,i,d}^{MAX}}{ Q_{AC,ahu,c,i,d}^{MAX} - Q_{AC,ahu,h,i,d}^{MAX} }\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <div class="title">表　係数aH、bH、cH、dH、aC、bC、cC、dC</div>
 <p><span class="image"><img src="images/BESJP_EngineeringReference-c7860.png" alt="BESJP EngineeringReference c7860"></span></p>
 </div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_熱源機器特性"><a class="link" href="#_熱源機器特性">2.7.3.5. 熱源機器特性</a></h5>
 <div class="paragraph">
-<p>===== 熱源機器特性
-====== 	最大能力</p>
+<p>熱源機器のエネルギー消費量を算出するための熱源機器特性には
+「最大能力特性」「最大入力特性」「部分負荷特性」「送水温度特性」の４種類があり、熱源機種毎に定まっている。
+ここでは、各特性の算出方法を示す。</p>
+</div>
+<div class="sect5">
+<h6 id="_最大能力"><a class="link" href="#_最大能力">最大能力</a></h6>
+<div class="paragraph">
+<p>最大能力特性を使用して、熱源機器の最大能力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 100. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,ref,base,i,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの基準温度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.8</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,j,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの補正定格能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.7</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 101. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,j,max,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの日付dにおける最大能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.5,6.5.7, 5.3.1</p></td>
-</tr>
-</tfoot>
-</table>
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[q_{AC,ref,i,j,max,d} = q'_{AC,ref,i,j,rated} \times F  \\
-F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j} \\
-θ = \max⁡( \min⁡(θ_{AC,ref,base,i,j,d},max_{i,j} ),min_{i,j} )\]
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>説明：
-熱源機器の最大能力はその補正定格能力に能力比特性によって求まる係数Fをかけた値で求める。
-係数Fは、熱源機器の熱源温度\(θ_{AC,ref,base,i,j,d}\)の関数である。</p>
-</div>
-<div class="paragraph">
-<p>関数で用いる定数群、すなわち 能力比特性の係数 \(a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j}\)、および、
-能力比特性の最大値、最小値 \(min_{i,j},max_{i,j}\) は熱源機器の機種および運転モードによって定める。</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\{ a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j},min_{i,j},max_{i,j} \} = f(RefType_{i,j} ,CoolingMode_{i,j})\]
-</div>
-</div>
-<div class="paragraph">
-<p>ただし、定数が未定義である場合は次の値を用いることとする。</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\{ a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j},min_{i,j},max_{i,j} \} = \{0,0,0,0,1,-∞,+∞\}\]
-</div>
-</div>
-<div class="paragraph">
-<p>====== 最大能力</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 102. 入力</caption>
+<caption class="title">表 93. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6990,15 +6748,21 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tfoot>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,j,max,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの日付dにおける最大能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,j,rated}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,ref,base,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの熱源水等の温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.8</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 103. 出力</caption>
+<caption class="title">表 94. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7021,17 +6785,57 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.3.1,6.5.2</p></td>
 </tr>
 </tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,j,max,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの日付dにおける最大能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.5,6.5.7, 5.3.1</p></td>
+</tr>
+</tbody>
 </table>
+<div class="paragraph">
+<p>熱源群iに属する熱源機器jの日付dにおける最大能力\(q_{AC,ref,i,j,max,d}\)は次式で算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[q_{AC,ref,i,j,max,d} = q'_{AC,ref,i,j,rated} \times F  \\
+F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j} \\
+θ = \max⁡( \min⁡(θ_{AC,ref,base,i,j,d},max_{i,j} ),min_{i,j} )\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>熱源機器の最大能力は、定格能力に能力比特性によって求まる係数Fをかけて算出する。
+係数Fは、熱源機器の熱源水等の温度\(θ_{AC,ref,base,i,j,d}\)の関数である。</p>
+</div>
+<div class="paragraph">
+<p>上式の係数 \(a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j}\)、および、
+能力比特性の最大値、最小値 \(min_{i,j},max_{i,j}\) は熱源機器の機種によって定められている。</p>
+</div>
+<div class="paragraph">
+<p>また、日付dにおける熱源群iの最大能力 \(q_{AC,ref,i,max,d}\) は次式で算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[q_{AC,ref,i,max,d} = \sum_{j=1}^{N_{AC,ref,i,d}} q_{AC,ref,i,j,max,d}\]
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_最大入力"><a class="link" href="#_最大入力">最大入力</a></h6>
 <div class="paragraph">
-<p>====== 最大入力</p>
+<p>最大入力特性を使用して、熱源機器の最大入力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 104. 入力</caption>
+<caption class="title">表 95. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7056,7 +6860,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tfoot>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 105. 出力</caption>
+<caption class="title">表 96. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7080,8 +6884,11 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>熱源群iに属する熱源機器jの日付dにおける最大入力 \(P_{AC,ref,i,j,max,d}\) は次式で算出する。</p>
 </div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[P_{AC,ref,i,j,max,d} = P_{AC,ref,i,j,rated} \times F \\
@@ -7089,35 +6896,24 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 θ = \max⁡( \min⁡(θ_{AC,ref,base,i,j,d},max_{i,j} ),min_{i,j} )\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>説明：
-熱源機器の最大入力はその定格入力に入力比特性によって求まる係数Fをかけた値で求める。
-係数Fは、熱源機器の熱源温度\(θ_{AC,ref,base,i,j,d}\)の関数である。</p>
-</div>
-<div class="paragraph">
-<p>関数で用いる定数群、すなわち 入力比特性の係数 \(a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j}\)、および、
-入力比特性の最大値、最小値 \(min_{i,j},max_{i,j}\) は熱源機器の機種および運転モードによって定める。</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\{ a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j},min_{i,j},max_{i,j} \} = f(RefType_{i,j} ,CoolingMode_{i,j})\]
 </div>
 </div>
 <div class="paragraph">
-<p>ただし、定数が未定義である場合は次の値を用いることとする。</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\{ a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j},min_{i,j},max_{i,j} \} = \{0,0,0,0,1,-∞,+∞\}\]
-</div>
+<p>熱源機器の最大入力は、定格入力に入力比特性によって求まる係数Fをかけて算出する。
+係数Fは、熱源機器の熱源水等の温度\(θ_{AC,ref,base,i,j,d}\)の関数である。</p>
 </div>
 <div class="paragraph">
-<p>====== 	部分負荷特性</p>
+<p>上式の係数 \(a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j}\)、および、
+入力比特性の最大値、最小値 \(min_{i,j},max_{i,j}\) は熱源機器の機種によって定められている。</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_部分負荷特性"><a class="link" href="#_部分負荷特性">部分負荷特性</a></h6>
+<div class="paragraph">
+<p>熱源機器の部分負荷特性を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 106. 入力</caption>
+<caption class="title">表 97. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7150,7 +6946,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 107. 出力</caption>
+<caption class="title">表 98. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7175,7 +6971,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tfoot>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 108. 定数</caption>
+<caption class="title">表 99. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7208,10 +7004,11 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tbody>
 </table>
 <div class="paragraph">
-<p>部分負荷特性が部分負荷率または冷却水温度によって異なる場合は、その条件に合致する適切な係数が選択されるものとする。 </p>
+<p>部分負荷特性（負荷率と入力比の関係）は次式で求める。
+部分負荷特性が部分負荷率または冷却水温度によって異なる場合は、その条件に合致する適切な係数が選択されるものとする。 </p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[F_{AC,ref,x,i,j,d}= \begin{cases}
@@ -7222,24 +7019,31 @@ F×1.2    ,OV  \\
 </div>
 <div class="stemblock">
 <div class="content">
-\[F = a_{i,j,d} × L^4 + b_{i,j,d} × L^3 + c_{i,j,d} × L^2 + d_{i,j,d}×L + e_{i,j,d}\]
+\[F = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}×L + e_{i,j}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
 \[L = \begin{cases}
-max⁡( min⁡(xL_{AC,ref,i,d},max_{i,j,d} ),min_{i,j,d} )  , \bar{OV_{AC,ref,i,d}} \\
-max_{i,j,d}                                            ,OV_{AC,ref,i,d}   \\
+ max⁡( min⁡(xL_{AC,ref,i,d},max_{i,j} ),min_{i,j} )  , \bar{OV_{AC,ref,i,d}} \\
+ max_{i,j,d}                                       ,OV_{AC,ref,i,d}   \\
 \end{cases}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
-<p>====== 	送水温度特性</p>
+<p>上式の係数 \(a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j}\)、および、
+部分負荷特性の最大値、最小値 \(min_{i,j},max_{i,j}\) は熱源機器の機種によって定められている。</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_送水温度特性"><a class="link" href="#_送水温度特性">送水温度特性</a></h6>
+<div class="paragraph">
+<p>熱源機器の送水温度特性を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 109. 入力</caption>
+<caption class="title">表 100. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7264,7 +7068,7 @@ max_{i,j,d}                                            ,OV_{AC,ref,i,d}   \\
 </tfoot>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 110. 出力</caption>
+<caption class="title">表 101. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7289,54 +7093,299 @@ max_{i,j,d}                                            ,OV_{AC,ref,i,d}   \\
 </tfoot>
 </table>
 <div class="paragraph">
-<p>説明：
-送水温度特性は送水温度\(θ_{AC,ref,i,j,wtr}\)の関数である。</p>
+<p>送水温度特性は、送水温度\(θ_{AC,ref,i,j,wtr}\)の関数として次式で求める。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[F_{AC,ref,t,i,j} = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j} \\
 θ = \max⁡( \min⁡(θ_{AC,ref,base,i,j,d},max_{i,j} ),min_{i,j} )\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>関数で用いる定数群、すなわち 送水温度特性の係数 \(a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j}\)、および、
-送水温度の最大値、最小値 \(min_{i,j},max_{i,j}\) は熱源機器の機種および運転モードによって定める。</p>
 </div>
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\{ a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j},min_{i,j},max_{i,j} \} = f(RefType_{i,j} ,CoolingMode_{i,j})\]
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>ただし、定数が未定義である場合は次の値を用いることとする。すなわち、F=1。
-ただし、定数が未定義である場合は次の値を用いることとする。</p>
-</div>
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[\{ a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j},min_{i,j},max_{i,j} \} = \{0,0,0,0,1,-∞,+∞\}\]
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>また、熱源群iの熱源機器jの送水温度 \(θ_{AC,ref,i,j,wtr}\)が指定されない場合は、
-暖房においては50℃、冷房においては5℃とする。</p>
 </div>
 <div class="paragraph">
-<p>===== 熱源機器の一次エネルギー消費量</p>
+<p>上式の係数 \(a_{i,j},b_{i,j},c_{i,j},d_{i,j},e_{i,j}\)、および、
+送水温度の最大値、最小値 \(min_{i,j},max_{i,j}\) は熱源機器の機種によって定められている。</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_熱源群の負荷率"><a class="link" href="#_熱源群の負荷率">2.7.3.6. 熱源群の負荷率</a></h5>
+<div class="paragraph">
+<p>熱源群の負荷率を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 111. 入力</caption>
+<caption class="title">表 102. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,max,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの最大能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(StorageType_{i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの蓄熱時運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">―</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源機iの熱負荷</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.3.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,base,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">機群iの基本運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.3.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">蓄熱を加味した熱源群iの仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ref,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの機器負荷率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 103. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(OV_{AC,ref,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの過負荷を示す真偽値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">真偽値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.2</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ref,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの負荷率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.2,6.5.5,6.5.8,6.6.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(xL_{AC,ref,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの負荷率（蓄熱運転時の補正用）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.3.1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>日付dにおける熱源群iの負荷率\(L_{AC,ref,i,d}\)、
+及び蓄熱運転時のエネルギー消費計算に使用する日付dにおける熱源群iの負荷率 \(xL_{AC,ref,i,d}\) は次式で算出する。
+なお、蓄熱槽があり蓄熱運転をする熱源群の負荷率は、常に1.0とする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) StorageTypeが「蓄熱」の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[L_{AC,ref,i,d} = 1.0\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[xL_{AC,ref,i,d} = 1.0\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) 上記以外の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[L_{AC,ref,i,d} = \begin{cases}
+ F(Q_{AC,ref,i,d} / T_{AC,ref,base,i,d} ×1000/3600),       T_{AC,ref,base,i,d}≠0 \\
+ 0,       T_{AC,ref,base,i,d}=0 \\
+\end{cases}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} × L_{AC,ref,i,d} /q_{AC,ref,i,max,d}\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>関数Fは空調機群、二次ポンプ群と同様に、次のように定義する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[F(L) = \begin{cases}
+ \frac{floor(L×10)}{10} + 0.05,　　L&gt;0の場合　\\
+ L,　　それ以外の場合
+\end{cases}\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>機器負荷率が1を超える場合は過負荷であると見なす。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[OV_{AC,ref,i,d} = true　： L_{AC,ref,i,d} &gt; 1.0\]
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_熱源機器の運転台数"><a class="link" href="#_熱源機器の運転台数">2.7.3.7. 熱源機器の運転台数</a></h5>
+<div class="paragraph">
+<p>熱源群の熱源運転台数を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 104. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ref,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,j,max,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの日付dにおける最大能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.6.5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱槽による補正定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ref,i,d}	\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの機器負荷率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.3</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 105. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ref,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの運転台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5.1,6.5.7,5.3.1</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="paragraph">
+<p>熱源群の熱源運転台数は、台数制御が導入されているか否かによって、次のa）またはb）の方法にて算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a}台数制御が導入されている場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[N_{AC,ref,i,d} = min⁡( N │  A＜B  and N ≤ N_{AC,ref,i} ) \\
+A = q'_{AC,ref,i,rated} ×L_{AC,ref,i,d} \\
+B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
+</div>
+</div>
+<div class="paragraph">
+<p>b}台数制御が導入されていない場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[N_{AC,ref,i,d} = N_{AC,ref,i}\]
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_熱源機器の一次エネルギー消費量"><a class="link" href="#_熱源機器の一次エネルギー消費量">2.7.3.8. 熱源機器の一次エネルギー消費量</a></h5>
+<div class="paragraph">
+<p>熱源機器単体の一次エネルギー消費量を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">表 106. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7411,7 +7460,7 @@ max_{i,j,d}                                            ,OV_{AC,ref,i,d}   \\
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 112. 出力</caption>
+<caption class="title">表 107. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7429,7 +7478,7 @@ max_{i,j,d}                                            ,OV_{AC,ref,i,d}   \\
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ref,ctpump,i,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける1時間当たりの熱源群iに属する熱源機器jの冷却水ポンプ電力によるエネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの冷却水ポンプのエネルギー消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kWh/h</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.5.1</p></td>
 </tr>
@@ -7437,32 +7486,32 @@ max_{i,j,d}                                            ,OV_{AC,ref,i,d}   \\
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ref,main,i,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの１時間当たりのエネルギー消費量(一次エネルギー換算値}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの主機のエネルギー消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kWh/h</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.5.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ref,sub,i,j,d}	\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける1時間当たりの熱源群iに属する熱源機器jの補機電力によるエネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの補機のエネルギー消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kWh/h</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.5.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ref,pump,i,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける1時間当たりの熱源群iに属する熱源機器jの一次ポンプ電力によるエネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの一次ポンプのエネルギー消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kWh/h</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.5.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ref,ctfan,i,j,d}	\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける1時間当たりの熱源群iに属する熱源機器jの冷却塔消費電力によるエネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの冷却塔ファンのエネルギー消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kWh/h</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.5.1</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 113. 中間変数</caption>
+<caption class="title">表 108. 中間変数</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 55.5555%;">
@@ -7483,6 +7532,12 @@ max_{i,j,d}                                            ,OV_{AC,ref,i,d}   \\
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>日付dにおける熱源群iに属する熱源機器jの主機のエネルギー消費量、一次ポンプ電力によるエネルギー消費量、冷却塔ファンのエネルギー消費量は
+次式で算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[E_{AC,ref,main,i,j,d} = P_{AC,ref,i,j,max,d} × F_{AC,ref,t,i,j} × F_{AC,ref,x,i,j,d} \\
@@ -7490,9 +7545,16 @@ E_{AC,ref,pump,i,j,d} = P_{AC,ref,pump,i,j} \\
 E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 </div>
 </div>
+</div>
+</div>
 <div class="paragraph">
-<p>熱源機器の補機電力
-a) 発電機能がない場合</p>
+<p>日付dにおける熱源群iに属する熱源機器jの補機のエネルギー消費量は、発電機能の有無によって算出方法が異なる。
+発電機能の有無は、熱源機種毎に予め設定されている。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) 発電機能がない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7518,9 +7580,17 @@ a) 発電機能がない場合</p>
 \end{cases}\]
 </div>
 </div>
+</div>
+</div>
 <div class="paragraph">
-<p>冷却水ポンプ電力
-a} 冷却水変流量制御がない場合</p>
+<p>日付dにおける熱源群iに属する熱源機器jの冷却水ポンプのエネルギー消費量は、冷却水変流量制御の有無によって算出方法が異なる。
+冷却水変流量制御の有無は、熱源機種毎に予め設定されている。
+同じ熱源群に発電機能が有となる機種と無となる機種が混在する場合については、有となる機種の補機についてのみ補正をかける。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a} 冷却水変流量制御がない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7535,71 +7605,16 @@ a} 冷却水変流量制御がない場合</p>
 \[E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j}×max⁡(0.5,L_{AC,ref,i,d})\]
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_熱源群の一次エネルギー消費量"><a class="link" href="#_熱源群の一次エネルギー消費量">2.7.3.9. 熱源群の一次エネルギー消費量</a></h5>
 <div class="paragraph">
-<p>「発電機能の有無」は、熱源機種で判断する。
-同じ熱源群に発電機能が有となる機種と無となる機種が混在する場合については、
-有となる機種の補機についてのみ補正をかける。</p>
+<p>熱源群の一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 114. 発電機能の有無</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">発電機能</th>
-<th class="tableblock halign-left valign-top">熱源機種</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ガスヒートポンプ冷暖房機(消費電力時給装置付、都市ガス)、ガスヒートポンプ冷暖房機(消費電力時給装置付、LPG)</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>「冷却水変流量制御の有無」は、熱源機種で判断する。
-同じ熱源群に冷却水変流量制御が有となる機種と無となる機種が混在する場合については、
-有となる機種の冷却水ポンプについてのみ補正をかける。</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 115. 冷却水変流量の有無</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">冷却水変流量制御</th>
-<th class="tableblock halign-left valign-top">熱源機種</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">吸収式冷凍機(冷却水変流量、都市ガス)、吸収式冷凍機(冷却水変流量、LPG)、吸収式冷凍機(冷却水変流量、重油)、吸収式冷凍機(冷却水変流量、灯油)</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>===== 熱源群の一次エネルギー消費量</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">表 116. 入力</caption>
+<caption class="title">表 109. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7656,7 +7671,7 @@ a} 冷却水変流量制御がない場合</p>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 117. 出力</caption>
+<caption class="title">表 110. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7706,8 +7721,11 @@ a} 冷却水変流量制御がない場合</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>各熱源群の一次エネルギー消費量は次式で算出する。</p>
 </div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[E_{AC,ref,main,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,main,i,j,d} \times 3.6 \\
@@ -7717,13 +7735,16 @@ E_{AC,ref,ctfan,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,ctfan,i,j,d} \\
 E_{AC,ref,ctpump,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,ctpump,i,j,d}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_熱源群の年間一次エネルギー消費量"><a class="link" href="#_熱源群の年間一次エネルギー消費量">2.7.3.10. 熱源群の年間一次エネルギー消費量</a></h5>
 <div class="paragraph">
-<p>===== 熱源群の年間一次エネルギー消費量</p>
+<p>全熱源群の年間一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 118. 入力</caption>
+<caption class="title">表 111. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7780,7 +7801,7 @@ E_{AC,ref,ctpump,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,ctpump,i,j,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 119. 出力</caption>
+<caption class="title">表 112. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7805,7 +7826,7 @@ E_{AC,ref,ctpump,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,ctpump,i,j,d}\]
 </tfoot>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 120. 中間出力</caption>
+<caption class="title">表 113. 中間出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 60%;">
@@ -7851,14 +7872,17 @@ E_{AC,ref,ctpump,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,ctpump,i,j,d}\]
 <div class="paragraph">
 <p>熱源群の一次エネルギー消費量は次式で算出する。</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[E_{AC,ref,i} = E_{AC,ref,main,i} + E_{AC,ref,sub,i} + E_{AC,ref,pump,i} + E_{AC,ref,ctfan,i} + E_{AC,ref,ctpump,i}\]
 </div>
 </div>
-<div class="paragraph">
-<p>ここで、</p>
 </div>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[E_{AC,ref,main,i} = \sum_{d=1}^{365} ( E_{AC,ref,main,i,d} \times T_{AC,ref,i,d} ) \\
@@ -7868,20 +7892,19 @@ E_{AC,ref,ctfan,i} = \sum_{d=1}^{365} (E_{AC,ref,ctfan,i,d} \times T_{AC,ref,i,d
 E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i,d} ) \times 3600 \times 10^{-3} \times f_{prim,e}\]
 </div>
 </div>
-<div class="paragraph">
-<p>==== 空気調和設備の設計一次エネルギー消費量</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_空気調和設備の設計一次エネルギー消費量"><a class="link" href="#_空気調和設備の設計一次エネルギー消費量">2.7.4. 空気調和設備の設計一次エネルギー消費量</a></h4>
 <div class="paragraph">
 <p>空気調和設備の設計一次エネルギー消費量は次の式で算出する。
-なお、二次ポンプを持たない空調機群を評価する場合には、その空調機群と熱源群の間に仮想的な二次ポンプ(台数制御無し、温度差0、定格流量0、定格消費電力0、定格流量制御方式)が設置されているとして計算をする。</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[E_{AC} = \sum_{i=1}^{N_{AC,ahu}} E_{AC,ahu,i} + \sum_{i=1}^{N_{AC,pump}} E_{AC,pump,i} + \sum_{i=1}^{N_{AC,ref}} E_{AC,ref,i}\]
-</div>
+なお、二次ポンプを持たない空調機群を評価する場合には、
+その空調機群と熱源群の間に仮想的な二次ポンプ(台数制御無し、温度差0、定格流量0、定格消費電力0、定格流量制御方式)が設置されているとして計算をする。</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 121. 入力</caption>
+<caption class="title">表 114. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7938,7 +7961,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 122. 出力</caption>
+<caption class="title">表 115. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7962,13 +7985,24 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tr>
 </tfoot>
 </table>
-<div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>=== 附属書A
-==== 外壁性能</p>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[E_{AC} = \sum_{i=1}^{N_{AC,ahu}} E_{AC,ahu,i} + \sum_{i=1}^{N_{AC,pump}} E_{AC,pump,i} + \sum_{i=1}^{N_{AC,ref}} E_{AC,ref,i}\]
 </div>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_附属書a"><a class="link" href="#_附属書a">2.8. 附属書A</a></h3>
+<div class="sect3">
+<h4 id="_外壁性能"><a class="link" href="#_外壁性能">2.8.1. 外壁性能</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 123. 入力</caption>
+<caption class="title">表 116. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8001,7 +8035,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 124. 出力</caption>
+<caption class="title">表 117. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8039,9 +8073,9 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 なお、外壁等に存在する熱橋の影響については考慮しない。</p>
 </div>
 <div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== ガラスの性能から窓の性能を算定する方法</p>
 </div>
+<div class="sect3">
+<h4 id="_ガラスの性能から窓の性能を算定する方法"><a class="link" href="#_ガラスの性能から窓の性能を算定する方法">2.8.2. ガラスの性能から窓の性能を算定する方法</a></h4>
 <div class="paragraph">
 <p>ガラスの熱貫流率、日射熱取得率から、窓（ガラス＋建具）の熱貫流率と日射熱取得率を算出する。</p>
 </div>
@@ -8060,7 +8094,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <p><span class="image"><img src="images/fig1.png" alt="fig1"></span></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 125. 入力</caption>
+<caption class="title">表 118. 入力</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -8117,7 +8151,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 126. 出力</caption>
+<caption class="title">表 119. 出力</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -8171,9 +8205,8 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>===== 窓等の熱貫流率と日射熱取得率を直接入力する（様式2-3②、③）: <span class="blue">方法１</span></p>
-</div>
+<div class="sect4">
+<h5 id="_窓等の熱貫流率と日射熱取得率を直接入力する_様式2_3_span_class_blue_方法１_span"><a class="link" href="#_窓等の熱貫流率と日射熱取得率を直接入力する_様式2_3_span_class_blue_方法１_span">2.8.2.1. 窓等の熱貫流率と日射熱取得率を直接入力する（様式2-3②、③）: <span class="blue">方法１</span></a></h5>
 <div class="paragraph">
 <p>ブラインドがない場合の窓の熱貫流率\(U_{wind,j}\)及び日射熱取得率\(\eta_{wind,j}\)は、次式で求める。</p>
 </div>
@@ -8229,9 +8262,9 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 \[η_{wind,j,bl} = \frac{η_{wind,j,input}}{η_{glass,j}} \times (-0.1331 η_{glass,j}^2 + 0.8258 η_{glass,j})\]
 </div>
 </div>
-<div class="paragraph">
-<p>===== 建具の種類とガラスの種類を選択する（様式2-3④、⑤）: <span class="blue">方法２</span></p>
 </div>
+<div class="sect4">
+<h5 id="_建具の種類とガラスの種類を選択する_様式2_3_span_class_blue_方法２_span"><a class="link" href="#_建具の種類とガラスの種類を選択する_様式2_3_span_class_blue_方法２_span">2.8.2.2. 建具の種類とガラスの種類を選択する（様式2-3④、⑤）: <span class="blue">方法２</span></a></h5>
 <div class="paragraph">
 <p>「窓性能の一覧データベース」より、入力された建具の種類とガラスの種類から該当する値を抜き出す。このデータベースに記載の値は、開口部の熱性能評価プログラムWindEyeにより算出されたものである。</p>
 </div>
@@ -8239,7 +8272,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <p>（参考）窓性能の一覧データベース（<a href="http://www.kenken.go.jp/becc/documents/building/Definitions/WindowHeatTransferPerformance_H30.zip">WindowHeatTransferPerformance_H30.csv</a>）：</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 127. 建具の種類「樹脂」、ガラスの種類「3WgG06」の場合の例</caption>
+<caption class="title">表 120. 建具の種類「樹脂」、ガラスの種類「3WgG06」の場合の例</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -8255,9 +8288,9 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>===== 建具の種類を選択し、ガラスの熱貫流率と日射熱取得率を入力する（様式2-3④、⑥、⑦）: <span class="blue">方法３</span>：</p>
 </div>
+<div class="sect4">
+<h5 id="_建具の種類を選択し_ガラスの熱貫流率と日射熱取得率を入力する_様式2_3_span_class_blue_方法３_span"><a class="link" href="#_建具の種類を選択し_ガラスの熱貫流率と日射熱取得率を入力する_様式2_3_span_class_blue_方法３_span">2.8.2.3. 建具の種類を選択し、ガラスの熱貫流率と日射熱取得率を入力する（様式2-3④、⑥、⑦）: <span class="blue">方法３</span>：</a></h5>
 <div class="stemblock">
 <div class="content">
 \[U_{wind,j} = k_{u,a} U_{glass,j,input} + k_{u,b}\]
@@ -8297,7 +8330,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 128. 窓の熱貫流率への変換係数（建具種類別）＜2018.02更新＞</caption>
+<caption class="title">表 121. 窓の熱貫流率への変換係数（建具種類別）＜2018.02更新＞</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 16.6666%;">
@@ -8418,11 +8451,12 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== 日射量</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_日射量"><a class="link" href="#_日射量">2.8.3. 日射量</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 129. 入力</caption>
+<caption class="title">表 122. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8485,7 +8519,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 130. 出力</caption>
+<caption class="title">表 123. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8531,8 +8565,8 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <div class="paragraph">
 <p>a) 外壁等iが垂直面である場合</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[I_{nsr,j,d}= \sum_{t=1}^{24} 0.5 \times L_{s,d,t} \\
@@ -8552,32 +8586,32 @@ I_{isr,j,d} = \sum_{t=1}^{24} \{ S_{S,d,t} + S_{D,d,t} \times \sin h_{s,d,t} \} 
 \cos ⁡θ_{j,d,t} = \sin⁡ h_{s,d,t}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>式中の0.5は垂直面からみた天空の形態係数、0.1は地表面における日射反射率である。
 \(η_max\)は	\(η_{j,d,t}\)の最大値であり、0.88とする。
 \(η_{j,d,t}\)は日付d、時刻tにおける外皮jの入射角特性であり、次式で求めるものとする。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[η_{j,d,t} = 2.3920 \cos⁡ θ_{j,d,t} - 3.8636 \cos^3⁡ θ_{j,d,t} + 3.7568 \cos^5⁡ θ_{j,d,t} -1.3952 \cos^7⁡ θ_{j,d,t}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>ここで、\(η_{j,d,t}\)と\(η_max\)は、本来、窓への入射日射に対して考慮する係数であるが、
 外壁面とガラス面とで積算日射量を統一的に扱うために、外壁への日射についても乗じることとしている。</p>
 </div>
 <div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== ペリメータゾーン面積</p>
 </div>
+<div class="sect3">
+<h4 id="_ペリメータゾーン面積"><a class="link" href="#_ペリメータゾーン面積">2.8.4. ペリメータゾーン面積</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 131. 入力</caption>
+<caption class="title">表 124. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8616,7 +8650,7 @@ I_{isr,j,d} = \sum_{t=1}^{24} \{ S_{S,d,t} + S_{D,d,t} \times \sin h_{s,d,t} \} 
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 132. 出力</caption>
+<caption class="title">表 125. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8649,7 +8683,7 @@ I_{isr,j,d} = \sum_{t=1}^{24} \{ S_{S,d,t} + S_{D,d,t} \times \sin h_{s,d,t} \} 
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 133. 中間出力</caption>
+<caption class="title">表 126. 中間出力</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 55.5555%;">
@@ -8701,36 +8735,36 @@ I_{isr,j,d} = \sum_{t=1}^{24} \{ S_{S,d,t} + S_{D,d,t} \times \sin h_{s,d,t} \} 
 <p>室iのペリメータゾーン面積及び内部発熱・外気導入量規定用のペリメータゾーンの面積の算出方法を以下に示す。
 なお、式中の5.0はペリメータ部分の奥行（外皮から5.0ｍ）を表す。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[\bar{A}_{room,i} = \sum_{j=1}^{N_{wall,H,i}} A_{H,i,j} + 5.0 × β_{H,i} \times \sum_{j=1}^{N_{wall,Vi}} L_{V,i,j} \\
 \hat{A}_{room,i} = \max \{ \sum_{j=1}^{N_{wall,H,i}} A_{H,i,j},　5.0 \times  \sum_{j=1}^{N_{wall,V,i}} L_{V,i,j} \}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>ここで、室iの鉛直外壁jの外周長さ L_(V,i,j)、仮想床係数 β_(H,i)は次式により求められる。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[L_{V,i,j} = \frac{A_{V,i,j}}{L_{H,i}} \\
 β_{H,i} = \max⁡(1.0,　\frac{L_{H,i}}{5.0} )\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>また、室iに属する鉛直外皮の面積\(A_{V,i}\)、室iに属する水平外皮の面積\(A_{H,i}\)、
 それらの総数\(N_{wall,V,i}\)、\(N_{wall,H,i}\)は次式により求められる。
 なお、\(A_{V,i,j}\)は室iに属する鉛直外皮jの面積、\(A_{H,i,j}\)は室iに属する水平外皮jの面積を表すものとする。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[N_{wall,V,i} = count(A_{V,i}) \\
@@ -8743,14 +8777,14 @@ A_{V,i} = {A_{i,x} | W_{dir,i,x} ∈ {北,北東,東,南東,南,南西,西,北�
 A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== 空調機の運転モード</p>
 </div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_空調機の運転モード"><a class="link" href="#_空調機の運転モード">2.8.5. 空調機の運転モード</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 134. 入力</caption>
+<caption class="title">表 127. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8783,7 +8817,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 135. 出力</caption>
+<caption class="title">表 128. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8810,15 +8844,15 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="paragraph">
 <p>日付dにおける空調機の運転モード\(Mode_{d}\)は、月と地域区分から定められる。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[Mode_{d} = lookup(month(d),R)\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>ここで、\(lookup(M,R)\)は与えられた月Mと省エネルギー地域区分Rから下表A5.1から読み取った値を返す関数とする。
 \(month(d)\)は与えられた日付dの月(1月から12月)を取得する関数とする。</p>
@@ -8982,11 +9016,11 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== 空調室の設定温度</p>
 </div>
+<div class="sect3">
+<h4 id="_空調室の設定温度"><a class="link" href="#_空調室の設定温度">2.8.6. 空調室の設定温度</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 136. 入力</caption>
+<caption class="title">表 129. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9011,7 +9045,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tfoot>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 137. 出力</caption>
+<caption class="title">表 130. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9040,8 +9074,8 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 暖房期、中間期、冷房期を定め、暖房期の設定温湿度は22℃、40%、中間期の設定温湿度は24℃、50%、
 冷房期の設定温湿度は26℃、50%とする。なお、全ての地域で、中間期は冷房されているものとみなす。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[θ_{AC,room,i,d} = \begin{cases}
@@ -9051,14 +9085,14 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 \end{cases}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== 平均外気温</p>
 </div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_平均外気温"><a class="link" href="#_平均外気温">2.8.7. 平均外気温</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 138. 入力</caption>
+<caption class="title">表 131. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9091,7 +9125,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 139. 出力</caption>
+<caption class="title">表 132. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9135,8 +9169,8 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[θ_{AC,oa,d} = θ_{AC,oa,d,x} | x = R \\
@@ -9145,14 +9179,14 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 θ_{AC,oa,C,ave} = \sum_{d}^{Mode_{d}≠暖房} \frac{θ_{AC,oa,d}}{count\{Mode_{d}≠暖房\}}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== 外気エンタルピー</p>
 </div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_外気エンタルピー"><a class="link" href="#_外気エンタルピー">2.8.8. 外気エンタルピー</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 140. 入力</caption>
+<caption class="title">表 133. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9185,7 +9219,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 141. 出力</caption>
+<caption class="title">表 134. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9212,22 +9246,22 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="paragraph">
 <p>日付d、時刻tにおける外気エンタルピー \(H_{AC,oa,d,t}\) は次の式で求める。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[H_{AC,oa,d,t} = C_{a} \times T_{db,d,t} + (C_{w} \times T_{db,d,t} + L_{W} ) \times X_{d,t}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>日付dにおける日平均外気エンタルピーは次の式で求める。
 空調機群が終日動く場合は外気エンタルピーの日平均を、
 日をまたいで夜間動く場合は外気エンタルピーの夜間の平均値を、日中のみ動く場合は、日中の平均値を用いる。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[H_{AC,oa,d} = \begin{cases}
@@ -9237,19 +9271,19 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 \end{cases}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>空調機群の運転時間帯は接続される室の利用時間帯に依存する。
 接続される全ての室の利用時間帯が同一であれば、空調機群の運転時間帯はそれと等しい。
 しかし、接続される室によって利用時間帯が異なる場合はその組み合わせに依ることなく「終日運転」と見なす。</p>
 </div>
 <div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== 内部発熱量</p>
 </div>
+<div class="sect3">
+<h4 id="_内部発熱量"><a class="link" href="#_内部発熱量">2.8.9. 内部発熱量</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 142. 入力</caption>
+<caption class="title">表 135. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9324,7 +9358,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 143. 出力</caption>
+<caption class="title">表 136. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9365,8 +9399,8 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="paragraph">
 <p>日付dにおける室iの内部発熱量は次式によって求められる。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[Q_{AC,room,app,i,d} = Q_{AC,room,app,ref,i,d} \times T_{AC,room,app,i,d} \\
@@ -9374,13 +9408,13 @@ Q_{AC,room,light,i,d} = Q_{AC,room,light,ref,i,d} \times T_{AC,room,light,i,d} \
 Q_{AC,room,human,i,d} = E_{human,ref,i,d} \times T_{AC,room,human,i,d}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>室iの日付dにおける機器、人体、照明による発熱参照値 \(Q_{AC,room,app,ref,i,d}\)、\(Q_{AC,room,light,ref,i,d}\)、\(E_{human,ref,i,d}\)は次のように求める。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[Q_{AC,room,app,ref,i,d} = Q_{AC,room,app,ref,x} | x = U_{i}  \\
@@ -9388,8 +9422,8 @@ Q_{AC,room,light,ref,i,d} = Q_{AC,room,light,ref,x} | x = U_{i} \\
 E_{human,ref,i,d} = E_{human,ref,x} | x = I_{op,i,d}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>なお、\(Q_{AC,room,T,ref,x}\)または\(E_{T,ref,x}\)は内部発熱源\(T\)(機器、人体、照明)の参照分類\(x\)における発熱参照値を表す。
 \(|x=U_{i}\)は参照分類\(x\)が室iの用途\(U_{i}\)であることを示し、
@@ -9398,8 +9432,8 @@ E_{human,ref,i,d} = E_{human,ref,x} | x = I_{op,i,d}\]
 <div class="paragraph">
 <p>また、室iの日付dにおける機器、人体、照明の稼働または在室時間 \(T_{AC,room,app,i,d}\)、\(T_{AC,room,light,i,d}\)、\(T_{AC,room,human,i,d}\)は次のように求める。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[T_{AC,room,app,i,d} = Schedule_{app,x,d} |x=CalendarNum_{i}  \\
@@ -9407,18 +9441,18 @@ T_{AC,room,light,i,d} = Schedule_{light,x,d} |x=CalendarNum_{i} \\
 T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>ここで、\(Schedule_{T,x,d}\)は、内部発熱源T(機器、人体、照明)の稼働または在室スケジュールxの日付dにおける時間を表す。
 \(|x=CalenderNum_{i}\) は在室スケジュールxが室iのカレンダー番号\(CalenderNum_{i}\)と一致することを示している。</p>
 </div>
 <div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== 二次エネルギー換算</p>
 </div>
+<div class="sect3">
+<h4 id="_二次エネルギー換算"><a class="link" href="#_二次エネルギー換算">2.8.10. 二次エネルギー換算</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 144. 入力</caption>
+<caption class="title">表 137. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9457,7 +9491,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 145. 出力</caption>
+<caption class="title">表 138. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9485,8 +9519,8 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <p>燃料種別のエネルギー消費量（二次）は次式によって求められる。
 \(K_{prime,f}\)は一次エネルギー換算係数である。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[E_{unit,f} = \frac{E_{prime,MJ}}{K_{prime,f}} \\\]
@@ -9504,18 +9538,18 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 \end{cases}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>燃料fuelは、電力, ガス, 重油, 灯油, 液化天然ガス, 地冷蒸気, 地冷温水 および 地冷冷水 に分類される。
 このうち、地冷蒸気, 地冷温水 および 地冷冷水 は「他人から供給される熱」とする。</p>
 </div>
 <div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>==== 室内エンタルピー</p>
 </div>
+<div class="sect3">
+<h4 id="_室内エンタルピー"><a class="link" href="#_室内エンタルピー">2.8.11. 室内エンタルピー</a></h4>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 146. 入力</caption>
+<caption class="title">表 139. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9540,7 +9574,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tfoot>
 </table>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">表 147. 出力</caption>
+<caption class="title">表 140. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9567,8 +9601,8 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <div class="paragraph">
 <p>日付dにおける室内空気のエンタルピー \(H_{AC,room,d}\) は次式で算出する。</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[H_{AC,room,d} =　\begin{cases}
@@ -9578,9 +9612,8 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 \end{cases}\]
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9589,7 +9622,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <div id="footer">
 <div id="footer-text">
 Version 2.5(201804)<br>
-Last updated 2018-04-14 00:19:15 JST
+Last updated 2018-04-17 11:57:47 JST
 </div>
 </div>
 <script type="text/x-mathjax-config">

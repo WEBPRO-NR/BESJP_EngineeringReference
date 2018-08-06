@@ -524,7 +524,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="details">
 <span id="author" class="author">Masato Miyata, NILIM, Japan</span><br>
 <span id="revnumber">version 2.5(201804),</span>
-<span id="revdate">2018/7/12</span>
+<span id="revdate">2018/8/2</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">目次</div>
@@ -1186,16 +1186,16 @@ A_{h,i} = \hat{A}_{room,i}\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外皮jの窓等の面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{env,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外皮jの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{env,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
@@ -1219,19 +1219,23 @@ A_{h,i} = \hat{A}_{room,i}\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wall,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外壁等jの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wall,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.2、2.4.2.4、2.4.2.6</p></td>
 </tr>
 </tfoot>
 </table>
 <div class="paragraph">
-<p>外壁面積は次式で算出する。</p>
+<p>外壁等の面積は次式で算出する。</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
-\[A_{wall,j} = A_{env,j} - A_{wind,j}\]
+\[A_{wall,i,j} = A_{env,i,j} - A_{wind,i,j}\]
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1258,42 +1262,42 @@ A_{h,i} = \hat{A}_{room,i}\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,room,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iの設定温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,ave}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間平均外気温</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外壁等jの熱貫流率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wall,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wall,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外壁等jの面積</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの熱貫流率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,room,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iの設定温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A6</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における日平均外気温</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,ave}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">年間平均外気温</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの計算対象となる外壁等の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tbody>
 </table>
@@ -1330,12 +1334,21 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="exampleblock">
 <div class="content">
+<div class="stemblock">
+<div class="content">
+\[Q_{wall,t,i,d} = \sum_{j=1}^{N_{wall,i}} Q_{wall,t,i,j,d}\]
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>a) 外気に接する外壁である場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,t,i,d} = \sum_{j=1}^{N_{wall,i}} (24 × U_{wall,j} × A_{wall,j} × (θ_{AC,oa,d} - θ_{AC,room,i,d}) )\]
+\[Q_{wall,t,i,j,d} = 24 × U_{wall,i,j} × A_{wall,i,j} × (θ_{AC,oa,d} - θ_{AC,room,i,d})\]
 </div>
 </div>
 <div class="paragraph">
@@ -1343,7 +1356,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,t,i,d} = \sum_{j=1}^{N_{wall,i}} (24 × U_{wall,j} × A_{wall,j} × (θ_{AC,oa,ave} - θ_{AC,room,i,d}))\]
+\[Q_{wall,t,i,j,d} = 24 × U_{wall,i,j} × A_{wall,i,j} × (θ_{AC,oa,ave} - θ_{AC,room,i,d})\]
 </div>
 </div>
 </div>
@@ -1373,30 +1386,30 @@ A_{h,i} = \hat{A}_{room,i}\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの窓等の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓jの熱貫流率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓jの面積</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における日平均外気温</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">　室iに属する窓等jの熱貫流率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,room,i,d}\)</p></td>
@@ -1437,12 +1450,21 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="exampleblock">
 <div class="content">
+<div class="stemblock">
+<div class="content">
+\[Q_{wind,t,i,d} = \sum_{j=1}^{N_{wind,i}} Q_{wind,t,i,j,d}\]
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>a ) 窓等jの方位が「日陰」ではない場合</p>
+<p>a) 窓等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,t,i,d} = \sum_{j=1}^{N_{wind,i}} (24 × U_{wind,j} × A_{wind,j} × (θ_{AC,oa,d} - θ_{AC,room,i,d}))\]
+\[Q_{wind,t,i,j,d} = 24 × U_{wind,i,j} × A_{wind,i,j} × (θ_{AC,oa,d} - θ_{AC,room,i,d})\]
 </div>
 </div>
 <div class="paragraph">
@@ -1450,7 +1472,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,t,i,d} = 0\]
+\[Q_{wind,t,i,j,d} = 0\]
 </div>
 </div>
 </div>
@@ -1480,8 +1502,8 @@ A_{h,i} = \hat{A}_{room,i}\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{nsr,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける外皮jへの長波長放射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{nsr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iに属する外皮jへの長波長放射量積算値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
 </tr>
@@ -1489,19 +1511,19 @@ A_{h,i} = \hat{A}_{room,i}\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの計算対象となる外壁等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">　室iに属する外壁等の総数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外壁等jの熱貫流率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの熱貫流率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A1</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wall,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外壁等jの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wall,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
@@ -1533,9 +1555,18 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tfoot>
 </table>
 <div class="paragraph">
-<p>日付dにおける室iの外壁等からの長波長放射による定常貫流熱損失"\(Q_{wall,n,i,d}\)は、
+<p>日付dにおける室iの外壁等からの長波長放射による定常貫流熱損失\(Q_{wall,n,i,d}\)は、
 外気に接する外壁等の場合は次のa）の方法により、
 地盤に接する外壁等の場合は次のb）の方法により算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[Q_{wall,n,i,d} = \sum_{j=1}^{N_{wall,i}} Q_{wall,n,i,j,d}\]
+</div>
+</div>
+</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1544,7 +1575,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,n,i,d} = \sum_{j=1}^{N_{wall,i}} 　\frac{ 0.9 × U_{wall,j} × A_{wall,j} × I_{nsr,j,d} }{\alpha_{o}}\]
+\[Q_{wall,n,i,j,d} = \sum_{j=1}^{N_{wall,i}} 　\frac{ 0.9 × U_{wall,i,j} × A_{wall,i,j} × I_{nsr,i,j,d} }{\alpha_{o}}\]
 </div>
 </div>
 <div class="paragraph">
@@ -1552,7 +1583,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,n,i,d} = 0\]
+\[Q_{wall,n,i,j,d} = 0\]
 </div>
 </div>
 </div>
@@ -1586,32 +1617,32 @@ A_{h,i} = \hat{A}_{room,i}\]
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの外壁等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの窓等の総数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(W_{dir,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">　窓等jの方位</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(W_{dir,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの方位</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの熱貫流率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの熱貫流率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{nsr,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{nsr,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける外皮jへの長波長放射量積算値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
@@ -1648,12 +1679,21 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="exampleblock">
 <div class="content">
+<div class="stemblock">
+<div class="content">
+\[Q_{wind,n,i,d} = \sum_{j=1}^{N_{wind,i}} Q_{wind,n,i,j,d}\]
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>a) 窓等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,n,i,d} = \sum_{j=1}^{N_{wind,i}} \frac{ 0.9 × U_{wind,j} × A_{wind,j} × I_{nsr,j,d} }{\alpha_{o}}\]
+\[Q_{wind,n,i,j,d} = \frac{ 0.9 × U_{wind,i,j} × A_{wind,i,j} × I_{nsr,i,j,d} }{\alpha_{o}}\]
 </div>
 </div>
 <div class="paragraph">
@@ -1661,7 +1701,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,n,i,d} = 0\]
+\[Q_{wind,n,i,j,d} = 0\]
 </div>
 </div>
 </div>
@@ -1694,8 +1734,8 @@ A_{h,i} = \hat{A}_{room,i}\]
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における外皮j への天空・反射日射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮j への天空・反射日射量積算値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
 </tr>
@@ -1703,25 +1743,25 @@ A_{h,i} = \hat{A}_{room,i}\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの計算対象となる外壁等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等の総数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外壁等jの熱貫流率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの熱貫流率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A1</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wall,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外壁等jの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wall,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{dsr,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における外皮j への直達日射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{dsr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮j への直達日射量積算値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
 </tr>
@@ -1759,12 +1799,21 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="exampleblock">
 <div class="content">
+<div class="stemblock">
+<div class="content">
+\[Q_{wall,s,i,d} = \sum_{j=1}^{N_{wall,i}} Q_{wall,s,i,j,d}\]
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>a) 外壁等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,s,i,d} = \sum_{j=1}^{N_{wall,i}} \frac{ 0.8 × U_{wall,j} × A_{wall,j} × (I_{dsr,j,d} + I_{isr,j,d}) }{\alpha_{o}}\]
+\[Q_{wall,s,i,j,d} = \frac{ 0.8 × U_{wall,i,j} × A_{wall,i,j} × (I_{dsr,i,j,d} + I_{isr,i,j,d}) }{\alpha_{o}}\]
 </div>
 </div>
 <div class="paragraph">
@@ -1772,7 +1821,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,s,i,d} = 0\]
+\[Q_{wall,s,i,j,d} = 0\]
 </div>
 </div>
 </div>
@@ -1814,63 +1863,51 @@ A_{h,i} = \hat{A}_{room,i}\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの外壁等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等の総数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(W_{dir,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの方位</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(W_{dir,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの方位</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける外皮jの外壁等の日除け効果係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(η_{j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの日射熱取得率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,c,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(冷房)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,h,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(暖房)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(η_{i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日射熱取得率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{dsr,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における外皮j への直達日射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{dsr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮j への直達日射量積算値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における外皮jへの天空・反射日射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮jへの天空・反射日射量積算値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける外皮jの外壁等の日除け効果係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,c,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの日よけ効果係数(冷房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,h,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの日よけ効果係数(暖房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Mode_{d}\)</p></td>
@@ -1914,19 +1951,28 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="exampleblock">
 <div class="content">
+<div class="stemblock">
+<div class="content">
+\[Q_{wind,s,i,d} = \sum_{j=1}^{N_{wind,i}} Q_{wind,s,i,j,d}\]
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>a) 窓等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,s,i,d} = \sum_{j=1}^{N_{wind,i}}  (γ_{wind,j,d} × A_{wind,j} × \frac{η_{j}}{0.88} × (η_{max} × I_{dsr,j,d} + 0.808×I_{isr,j,d}))\]
+\[Q_{wind,s,i,j,d} = (γ_{wind,i,j,d} × A_{wind,i,j} × \frac{η_{i,j}}{0.88} × (η_{max} × I_{dsr,i,j,d} + 0.808×I_{isr,i,j,d}))\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[γ_{wind,j,d} = \begin{cases}
- γ_{wind,c,j},   ：空調機の運転モードが「冷房」もしくは「中間」 \\
- γ_{wind,h,j},   ：空調機の運転モードが「暖房」 \\
+\[γ_{wind,i,j,d} = \begin{cases}
+ γ_{wind,c,i,j},   ：空調機の運転モードが「冷房」もしくは「中間」 \\
+ γ_{wind,h,i,j},   ：空調機の運転モードが「暖房」 \\
 \end{cases}\]
 </div>
 </div>
@@ -1935,7 +1981,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,s,i,d} = 0\]
+\[Q_{wind,s,i,j,d} = 0\]
 </div>
 </div>
 </div>
@@ -9813,7 +9859,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <div id="footer">
 <div id="footer-text">
 Version 2.5(201804)<br>
-Last updated 2018-07-18 16:44:25 JST
+Last updated 2018-08-02 15:06:05 JST
 </div>
 </div>
 <script type="text/x-mathjax-config">

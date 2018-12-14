@@ -3179,17 +3179,17 @@ U_{wall} = \frac{1}{ \frac{1}{α_{i}} + \sum_{k} \frac{l_{k}}{λ_{k}} + \frac{1}
 |                           |建具の種類            |           |様式2-3④
 |                           |ガラスの種類（ex:3WgG06）|        | 様式2-3⑤
 |stem:[U_{glass,j,input}]   |ガラス stem:[j] の熱貫流率   |stem:[W/m^2K]     | 様式2-3⑥
-|stem:[\eta_{glass,j,input}]|ガラス stem:[j] の熱貫流率   | -               | 様式2-3⑦
+|stem:[\eta_{glass,j,input}]|ガラス stem:[j] の日射熱取得率| -               | 様式2-3⑦
 |=================================
 
 .出力
 [options="header,footer"]
 |=================================
 |変数名  | 説明 | 単位
-|stem:[U_{wind,j,bl}]   |窓等jの熱貫流率（ブラインド無）|stem:[W/m^2K]
-|stem:[U_{wind,j}]      |窓等jの熱貫流率（ブラインド有）|stem:[W/m^2K]
-|stem:[\eta_{wind,j,bl}] |窓等jの日射熱取得率（ブラインド無）| -
-|stem:[\eta_{wind,j}]   |窓等jの日射熱取得率（ブラインド有）| -
+|stem:[U_{wind,j}]   |窓等jの熱貫流率（ブラインド無）|stem:[W/m^2K]
+|stem:[U_{wind,j,bl}]      |窓等jの熱貫流率（ブラインド有）|stem:[W/m^2K]
+|stem:[\eta_{wind,j}] |窓等jの日射熱取得率（ブラインド無）| -
+|stem:[\eta_{wind,j,bl}]   |窓等jの日射熱取得率（ブラインド有）| -
 |=================================
 
 

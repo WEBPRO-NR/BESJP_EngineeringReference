@@ -3485,18 +3485,6 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(H_{AC,room,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調時の室内空気エンタルピー</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/kg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A11</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(H_{AC,oa,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける外気エンタルピー</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/kg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A8</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{p,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iの空調対象床面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
@@ -3563,7 +3551,7 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 <div class="stemblock">
 <div class="content">
 \[V_{AC,ahu,oacool,i,d} = \min⁡(V_{AC,ahu,sa,i},\max⁡(V_{AC,ahu,oa,i},V)) - V_{AC,ahu,oa,i}  \\
-V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d} }\]
+V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × (-ΔH_{AC,oa,d}) ×T_{AC,ahu,c,i,d} }\]
 </div>
 </div>
 <div class="paragraph">
@@ -3583,7 +3571,7 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × ΔH_{AC,oa,d}×T_{AC,ahu,c,i,d}
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{AC,ahu,oacool,i,d} = V_{AC,ahu,oacool,i,d} × ΔH_{AC,oa,d} × T_{AC,ahu,c,i,d} × 10^{-3} /3600\]
+\[Q_{AC,ahu,oacool,i,d} = V_{AC,ahu,oacool,i,d} × (-ΔH_{AC,oa,d}) × T_{AC,ahu,c,i,d} × 10^{-3} /3600\]
 </div>
 </div>
 </div>
@@ -10824,7 +10812,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <div id="footer">
 <div id="footer-text">
 Version 2.6.0(201810)<br>
-Last updated 2018-12-18 18:22:32 JST
+Last updated 2019-03-12 12:48:26 JST
 </div>
 </div>
 <script type="text/x-mathjax-config">

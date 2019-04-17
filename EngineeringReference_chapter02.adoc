@@ -193,12 +193,18 @@ stem:[Q_{AC,room,sin,i,d}]|	日付dにおける室iの日射による定常熱�
 a) 室iが空調対象室である場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-Q_{AC,room,tin,i,d} = \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d}-(Q_{wall,n,i,d}+Q_{wind,n,i,d} )} {A_{p,i}} \\
+Q_{AC,room,tin,i,d} = \begin{cases}
+    \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d}-(Q_{wall,n,i,d}+Q_{wind,n,i,d} )} {A_{p,i}}, & A_{p,i} > 0 \\
+    0, & A_{p,i} = 0 \\
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 b) 室iが非空調室である場合（PAL＊計算時のみ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-Q_{AC,room,tin,i,d} = \frac{1}{2} \times \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d} - (Q_{wall,n,i,d}+Q_{wind,n,i,d})} {A_{p,i}} \\
+Q_{AC,room,tin,i,d} = \begin{cases}
+    \frac{1}{2} \times \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d} - (Q_{wall,n,i,d}+Q_{wind,n,i,d})} {A_{p,i}}, & A_{p,i} > 0 \\
+    0, & A_{p,i} = 0 \\
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -208,12 +214,18 @@ Q_{AC,room,tin,i,d} = \frac{1}{2} \times \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d} - 
 a) 室iが空調対象室である場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-Q_{AC,room,sin,i,d} = \frac{ Q_{wall,s,i,d}+Q_{wind,s,i,d}}{A_{p,i}}
+Q_{AC,room,sin,i,d} = \begin{cases}
+    \frac{ Q_{wall,s,i,d}+Q_{wind,s,i,d}}{A_{p,i}}, & A_{p,i} > 0 \\
+    0, & A_{p,i} = 0 \\
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 b) 室iが非空調室である場合（PAL＊計算時のみ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-Q_{AC,room,sin,i,d} = \frac{1}{2} \times \frac{ Q_{wall,s,i,d}+Q_{wind,s,i,d}}{A_{p,i}}
+Q_{AC,room,sin,i,d} = \begin{cases}
+    \frac{1}{2} \times \frac{ Q_{wall,s,i,d}+Q_{wind,s,i,d}}{A_{p,i}}, & A_{p,i} > 0 \\
+    0, & A_{p,i} = 0 \\
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

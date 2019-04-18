@@ -4450,31 +4450,36 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <div class="stemblock">
 <div class="content">
 \[L_{AC,ahu,mix,c,i,d} = \begin{cases}
- F( \frac{Q_{AC,ahu,c,i,d} / T_{AC,ahu,c,i,d}}{(q_{AC,ahu,c,i,rated}×3600×10^{-3}})),　　：Q_{AC,ahu,c,i,d}≧0 \\
- F( \frac{Q_{AC,ahu,c,i,d} / T_{AC,ahu,c,i,d}}{(q_{AC,ahu,h,i,rated}×3600×10^{-3}})),　　：Q_{AC,ahu,c,i,d}＜0
+ F( 0 ), &amp; ：T_{AC,ahu,c,i,d} = 0 \\
+ F( \frac{Q_{AC,ahu,c,i,d} / T_{AC,ahu,c,i,d}}{q_{AC,ahu,c,i,rated}×3600×10^{-3}}), &amp; ：T_{AC,ahu,c,i,d}＞0, Q_{AC,ahu,c,i,d}≧0 \\
+ F( \frac{Q_{AC,ahu,c,i,d} / T_{AC,ahu,c,i,d}}{q_{AC,ahu,h,i,rated}×3600×10^{-3}}), &amp; ：T_{AC,ahu,c,i,d}＞0, Q_{AC,ahu,c,i,d}＜0
 \end{cases}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
 \[L_{AC,ahu,mix,h,i,d} = \begin{cases}
- F( \frac{Q_{AC,ahu,h,i,d} / T_{AC,ahu,h,i,d}}{(q_{AC,ahu,c,i,rated}×3600×10^{-3}})),　　：Q_{AC,ahu,h,i,d}≧0 \\
- F( \frac{Q_{AC,ahu,h,i,d} / T_{AC,ahu,h,i,d}}{(q_{AC,ahu,h,i,rated}×3600×10^{-3}})),　　：Q_{AC,ahu,h,i,d}＜0
+ F( 0 ), &amp; ：T_{AC,ahu,h,i,d} = 0 \\
+ F( \frac{Q_{AC,ahu,h,i,d} / T_{AC,ahu,h,i,d}}{q_{AC,ahu,c,i,rated}×3600×10^{-3}}), &amp; ：T_{AC,ahu,h,i,d}＞0, Q_{AC,ahu,h,i,d}≧0 \\
+ F( \frac{Q_{AC,ahu,h,i,d} / T_{AC,ahu,h,i,d}}{q_{AC,ahu,h,i,rated}×3600×10^{-3}}), &amp; ：T_{AC,ahu,h,i,d}＞0, Q_{AC,ahu,h,i,d}＜0
 \end{cases}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>ここで、上記の式の関数Fは次のように定義する。関数 \(floor(x)\)は実数xに対してx以下の最大の整数を求める関数である。</p>
+<p>ここで、上記の式の関数Fは次のように定義する。
+関数 \(floor(x)\)は実数xに対してx以下の最大の整数を求める関数であり、
+関数 \(ceil(x)\)は実数xに対してx以上の最小の整数を求める関数である。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
 \[F(L) = \begin{cases}
- \frac{floor(L×10)}{10} + 0.05,　　：L&gt;0　\\
- L,　　：上記以外
+ \frac{floor(L×10)}{10} + 0.05, &amp; ：L&gt;0　\\
+ \frac{ceil(L×10)}{10} - 0.05, &amp; ：L&lt;0　\\
+ 0, &amp; ：L=0
 \end{cases}\]
 </div>
 </div>

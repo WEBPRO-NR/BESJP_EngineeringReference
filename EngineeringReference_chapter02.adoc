@@ -1874,7 +1874,7 @@ stem:[N_{AC,pump,i}]| 	二次ポンプ群iに属する二次ポンプの台数	|
 [options="header,footer", cols="2,5,2,1"]
 |=================================
 変数名|説明|単位|参照元|
-stem:[q_{Ac,pump,i,j,rated}]| 	二次ポンプ群i属する二次ポンプjのの仮想定格能力|	kW|2.7.2.4|
+stem:[q_{Ac,pump,i,j,rated}]| 	二次ポンプ群i属する二次ポンプjの仮想定格能力|	kW|2.7.2.4|
 stem:[q_{Ac,pump,i,rated}]| 	二次ポンプ群iの仮想定格能力|	kW	|2.7.2.2、2.7.2.3、2.7.2.4|
 |=================================
 
@@ -1892,7 +1892,7 @@ q_{Ac,pump,i,j,rated} = C_w \times V_{AC,pump,i,j,rated} \times ∆θ_{AC,pump,i
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q_{Ac,pump,i,rated} = C_{w} \times \sum_{j=1}^{N_{AC,pump,i}} q_{AC,pump,i,j,rated}
+q_{Ac,pump,i,rated} = \sum_{j=1}^{N_{AC,pump,i}} q_{AC,pump,i,j,rated}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

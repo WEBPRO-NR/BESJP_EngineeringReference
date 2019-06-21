@@ -5223,7 +5223,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iの日付dにおける負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.3、2.7.2.4、2.7.2.5｜</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.3、2.7.2.4</p></td>
 </tr>
 </tfoot>
 </table>
@@ -5467,7 +5467,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群i属する二次ポンプjの日付dにおける部分負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,pump,base,i,d}\)</p></td>
@@ -5549,17 +5549,17 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iの負荷率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群i属する二次ポンプjの日付dにおける部分負荷率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.4</p></td>
 </tr>
 </tbody>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,j,min,standalone}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iに属する二次ポンプjの単独の最小流量比率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tfoot>
@@ -5584,7 +5584,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,pump,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iに属する二次ポンプjの流量制御方式によって定まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.6</p></td>
 </tr>
 </tfoot>
@@ -5623,16 +5623,16 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(0&lt;L_{AC,pump,i,d}&lt;1.0\) の場合</p>
+<p>a) \(0&lt;L_{AC,pump,i,j,d}&lt;1.0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[f_{AC,pump,i,j,d} = F_{AC,pump,i,j}( \min⁡(1.0, max⁡(L_{AC,pump,i,d},L_{AC,pump,i,j,min}) )) \\
+\[f_{AC,pump,i,j,d} = F_{AC,pump,i,j}( \min⁡(1.0, max⁡(L_{AC,pump,i,j,d},L_{AC,pump,i,j,min}) )) \\
 F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}×L + e_{i,j}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) \(L_{AC,pump,i,d}=0\) の場合</p>
+<p>b) \(L_{AC,pump,i,j,d}=0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -5640,7 +5640,7 @@ F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}�
 </div>
 </div>
 <div class="paragraph">
-<p>c) \(L_{AC,pump,i,d}≥1.0\) の場合</p>
+<p>c) \(L_{AC,pump,i,j,d}≥1.0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">

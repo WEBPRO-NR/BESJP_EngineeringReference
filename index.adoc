@@ -1,7 +1,7 @@
 :lang: ja
 :doctype: book
 :toc: left
-:toclevels: 2
+:toclevels: 3
 :toc-title: 目次
 :sectnums!:
 :sectnumlevels: 4

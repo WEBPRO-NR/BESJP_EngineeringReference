@@ -3571,18 +3571,6 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × (-ΔH_{AC,oa,d}) ×T_{AC,ahu,c,
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,c,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機の冷房運転時の年間電力消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MWh/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,h,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機の暖房運転時の年間電力消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MWh/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.6</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
@@ -4948,13 +4936,13 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,c,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機の冷房運転時の年間電力消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MWh/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,h,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機の暖房運転時の年間電力消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MWh/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 </tbody>
 <tfoot>
@@ -4991,12 +4979,12 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </div>
 <div class="stemblock">
 <div class="content">
-\[C_{i,d} = E_{AC,ahu,A,i,d} \times T_{AC,ahu,c,i,d} \times \frac{L_{AC,ahu,A,i,d}}{|L_{AC,ahu,A,i,d}|}\]
+\[C_{i,d} = E_{AC,ahu,C,i,d} \times T_{AC,ahu,c,i,d} \times \frac{L_{AC,ahu,C,i,d}}{|L_{AC,ahu,C,i,d}|}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[H_{i,d} = E_{AC,ahu,B,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,B,i,d}}{|L_{AC,ahu,B,i,d}|}\]
+\[H_{i,d} = E_{AC,ahu,H,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,H,i,d}}{|L_{AC,ahu,H,i,d}|}\]
 </div>
 </div>
 </div>
@@ -5081,7 +5069,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{Ac,pump,i,j,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群i属する二次ポンプjのの仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群i属する二次ポンプjの仮想定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.4</p></td>
 </tr>
@@ -5115,7 +5103,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[q_{Ac,pump,i,rated} = C_{w} \times \sum_{j=1}^{N_{AC,pump,i}} q_{AC,pump,i,j,rated}\]
+\[q_{Ac,pump,i,rated} = \sum_{j=1}^{N_{AC,pump,i}} q_{AC,pump,i,j,rated}\]
 </div>
 </div>
 </div>
@@ -5187,7 +5175,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iの日付dにおける負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.3、2.7.2.4、2.7.2.5｜</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.3、2.7.2.4</p></td>
 </tr>
 </tfoot>
 </table>
@@ -5431,7 +5419,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群i属する二次ポンプjの日付dにおける部分負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,pump,base,i,d}\)</p></td>
@@ -5513,17 +5501,17 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iの負荷率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群i属する二次ポンプjの日付dにおける部分負荷率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.4</p></td>
 </tr>
 </tbody>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,pump,i,j,min,standalone}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iに属する二次ポンプjの単独の最小流量比率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tfoot>
@@ -5548,7 +5536,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,pump,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iに属する二次ポンプjの流量制御方式によって定まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.6</p></td>
 </tr>
 </tfoot>
@@ -5587,16 +5575,16 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(0&lt;L_{AC,pump,i,d}&lt;1.0\) の場合</p>
+<p>a) \(0&lt;L_{AC,pump,i,j,d}&lt;1.0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[f_{AC,pump,i,j,d} = F_{AC,pump,i,j}( \min⁡(1.0, max⁡(L_{AC,pump,i,d},L_{AC,pump,i,j,min}) )) \\
+\[f_{AC,pump,i,j,d} = F_{AC,pump,i,j}( \min⁡(1.0, max⁡(L_{AC,pump,i,j,d},L_{AC,pump,i,j,min}) )) \\
 F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}×L + e_{i,j}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) \(L_{AC,pump,i,d}=0\) の場合</p>
+<p>b) \(L_{AC,pump,i,j,d}=0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -5604,7 +5592,7 @@ F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}�
 </div>
 </div>
 <div class="paragraph">
-<p>c) \(L_{AC,pump,i,d}≥1.0\) の場合</p>
+<p>c) \(L_{AC,pump,i,j,d}≥1.0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">

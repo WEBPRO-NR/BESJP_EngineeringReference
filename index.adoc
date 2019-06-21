@@ -13,8 +13,8 @@
 :table-caption: 表
 :figure-caption: 図
 :docname: = 平成28年省エネルギー基準一次エネルギー消費量算定方法の解説（非住宅建築物）
-:revnumber: 2.6.0(201810)
-:revdate: 2018/12/18
+:revnumber: 2.7.0(201904)
+:revdate: 2019/6/20
 :stem: latexmath
 :xrefstyle: short
 
@@ -44,4 +44,6 @@
 ====
 
 include::EngineeringReference_chapter02.adoc[]
+include::EngineeringReference_chapter03.adoc[]
 include::EngineeringReference_chapter04.adoc[]
+include::EngineeringReference_chapter06.adoc[]

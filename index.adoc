@@ -46,5 +46,4 @@
 include::EngineeringReference_chapter02.adoc[]
 include::EngineeringReference_chapter03.adoc[]
 include::EngineeringReference_chapter04.adoc[]
-include::EngineeringReference_chapter05.adoc[]
 include::EngineeringReference_chapter06.adoc[]

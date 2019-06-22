@@ -572,13 +572,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_6_昇降機の評価方法">6. 昇降機の評価方法</a>
 <ul class="sectlevel2">
-<li><a href="#_6_1_用語の定義">6.1 用語の定義</a>
+<li><a href="#_6_1_はじめに">6.1 はじめに</a>
 <ul class="sectlevel3">
-<li><a href="#_6_1_1昇降機">6.1.1　昇降機</a></li>
-<li><a href="#_6_1_2昇降機系統">6.1.2　昇降機系統</a></li>
-<li><a href="#_6_1_3積載質量">6.1.3　積載質量</a></li>
-<li><a href="#_6_1_4定格速度">6.1.4　定格速度</a></li>
-<li><a href="#_6_1_5速度制御方式による補正係数">6.1.5　速度制御方式による補正係数</a></li>
+<li><a href="#_6_1_1_用語の定義">6.1.1 用語の定義</a></li>
 </ul>
 </li>
 <li><a href="#_6_2_昇降機の設計一次エネルギー消費量">6.2 昇降機の設計一次エネルギー消費量</a></li>
@@ -2450,19 +2446,19 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,aex,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの全熱交換器の運転時間数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの全熱交換器の運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.6</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2.1、2.6.2.2、2.7.1.2、2.7.1.6</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2.2、2.7.1.2、2.7.1.6</p></td>
 </tr>
@@ -11506,35 +11502,38 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>昇降機の一次エネルギー消費量算出ロジックを示す。</p>
 </div>
 <div class="sect2">
-<h3 id="_6_1_用語の定義"><a class="link" href="#_6_1_用語の定義">6.1 用語の定義</a></h3>
+<h3 id="_6_1_はじめに"><a class="link" href="#_6_1_はじめに">6.1 はじめに</a></h3>
 <div class="sect3">
-<h4 id="_6_1_1昇降機"><a class="link" href="#_6_1_1昇降機">6.1.1　昇降機</a></h4>
+<h4 id="_6_1_1_用語の定義"><a class="link" href="#_6_1_1_用語の定義">6.1.1 用語の定義</a></h4>
+<div class="sect4">
+<h5 id="_6_1_1_1昇降機"><a class="link" href="#_6_1_1_1昇降機">6.1.1.1　昇降機</a></h5>
 <div class="paragraph">
 <p>　一定の昇降路、経路その他これに類する部分を介して、動力を用いて人または物を建築物のある階またはある部分から他の階または他の部分へ移動・運搬するための設備。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_6_1_2昇降機系統"><a class="link" href="#_6_1_2昇降機系統">6.1.2　昇降機系統</a></h4>
+<div class="sect4">
+<h5 id="_6_1_1_2昇降機系統"><a class="link" href="#_6_1_1_2昇降機系統">6.1.1.2　昇降機系統</a></h5>
 <div class="paragraph">
 <p>　一体として制御される昇降機群のことをいう。複数の昇降機で構成される場合もあれば、1台で系統が構成される場合もある。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_6_1_3積載質量"><a class="link" href="#_6_1_3積載質量">6.1.3　積載質量</a></h4>
+<div class="sect4">
+<h5 id="_6_1_1_3積載質量"><a class="link" href="#_6_1_1_3積載質量">6.1.1.3　積載質量</a></h5>
 <div class="paragraph">
 <p>　かごに乗り込む利用者及び搭載する荷物などの自重により生ずるかごの定格質量。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_6_1_4定格速度"><a class="link" href="#_6_1_4定格速度">6.1.4　定格速度</a></h4>
+<div class="sect4">
+<h5 id="_6_1_1_4定格速度"><a class="link" href="#_6_1_1_4定格速度">6.1.1.4　定格速度</a></h5>
 <div class="paragraph">
 <p>　かごが上昇、下降するときの毎分の定格速度。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_6_1_5速度制御方式による補正係数"><a class="link" href="#_6_1_5速度制御方式による補正係数">6.1.5　速度制御方式による補正係数</a></h4>
+<div class="sect4">
+<h5 id="_6_1_1_5速度制御方式による補正係数"><a class="link" href="#_6_1_1_5速度制御方式による補正係数">6.1.1.5　速度制御方式による補正係数</a></h5>
 <div class="paragraph">
 <p>　消費電力量を求めるための係数。消費電力は制御方式毎にエレベータの積載質量、速度、起動頻度に比例している。これらより各々の制御方式毎に導き出した換算係数。</p>
+</div>
 </div>
 </div>
 </div>
@@ -11649,7 +11648,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{EV,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式によって定められる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無次元</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.4</p></td>
 </tr>
 <tr>
@@ -11718,7 +11717,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(Type_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式の種類</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
@@ -11758,7 +11757,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">速度制御方式の種類 \(Type_{EV,i}\)</th>
+<th class="tableblock halign-left valign-top">速度制御方式の種類</th>
 <th class="tableblock halign-left valign-top">係数の値</th>
 </tr>
 </thead>
@@ -11785,6 +11784,9 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>速度制御方式の種類が指定されていない（入力シートの当該欄が空欄である）場合は「交流帰還制御方式」が選択されたものとする。</p>
+</div>
 </div>
 </div>
 </div>
@@ -11792,7 +11794,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div id="footer">
 <div id="footer-text">
 Version 2.7.0(201904)<br>
-Last updated 2019-06-21 19:03:49 +0900
+Last updated 2019-06-22 11:37:29 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

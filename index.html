@@ -516,9 +516,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_3_機械換気設備の評価方法">3. 機械換気設備の評価方法</a>
 <ul class="sectlevel2">
-<li><a href="#_3_1_はじめに">3.1 はじめに</a>
+<li><a href="#_3_1_用語の定義">3.1 用語の定義</a>
 <ul class="sectlevel3">
-<li><a href="#_3_1_1_用語の定義">3.1.1 用語の定義</a></li>
+<li><a href="#_3_1_1機械換気設備">3.1.1　機械換気設備</a></li>
+<li><a href="#_3_1_2機械換気設備の消費電力">3.1.2　機械換気設備の消費電力</a></li>
+<li><a href="#_3_1_3送風機の電動機出力">3.1.3　送風機の電動機出力</a></li>
+<li><a href="#_3_1_4電動機効率">3.1.4　電動機効率</a></li>
+<li><a href="#_3_1_5負荷率">3.1.5　負荷率</a></li>
+<li><a href="#_3_1_6制御の方式に応じて定められる係数">3.1.6　制御の方式に応じて定められる係数</a></li>
 </ul>
 </li>
 <li><a href="#_3_2_機械換気設備の年間一次エネルギー消費量">3.2 機械換気設備の年間一次エネルギー消費量</a></li>
@@ -528,19 +533,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_3_3_2_換気代替空調機を用いる場合送風機を併用する場合も含む">3.3.2 換気代替空調機を用いる場合（送風機を併用する場合も含む）</a></li>
 </ul>
 </li>
-<li><a href="#_3_4_制御の方式に応じて定められる係数">3.4 制御の方式に応じて定められる係数</a>
-<ul class="sectlevel3">
+<li><a href="#_3_4_制御の方式に応じて定められる係数">3.4 制御の方式に応じて定められる係数</a></li>
 <li><a href="#_3_4_1_高効率電動機の採用">3.4.1 高効率電動機の採用</a></li>
 <li><a href="#_3_4_2_インバータの採用">3.4.2 インバータの採用</a></li>
 <li><a href="#_3_4_3_送風量制御の採用">3.4.3 送風量制御の採用</a></li>
-</ul>
-</li>
-<li><a href="#_附属書b機械換気">附属書B（機械換気）</a>
-<ul class="sectlevel3">
-<li><a href="#_b_1_中間期平均外気温度">B.1 中間期平均外気温度</a></li>
-<li><a href="#_b_2_年間運転時間">B.2 年間運転時間</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="#_4_照明設備の評価方法">4. 照明設備の評価方法</a>
@@ -2454,19 +2450,19 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,aex,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの全熱交換器の運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの全熱交換器の運転時間数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.6</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2.1、2.6.2.2、2.7.1.2、2.7.1.6</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2.2、2.7.1.2、2.7.1.6</p></td>
 </tr>
@@ -9833,73 +9829,44 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <h2 id="_3_機械換気設備の評価方法"><a class="link" href="#_3_機械換気設備の評価方法">3. 機械換気設備の評価方法</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>機械換気設備の一次エネルギー消費量算出ロジックを示す。
-本章で使用する共通の定数を以下に示す。</p>
+<p>機械換気設備の一次エネルギー消費量算出ロジックを示す。</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 146. 共通の定数</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">定数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">値</th>
-<th class="tableblock halign-left valign-top">単位</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{m}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">電動機効率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.75</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-</tr>
-</tbody>
-</table>
 <div class="sect2">
-<h3 id="_3_1_はじめに"><a class="link" href="#_3_1_はじめに">3.1 はじめに</a></h3>
+<h3 id="_3_1_用語の定義"><a class="link" href="#_3_1_用語の定義">3.1 用語の定義</a></h3>
 <div class="sect3">
-<h4 id="_3_1_1_用語の定義"><a class="link" href="#_3_1_1_用語の定義">3.1.1 用語の定義</a></h4>
-<div class="sect4">
-<h5 id="_3_1_1_1機械換気設備"><a class="link" href="#_3_1_1_1機械換気設備">3.1.1.1　機械換気設備</a></h5>
+<h4 id="_3_1_1機械換気設備"><a class="link" href="#_3_1_1機械換気設備">3.1.1　機械換気設備</a></h4>
 <div class="paragraph">
 <p>　送風機の機械力を使って給排気をし、主として排熱、除湿、脱臭を目的とした換気を行うための設備のこと。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_3_1_1_2機械換気設備の消費電力"><a class="link" href="#_3_1_1_2機械換気設備の消費電力">3.1.1.2　機械換気設備の消費電力</a></h5>
+<div class="sect3">
+<h4 id="_3_1_2機械換気設備の消費電力"><a class="link" href="#_3_1_2機械換気設備の消費電力">3.1.2　機械換気設備の消費電力</a></h4>
 <div class="paragraph">
 <p>　機械換気設備が当該建物に設置され、計画した風量で連続運転しているときの電動機及び換気設備に含まれる補機類の消費電力の合計値。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_3_1_1_3送風機の電動機出力"><a class="link" href="#_3_1_1_3送風機の電動機出力">3.1.1.3　送風機の電動機出力</a></h5>
+<div class="sect3">
+<h4 id="_3_1_3送風機の電動機出力"><a class="link" href="#_3_1_3送風機の電動機出力">3.1.3　送風機の電動機出力</a></h4>
 <div class="paragraph">
 <p>　電動機によって、電気エネルギーから変換された送風機を稼動させるための機械的な回転エネルギー。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_3_1_1_4電動機効率"><a class="link" href="#_3_1_1_4電動機効率">3.1.1.4　電動機効率</a></h5>
+<div class="sect3">
+<h4 id="_3_1_4電動機効率"><a class="link" href="#_3_1_4電動機効率">3.1.4　電動機効率</a></h4>
 <div class="paragraph">
 <p>　電動機に供給される電力（入力電力）に対する電動機出力の比。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_3_1_1_5負荷率"><a class="link" href="#_3_1_1_5負荷率">3.1.1.5　負荷率</a></h5>
+<div class="sect3">
+<h4 id="_3_1_5負荷率"><a class="link" href="#_3_1_5負荷率">3.1.5　負荷率</a></h4>
 <div class="paragraph">
 <p>　実際にかかる冷房負荷を空調機またはパッケージユニットの必要冷房能力で除した値。換気代替空調機の仮想的な消費電力を求める際に用いる。</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_3_1_1_6制御の方式に応じて定められる係数"><a class="link" href="#_3_1_1_6制御の方式に応じて定められる係数">3.1.1.6　制御の方式に応じて定められる係数</a></h5>
+<div class="sect3">
+<h4 id="_3_1_6制御の方式に応じて定められる係数"><a class="link" href="#_3_1_6制御の方式に応じて定められる係数">3.1.6　制御の方式に応じて定められる係数</a></h4>
 <div class="paragraph">
 <p>　機器の運転効率化のための各種制御を導入した場合のエネルギー削減効果を見込むための係数。</p>
-</div>
 </div>
 </div>
 </div>
@@ -9909,7 +9876,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <p>機械換気設備の年間一次エネルギー消費量 \(E_{V}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 147. 入力</caption>
+<caption class="title">表 146. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9940,7 +9907,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 148. 出力</caption>
+<caption class="title">表 147. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9960,7 +9927,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備の設計一次エネルギー消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">出力</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -9977,14 +9944,14 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <div class="sect2">
 <h3 id="_3_3_機械換気設備の年間電力消費量"><a class="link" href="#_3_3_機械換気設備の年間電力消費量">3.3 機械換気設備の年間電力消費量</a></h3>
 <div class="paragraph">
-<p>機械換気設備の年間電力消費量の算出方法は、次の条件によって変わる。<br>
-(a) 送風機のみを用いる場合<br>
+<p>機械換気設備の年間電力消費量の算出方法は、次の条件によって変わる。
+(a) 送風機のみを用いる場合
 (b)	換気代替空調機を用いる場合（送風機を併用する場合も含む）</p>
 </div>
 <div class="sect3">
 <h4 id="_3_3_1_送風機のみを用いる場合"><a class="link" href="#_3_3_1_送風機のみを用いる場合">3.3.1 送風機のみを用いる場合</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 149. 入力</caption>
+<caption class="title">表 148. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10007,27 +9974,27 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{Vfan,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iに属する送風機の数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{Vfan,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iに属する送風機jの制御方式に応じて定められる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3.4</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{Vfan,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iに属する送風機の数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{V,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iにの年間運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">D.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">標準室使用条件</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 150. 出力</caption>
+<caption class="title">表 149. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10047,9 +10014,34 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの年間電力消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kWh</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">出力</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 150. 定数</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">定数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">値</th>
+<th class="tableblock halign-left valign-top">単位</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{m}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">電動機効率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.75</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+</tfoot>
 </table>
 <div class="exampleblock">
 <div class="content">
@@ -10083,12 +10075,6 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(Type_{Vac}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iによる換気対象室の用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{Vac,c,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iの必要冷却能力</p></td>
@@ -10150,10 +10136,10 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">標準室使用条件</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(\theta_{oa,m}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間期平均外気温度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">B.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Type_{Vac}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気対象室の用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tbody>
 </table>
@@ -10182,6 +10168,31 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tr>
 </tbody>
 </table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 153. 定数</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">定数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">値</th>
+<th class="tableblock halign-left valign-top">単位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{m}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">電動機効率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.75</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+</tbody>
+</table>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
@@ -10198,7 +10209,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>換気代替空調機iの年間平均負荷率 \(x_{ac,i}\)　は下表より求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 153. 高効率電動機の採用による係数</caption>
+<caption class="title">表 154. 高効率電動機の採用による係数</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -10232,7 +10243,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>換気代替空調機iの稼働率 \(c_{ac,i}\) 、換気代替空調機iと併用される送風機jの稼働率 \(c_{fan,i}\) は下表より求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 154. 換気代替空調機の年間稼働率</caption>
+<caption class="title">表 155. 換気代替空調機の年間稼働率</caption>
 <colgroup>
 <col style="width: 55.5555%;">
 <col style="width: 22.2222%;">
@@ -10262,7 +10273,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>ここで、「換気代替空調機iと併用される送風機jの外気導入量」は下表のように求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 155. 換気代替空調機iと併用される送風機jの外気導入量</caption>
+<caption class="title">表 156. 換気代替空調機iと併用される送風機jの外気導入量</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -10301,226 +10312,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 </div>
 <div class="paragraph">
-<p>なお、換気代替空調機iの必要冷却能力の決定方法について、以下のルールを設ける。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>電気室等において、設置される機器の能力に余裕を見込んでいる場合は、必要とされる能力を算出し、この値を入力してもよい。
-例えば故障時の対応として必要冷房能力 100%の機器が2台設置されている場合は、1台分のみ能力を入力してもよい。
-ただし、この必要能力の算出根拠は別途提出する必要がある。</p>
-</li>
-<li>
-<p>エレベータ機械室については、昇降機メーカー等が算出した設計発熱量を用いても良い。
-ただし、算出根拠は別途提出する必要がある。</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_3_4_制御の方式に応じて定められる係数"><a class="link" href="#_3_4_制御の方式に応じて定められる係数">3.4 制御の方式に応じて定められる係数</a></h3>
-<div class="paragraph">
-<p>機械換気設備の運転効率化のための各種措置について、次のように3つのカテゴリに分類し、それぞれ講じた措置の種類に応じて、係数 \(F_{V1,i}\) 、\(F_{V2,i}\) 、\(F_{V3,i}\) の値を定める。同じカテゴリの中から重複して係数を採用することはできず、各カテゴリの中から何れか1つを選択して値を決定する。</p>
+<p>ここで、\(\theta_{oa,m}\)　は中間期平均外気温度であり、下表のように定める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 156. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{V1,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">高効率電動機の有無によって決まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{V2,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">インバータの有無によって決まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{V3,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">送風量制御の種類によって決まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.3</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 157. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{V,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの制御方法に応じて定められる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無次元</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.3.1, 3.3.2</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>エネルギー消費量計算に用いる係数 は次式で求める。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[F_{V,i} = F_{V1,i} × F_{V2,i} × F_{V3,i}\]
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_3_4_1_高効率電動機の採用"><a class="link" href="#_3_4_1_高効率電動機の採用">3.4.1 高効率電動機の採用</a></h4>
-<div class="paragraph">
-<p>下表に示すとおり、高効率電動機を採用していない場合は「無」の係数を、高効率電動機を採用している場合は「有」の係数を適用する。<br>
-選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 158. 高効率電動機の採用による係数</caption>
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 62.5%;">
-<col style="width: 12.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">選択肢</th>
-<th class="tableblock halign-left valign-top">適用</th>
-<th class="tableblock halign-left valign-top">\(F_{V1,i}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JIS C 4212に準拠した低圧三相かご形誘導電動機が採用されている場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.95</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>電動機効率 は 0.75 を想定しているので、高効率電動機とは0.79（0.75*0.95）程度の効率を想定していることになる。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_3_4_2_インバータの採用"><a class="link" href="#_3_4_2_インバータの採用">3.4.2 インバータの採用</a></h4>
-<div class="paragraph">
-<p>下表に示す通り、インバータを採用していない場合は「無」の係数を、インバータを採用している場合は「有」の係数を適用する。<br>
-選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 159. インバータの採用による係数</caption>
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 62.5%;">
-<col style="width: 12.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">選択肢</th>
-<th class="tableblock halign-left valign-top">適用</th>
-<th class="tableblock halign-left valign-top">\(F_{V2,i}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">インバータが設置されている場合。ただし、自動制御が行われておらず固定周波数で運用する場合も含まれる</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.60</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>なお、インバータによる回転数の自動制御が行われておらずに固定周波数で運用する場合も「有」を適用して良い。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_3_4_3_送風量制御の採用"><a class="link" href="#_3_4_3_送風量制御の採用">3.4.3 送風量制御の採用</a></h4>
-<div class="paragraph">
-<p>下表に示す通り、CO濃度制御やCO2濃度制御を採用している場合は「CO・CO2濃度制御」の係数を、
-室内温度により送風機制御を行っている場合は「温度制御」の係数を、これらの制御を行っていない場合は「無」の係数を適用する。<br>
-選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 160. 送風機制御の採用による係数</caption>
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 62.5%;">
-<col style="width: 12.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">選択肢</th>
-<th class="tableblock halign-left valign-top">適用</th>
-<th class="tableblock halign-left valign-top">\(F_{V3,i}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CO・CO2濃度制御</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">駐車場などにおいてCO濃度やCO2濃度により送風機制御を行っている場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.60</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">温度制御</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">電気室などにおいて室内温度により送風機制御を行っている場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.70</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_附属書b機械換気"><a class="link" href="#_附属書b機械換気">附属書B（機械換気）</a></h3>
-<div class="sect3">
-<h4 id="_b_1_中間期平均外気温度"><a class="link" href="#_b_1_中間期平均外気温度">B.1 中間期平均外気温度</a></h4>
-<div class="paragraph">
-<p>　中間期平均外気温度 \(\theta_{oa,m}\) は地域区分毎に下表で定められる。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 161. 中間期平均外気温</caption>
+<caption class="title">表 157. 高効率電動機の採用による係数</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -10566,13 +10361,204 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect3">
-<h4 id="_b_2_年間運転時間"><a class="link" href="#_b_2_年間運転時間">B.2 年間運転時間</a></h4>
 <div class="paragraph">
-<p>　機械換気設備の年間運転時間は、室用語毎に標準室使用条件によって定められている。</p>
+<p>なお、換気代替空調機iの必要冷却能力の決定方法について、以下のルールを設ける。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>電気室等において、設置される機器の能力に余裕を見込んでいる場合は、必要とされる能力を算出し、この値を入力してもよい。例えば故障時の対応として必要冷房能力 100%の機器が2台設置されている場合は、1台分のみ能力を入力してもよい。ただし、この必要能力の算出根拠は別途提出する必要がある。</p>
+</li>
+<li>
+<p>エレベータ機械室については、昇降機メーカー等が算出した設計発熱量を用いても良い。ただし、算出根拠は別途提出する必要がある。</p>
+</li>
+</ul>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_3_4_制御の方式に応じて定められる係数"><a class="link" href="#_3_4_制御の方式に応じて定められる係数">3.4 制御の方式に応じて定められる係数</a></h3>
+<div class="paragraph">
+<p>機械換気設備の運転効率化のための各種措置について、次のように3つのカテゴリに分類し、それぞれ講じた措置の種類に応じて、係数 \(F_{V1,i}\) 、\(F_{V2,i}\) 、\(F_{V3,i}\) の値を定める。同じカテゴリの中から重複して係数を採用することはできず、各カテゴリの中から何れか1つを選択して値を決定する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 158. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{V1,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">高効率電動機の有無によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{V2,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">インバータの有無によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{V3,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送風量制御の種類によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.3</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 159. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの制御方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">無次元</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.3</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>エネルギー消費量計算に用いる係数 は次式で求める。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[F_{V,i} = F_{V1,i} × F_{V2,i} × F_{V3,i}\]
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_4_1_高効率電動機の採用"><a class="link" href="#_3_4_1_高効率電動機の採用">3.4.1 高効率電動機の採用</a></h3>
+<div class="paragraph">
+<p>下表に示すとおり、高効率電動機を採用していない場合は「無」の係数を、高効率電動機を採用している場合は「有」の係数を適用する。なお、前述のとおり、電動機効率 は 0.75 を想定しているので、高効率電動機とは0.79（0.75*0.95）程度の効率を想定していることになる。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 160. 高効率電動機の採用による係数</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 62.5%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">選択肢</th>
+<th class="tableblock halign-left valign-top">適用</th>
+<th class="tableblock halign-left valign-top">\(F_{V1,i}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JIS C 4212に準拠した低圧三相かご形誘導電動機が採用されている場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.95</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_3_4_2_インバータの採用"><a class="link" href="#_3_4_2_インバータの採用">3.4.2 インバータの採用</a></h3>
+<div class="paragraph">
+<p>下表に示す通り、インバータを採用していない場合は「無」の係数を、インバータを採用している場合は「有」の係数を適用する。なお、インバータによる回転数の自動制御が行われておらずに固定周波数で運用する場合も「有」を適用して良い。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 161. インバータの採用による係数</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 62.5%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">選択肢</th>
+<th class="tableblock halign-left valign-top">適用</th>
+<th class="tableblock halign-left valign-top">\(F_{V2,i}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">インバータが設置されている場合。ただし、自動制御が行われておらず固定周波数で運用する場合も含まれる</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.60</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_3_4_3_送風量制御の採用"><a class="link" href="#_3_4_3_送風量制御の採用">3.4.3 送風量制御の採用</a></h3>
+<div class="paragraph">
+<p>下表に示す通り、CO濃度制御やCO2濃度制御を採用している場合は「CO・CO2濃度制御」の係数を、室内温度により送風機制御を行っている場合は「温度制御」の係数を、これらの制御を行っていない場合は「無」の係数を適用する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 162. 送風機制御の採用による係数</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 62.5%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">選択肢</th>
+<th class="tableblock halign-left valign-top">適用</th>
+<th class="tableblock halign-left valign-top">\(F_{V3,i}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CO・CO2濃度制御</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">駐車場などにおいてCO濃度やCO2濃度により送風機制御を行っている場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.60</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">温度制御</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">電気室などにおいて室内温度により送風機制御を行っている場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.70</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -10639,7 +10625,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>照明設備の年間一次エネルギー消費量 \(E_{L}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 162. 入力</caption>
+<caption class="title">表 163. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10700,7 +10686,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 163. 出力</caption>
+<caption class="title">表 164. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10747,7 +10733,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>制御等の方式に応じて定められる係数 \(F_{L,r,i}\)を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 164. 入力</caption>
+<caption class="title">表 165. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10790,7 +10776,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 165. 出力</caption>
+<caption class="title">表 166. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10837,10 +10823,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect3">
 <h4 id="_4_3_1_在室検知制御の方式によって決まる係数"><a class="link" href="#_4_3_1_在室検知制御の方式によって決まる係数">4.3.1 在室検知制御の方式によって決まる係数</a></h4>
 <div class="paragraph">
-<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 166</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
+<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 167</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
 </div>
 <table id="Table441A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 166. 在室検知制御の方式による係数</caption>
+<caption class="title">表 167. 在室検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -10901,10 +10887,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 　建築物の廊下など、主として視作業を伴わない執務者等の移動のための室において、人感センサ等により在室していると判断される箇所の照明設備を、急激な明るさの変化による光環境の質的な低下が生じないよう、在室時には100%点灯、それ以外の場合に調光により減光することでエネルギー消費削減を図る制御の方式である。国土交通省による建築基準整備促進事業の実態調査における廊下及び階段におけるOn-Off制御の場合の削減率のデータ等より推定し、減光の場合においても20%程度の削減が見込まれることからエネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table441B">表 167</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table441B">表 168</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table441B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 167. 在室検知制御の各方式の判断条件</caption>
+<caption class="title">表 168. 在室検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 22.2222%;">
@@ -10977,10 +10963,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect3">
 <h4 id="_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更"><a class="link" href="#_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更">4.3.2 明るさ検知制御の方式によって決まる係数【Ver.2.4から変更】</a></h4>
 <div class="paragraph">
-<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 168</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 169</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table442A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 168. 明るさ検知制御の方式による係数</caption>
+<caption class="title">表 169. 明るさ検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -11074,10 +11060,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 　平成21年基準のCEC/Lにおける評価法と同様に、20%のエネルギー削減効果があると想定し、エネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table442B">表 169</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table442B">表 170</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table442B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 169. 明るさ検知制御の各方式の判断条件</caption>
+<caption class="title">表 170. 明るさ検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 22.2222%;">
@@ -11144,10 +11130,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect3">
 <h4 id="_4_3_3_タイムスケジュール制御の方式によって決まる係数"><a class="link" href="#_4_3_3_タイムスケジュール制御の方式によって決まる係数">4.3.3 タイムスケジュール制御の方式によって決まる係数</a></h4>
 <div class="paragraph">
-<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 170</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 171</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table443A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 170. タイムスケジュール制御の方式による係数</caption>
+<caption class="title">表 171. タイムスケジュール制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -11192,10 +11178,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 　建築物の照明設備に要求される照度レベルが、事務所ビルの始業前や昼休みと残業時間のように、時刻で異なる場合に、あらかじめ設定された時刻に消灯する照明制御システムである。建築基準整備促進事業の実態調査における消灯による削減率のデータ等より10%程度の削減率が見込まれることから、エネルギー削減係数は0.90とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table443B">表 171</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table443B">表 172</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table443B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 171. タイムスケジュール制御の各方式の判断条件</caption>
+<caption class="title">表 172. タイムスケジュール制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 22.2222%;">
@@ -11246,10 +11232,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect3">
 <h4 id="_4_3_4_初期照度補正機能の有無によって決まる係数"><a class="link" href="#_4_3_4_初期照度補正機能の有無によって決まる係数">4.3.4 初期照度補正機能の有無によって決まる係数</a></h4>
 <div class="paragraph">
-<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 172</a>に示すとおり、機能の有無によって係数 は定まる。</p>
+<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 173</a>に示すとおり、機能の有無によって係数 は定まる。</p>
 </div>
 <table id="Table444A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 172. 初期照度補正機能の有無による係数</caption>
+<caption class="title">表 173. 初期照度補正機能の有無による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -11297,10 +11283,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>　明るさセンサ・タイマーを利用した点灯時間による光源の光束低下を見込んだ調光制御であり、建築物の完成直後あるいはランプ交換及び器具清掃初期の過剰照度を抑制（初期照度を補正）し、消費電力量の低減を図るものである。初期照度補正制御は、平成21年基準のCEC/Lにおいては「適正照度制御」と表されている。平成5年に照明設備が省エネ法の規制対象に追加されたときに、「初期照度補正制御」の用語で提案されたが、法律用語に馴染まないとして「適正照度制御」となったいきさつがあるが、本基準では、後述するカテゴリ（f）明るさセンサ等による照度調整調光制御との違いを明確にするため、制御の内容をより適切に示す当初の「初期照度補正制御」とした。<br>
 　経年による光束量の低下を考慮した初期照度の補正の既存の予測カーブより、初期照度補正制御のエネルギー削減係数は、平成21年基準のCEC/Lと同じ0.85とした。LEDの係数については、照明工業会技術仕様の設計例の保守率0.885を安全側に四捨五入して0.90と想定し、この条件下で係数を算出すると0.95とした。<br>
 なお、初期照度補正制御の方法には、天井面に明るさ検知センサを設置し、作業面の明るさを検出することにより調整する方法（明るさセンサを利用した方法）と、明るさの減衰予測カーブのデータをあらかじめ照明設備に記憶させて、点灯時間に応じてタイマにより明るさを変化させる方法（タイマを利用した方法）の2つがあり、両方とも評価対象とし、同じエネルギー削減係数を適用する。
-どの方式に属するかについては、<a href="#Table444B">表 173</a>に示すハードウェア等の条件によるものとする。</p>
+どの方式に属するかについては、<a href="#Table444B">表 174</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table444B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 173. 初期照度補正機能の各方式の判断条件</caption>
+<caption class="title">表 174. 初期照度補正機能の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 22.2222%;">
@@ -11369,7 +11355,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>室の形状によって定められる係数 \(C_{L,r}\)[-]は、室 の室指数 \(K_{L,r}\)[-]によって定める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 174. 入力</caption>
+<caption class="title">表 175. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11406,7 +11392,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 175. 出力</caption>
+<caption class="title">表 176. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11443,10 +11429,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 </div>
 <div class="paragraph">
-<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 176</a>にて規定される。</p>
+<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 177</a>にて規定される。</p>
 </div>
 <table id="Table34A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 176. 室の形状によって定められる係数</caption>
+<caption class="title">表 177. 室の形状によって定められる係数</caption>
 <colgroup>
 <col style="width: 7.6923%;">
 <col style="width: 15.3846%;">
@@ -11558,7 +11544,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 177. 入力</caption>
+<caption class="title">表 178. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11595,7 +11581,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 178. 出力</caption>
+<caption class="title">表 179. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11632,7 +11618,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect2">
 <h3 id="_6_3_昇降機の年間電力消費量"><a class="link" href="#_6_3_昇降機の年間電力消費量">6.3 昇降機の年間電力消費量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 179. 入力</caption>
+<caption class="title">表 180. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11675,7 +11661,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 180. 出力</caption>
+<caption class="title">表 181. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11715,7 +11701,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect2">
 <h3 id="_6_4_速度制御方式に応じて定められる係数"><a class="link" href="#_6_4_速度制御方式に応じて定められる係数">6.4 速度制御方式に応じて定められる係数</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 181. 入力</caption>
+<caption class="title">表 182. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11740,7 +11726,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 182. 出力</caption>
+<caption class="title">表 183. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11765,7 +11751,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 183. 制御方式によって定められる係数</caption>
+<caption class="title">表 184. 制御方式によって定められる係数</caption>
 <colgroup>
 <col style="width: 71.4285%;">
 <col style="width: 28.5715%;">
@@ -11806,7 +11792,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div id="footer">
 <div id="footer-text">
 Version 2.7.0(201904)<br>
-Last updated 2019-06-22 11:37:29 +0900
+Last updated 2019-06-21 19:03:49 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

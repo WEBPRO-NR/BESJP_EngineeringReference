@@ -1380,11 +1380,19 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 接地壁（地盤に接する壁）である場合</p>
+<p>b-1) 接地壁（地盤に接する壁）である場合（一次エネルギー消費量計算時）</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[Q_{wall,t,i,j,d} = 24 × U_{wall,i,j} × A_{wall,i,j} × (θ_{AC,oa,ave} - θ_{AC,room,i,d})\]
+</div>
+</div>
+<div class="paragraph">
+<p>b-2) 接地壁（地盤に接する壁）である場合（PAL＊計算時）</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{wall,t,i,j,d} = 0\]
 </div>
 </div>
 </div>
@@ -1427,7 +1435,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">　室iに属する窓等jの熱貫流率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの熱貫流率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
 </tr>
@@ -1488,7 +1496,15 @@ A_{h,i} = \hat{A}_{room,i}\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 窓等jの方位が「日陰」ではない場合</p>
+<p>a) 接地壁（地盤に接する壁）の窓の場合（PAL＊計算時のみ）</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{wind,t,i,j,d} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) a)でないかつ窓等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -1496,7 +1512,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 窓等jの方位が「日陰」である場合</p>
+<p>c) a)でないかつ窓等jの方位が「日陰」である場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -1584,8 +1600,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </table>
 <div class="paragraph">
 <p>日付dにおける室iの外壁等からの長波長放射による定常貫流熱損失\(Q_{wall,n,i,d}\)は、
-外気に接する外壁等の場合は次のa）の方法により、
-地盤に接する外壁等の場合は次のb）の方法により算出する。</p>
+次式により算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1593,6 +1608,21 @@ A_{h,i} = \hat{A}_{room,i}\]
 <div class="content">
 \[Q_{wall,n,i,d} = \sum_{j=1}^{N_{wall,i}} Q_{wall,n,i,j,d}\]
 </div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) 接地壁（地盤に接する壁）の場合（PAL＊計算時のみ）</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{wall,n,i,j,d} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) その他の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -1697,6 +1727,21 @@ A_{h,i} = \hat{A}_{room,i}\]
 \[Q_{wind,n,i,d} = \sum_{j=1}^{N_{wind,i}} Q_{wind,n,i,j,d}\]
 </div>
 </div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) 接地壁（地盤に接する壁）の窓の場合（PAL＊計算時のみ）</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{wind,n,i,j,d} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) その他の場合</p>
+</div>
 <div class="stemblock">
 <div class="content">
 \[Q_{wind,n,i,j,d} = \frac{ 0.9 × U_{wind,i,j} × A_{wind,i,j} × I_{nsr,i,j,d} }{\alpha_{o}}\]
@@ -1792,8 +1837,8 @@ A_{h,i} = \hat{A}_{room,i}\]
 </table>
 <div class="paragraph">
 <p>外壁からの日射による定常熱取得\(Q_{wall,s,i,d}\)は、
-日の当たる外壁等の場合はa）の方法で、
-日の当たらない外壁等の場合はb）の方法により算出する。</p>
+日の当たる外壁等の場合はb）の方法で、
+日の当たらない外壁等の場合はc）の方法により算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1807,7 +1852,15 @@ A_{h,i} = \hat{A}_{room,i}\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 外壁等jの方位が「日陰」ではない場合</p>
+<p>a) 接地壁（地盤に接する壁）の場合（PAL＊計算時のみ）</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{wall,s,i,j,d} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) a)でないかつ外壁等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -1815,7 +1868,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 外壁等jの方位が「日陰」である場合</p>
+<p>c) a)でないかつ外壁等jの方位が「日陰」である場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -1942,8 +1995,8 @@ A_{h,i} = \hat{A}_{room,i}\]
 </table>
 <div class="paragraph">
 <p>日付dにおける室iの窓等からの日射による定常熱取得\(Q_{wind,s,i,d}\)は、
-日の当たる窓等の場合は次のa）の方法により、
-日の当たらない窓等の場合は次のb）の方法により算出する。
+日の当たる窓等の場合は次のb）の方法により、
+日の当たらない窓等の場合は次のc）の方法により算出する。
 なお、日付dにおける日除け効果係数については、日付dの空調機の運転モードによって、
 日除け効果係数(冷房)または日除け効果係数(暖房)のどちらかを適用する。</p>
 </div>
@@ -1959,7 +2012,15 @@ A_{h,i} = \hat{A}_{room,i}\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 窓等jの方位が「日陰」ではない場合</p>
+<p>a) 接地壁（地盤に接する壁）の窓の場合（PAL＊計算時のみ）</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{wind,s,i,j,d} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) a)でないかつ窓等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -1975,7 +2036,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 窓等jの方位が「日陰」である場合</p>
+<p>c) a)でないかつ窓等jの方位が「日陰」である場合</p>
 </div>
 <div class="stemblock">
 <div class="content">

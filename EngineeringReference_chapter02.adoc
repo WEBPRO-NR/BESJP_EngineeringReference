@@ -2026,13 +2026,13 @@ stem:[N_{AC,pump,i,VWV,d}]| 	台数制御が導入されている二次ポンプ
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q_{AC,pump,base,i,d} = \sum \{q_{AC,pump,i,j,rated} │ j ≤ N_{AC,pump,i,d}　and　C_{i,j} \}
+q_{AC,pump,base,i,d} = \sum \{q_{AC,pump,i,j,rated} \mid j ≤ N_{AC,pump,i,d} \land C_{i,j} \}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-N_{AC,pump,i,VWV,d}  = count \{ j | j≤N_{AC,pump,i,d}  and C_{i,j} \}
+N_{AC,pump,i,VWV,d}  = count \{ j \mid j≤N_{AC,pump,i,d} \land \lnot C_{i,j} \}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

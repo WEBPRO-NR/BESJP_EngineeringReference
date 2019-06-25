@@ -248,18 +248,24 @@ K_{L,r} = \frac { L_{r} × D_{r} }{ H_{r} × (L_{r} + D_{r}) }
 　係数stem:[C_{L,r}]［-］は室指数stem:[K_{L,r}]［-］の値により定められる。室指数が小さい室は照明率が小さく、単位床面積あたりのエネルギー消費量はより大きくなる傾向にある。基準一次エネルギー消費量は室指数2.5を想定しており、室指数が2.5より小さい室については、1より小さい係数を掛けて、算出する設計一次エネルギー消費量を割り引く。
 
 <<<
-=== 附属書C
+=== 附属書C（照明）
 ==== C.1 室の形状に応じて定められる係数の設定根拠
 
 標準的な室指数と計画上の室指数における照明率の乖離を補正するため、数種類の照明器具について室指数と照明率の相関関係を調べた。結果を表4.5.1に示す。照明器具により照明率比（室指数2.5のときの照明率に対する当該室指数における照明率の比）の変化率は異なるが、簡略化のため、室指数による補正係数は照明器具の種類によっては変わらないものとした。
 
 
-.　　　　　　　　　　　　　　　　　　　　　　　　図 3.C.1　室指数と照明率の関係
-image::images/fig_3C-1.png[caption="　", width="50%", align="center", title-align="center"]
+.　　　　　　　　　　　　　　　　　　　　　　　　表 3.C.1　室指数と照明率の関係
+image::images/table_3C-1.png[caption="　", width="80%", align="center", title-align="center"]
 
 
-.　　　　　　　　　　　　　　　　　　　　　　　　表 3.C.1　室指数と照明率比の関係
-image::images/Table_3C-1.png[caption="　", width="80%", align="center", title-align="center"]
+
+.　　　　　　　　　　　　　　　　　　　　　　　　表 3.C.2　室指数と照明率比の関係
+image::images/table_3C-2.png[caption="　", width="80%", align="center", title-align="center"]
+
+
+
+.　　　　　　　　　　　　　　　　　　　　　　　　図 3.C.1　室指数と照明率比の関係
+image::images/fig_3C-1.png[caption="　", width="60%", align="center", title-align="center"]
 
 
 ==== C.2 在室検知制御の方式によって決まる係数の設定根拠と判断基準

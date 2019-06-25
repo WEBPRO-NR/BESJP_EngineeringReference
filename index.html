@@ -560,7 +560,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_4_4_室の形状に応じて定められる係数">4.4 室の形状に応じて定められる係数</a></li>
-<li><a href="#_附属書c">附属書C</a>
+<li><a href="#_附属書c照明">附属書C（照明）</a>
 <ul class="sectlevel3">
 <li><a href="#_c_1_室の形状に応じて定められる係数の設定根拠">C.1 室の形状に応じて定められる係数の設定根拠</a></li>
 <li><a href="#_c_2_在室検知制御の方式によって決まる係数の設定根拠と判断基準">C.2 在室検知制御の方式によって決まる係数の設定根拠と判断基準</a></li>
@@ -11228,7 +11228,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_附属書c"><a class="link" href="#_附属書c">附属書C</a></h3>
+<h3 id="_附属書c照明"><a class="link" href="#_附属書c照明">附属書C（照明）</a></h3>
 <div class="sect3">
 <h4 id="_c_1_室の形状に応じて定められる係数の設定根拠"><a class="link" href="#_c_1_室の形状に応じて定められる係数の設定根拠">C.1 室の形状に応じて定められる係数の設定根拠</a></h4>
 <div class="paragraph">
@@ -11236,15 +11236,21 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/fig_3C-1.png" alt="fig 3C 1" width="50%">
+<img src="images/table_3C-1.png" alt="table 3C 1" width="80%">
 </div>
-<div class="title">　　　　　　　　　　　　　　　　　　　　　　　　　図 3.C.1　室指数と照明率の関係</div>
+<div class="title">　　　　　　　　　　　　　　　　　　　　　　　　　表 3.C.1　室指数と照明率の関係</div>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/Table_3C-1.png" alt="Table 3C 1" width="80%">
+<img src="images/table_3C-2.png" alt="table 3C 2" width="80%">
 </div>
-<div class="title">　　　　　　　　　　　　　　　　　　　　　　　　　表 3.C.1　室指数と照明率比の関係</div>
+<div class="title">　　　　　　　　　　　　　　　　　　　　　　　　　表 3.C.2　室指数と照明率比の関係</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/fig_3C-1.png" alt="fig 3C 1" width="60%">
+</div>
+<div class="title">　　　　　　　　　　　　　　　　　　　　　　　　　図 3.C.1　室指数と照明率比の関係</div>
 </div>
 </div>
 <div class="sect3">
@@ -12380,7 +12386,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect3">
 <h4 id="_d_1_標準日積算湯使用量標準室使用条件"><a class="link" href="#_d_1_標準日積算湯使用量標準室使用条件">D.1 標準日積算湯使用量（標準室使用条件）</a></h4>
 <div class="paragraph">
-<p>　日積算湯使用量は、給湯対象室rの室用途に応じて定められている。日積算湯使用量は、ROOM_SPEC_H28.csv のAK列〜AN列に記されている。</p>
+<p>　標準日積算湯使用量は、給湯対象室rの室用途に応じて定められている。標準日積算湯使用量は、ROOM_SPEC_H28.csv のAK列〜AN列に記されている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 195. 出力</caption>
@@ -12425,6 +12431,11 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>標準日積算湯使用量の単位は室用途によって異なり、[L/人日] か [L/m2日] で規定されている。
+単位については、ROOM_SPEC_H28.csv の AE列 に記されている。
+単位が[L/人日]の場合については、ROOM_SPEC_H28.csv の J列で指定される 人員密度参照値（人/m2） を乗じて、床面積あたりの値に変換する。</p>
+</div>
 <div class="paragraph">
 <p>ここで、「ホテル等・客室」の「シャワー」用途の日積算湯使用量については、以下の想定で算出されている。<br>
 　　10.5分／人　×　10 L/分　×　0.75（同時使用率） = 79 L/人<br></p>

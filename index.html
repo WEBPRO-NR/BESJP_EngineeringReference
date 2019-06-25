@@ -3971,7 +3971,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
-<h5 id="_2_6_3_3_熱源機負荷"><a class="link" href="#_2_6_3_3_熱源機負荷">2.6.3.3 熱源機負荷</a></h5>
+<h5 id="_2_6_3_3_熱源負荷"><a class="link" href="#_2_6_3_3_熱源負荷">2.6.3.3 熱源負荷</a></h5>
 <div class="paragraph">
 <p>各熱源群が処理する熱源負荷は、熱源群が冷温熱を供給する二次ポンプ群のポンプ負荷を積算し、
 これにポンプの発熱量と蓄熱槽があるシステムについては蓄熱槽の損失分を積算して算出する。
@@ -6558,7 +6558,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(R_{Q,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期の日積算空調負荷の期間最大値\(Q_{AC,ahu,h,i,d}^{MAX}\)と、冷房期の日積算空調負荷の期間最大値\(Q_{AC,ahu,c,i,d}^{MAX}\)からなる比</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日積算温熱生成量の年間最大値と、日積算冷熱生成量の年間最大値からなる比</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 </tbody>
@@ -6609,15 +6609,6 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 θ'_{w,C,i,d} = a_{C,i} R_{Q,i,d}+b_{C,i} \\
 k_{H,i,d} = c_{H,i} R_{Q,i,d}+d_{H,i} \\
 k_{C,i,d} = c_{C,i} R_{Q,i,d}+d_{C,i}\]
-</div>
-</div>
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[R_{Q,i,d} = \frac{|Q_{AC,ahu,c,i,d}^{MAX}| + |Q_{AC,ahu,h,i,d}^{MAX}|}{|Q_{AC,ahu,c,i,d}^{MAX} |+|Q_{AC,ahu,h,i,d}^{MAX}|} = \frac{Q_{AC,ahu,c,i,d}^{MAX} + Q_{AC,ahu,h,i,d}^{MAX}}{ Q_{AC,ahu,c,i,d}^{MAX} - Q_{AC,ahu,h,i,d}^{MAX} }\]
 </div>
 </div>
 </div>
@@ -6709,6 +6700,25 @@ k_{C,i,d} = c_{C,i} R_{Q,i,d}+d_{C,i}\]
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>\(R_{Q,i,d}\)は次式で算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[R_{Q,i,d} = \frac{ | Q_{AC,ref,i,d,C}^{MAX} | - | Q_{AC,ref,i,d,H}^{MAX} |  }{ | Q_{AC,ref,i,d,C}^{MAX} |  + | Q_{AC,ref,i,d,H}^{MAX} | }  \\\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>ここで、
+\(Q_{AC,ref,i,d,H}^{MAX}\) は、熱源群 i の日積算温熱生成量の年間最大値、
+\(Q_{AC,ref,i,d,C}^{MAX}\) は、熱源群 i の日積算冷熱生成量の年間最大値であるとする。<br>
+ただし、熱源群 i の日積算温熱生成量の年間最大値が0である場合は、\(Q_{AC,ref,i,d,H}^{MAX}\) は \(Q_{AC,ref,i,d,C}^{MAX}\) と等しいとする。<br>
+また、熱源群 i の日積算冷熱生成量の年間最大値が0である場合は、\(Q_{AC,ref,i,d,C}^{MAX}\) は \(Q_{AC,ref,i,d,H}^{MAX}\) と等しいとする。</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>

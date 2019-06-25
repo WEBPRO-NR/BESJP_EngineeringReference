@@ -12380,7 +12380,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect3">
 <h4 id="_d_1_標準日積算湯使用量標準室使用条件"><a class="link" href="#_d_1_標準日積算湯使用量標準室使用条件">D.1 標準日積算湯使用量（標準室使用条件）</a></h4>
 <div class="paragraph">
-<p>　日積算湯使用量は、給湯対象室rの室用途に応じて定められている。日積算湯使用量は、ROOM_SPEC_H28.csv のAK列〜AN列に記されている。</p>
+<p>　標準日積算湯使用量は、給湯対象室rの室用途に応じて定められている。標準日積算湯使用量は、ROOM_SPEC_H28.csv のAK列〜AN列に記されている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 195. 出力</caption>
@@ -12425,6 +12425,11 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>標準日積算湯使用量の単位は室用途によって異なり、[L/人日] か [L/m2日] で規定されている。
+単位については、ROOM_SPEC_H28.csv の AE列 に記されている。
+単位が[L/人日]の場合については、ROOM_SPEC_H28.csv の J列で指定される 人員密度参照値（人/m2） を乗じて、床面積あたりの値に変換する。</p>
+</div>
 <div class="paragraph">
 <p>ここで、「ホテル等・客室」の「シャワー」用途の日積算湯使用量については、以下の想定で算出されている。<br>
 　　10.5分／人　×　10 L/分　×　0.75（同時使用率） = 79 L/人<br></p>

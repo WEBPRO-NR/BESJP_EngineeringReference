@@ -5353,7 +5353,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[q_{AC,pump,base,i,d} = \sum \{q_{AC,pump,i,j,rated} │ j ≤ N_{AC,pump,i,d}　and　C_{i,j} \}\]
+\[q_{AC,pump,base,i,d} = \sum \{q_{AC,pump,i,j,rated} \mid j ≤ N_{AC,pump,i,d} \land C_{i,j} \}\]
 </div>
 </div>
 </div>
@@ -5362,7 +5362,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[N_{AC,pump,i,VWV,d}  = count \{ j | j≤N_{AC,pump,i,d}  and C_{i,j} \}\]
+\[N_{AC,pump,i,VWV,d}  = count \{ j \mid j≤N_{AC,pump,i,d} \land \lnot C_{i,j} \}\]
 </div>
 </div>
 </div>

@@ -2168,7 +2168,7 @@ f_{AC,pump,i,d} = f_{AC,pump,i} ( \max⁡(L_{AC,pump,i,d}, L_{AC,pump,i,j,min} )
 f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)
 ++++++++++++++++++++++++++++++++++++++++++++
 
-a-2) stem:[L_{AC,pump,i,d}<1.0] の場合
+a-2) stem:[L_{AC,pump,i,d}≥1.0] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 f_{AC,pump,i,d} = f_{AC,pump,over}

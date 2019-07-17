@@ -537,7 +537,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_4_1_はじめに">4.1 はじめに</a>
 <ul class="sectlevel3">
-<li><a href="#_4_1_1_用語の定義">4.1.1 用語の定義</a></li>
+<li><a href="#_4_1_1_適用範囲">4.1.1 適用範囲</a></li>
+<li><a href="#_4_1_2_用語の定義">4.1.2 用語の定義</a></li>
+<li><a href="#_4_1_3_入出力変数一覧">4.1.3 入出力、変数一覧</a></li>
 </ul>
 </li>
 <li><a href="#_4_2_照明設備の年間一次エネルギー消費量">4.2 照明設備の年間一次エネルギー消費量</a></li>
@@ -550,6 +552,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_4_4_室の形状に応じて定められる係数">4.4 室の形状に応じて定められる係数</a></li>
+<li><a href="#_4_5_照明点灯時間">4.5 照明点灯時間</a></li>
 <li><a href="#_附属書c照明">附属書C（照明）</a>
 <ul class="sectlevel3">
 <li><a href="#_c_1_室の形状に応じて定められる係数の設定根拠">C.1 室の形状に応じて定められる係数の設定根拠</a></li>
@@ -10379,60 +10382,297 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <h2 id="_4_照明設備の評価方法"><a class="link" href="#_4_照明設備の評価方法">4. 照明設備の評価方法</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>照明設備の一次エネルギー消費量算出ロジックを示す。</p>
+<p>照明設備の一次エネルギー消費量の算出ロジックを示す。</p>
 </div>
 <div class="sect2">
 <h3 id="_4_1_はじめに"><a class="link" href="#_4_1_はじめに">4.1 はじめに</a></h3>
 <div class="sect3">
-<h4 id="_4_1_1_用語の定義"><a class="link" href="#_4_1_1_用語の定義">4.1.1 用語の定義</a></h4>
+<h4 id="_4_1_1_適用範囲"><a class="link" href="#_4_1_1_適用範囲">4.1.1 適用範囲</a></h4>
+<div class="paragraph">
+<p>　評価対象となる照明設備は、次のように定義する。<br>
+a) 主として作業上または活動上必要な照明を確保するために屋内もしくは屋外（照らす範囲が明確である屋外駐車場やピロティ等に限る）に設けられる照明設備。<br>
+b) アンビエント照明と一体で計画され、設計図書上にその配置や仕様等が記されているタスク照明。<br>
+c) 明視性確保が主たる役割であるが、明視性確保以外の役割も併せて備える照明設備（階段通路誘導灯等）<br></p>
+</div>
+<div class="paragraph">
+<p>　一方、次に示す照明設備は、評価の対象とはしない。<br>
+a) 避難用、救命用その他特殊な目的のために設けられた照明設備（航空障害灯、ヘリポート灯火、進入口赤色灯等）+
+b) 安全性確保のための照明設備（誘導灯、非常時のみ点灯する非常灯等）<br>
+c) 明視性確保のための照明設備のうち、以下に掲げるもの<br>
+・タスク照明など、コンセント接続される照明器具であり、設計図書上に記されていないもの。<br>
+・高度な機能や目的を有する照明設備（手術室における無影灯等）<br>
+・常時点灯されず、年間点灯時間が非常に短い室の照明（設備シャフト等）。<br>
+・常時点灯されないとは、年間点灯時間が50時間程度（1週間に1時間程度）以下であるものを目安とする。<br>
+d) 演出性確保のためのカラー照明（ショールームにおける展示照明、舞台や宴会場、美術館における演出のための照明、広告灯等）</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_1_2_用語の定義"><a class="link" href="#_4_1_2_用語の定義">4.1.2 用語の定義</a></h4>
 <div class="sect4">
-<h5 id="_4_1_1_1照明設備"><a class="link" href="#_4_1_1_1照明設備">4.1.1.1　照明設備</a></h5>
+<h5 id="_4_1_2_1照明設備"><a class="link" href="#_4_1_2_1照明設備">4.1.2.1　照明設備</a></h5>
 <div class="paragraph">
 <p>　照明環境を形成するために、光源や点灯回路ならびにこれらを含む照明器具を組み合わせて配置し構成した設備。「照明システム」ともいう。1つの室に、複数の異なる照明器具が設備されるときは、同種類の照明器具を1つのグループと解釈する。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_4_1_1_2照明器具"><a class="link" href="#_4_1_1_2照明器具">4.1.1.2　照明器具</a></h5>
+<h5 id="_4_1_2_2照明器具"><a class="link" href="#_4_1_2_2照明器具">4.1.2.2　照明器具</a></h5>
 <div class="paragraph">
 <p>　光源から出る光を制御・調整する光学的機能があり、この機能を果たすために光源を保持、保護するための機械的機能と電気エネルギーを供給、制御する電気的機能を併せ持っている装置。　</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_4_1_1_3照明設備の年間一次エネルギー消費量"><a class="link" href="#_4_1_1_3照明設備の年間一次エネルギー消費量">4.1.1.3　照明設備の年間一次エネルギー消費量</a></h5>
+<h5 id="_4_1_2_3照明設備の年間一次エネルギー消費量"><a class="link" href="#_4_1_2_3照明設備の年間一次エネルギー消費量">4.1.2.3　照明設備の年間一次エネルギー消費量</a></h5>
 <div class="paragraph">
 <p>　実際に建設される建築物の評価対象とするすべての室に設けられた照明設備が、標準的な室形状（室指数2.5）の室に設備されたときに、一年間に消費すると計算上予想される仮想的な一次エネルギー消費量。照明制御システムが導入されるときは、そのエネルギー削減効果が反映される。単位はMJ/年。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_4_1_1_4照明設備の標準一次エネルギー消費量原単位"><a class="link" href="#_4_1_1_4照明設備の標準一次エネルギー消費量原単位">4.1.1.4　照明設備の標準一次エネルギー消費量原単位</a></h5>
+<h5 id="_4_1_2_4照明設備の標準一次エネルギー消費量原単位"><a class="link" href="#_4_1_2_4照明設備の標準一次エネルギー消費量原単位">4.1.2.4　照明設備の標準一次エネルギー消費量原単位</a></h5>
 <div class="paragraph">
 <p>　建築物におけるさまざまな室において、その時々の最も一般的な照明方式、照明器具等により構成される照明設備が、標準的な室形状（室指数2.5）の室に設備されたときに、一年間に消費すると計算上予想される単位床面積（1㎡）当たりの仮想的な一次エネルギー消費量。単位は MJ/m2/年。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_4_1_1_5照明器具の消費電力"><a class="link" href="#_4_1_1_5照明器具の消費電力">4.1.1.5　照明器具の消費電力</a></h5>
+<h5 id="_4_1_2_5照明器具の消費電力"><a class="link" href="#_4_1_2_5照明器具の消費電力">4.1.2.5　照明器具の消費電力</a></h5>
 <div class="paragraph">
 <p>　照明器具1台あたりの消費電力（安定器を必要とする照明器具はその損失を含む）。単位はW。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_4_1_1_6年間照明点灯時間"><a class="link" href="#_4_1_1_6年間照明点灯時間">4.1.1.6　年間照明点灯時間</a></h5>
+<h5 id="_4_1_2_6年間照明点灯時間"><a class="link" href="#_4_1_2_6年間照明点灯時間">4.1.2.6　年間照明点灯時間</a></h5>
 <div class="paragraph">
 <p>　各室において照明器具が点灯されると予測される時間の年間合計値。照明設備の実際の運用による点灯時間の長短の影響を避けて客観的な評価を行うため、共通の前提として標準室使用条件により室用途別に設定される条件である。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_4_1_1_7照明制御システム"><a class="link" href="#_4_1_1_7照明制御システム">4.1.1.7　照明制御システム</a></h5>
+<h5 id="_4_1_2_7照明制御システム"><a class="link" href="#_4_1_2_7照明制御システム">4.1.2.7　照明制御システム</a></h5>
 <div class="paragraph">
 <p>　照明設備のエネルギー消費量の削減（低減）を図るため、各種センサやタイマなどにより、自動的に調光・点滅するためのシステム。当該制御が採用されるときは、照明設備の年間一次エネルギー消費量にその削減効果が反映される。</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_4_1_1_8室指数"><a class="link" href="#_4_1_1_8室指数">4.1.1.8　室指数</a></h5>
+<h5 id="_4_1_2_8室指数"><a class="link" href="#_4_1_2_8室指数">4.1.2.8　室指数</a></h5>
 <div class="paragraph">
 <p>　室の間口、奥行、照明器具の光源高さの関係を表す数値。この値が大きいほど、光源から作業面に直接到達する光束が多くなるため、照明率（光源から出力された光束のうち、相互反射成分も含めて作業面に到達する光束の割合）が大きくなり、照明の効率が向上する。</p>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_4_1_3_入出力変数一覧"><a class="link" href="#_4_1_3_入出力変数一覧">4.1.3 入出力、変数一覧</a></h4>
+<div class="paragraph">
+<p>　本章全体における入力、出力、共通の定数は下表の通りである。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 162. 入力</caption>
+<colgroup>
+<col style="width: 11.7647%;">
+<col style="width: 29.4117%;">
+<col style="width: 11.7647%;">
+<col style="width: 23.5294%;">
+<col style="width: 23.5295%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">入力シート</th>
+<th class="tableblock halign-left valign-top">XML要素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの建物用途、室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ①建物用途、①室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素にあるBuildingType、RoomType</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(H_{r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの器具高さ（天井高）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ①天井高</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素のRoomHeight</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの間口寸法</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ②室の間口</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素のWidth</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの奥行寸法</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ③室の奥行</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素のDepth</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(K_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの室指数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ④室指数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素のRoomIndex</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの一台あたりの消費電力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W/台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑥定格消費電力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のPower</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{L,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの設置台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑦台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のCount</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC1,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑧在室検知制御</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のOccupantSensing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC2,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑨明るさ検知制御</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のIlluminanceSensing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC3,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑩タイムスケジュール制御</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のTimeSchedule</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC4,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑪初期照度補正機能</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のInitialIlluminationCorrection</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{room}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">建築物全体における照明計算対象室の数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素の個数</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rに設置される照明器具の種類の数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素にあるLightingUnit要素の個数</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 163. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">照明設備の一次エネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 164. 共通の定数</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">定数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">値</th>
+<th class="tableblock halign-left valign-top">単位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{prim,e}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">電気の量 1kWh を熱量に換算する係数（告示265号における別表第1）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9760</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/kWh</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 165. 中間変数</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの形状によって定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{L,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの制御等の方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC1,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC2,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC3,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC4,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の有無によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの照明設備の年間点灯時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -10441,7 +10681,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>照明設備の年間一次エネルギー消費量 \(E_{L}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 162. 入力</caption>
+<caption class="title">表 166. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10470,6 +10710,18 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{room}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">建築物全体における照明計算対象室の数</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rに設置される照明器具の種類の数</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{L,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの制御等の方法に応じて定められる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
@@ -10479,30 +10731,18 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{L,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの形状によって定められる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力 もしくは 4.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{L,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rの室用途によって定まる「照明設備の年間点灯時間」</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの照明設備の年間点灯時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">標準室使用条件</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{L,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rに設置される照明器具の種類の数</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{room}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">建築物全体における照明計算対象室の数</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.5</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 163. 出力</caption>
+<caption class="title">表 167. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10536,11 +10776,13 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 </div>
 <div class="paragraph">
-<p>照明器具の消費電力 \(E_{L,r,i}\)［W］は、室rに設置される照明器具iの1台あたりの消費電力であり、安定器を必要とする照明器具はその損失を含んだ値であるとする。申請時点において、照明器具の消費電力が不明である場合は、一般社団法人照明器具工業会のガイド114の最新版を参照して値を決定することも可能である。
-照明設備の年間運転時間\(T_{L,r}\)[時間] には、当該照明設備が設置される室rの室用途によって定まる標準室使用条件における年間照明点灯時間を用いる。<br>
-照明設備の制御の方式に応じて定められる係数 \(F_{L,r,i}\)［－］は、照明器具iに対して各種自動制御（自動的に行えるもののみを対象とする）を導入した場合のエネルギー削減係数である。係数 \(F_{L,r,i}\) の算出方法は次の「4. 制御の方式に応じて定められる係数」で規定される。<br>
-照明設備が設置される室rの形状によって定められる係数\(C_{L,r}\)［－］は、照明対象室の室指数による補正係数である。係数 \(C_{L,r}\) の算出方法は次の「4.室の形状によって定められる係数」で規定される。<br>
-係数\(f_{prim,e}\)  は電気の量1kWhを熱量に換算する係数であり、告示265号における別表第1に記載されている値を用いる。</p>
+<p>照明器具の消費電力 \(E_{L,r,i}\)［W］は、室rに設置される照明器具iの1台あたりの消費電力であり、安定器を必要とする照明器具はその損失を含んだ値であるとする。<br>
+申請時点において、照明器具の消費電力が不明である場合は、一般社団法人照明器具工業会のガイド114の最新版を参照して値を決定することも可能である。</p>
+</div>
+<div class="paragraph">
+<p>照明設備の年間運転時間\(T_{L,r}\)[時間] には、当該照明設備が設置される室rの建物用途・室用途によって定まる標準室使用条件における年間照明点灯時間を用いる。<br>
+照明設備の制御の方式に応じて定められる係数 \(F_{L,r,i}\)［－］は、照明器具iに対して各種自動制御（自動的に行えるもののみを対象とする）を導入した場合のエネルギー削減係数である。係数 \(F_{L,r,i}\) の算出方法は次の「4.3 制御等の方式に応じて定められる係数」で規定される。<br>
+照明設備が設置される室rの形状によって定められる係数\(C_{L,r}\)［－］は、照明対象室の室指数による補正係数である。係数 \(C_{L,r}\) の算出方法は次の「4.4 室の形状に応じて定められる係数」で規定される。</p>
 </div>
 </div>
 <div class="sect2">
@@ -10549,7 +10791,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>制御等の方式に応じて定められる係数 \(F_{L,r,i}\)を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 164. 入力</caption>
+<caption class="title">表 168. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10567,32 +10809,32 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC1,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">在室検知制御の方式によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.4.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC2,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">明るさ検知制御の方式によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.4.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC3,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">タイムスケジュール制御の方式によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.4.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC4,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">初期照度補正機能の有無によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の有無によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.4.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.4</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 165. 出力</caption>
+<caption class="title">表 169. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10610,8 +10852,8 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{L,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">照明設備iの制御等の方法に応じて定められる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの制御等の方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -10626,7 +10868,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 </div>
 <div class="paragraph">
-<p>係数 \(F_{LC1,r,i}\)、 \(F_{LC2,r,i}\)、 \(F_{LC3,r,i}\)、 \(F_{LC4,r,i}\)は、それぞれ「在室検知制御の方式によって決まる係数」、「明るさ検知制御の方式によって決まる係数」、「タイムスケジュール制御の方式によって決まる係数」、「初期照度補正機能の有無によって決まる係数」である。それぞれの制御について、その動作方式に応じて値を規定している。
+<p>係数 \(F_{LC1,r,i}\)、 \(F_{LC2,r,i}\)、 \(F_{LC3,r,i}\)、 \(F_{LC4,r,i}\)は、それぞれ「在室検知制御の方式によって決まる係数（4.4.1）」、「明るさ検知制御の方式によって決まる係数（4.4.2）」、「タイムスケジュール制御の方式によって決まる係数（4.4.3）」、「初期照度補正機能の有無によって決まる係数（4.4.4）」である。それぞれの制御について、その動作方式に応じて値を規定している。
 　制御の方式に応じて定められる係数\(F_{L,r,i}\)は、各種の照明制御システムの導入により、実質的な照明消費エネルギーの低減を図る場合に、その低減分を効果に応じて削減する（1－効果率）に相当するものである。<br>
 　照明設備の省エネルギー化のために採用される制御や機能について、次の（a）～（d）の4つのカテゴリに分類し、それぞれについて動作方式毎に係数を規定している。<br>
 （a）在室検知制御<br>
@@ -10638,11 +10880,61 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 <div class="sect3">
 <h4 id="_4_3_1_在室検知制御の方式によって決まる係数"><a class="link" href="#_4_3_1_在室検知制御の方式によって決まる係数">4.3.1 在室検知制御の方式によって決まる係数</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 170. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC1,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 171. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC1,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 166</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
+<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 172</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
 </div>
 <table id="Table441A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 166. 在室検知制御の方式による係数</caption>
+<caption class="title">表 172. 在室検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -10696,11 +10988,61 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 <div class="sect3">
 <h4 id="_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更"><a class="link" href="#_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更">4.3.2 明るさ検知制御の方式によって決まる係数【Ver.2.4から変更】</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 173. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC2,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 174. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC2,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 167</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 175</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table442A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 167. 明るさ検知制御の方式による係数</caption>
+<caption class="title">表 175. 明るさ検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -10784,11 +11126,61 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 <div class="sect3">
 <h4 id="_4_3_3_タイムスケジュール制御の方式によって決まる係数"><a class="link" href="#_4_3_3_タイムスケジュール制御の方式によって決まる係数">4.3.3 タイムスケジュール制御の方式によって決まる係数</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 176. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC3,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 177. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC3,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>|タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 168</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 178</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table443A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 168. タイムスケジュール制御の方式による係数</caption>
+<caption class="title">表 178. タイムスケジュール制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -10828,11 +11220,61 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 <div class="sect3">
 <h4 id="_4_3_4_初期照度補正機能の有無によって決まる係数"><a class="link" href="#_4_3_4_初期照度補正機能の有無によって決まる係数">4.3.4 初期照度補正機能の有無によって決まる係数</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 179. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC4,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 180. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC4,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の有無によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 169</a>に示すとおり、機能の有無によって係数 は定まる。</p>
+<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 181</a>に示すとおり、機能の有無によって係数 は定まる。</p>
 </div>
 <table id="Table444A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 169. 初期照度補正機能の有無による係数</caption>
+<caption class="title">表 181. 初期照度補正機能の有無による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -10884,10 +11326,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect2">
 <h3 id="_4_4_室の形状に応じて定められる係数"><a class="link" href="#_4_4_室の形状に応じて定められる係数">4.4 室の形状に応じて定められる係数</a></h3>
 <div class="paragraph">
-<p>室の形状によって定められる係数 \(C_{L,r}\)[-]は、室 の室指数 \(K_{L,r}\)[-]によって定める。</p>
+<p>室の形状によって定められる係数 \(C_{L,r}\)[-]は、室rの室指数 \(K_{L,r}\)[-]によって定める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 170. 入力</caption>
+<caption class="title">表 182. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10904,6 +11346,12 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(K_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの室指数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの間口寸法</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
@@ -10917,14 +11365,14 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(H_{r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rの器具高さ（天井高と作業面高さの差）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの天井高</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 171. 出力</caption>
+<caption class="title">表 183. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10949,7 +11397,8 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <div class="paragraph">
-<p>室指数 \(K_{L,r}\)は次式で求める。</p>
+<p>室指数 \(K_{L,r}\)は、入力されていればその値を使用する。
+室指数 \(K_{L,r}\)の入力がなく、\(L_{r}\)、\(D_{r}\)、\(H_{r}\)が入力されている場合は、次式で求める。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -10961,10 +11410,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 </div>
 <div class="paragraph">
-<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 172</a>にて規定される。</p>
+<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 184</a>にて規定される。</p>
 </div>
 <table id="Table34A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 172. 室の形状によって定められる係数</caption>
+<caption class="title">表 184. 室の形状によって定められる係数</caption>
 <colgroup>
 <col style="width: 7.6923%;">
 <col style="width: 15.3846%;">
@@ -11005,6 +11454,65 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </div>
 <div class="paragraph">
 <p>　係数\(C_{L,r}\)［-］は室指数\(K_{L,r}\)［-］の値により定められる。室指数が小さい室は照明率が小さく、単位床面積あたりのエネルギー消費量はより大きくなる傾向にある。基準一次エネルギー消費量は室指数2.5を想定しており、室指数が2.5より小さい室については、1より小さい係数を掛けて、算出する設計一次エネルギー消費量を割り引く。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_5_照明点灯時間"><a class="link" href="#_4_5_照明点灯時間">4.5 照明点灯時間</a></h3>
+<div class="paragraph">
+<p>室rの照明点灯時間 \(T_{L,r}\) を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 185. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの建物用途、室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 186. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの照明設備の年間点灯時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>\(T_{L,r}\) は 室ｒの建物用途・室用途に応じて、標準室使用条件にて定められている。</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -11049,10 +11557,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 　建築物の廊下など、主として視作業を伴わない執務者等の移動のための室において、人感センサ等により在室していると判断される箇所の照明設備を、急激な明るさの変化による光環境の質的な低下が生じないよう、在室時には100%点灯、それ以外の場合に調光により減光することでエネルギー消費削減を図る制御の方式である。国土交通省による建築基準整備促進事業の実態調査における廊下及び階段におけるOn-Off制御の場合の削減率のデータ等より推定し、減光の場合においても20%程度の削減が見込まれることからエネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table441B">表 173</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table441B">表 187</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table441B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 173. 在室検知制御の各方式の判断条件</caption>
+<caption class="title">表 187. 在室検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 21.4285%;">
@@ -11134,10 +11642,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 　平成21年基準のCEC/Lにおける評価法と同様に、20%のエネルギー削減効果があると想定し、エネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table442B">表 174</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table442B">表 188</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table442B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 174. 明るさ検知制御の各方式の判断条件</caption>
+<caption class="title">表 188. 明るさ検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 21.4285%;">
@@ -11214,10 +11722,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 　建築物の照明設備に要求される照度レベルが、事務所ビルの始業前や昼休みと残業時間のように、時刻で異なる場合に、あらかじめ設定された時刻に消灯する照明制御システムである。建築基準整備促進事業の実態調査における消灯による削減率のデータ等より10%程度の削減率が見込まれることから、エネルギー削減係数は0.90とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table443B">表 175</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table443B">表 189</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table443B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 175. タイムスケジュール制御の各方式の判断条件</caption>
+<caption class="title">表 189. タイムスケジュール制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 16.6666%;">
@@ -11266,10 +11774,10 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>　明るさセンサ・タイマーを利用した点灯時間による光源の光束低下を見込んだ調光制御であり、建築物の完成直後あるいはランプ交換及び器具清掃初期の過剰照度を抑制（初期照度を補正）し、消費電力量の低減を図るものである。初期照度補正制御は、平成21年基準のCEC/Lにおいては「適正照度制御」と表されている。平成5年に照明設備が省エネ法の規制対象に追加されたときに、「初期照度補正制御」の用語で提案されたが、法律用語に馴染まないとして「適正照度制御」となったいきさつがあるが、本基準では、後述するカテゴリ（f）明るさセンサ等による照度調整調光制御との違いを明確にするため、制御の内容をより適切に示す当初の「初期照度補正制御」とした。<br>
 　経年による光束量の低下を考慮した初期照度の補正の既存の予測カーブより、初期照度補正制御のエネルギー削減係数は、平成21年基準のCEC/Lと同じ0.85とした。LEDの係数については、照明工業会技術仕様の設計例の保守率0.885を安全側に四捨五入して0.90と想定し、この条件下で係数を算出すると0.95とした。<br>
 なお、初期照度補正制御の方法には、天井面に明るさ検知センサを設置し、作業面の明るさを検出することにより調整する方法（明るさセンサを利用した方法）と、明るさの減衰予測カーブのデータをあらかじめ照明設備に記憶させて、点灯時間に応じてタイマにより明るさを変化させる方法（タイマを利用した方法）の2つがあり、両方とも評価対象とし、同じエネルギー削減係数を適用する。
-どの方式に属するかについては、<a href="#Table444B">表 176</a>に示すハードウェア等の条件によるものとする。</p>
+どの方式に属するかについては、<a href="#Table444B">表 190</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table444B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 176. 初期照度補正機能の各方式の判断条件</caption>
+<caption class="title">表 190. 初期照度補正機能の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -11335,7 +11843,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 本省で使用する共通の変数を以下に示す。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 177. 定数</caption>
+<caption class="title">表 191. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11431,7 +11939,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 178. 入力</caption>
+<caption class="title">表 192. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11474,7 +11982,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 179. 出力</caption>
+<caption class="title">表 193. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11499,7 +12007,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 180. 定数</caption>
+<caption class="title">表 194. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11576,7 +12084,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect2">
 <h3 id="_5_3_年間給湯負荷"><a class="link" href="#_5_3_年間給湯負荷">5.3 年間給湯負荷</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 181. 入力</caption>
+<caption class="title">表 195. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11613,7 +12121,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 182. 出力</caption>
+<caption class="title">表 196. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11638,7 +12146,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 183. 定数</caption>
+<caption class="title">表 197. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11678,7 +12186,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect2">
 <h3 id="_5_4_太陽熱利用システムの熱利用量"><a class="link" href="#_5_4_太陽熱利用システムの熱利用量">5.4 太陽熱利用システムの熱利用量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 184. 入力</caption>
+<caption class="title">表 198. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11709,7 +12217,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 185. 出力</caption>
+<caption class="title">表 199. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11734,7 +12242,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 186. 定数</caption>
+<caption class="title">表 200. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11829,7 +12337,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect2">
 <h3 id="_5_6_日積算湯使用量"><a class="link" href="#_5_6_日積算湯使用量">5.6 日積算湯使用量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 187. 入力</caption>
+<caption class="title">表 201. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11896,7 +12404,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 188. 出力</caption>
+<caption class="title">表 202. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11958,7 +12466,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect2">
 <h3 id="_5_7_年間配管熱損失量"><a class="link" href="#_5_7_年間配管熱損失量">5.7 年間配管熱損失量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 189. 入力</caption>
+<caption class="title">表 203. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11995,7 +12503,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 190. 出力</caption>
+<caption class="title">表 204. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12020,7 +12528,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 191. 定数</caption>
+<caption class="title">表 205. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12066,7 +12574,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <div class="sect2">
 <h3 id="_5_8_配管長さ"><a class="link" href="#_5_8_配管長さ">5.8 配管長さ</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 192. 入力</caption>
+<caption class="title">表 206. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12091,7 +12599,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 193. 出力</caption>
+<caption class="title">表 207. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12116,7 +12624,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 194. 定数</caption>
+<caption class="title">表 208. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12170,7 +12678,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>　標準日積算湯使用量は、給湯対象室rの室用途に応じて定められている。標準日積算湯使用量は、ROOM_SPEC_H28.csv のAK列〜AN列に記されている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 195. 出力</caption>
+<caption class="title">表 209. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12252,7 +12760,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>配管保温仕様は、下表のとおり「管径」と「保温材の厚さ」から定まる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 196. 配管保温仕様</caption>
+<caption class="title">表 210. 配管保温仕様</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 77.7778%;">
@@ -12294,7 +12802,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>湯使用量削減率は、節湯器具の種類毎に定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 197. 出力</caption>
+<caption class="title">表 211. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12328,7 +12836,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>まず、節湯器具の種類及びその定義は以下の通りとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 198. 節湯器具の種類</caption>
+<caption class="title">表 212. 節湯器具の種類</caption>
 <colgroup>
 <col style="width: 28.5714%;">
 <col style="width: 71.4286%;">
@@ -12383,7 +12891,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>配管周囲温度は地域区分によって定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 199. 出力</caption>
+<caption class="title">表 213. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12414,7 +12922,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 暖房期は22℃、中間期は24℃、冷房期は26℃とする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 200. 空調機の運転モードの設定</caption>
+<caption class="title">表 214. 空調機の運転モードの設定</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 7.1428%;">
@@ -12579,7 +13087,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>給湯配管の線熱損失係数 \(k_{W,i}\) [W/m・K]は、配管の保温仕様（D.2）及び配管接続口径 \(k_{W,i}\)［㎜］（入力）を基に、下表により求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 201. 出力</caption>
+<caption class="title">表 215. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12604,7 +13112,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 202. 配管の熱伝導率</caption>
+<caption class="title">表 216. 配管の熱伝導率</caption>
 <colgroup>
 <col style="width: 29.4117%;">
 <col style="width: 17.647%;">
@@ -12715,7 +13223,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>日平均給水温度は地域区分毎に定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 203. 出力</caption>
+<caption class="title">表 217. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12757,7 +13265,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 なお、この算出方法は、住宅事業建築主の判断基準における日平均給水温度の算出法を引用している</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 204. 日平均給水温度推定式の係数</caption>
+<caption class="title">表 218. 日平均給水温度推定式の係数</caption>
 <colgroup>
 <col style="width: 42.8571%;">
 <col style="width: 28.5714%;">
@@ -12865,7 +13373,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 205. 入力</caption>
+<caption class="title">表 219. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12902,7 +13410,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 206. 出力</caption>
+<caption class="title">表 220. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12939,7 +13447,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <div class="sect2">
 <h3 id="_6_3_昇降機の年間電力消費量"><a class="link" href="#_6_3_昇降機の年間電力消費量">6.3 昇降機の年間電力消費量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 207. 入力</caption>
+<caption class="title">表 221. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12982,7 +13490,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 208. 出力</caption>
+<caption class="title">表 222. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13022,7 +13530,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <div class="sect2">
 <h3 id="_6_4_速度制御方式に応じて定められる係数"><a class="link" href="#_6_4_速度制御方式に応じて定められる係数">6.4 速度制御方式に応じて定められる係数</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 209. 入力</caption>
+<caption class="title">表 223. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13047,7 +13555,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 210. 出力</caption>
+<caption class="title">表 224. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13072,7 +13580,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 211. 制御方式によって定められる係数</caption>
+<caption class="title">表 225. 制御方式によって定められる係数</caption>
 <colgroup>
 <col style="width: 71.4285%;">
 <col style="width: 28.5715%;">
@@ -13116,7 +13624,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <div id="footer">
 <div id="footer-text">
 Version 2.7.0(201904)<br>
-Last updated 2019-06-24 09:09:56 +0900
+Last updated 2019-07-17 20:51:06 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

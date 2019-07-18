@@ -500,6 +500,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_a_9_内部発熱量">A.9 内部発熱量</a></li>
 <li><a href="#_a_10_二次エネルギー換算">A.10 二次エネルギー換算</a></li>
 <li><a href="#_a_11_室内エンタルピー">A.11 室内エンタルピー</a></li>
+<li><a href="#_a_11_負荷計算のための係数">A.11 負荷計算のための係数</a></li>
 </ul>
 </li>
 </ul>
@@ -922,15 +923,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>日積算室負荷は、各室の外皮構成に基づき単位床面積あたりの日積算定常熱取得を算出し、
 これに「定常熱取得から室負荷に変換するための係数」をかけることにより算出される。</p>
 </div>
-<div class="sect3">
-<h4 id="_2_4_1_室負荷計算対象面積"><a class="link" href="#_2_4_1_室負荷計算対象面積">2.4.1 室負荷計算対象面積</a></h4>
 <div class="paragraph">
-<p>室負荷計算対象面積を算出する。一次エネルギー消費量を計算する場合とPAL＊を計算する場合で異なり、
-一次エネルギー消費量を計算する場合は、各室の床面積が計算対象面積となる。
-PAL＊を計算する場合は、計算対象面積（＝ペリメータ部分床面積）と内部発熱等計算用の床面積が異なり、それぞれを次のように定義する。</p>
+<p>本節全体の入力及び出力は下表のとおりである。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 2. 入力</caption>
+<caption class="title">表 2. 入力（2.4節）</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -953,21 +950,220 @@ PAL＊を計算する場合は、計算対象面積（＝ペリメータ部分�
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(\bar{A}_{room,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iのペリメータゾーン面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{env,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(\hat{A}_{room,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの内部発熱及び外気導入量規定用のペリメータゾーン面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{tc1,d},  a_{tc2,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(冷房)に変換する係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">負荷計算係数データベース</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{th1,d},  a_{th2,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(暖房)に変換する係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">負荷計算係数データベース</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{sc1,d},  a_{sc2,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける日射による定常熱取得を室負荷(冷房)に変換する係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">負荷計算係数データベース</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{dsr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iに属する外皮j への直達日射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iに属する外皮j への天空・反射日射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{nsr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iに属する外皮j への長波長放射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Mode_{d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機の運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(O_{AC,room,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの空調機の稼働状態</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">真偽値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,light,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの照明発熱密度の日積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A9</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,human,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの在室者発熱密度の日積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A9</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,app,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの機器発熱密度の日積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A9</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの熱貫流率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの熱貫流率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W/(\(m^{2}\)・K)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(W_{dir,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの方位</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,c,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(冷房)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,h,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(暖房)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(η_{i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日射熱取得率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(η_{max}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入射角特性の最大値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,room,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの設定温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける日平均外気温</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,ave}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">年間平均外気温</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 3. 出力</caption>
+<caption class="title">表 3. 出力（2.4節）</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,c,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における 室i の日積算室負荷（冷房）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,h,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における 室i の日積算室負荷（暖房）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(\(m^{2}\)・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1.1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_2_4_1_室負荷計算対象面積"><a class="link" href="#_2_4_1_室負荷計算対象面積">2.4.1 室負荷計算対象面積</a></h4>
+<div class="paragraph">
+<p>室負荷計算に使用する計算対象面積と内部発熱等計算用床面積は、それぞれを次のように定義する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 4. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{room,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 5. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -999,22 +1195,10 @@ PAL＊を計算する場合は、計算対象面積（＝ペリメータ部分�
 </table>
 <div class="exampleblock">
 <div class="content">
-<div class="paragraph">
-<p>a) 一次エネルギーの計算の場合</p>
-</div>
 <div class="stemblock">
 <div class="content">
 \[A_{p,i} = A_{room,i} \\
 A_{h,i} = A_{room,i}\]
-</div>
-</div>
-<div class="paragraph">
-<p>b) PAL＊の計算の場合</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[A_{p,i} = \bar{A}_{room,i} \\
-A_{h,i} = \hat{A}_{room,i}\]
 </div>
 </div>
 </div>
@@ -1027,7 +1211,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>外皮からの定常熱取得は「温度差による定常熱取得」と「日射による定常熱取得」に分けて算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 4. 入力</caption>
+<caption class="title">表 6. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1088,7 +1272,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. 出力</caption>
+<caption class="title">表 7. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1184,7 +1368,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>外壁の面積は、入力された外皮面積から窓面積を差し引くことにより算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 入力</caption>
+<caption class="title">表 8. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1215,7 +1399,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 出力</caption>
+<caption class="title">表 9. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1258,7 +1442,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>外壁等の温度差による定常貫流熱取得を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 8. 入力</caption>
+<caption class="title">表 10. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1313,7 +1497,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 9. 出力</caption>
+<caption class="title">表 11. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1380,7 +1564,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>窓等の温度差による定常貫流熱取得を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 10. 入力</caption>
+<caption class="title">表 12. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1429,7 +1613,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 11. 出力</caption>
+<caption class="title">表 13. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1494,7 +1678,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>外壁等の長波長放射による定常貫流熱損失を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 12. 入力</caption>
+<caption class="title">表 14. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1537,7 +1721,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 13. 出力</caption>
+<caption class="title">表 15. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1591,7 +1775,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>窓等の長波長放射による定常貫流熱損失を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 14. 入力</caption>
+<caption class="title">表 16. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1634,7 +1818,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 15. 出力</caption>
+<caption class="title">表 17. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1686,7 +1870,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>外壁等の日射による定常熱取得を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 16. 入力</caption>
+<caption class="title">表 18. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1735,7 +1919,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 17. 出力</caption>
+<caption class="title">表 19. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1804,7 +1988,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>窓等の日射による定常熱取得を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 18. 入力</caption>
+<caption class="title">表 20. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1883,7 +2067,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 19. 出力</caption>
+<caption class="title">表 21. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1963,7 +2147,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 <p>内部発熱による熱取得を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 20. 入力</caption>
+<caption class="title">表 22. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2018,7 +2202,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 21. 出力</caption>
+<caption class="title">表 23. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2077,7 +2261,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 これに「定常熱取得から室負荷に変換するための係数」をかけることにより算出される。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 22. 入力</caption>
+<caption class="title">表 24. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2115,19 +2299,19 @@ A_{h,i} = \hat{A}_{room,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{tc1,d},  a_{tc2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(冷房)に変換する係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">負荷計算係数データベース</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A11</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{th1,d},  a_{th2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(暖房)に変換する係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">負荷計算係数データベース</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A11</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{sc1,d},  a_{sc2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける日射による定常熱取得を室負荷(冷房)に変換する係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">負荷計算係数データベース</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A11</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(O_{AC,room,i,d}\)</p></td>
@@ -2138,7 +2322,7 @@ A_{h,i} = \hat{A}_{room,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 23. 出力</caption>
+<caption class="title">表 25. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2282,7 +2466,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 これらの情報を利用して、各日の空調室の使用時間を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 24. 入力</caption>
+<caption class="title">表 26. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2313,7 +2497,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 25. 出力</caption>
+<caption class="title">表 27. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2372,7 +2556,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <p>空調機群の運転時間は、当該空調機群が空調を行う室の使用時間の和集合として算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 26. 入力</caption>
+<caption class="title">表 28. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2403,7 +2587,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 27. 出力</caption>
+<caption class="title">表 29. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2609,7 +2793,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <p>二次ポンプ群の運転時間は、当該二次ポンプ群が冷温熱を供給する空調機群の運転時間の和集合として算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 28. 入力</caption>
+<caption class="title">表 30. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2640,7 +2824,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 29. 出力</caption>
+<caption class="title">表 31. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2694,7 +2878,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <p>熱源群の運転時間は、当該熱源群が生成した冷温熱を搬送する二次ポンプ群の運転時間の和集合として算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 30. 入力</caption>
+<caption class="title">表 32. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2761,7 +2945,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 31. 出力</caption>
+<caption class="title">表 33. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2885,7 +3069,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <p>各空調機群が処理する日積算室負荷は、空調機群が負荷を処理する室の室負荷を集計することにより算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 32. 入力</caption>
+<caption class="title">表 34. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2928,7 +3112,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 33. 出力</caption>
+<caption class="title">表 35. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2993,7 +3177,7 @@ Q_{AC,ahu,room,h,i,d} = 0\]
 <p>空調機群が処理する外気負荷を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 34. 入力</caption>
+<caption class="title">表 36. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3054,7 +3238,7 @@ Q_{AC,ahu,room,h,i,d} = 0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 35. 出力</caption>
+<caption class="title">表 37. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3206,7 +3390,7 @@ C_{bal} = 0.67\]
 <p>日積算空調負荷は、各空調機群の室負荷に外気負荷を足し合わせて算出する。この際、外気カット制御の導入効果を見込む。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 36. 入力</caption>
+<caption class="title">表 38. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3261,7 +3445,7 @@ C_{bal} = 0.67\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 37. 出力</caption>
+<caption class="title">表 39. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3369,7 +3553,7 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 <p>日付dにおける空調機群iの外気冷房制御による負荷削減量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 38. 入力</caption>
+<caption class="title">表 40. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3430,7 +3614,7 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 39. 出力</caption>
+<caption class="title">表 41. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3505,7 +3689,7 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × (-ΔH_{AC,oa,d}) ×T_{AC,ahu,c,
 <p>空調機群のファンによる発熱量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 40. 入力</caption>
+<caption class="title">表 42. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3566,7 +3750,7 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × (-ΔH_{AC,oa,d}) ×T_{AC,ahu,c,
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 41. 出力</caption>
+<caption class="title">表 43. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3660,7 +3844,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <p>空調機群が処理する空調負荷より、各二次ポンプ群が処理する負荷（二次ポンプ負荷）を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 42. 入力</caption>
+<caption class="title">表 44. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3715,7 +3899,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 43. 出力</caption>
+<caption class="title">表 45. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3819,7 +4003,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <p>二次ポンプの発熱量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 44. 入力</caption>
+<caption class="title">表 46. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3850,7 +4034,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 45. 出力</caption>
+<caption class="title">表 47. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3894,7 +4078,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <p>蓄熱槽の熱損失による熱負荷の増加分を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 46. 入力</caption>
+<caption class="title">表 48. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3919,7 +4103,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 47. 出力</caption>
+<caption class="title">表 49. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -3976,7 +4160,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 熱源機器もポンプと同様に、冷熱を供給する冷熱源システムと温熱を供給する温熱源システムが別々にあると想定して計算を行う。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 48. 入力</caption>
+<caption class="title">表 50. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4025,7 +4209,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 49. 出力</caption>
+<caption class="title">表 51. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4145,7 +4329,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <p>空調機群の定格消費電力は、当該空調機群に属する送風機の消費電力の総和とする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 50. 入力</caption>
+<caption class="title">表 52. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4188,7 +4372,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 51. 出力</caption>
+<caption class="title">表 53. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4229,7 +4413,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <p>空調機群の負荷率は、当該空調機群が処理する空調負荷（コイル負荷）によって定まる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 52. 入力</caption>
+<caption class="title">表 54. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4290,7 +4474,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 53. 出力</caption>
+<caption class="title">表 55. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4411,7 +4595,7 @@ L_{AC,ahu,H,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 <p>風量制御による省エネルギー効果を算出するための係数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 54. 入力</caption>
+<caption class="title">表 56. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4448,7 +4632,7 @@ L_{AC,ahu,H,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 55. 出力</caption>
+<caption class="title">表 57. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4575,7 +4759,7 @@ f_{AC,ahu,H,i,d} = 0\]
 <p>空調機群に属する送風機の消費電力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 56. 入力</caption>
+<caption class="title">表 58. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4618,7 +4802,7 @@ f_{AC,ahu,H,i,d} = 0\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 57. 出力</caption>
+<caption class="title">表 59. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4695,7 +4879,7 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 <p>空調機群iに属する全熱交換器の消費電力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 58. 入力</caption>
+<caption class="title">表 60. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4720,7 +4904,7 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 59. 出力</caption>
+<caption class="title">表 61. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4764,7 +4948,7 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 <p>空調機群の年間一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 60. 入力</caption>
+<caption class="title">表 62. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4831,7 +5015,7 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 61. 出力</caption>
+<caption class="title">表 63. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4931,7 +5115,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <p>二次ポンプ群の定格能力は、設計流量に設計温度差を掛けた値として定義をする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 62. 入力</caption>
+<caption class="title">表 64. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -4968,7 +5152,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 63. 出力</caption>
+<caption class="title">表 65. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5031,7 +5215,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <p>二次ポンプ群の負荷率を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 64. 入力</caption>
+<caption class="title">表 66. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5068,7 +5252,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 65. 出力</caption>
+<caption class="title">表 67. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5130,7 +5314,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <p>二次ポンプ群のポンプ運転台数を算出する。台数制御の有無により運転台数が異なる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 66. 入力</caption>
+<caption class="title">表 68. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5179,7 +5363,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 67. 出力</caption>
+<caption class="title">表 69. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5247,7 +5431,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <p>二次ポンプ群に属するポンプ単体の負荷率を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 68. 入力</caption>
+<caption class="title">表 70. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5302,7 +5486,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 69. 出力</caption>
+<caption class="title">表 71. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5391,7 +5575,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 <p>流量制御方式によって定まる係数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 70. 入力</caption>
+<caption class="title">表 72. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5422,7 +5606,7 @@ f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 71. 出力</caption>
+<caption class="title">表 73. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5557,7 +5741,7 @@ F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}�
 <p>二次ポンプ群に属する二次ポンプの消費電力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 72. 入力</caption>
+<caption class="title">表 74. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5600,7 +5784,7 @@ F_{AC,pump,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 73. 出力</caption>
+<caption class="title">表 75. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5687,7 +5871,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 <p>二次ポンプ群の年間一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 74. 入力</caption>
+<caption class="title">表 76. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5718,7 +5902,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 75. 出力</caption>
+<caption class="title">表 77. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5776,7 +5960,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 <p>熱源群の定格能力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 76. 入力</caption>
+<caption class="title">表 78. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5807,7 +5991,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 77. 出力</caption>
+<caption class="title">表 79. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5851,7 +6035,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 <p>蓄熱槽があるシステムのエネルギー消費量計算に必要となる見かけ上の熱源処理能力（仮想定格能力）を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 78. 入力</caption>
+<caption class="title">表 80. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5900,7 +6084,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 79. 出力</caption>
+<caption class="title">表 81. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -5965,7 +6149,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <p>熱源機器の定格一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 80. 入力</caption>
+<caption class="title">表 82. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6008,7 +6192,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 81. 出力</caption>
+<caption class="title">表 83. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6073,7 +6257,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <p>熱源機器の性能を推定するための、熱源水等の温度（水冷式の場合は冷却水温度、空冷式の場合は外気温度等）を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 82. 入力</caption>
+<caption class="title">表 84. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6128,7 +6312,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 83. 出力</caption>
+<caption class="title">表 85. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6208,7 +6392,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <p>熱源機器のエネルギー消費量を算出するための日平均外気温を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 84. 入力</caption>
+<caption class="title">表 86. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6239,7 +6423,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 85. 出力</caption>
+<caption class="title">表 87. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6292,7 +6476,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <p>日平均外気温度から湿球温度を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 86. 入力</caption>
+<caption class="title">表 88. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6317,7 +6501,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 87. 出力</caption>
+<caption class="title">表 89. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6354,7 +6538,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <p>\(a_{wb},b_{wb}\)は湿球温度変換係数であり、値を次表に示す。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 88. 湿球温度変換係数表</caption>
+<caption class="title">表 90. 湿球温度変換係数表</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 25%;">
@@ -6393,7 +6577,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <p>湿球温度から冷却水温度を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 89. 入力</caption>
+<caption class="title">表 91. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6418,7 +6602,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 90. 出力</caption>
+<caption class="title">表 92. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6465,7 +6649,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <p>地中熱交換器のタイプに基づき、地盤からの冷却水還り温度を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 91. 入力</caption>
+<caption class="title">表 93. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6514,7 +6698,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 92. 中間変数</caption>
+<caption class="title">表 94. 中間変数</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 55.5555%;">
@@ -6556,7 +6740,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 93. 出力</caption>
+<caption class="title">表 95. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6606,7 +6790,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 94. 係数 \(a_{H,i},b_{H,i},c_{H,i},d_{H,i},a_{C,i},b_{C,i},c_{C,i},d_{C,i}\)</caption>
+<caption class="title">表 96. 係数 \(a_{H,i},b_{H,i},c_{H,i},d_{H,i},a_{C,i},b_{C,i},c_{C,i},d_{C,i}\)</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 16.6666%;">
@@ -6727,7 +6911,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <p>最大能力特性を使用して、熱源機器の最大能力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 95. 入力</caption>
+<caption class="title">表 97. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6764,7 +6948,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 96. 出力</caption>
+<caption class="title">表 98. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6795,7 +6979,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 97. 定数</caption>
+<caption class="title">表 99. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6867,7 +7051,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 <p>最大入力特性を使用して、熱源機器の最大入力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 98. 入力</caption>
+<caption class="title">表 100. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6898,7 +7082,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 99. 出力</caption>
+<caption class="title">表 101. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6923,7 +7107,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 100. 定数</caption>
+<caption class="title">表 102. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -6983,7 +7167,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 <p>熱源機器の部分負荷特性を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 101. 入力</caption>
+<caption class="title">表 103. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7014,7 +7198,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 102. 出力</caption>
+<caption class="title">表 104. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7039,7 +7223,7 @@ F = a_{i,j} × θ^4 + b_{i,j} × θ^3 + c_{i,j} × θ^2 + d_{i,j} × θ + e_{i,j
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 103. 定数</caption>
+<caption class="title">表 105. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7110,7 +7294,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 <p>熱源機器の送水温度特性を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 104. 入力</caption>
+<caption class="title">表 106. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7135,7 +7319,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 105. 出力</caption>
+<caption class="title">表 107. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7160,7 +7344,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 106. 定数</caption>
+<caption class="title">表 108. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7216,7 +7400,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 <p>熱源群の負荷率を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 107. 入力</caption>
+<caption class="title">表 109. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7265,7 +7449,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 108. 出力</caption>
+<caption class="title">表 110. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7374,7 +7558,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 <p>熱源群の熱源運転台数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 109. 入力</caption>
+<caption class="title">表 111. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7417,7 +7601,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 110. 出力</caption>
+<caption class="title">表 112. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7474,7 +7658,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 <p>熱源機器単体の一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 111. 入力</caption>
+<caption class="title">表 113. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7547,7 +7731,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 112. 出力</caption>
+<caption class="title">表 114. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7596,7 +7780,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 113. 中間変数</caption>
+<caption class="title">表 115. 中間変数</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 55.5555%;">
@@ -7700,7 +7884,7 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 <p>熱源群の一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 114. 入力</caption>
+<caption class="title">表 116. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7755,7 +7939,7 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 115. 出力</caption>
+<caption class="title">表 117. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7827,7 +8011,7 @@ E_{AC,ref,ctpump,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,ctpump,i,j,d}\]
 <p>全熱源群の年間一次エネルギー消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 116. 入力</caption>
+<caption class="title">表 118. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7882,7 +8066,7 @@ E_{AC,ref,ctpump,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,ctpump,i,j,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 117. 出力</caption>
+<caption class="title">表 119. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -7972,7 +8156,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 その空調機群と熱源群の間に仮想的な二次ポンプ(台数制御無し、温度差0、定格流量0、定格消費電力0、定格流量制御方式)が設置されているとして計算をする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 118. 入力</caption>
+<caption class="title">表 120. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8027,7 +8211,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 119. 出力</caption>
+<caption class="title">表 121. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8068,7 +8252,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <div class="sect3">
 <h4 id="_a_1_外壁性能"><a class="link" href="#_a_1_外壁性能">A.1 外壁性能</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 120. 入力</caption>
+<caption class="title">表 122. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8099,7 +8283,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 121. 出力</caption>
+<caption class="title">表 123. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8144,7 +8328,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <p>ガラスの熱貫流率、日射熱取得率から、窓（ガラス＋建具）の熱貫流率と日射熱取得率を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 122. 入力</caption>
+<caption class="title">表 124. 入力</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -8199,7 +8383,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 123. 出力</caption>
+<caption class="title">表 125. 出力</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -8310,7 +8494,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <p>（参考）窓性能の一覧データベース（<a href="http://www.kenken.go.jp/becc/documents/building/Definitions/WindowHeatTransferPerformance_H30.zip">WindowHeatTransferPerformance_H30.csv</a>）：</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 124. 建具の種類「樹脂」、ガラスの種類「3WgG06」の場合の例</caption>
+<caption class="title">表 126. 建具の種類「樹脂」、ガラスの種類「3WgG06」の場合の例</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -8368,7 +8552,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 125. 窓の熱貫流率への変換係数（建具種類別）＜2018.02更新＞</caption>
+<caption class="title">表 127. 窓の熱貫流率への変換係数（建具種類別）＜2018.02更新＞</caption>
 <colgroup>
 <col style="width: 23.0769%;">
 <col style="width: 15.3846%;">
@@ -8489,7 +8673,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <div class="sect3">
 <h4 id="_a_3_日射量"><a class="link" href="#_a_3_日射量">A.3 日射量</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 126. 入力</caption>
+<caption class="title">表 128. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8550,7 +8734,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 127. 出力</caption>
+<caption class="title">表 129. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8646,7 +8830,7 @@ I_{isr,j,d} = \sum_{t=1}^{24} \{ S_{S,d,t} + S_{D,d,t} \times \sin h_{s,d,t} \} 
 <div class="sect3">
 <h4 id="_a_4_ペリメータゾーン面積"><a class="link" href="#_a_4_ペリメータゾーン面積">A.4 ペリメータゾーン面積</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 128. 入力</caption>
+<caption class="title">表 130. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8683,7 +8867,7 @@ I_{isr,j,d} = \sum_{t=1}^{24} \{ S_{S,d,t} + S_{D,d,t} \times \sin h_{s,d,t} \} 
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 129. 出力</caption>
+<caption class="title">表 131. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8714,7 +8898,7 @@ I_{isr,j,d} = \sum_{t=1}^{24} \{ S_{S,d,t} + S_{D,d,t} \times \sin h_{s,d,t} \} 
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 130. 中間出力</caption>
+<caption class="title">表 132. 中間出力</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 55.5555%;">
@@ -8813,7 +8997,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="sect3">
 <h4 id="_a_5_空調機の運転モード"><a class="link" href="#_a_5_空調機の運転モード">A.5 空調機の運転モード</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 131. 入力</caption>
+<caption class="title">表 133. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8844,7 +9028,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 132. 出力</caption>
+<caption class="title">表 134. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -8885,7 +9069,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 \(month(d)\)は与えられた日付dの月(1月から12月)を取得する関数とする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 133. 空調機の運転モードの設定</caption>
+<caption class="title">表 135. 空調機の運転モードの設定</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 7.1428%;">
@@ -9046,7 +9230,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="sect3">
 <h4 id="_a_6_空調室の設定温度"><a class="link" href="#_a_6_空調室の設定温度">A.6 空調室の設定温度</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 134. 入力</caption>
+<caption class="title">表 136. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9071,7 +9255,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 135. 出力</caption>
+<caption class="title">表 137. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9118,7 +9302,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="sect3">
 <h4 id="_a_7_平均外気温"><a class="link" href="#_a_7_平均外気温">A.7 平均外気温</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 136. 入力</caption>
+<caption class="title">表 138. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9149,7 +9333,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 137. 出力</caption>
+<caption class="title">表 139. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9208,7 +9392,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="sect3">
 <h4 id="_a_8_外気エンタルピー"><a class="link" href="#_a_8_外気エンタルピー">A.8 外気エンタルピー</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 138. 入力</caption>
+<caption class="title">表 140. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9239,7 +9423,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 139. 出力</caption>
+<caption class="title">表 141. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9303,7 +9487,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="sect3">
 <h4 id="_a_9_内部発熱量"><a class="link" href="#_a_9_内部発熱量">A.9 内部発熱量</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 140. 入力</caption>
+<caption class="title">表 142. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9376,7 +9560,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 141. 出力</caption>
+<caption class="title">表 143. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9468,7 +9652,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <div class="sect3">
 <h4 id="_a_10_二次エネルギー換算"><a class="link" href="#_a_10_二次エネルギー換算">A.10 二次エネルギー換算</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 142. 入力</caption>
+<caption class="title">表 144. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9505,7 +9689,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 143. 出力</caption>
+<caption class="title">表 145. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9563,7 +9747,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <div class="sect3">
 <h4 id="_a_11_室内エンタルピー"><a class="link" href="#_a_11_室内エンタルピー">A.11 室内エンタルピー</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 144. 入力</caption>
+<caption class="title">表 146. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9588,7 +9772,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 145. 出力</caption>
+<caption class="title">表 147. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9628,6 +9812,88 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_a_11_負荷計算のための係数"><a class="link" href="#_a_11_負荷計算のための係数">A.11 負荷計算のための係数</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 148. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(R\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">省エネルギー地域区分</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Mode_{d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機の運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^2\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A5</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 149. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{tc1,d},  a_{tc2,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(冷房)に変換する係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{th1,d},  a_{th2,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(暖房)に変換する係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{sc1,d},  a_{sc2,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける日射による定常熱取得を室負荷(冷房)に変換する係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.4</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>負荷計算のための係数は、地域毎、室用途毎、空調機の運転モード毎に規定されている。
+前日が空調日か非空調日かで係数が異なる。</p>
+</div>
 </div>
 </div>
 </div>
@@ -9640,7 +9906,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 本章で使用する共通の定数を以下に示す。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 146. 共通の定数</caption>
+<caption class="title">表 150. 共通の定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9712,7 +9978,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <p>機械換気設備の年間一次エネルギー消費量 \(E_{V}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 147. 入力</caption>
+<caption class="title">表 151. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9743,7 +10009,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 148. 出力</caption>
+<caption class="title">表 152. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9787,7 +10053,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <div class="sect3">
 <h4 id="_3_3_1_送風機のみを用いる場合"><a class="link" href="#_3_3_1_送風機のみを用いる場合">3.3.1 送風機のみを用いる場合</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 149. 入力</caption>
+<caption class="title">表 153. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9830,7 +10096,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 150. 出力</caption>
+<caption class="title">表 154. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9870,7 +10136,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 <p>電気室やエレベータ機械室などのように、一般的に換気をするところを空調機やパッケージユニットを利用して冷房を行う場合については、次式により年間電力消費量 \(E_{V,i}\) [kWh]を求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 151. 入力</caption>
+<caption class="title">表 155. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -9961,7 +10227,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 152. 出力</caption>
+<caption class="title">表 156. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10001,7 +10267,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>換気代替空調機iの年間平均負荷率 \(x_{ac,i}\)　は下表より求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 153. 高効率電動機の採用による係数</caption>
+<caption class="title">表 157. 高効率電動機の採用による係数</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -10035,7 +10301,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>換気代替空調機iの稼働率 \(c_{ac,i}\) 、換気代替空調機iと併用される送風機jの稼働率 \(c_{fan,i}\) は下表より求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 154. 換気代替空調機の年間稼働率</caption>
+<caption class="title">表 158. 換気代替空調機の年間稼働率</caption>
 <colgroup>
 <col style="width: 55.5555%;">
 <col style="width: 22.2222%;">
@@ -10065,7 +10331,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>ここで、「換気代替空調機iと併用される送風機jの外気導入量」は下表のように求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 155. 換気代替空調機iと併用される送風機jの外気導入量</caption>
+<caption class="title">表 159. 換気代替空調機iと併用される送風機jの外気導入量</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -10127,7 +10393,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>機械換気設備の運転効率化のための各種措置について、次のように3つのカテゴリに分類し、それぞれ講じた措置の種類に応じて、係数 \(F_{V1,i}\) 、\(F_{V2,i}\) 、\(F_{V3,i}\) の値を定める。同じカテゴリの中から重複して係数を採用することはできず、各カテゴリの中から何れか1つを選択して値を決定する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 156. 入力</caption>
+<caption class="title">表 160. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10164,7 +10430,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 157. 出力</caption>
+<caption class="title">表 161. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10207,7 +10473,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 158. 高効率電動機の採用による係数</caption>
+<caption class="title">表 162. 高効率電動機の採用による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -10244,7 +10510,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 159. インバータの採用による係数</caption>
+<caption class="title">表 163. インバータの採用による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -10282,7 +10548,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 160. 送風機制御の採用による係数</caption>
+<caption class="title">表 164. 送風機制御の採用による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -10323,7 +10589,7 @@ E_{Vacfan,i} = \sum_{j=1}^{n_{Vfan}}( \frac{ E_{Vfan,i,j}×F_{Vfan,i,j}}{\eta_{m
 <p>　中間期平均外気温度 \(\theta_{oa,m}\) は地域区分毎に下表で定められる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 161. 中間期平均外気温</caption>
+<caption class="title">表 165. 中間期平均外気温</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -10461,7 +10727,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_1_3_記号及び単位"><a class="link" href="#_4_1_3_記号及び単位">4.1.3 記号及び単位</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 162. 記号</caption>
+<caption class="title">表 166. 記号</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -10583,7 +10849,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 163. 共通の定数</caption>
+<caption class="title">表 167. 共通の定数</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 50%;">
@@ -10614,7 +10880,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>　本章全体における入力、出力、共通の定数は下表の通りである。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 164. 入力</caption>
+<caption class="title">表 168. 入力</caption>
 <colgroup>
 <col style="width: 11.7647%;">
 <col style="width: 29.4117%;">
@@ -10726,7 +10992,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 165. 出力</caption>
+<caption class="title">表 169. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 60%;">
@@ -10755,7 +11021,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>照明設備の年間一次エネルギー消費量 \(E_{L}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 166. 入力</caption>
+<caption class="title">表 170. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10816,7 +11082,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 167. 出力</caption>
+<caption class="title">表 171. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10865,7 +11131,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>制御等の方式に応じて定められる係数 \(F_{L,r,i}\)を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 168. 入力</caption>
+<caption class="title">表 172. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10908,7 +11174,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 169. 出力</caption>
+<caption class="title">表 173. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10955,7 +11221,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_3_1_在室検知制御の方式によって決まる係数"><a class="link" href="#_4_3_1_在室検知制御の方式によって決まる係数">4.3.1 在室検知制御の方式によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 170. 入力</caption>
+<caption class="title">表 174. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -10980,7 +11246,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 171. 出力</caption>
+<caption class="title">表 175. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11005,10 +11271,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <div class="paragraph">
-<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 172</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
+<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 176</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
 </div>
 <table id="Table441A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 172. 在室検知制御の方式による係数</caption>
+<caption class="title">表 176. 在室検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -11063,7 +11329,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更"><a class="link" href="#_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更">4.3.2 明るさ検知制御の方式によって決まる係数【Ver.2.4から変更】</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 173. 入力</caption>
+<caption class="title">表 177. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11088,7 +11354,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 174. 出力</caption>
+<caption class="title">表 178. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11113,10 +11379,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <div class="paragraph">
-<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 175</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 179</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table442A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 175. 明るさ検知制御の方式による係数</caption>
+<caption class="title">表 179. 明るさ検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -11201,7 +11467,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_3_3_タイムスケジュール制御の方式によって決まる係数"><a class="link" href="#_4_3_3_タイムスケジュール制御の方式によって決まる係数">4.3.3 タイムスケジュール制御の方式によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 176. 入力</caption>
+<caption class="title">表 180. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11226,7 +11492,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 177. 出力</caption>
+<caption class="title">表 181. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11251,10 +11517,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <div class="paragraph">
-<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 178</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 182</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table443A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 178. タイムスケジュール制御の方式による係数</caption>
+<caption class="title">表 182. タイムスケジュール制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -11295,7 +11561,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_3_4_初期照度補正機能の有無によって決まる係数"><a class="link" href="#_4_3_4_初期照度補正機能の有無によって決まる係数">4.3.4 初期照度補正機能の有無によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 179. 入力</caption>
+<caption class="title">表 183. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11320,7 +11586,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 180. 出力</caption>
+<caption class="title">表 184. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11345,10 +11611,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <div class="paragraph">
-<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 181</a>に示すとおり、機能の有無によって係数 は定まる。</p>
+<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 185</a>に示すとおり、機能の有無によって係数 は定まる。</p>
 </div>
 <table id="Table444A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 181. 初期照度補正機能の有無による係数</caption>
+<caption class="title">表 185. 初期照度補正機能の有無による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -11403,7 +11669,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>室の形状によって定められる係数 \(C_{L,r}\)[-]は、室rの室指数 \(K_{L,r}\)[-]によって定める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 182. 入力</caption>
+<caption class="title">表 186. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11446,7 +11712,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 183. 出力</caption>
+<caption class="title">表 187. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11484,10 +11750,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </div>
 </div>
 <div class="paragraph">
-<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 184</a>にて規定される。</p>
+<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 188</a>にて規定される。</p>
 </div>
 <table id="Table34A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 184. 室の形状によって定められる係数</caption>
+<caption class="title">表 188. 室の形状によって定められる係数</caption>
 <colgroup>
 <col style="width: 7.6923%;">
 <col style="width: 15.3846%;">
@@ -11536,7 +11802,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>室rの照明点灯時間 \(T_{L,r}\) を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 185. 入力</caption>
+<caption class="title">表 189. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11561,7 +11827,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 186. 出力</caption>
+<caption class="title">表 190. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -11631,10 +11897,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 　建築物の廊下など、主として視作業を伴わない執務者等の移動のための室において、人感センサ等により在室していると判断される箇所の照明設備を、急激な明るさの変化による光環境の質的な低下が生じないよう、在室時には100%点灯、それ以外の場合に調光により減光することでエネルギー消費削減を図る制御の方式である。国土交通省による建築基準整備促進事業の実態調査における廊下及び階段におけるOn-Off制御の場合の削減率のデータ等より推定し、減光の場合においても20%程度の削減が見込まれることからエネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table441B">表 187</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table441B">表 191</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table441B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 187. 在室検知制御の各方式の判断条件</caption>
+<caption class="title">表 191. 在室検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 21.4285%;">
@@ -11716,10 +11982,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 　平成21年基準のCEC/Lにおける評価法と同様に、20%のエネルギー削減効果があると想定し、エネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table442B">表 188</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table442B">表 192</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table442B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 188. 明るさ検知制御の各方式の判断条件</caption>
+<caption class="title">表 192. 明るさ検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 21.4285%;">
@@ -11796,10 +12062,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 　建築物の照明設備に要求される照度レベルが、事務所ビルの始業前や昼休みと残業時間のように、時刻で異なる場合に、あらかじめ設定された時刻に消灯する照明制御システムである。建築基準整備促進事業の実態調査における消灯による削減率のデータ等より10%程度の削減率が見込まれることから、エネルギー削減係数は0.90とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table443B">表 189</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table443B">表 193</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table443B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 189. タイムスケジュール制御の各方式の判断条件</caption>
+<caption class="title">表 193. タイムスケジュール制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 16.6666%;">
@@ -11848,10 +12114,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>　明るさセンサ・タイマーを利用した点灯時間による光源の光束低下を見込んだ調光制御であり、建築物の完成直後あるいはランプ交換及び器具清掃初期の過剰照度を抑制（初期照度を補正）し、消費電力量の低減を図るものである。初期照度補正制御は、平成21年基準のCEC/Lにおいては「適正照度制御」と表されている。平成5年に照明設備が省エネ法の規制対象に追加されたときに、「初期照度補正制御」の用語で提案されたが、法律用語に馴染まないとして「適正照度制御」となったいきさつがあるが、本基準では、後述するカテゴリ（f）明るさセンサ等による照度調整調光制御との違いを明確にするため、制御の内容をより適切に示す当初の「初期照度補正制御」とした。<br>
 　経年による光束量の低下を考慮した初期照度の補正の既存の予測カーブより、初期照度補正制御のエネルギー削減係数は、平成21年基準のCEC/Lと同じ0.85とした。LEDの係数については、照明工業会技術仕様の設計例の保守率0.885を安全側に四捨五入して0.90と想定し、この条件下で係数を算出すると0.95とした。<br>
 なお、初期照度補正制御の方法には、天井面に明るさ検知センサを設置し、作業面の明るさを検出することにより調整する方法（明るさセンサを利用した方法）と、明るさの減衰予測カーブのデータをあらかじめ照明設備に記憶させて、点灯時間に応じてタイマにより明るさを変化させる方法（タイマを利用した方法）の2つがあり、両方とも評価対象とし、同じエネルギー削減係数を適用する。
-どの方式に属するかについては、<a href="#Table444B">表 190</a>に示すハードウェア等の条件によるものとする。</p>
+どの方式に属するかについては、<a href="#Table444B">表 194</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table444B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 190. 初期照度補正機能の各方式の判断条件</caption>
+<caption class="title">表 194. 初期照度補正機能の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -11917,7 +12183,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 本省で使用する共通の変数を以下に示す。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 191. 定数</caption>
+<caption class="title">表 195. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12013,7 +12279,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 192. 入力</caption>
+<caption class="title">表 196. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12056,7 +12322,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 193. 出力</caption>
+<caption class="title">表 197. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12081,7 +12347,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 194. 定数</caption>
+<caption class="title">表 198. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12158,7 +12424,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect2">
 <h3 id="_5_3_年間給湯負荷"><a class="link" href="#_5_3_年間給湯負荷">5.3 年間給湯負荷</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 195. 入力</caption>
+<caption class="title">表 199. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12195,7 +12461,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 196. 出力</caption>
+<caption class="title">表 200. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12220,7 +12486,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 197. 定数</caption>
+<caption class="title">表 201. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12260,7 +12526,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect2">
 <h3 id="_5_4_太陽熱利用システムの熱利用量"><a class="link" href="#_5_4_太陽熱利用システムの熱利用量">5.4 太陽熱利用システムの熱利用量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 198. 入力</caption>
+<caption class="title">表 202. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12291,7 +12557,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 199. 出力</caption>
+<caption class="title">表 203. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12316,7 +12582,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 200. 定数</caption>
+<caption class="title">表 204. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12411,7 +12677,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect2">
 <h3 id="_5_6_日積算湯使用量"><a class="link" href="#_5_6_日積算湯使用量">5.6 日積算湯使用量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 201. 入力</caption>
+<caption class="title">表 205. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12478,7 +12744,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 202. 出力</caption>
+<caption class="title">表 206. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12540,7 +12806,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect2">
 <h3 id="_5_7_年間配管熱損失量"><a class="link" href="#_5_7_年間配管熱損失量">5.7 年間配管熱損失量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 203. 入力</caption>
+<caption class="title">表 207. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12577,7 +12843,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 204. 出力</caption>
+<caption class="title">表 208. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12602,7 +12868,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 205. 定数</caption>
+<caption class="title">表 209. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12648,7 +12914,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect2">
 <h3 id="_5_8_配管長さ"><a class="link" href="#_5_8_配管長さ">5.8 配管長さ</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 206. 入力</caption>
+<caption class="title">表 210. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12673,7 +12939,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 207. 出力</caption>
+<caption class="title">表 211. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12698,7 +12964,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 208. 定数</caption>
+<caption class="title">表 212. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12752,7 +13018,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>　標準日積算湯使用量は、給湯対象室rの室用途に応じて定められている。標準日積算湯使用量は、ROOM_SPEC_H28.csv のAK列〜AN列に記されている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 209. 出力</caption>
+<caption class="title">表 213. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12834,7 +13100,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>配管保温仕様は、下表のとおり「管径」と「保温材の厚さ」から定まる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 210. 配管保温仕様</caption>
+<caption class="title">表 214. 配管保温仕様</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 77.7778%;">
@@ -12876,7 +13142,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>湯使用量削減率は、節湯器具の種類毎に定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 211. 出力</caption>
+<caption class="title">表 215. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12910,7 +13176,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>まず、節湯器具の種類及びその定義は以下の通りとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 212. 節湯器具の種類</caption>
+<caption class="title">表 216. 節湯器具の種類</caption>
 <colgroup>
 <col style="width: 28.5714%;">
 <col style="width: 71.4286%;">
@@ -12965,7 +13231,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>配管周囲温度は地域区分によって定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 213. 出力</caption>
+<caption class="title">表 217. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -12996,7 +13262,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 暖房期は22℃、中間期は24℃、冷房期は26℃とする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 214. 空調機の運転モードの設定</caption>
+<caption class="title">表 218. 空調機の運転モードの設定</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 7.1428%;">
@@ -13161,7 +13427,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>給湯配管の線熱損失係数 \(k_{W,i}\) [W/m・K]は、配管の保温仕様（D.2）及び配管接続口径 \(k_{W,i}\)［㎜］（入力）を基に、下表により求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 215. 出力</caption>
+<caption class="title">表 219. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13186,7 +13452,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 216. 配管の熱伝導率</caption>
+<caption class="title">表 220. 配管の熱伝導率</caption>
 <colgroup>
 <col style="width: 29.4117%;">
 <col style="width: 17.647%;">
@@ -13297,7 +13563,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>日平均給水温度は地域区分毎に定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 217. 出力</caption>
+<caption class="title">表 221. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13339,7 +13605,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 なお、この算出方法は、住宅事業建築主の判断基準における日平均給水温度の算出法を引用している</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 218. 日平均給水温度推定式の係数</caption>
+<caption class="title">表 222. 日平均給水温度推定式の係数</caption>
 <colgroup>
 <col style="width: 42.8571%;">
 <col style="width: 28.5714%;">
@@ -13447,7 +13713,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 219. 入力</caption>
+<caption class="title">表 223. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13484,7 +13750,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 220. 出力</caption>
+<caption class="title">表 224. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13521,7 +13787,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <div class="sect2">
 <h3 id="_6_3_昇降機の年間電力消費量"><a class="link" href="#_6_3_昇降機の年間電力消費量">6.3 昇降機の年間電力消費量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 221. 入力</caption>
+<caption class="title">表 225. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13564,7 +13830,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 222. 出力</caption>
+<caption class="title">表 226. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13604,7 +13870,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 <div class="sect2">
 <h3 id="_6_4_速度制御方式に応じて定められる係数"><a class="link" href="#_6_4_速度制御方式に応じて定められる係数">6.4 速度制御方式に応じて定められる係数</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 223. 入力</caption>
+<caption class="title">表 227. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13629,7 +13895,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 224. 出力</caption>
+<caption class="title">表 228. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -13654,7 +13920,7 @@ V_{WS,d,r4} =  V_{WS,r4} × \phi_{WS,r,d}\]
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 225. 制御方式によって定められる係数</caption>
+<caption class="title">表 229. 制御方式によって定められる係数</caption>
 <colgroup>
 <col style="width: 71.4285%;">
 <col style="width: 28.5715%;">

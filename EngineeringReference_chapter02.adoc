@@ -151,11 +151,8 @@ stem:[O_{AC,room,i,d}]|	日付dにおける室iの空調機の稼働状態 |真�
 stem:[Q_{AC,room,light,i,d}]|	日付dにおける室iの照明発熱密度の日積算値|	Wh/(stem:[m^{2}]・day)	|附属書A9|
 stem:[Q_{AC,room,human,i,d}]|	日付dにおける室iの在室者発熱密度の日積算値|	Wh/(stem:[m^{2}]・day)|附属書A9|
 stem:[Q_{AC,room,app,i,d}]|	日付dにおける室iの機器発熱密度の日積算値|	Wh/(stem:[m^{2}]・day)|附属書A9|
-stem:[U_{wall,i,j}]| 室iに属する外壁等jの熱貫流率|	W/(stem:[m^{2}]・K)|	附属書A1|
 stem:[U_{wall,i,j}]| 室iに属する外壁等jの熱貫流率	|W/(stem:[m^{2}]・K)|附属書A1|
-stem:[U_{wind,i,j}]| 室iに属する窓等jの熱貫流率|	W/(stem:[m^{2}]・K)	|附属書A2|
 stem:[U_{wind,i,j}]| 室iに属する窓等jの熱貫流率	|W/(stem:[m^{2}]・K)	|附属書A2|
-stem:[U_{wall,i,j}]| 室iに属する外壁等jの熱貫流率	|W/(stem:[m^{2}]・K)| 附属書A1|
 stem:[W_{dir,i,j}]|	室iに属する窓等jの方位|	－|入力|
 stem:[γ_{wind,c,i,j}]| 室iに属する窓等jの日よけ効果係数(冷房)	|－|入力|
 stem:[γ_{wind,h,i,j}]| 室iに属する窓等jの日よけ効果係数(暖房)	|－|入力|

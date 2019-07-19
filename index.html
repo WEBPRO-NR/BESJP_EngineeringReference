@@ -2929,7 +2929,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,base,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの標準運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.2、2.7.3.11</p></td>
 </tr>
 </tbody>
 </table>
@@ -4133,7 +4133,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源機iの熱負荷</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.5.4、2.7.3.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.6、2.7.3.11</p></td>
 </tr>
 </tbody>
 </table>
@@ -5981,7 +5981,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,base,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの蓄熱を考慮しない運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの標準運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.4</p></td>
 </tr>
@@ -6021,7 +6021,7 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 <div class="paragraph">
 <p>まず、熱源群に蓄熱槽があり、追掛運転時に1番目に動く熱源機器が「熱交換器」である場合は、
 追掛運転時間を8時間として見かけ上の熱源処理能力（仮想定格能力）を算出する。
-式中の\(max⁡(T_{AC,ref,base,i,d})\)とは、各日の運転時間について、最大となる日の運転時間を使用するという意味である。</p>
+式中の \(max⁡(T_{AC,ref,base,i,d})\) とは、各日の運転時間について、最大となる日の運転時間を使用するという意味である。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -6030,8 +6030,12 @@ f_{AC,pump,i}(L) = f_{AC,pump,i,1}(L)\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times 8 / \max⁡(T_{AC,ref,base,i,d)])　  \\
-q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated} + (q'_{AC,ref,i,1,rated} - q_{AC,ref,i,1,rated})\]
+\[q'_{AC,ref,i,1,rated} = q_{AC,ref,i,1,rated} \times \frac{8}{\max⁡(T_{AC,ref,base,i,d})}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated} + (q'_{AC,ref,i,1,rated} - q_{AC,ref,i,1,rated})\]
 </div>
 </div>
 <div class="paragraph">
@@ -6880,7 +6884,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,j,max,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの日付dにおける最大能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.5.4、2.7.3.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.7、2.7.3.11</p></td>
 </tr>
 </tbody>
 </table>
@@ -7373,9 +7377,9 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(xL_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの負荷率（蓄熱運転時の補正用）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの部分負荷率（蓄熱運転時の補正用）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.5.4、2.7.3.5.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.5.3、2.7.3.11</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(OV_{AC,ref,i,d}\)</p></td>
@@ -7387,7 +7391,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,max,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの最大能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.5.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.11</p></td>
 </tr>
 </tbody>
 </table>
@@ -7539,7 +7543,7 @@ F×1.2    ,xL_{AC,ref,i,d} &gt; 1  \\
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iに属する熱源機器jの運転台数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.5.4、2.7.3.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.9、2.7.3.11</p></td>
 </tr>
 </tbody>
 </table>
@@ -8126,7 +8130,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(xL_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの部分負荷率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの部分負荷率（蓄熱運転時の補正用）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">―</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.6</p></td>
 </tr>

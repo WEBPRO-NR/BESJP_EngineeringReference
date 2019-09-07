@@ -12354,12 +12354,18 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>　配管の熱の伝わりやすさを表す指標。配管内外温度差が1Kの時の配管1mあたりの熱通過量で表す。単位はW/（m・K）。</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_5_1_1_10_給湯対象室"><a class="link" href="#_5_1_1_10_給湯対象室">5.1.1.10 給湯対象室</a></h5>
+<div class="paragraph">
+<p>　給湯設備を利用する可能性がある人が存在する居室。</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_5_2_給湯設備の設計一次エネルギー消費量"><a class="link" href="#_5_2_給湯設備の設計一次エネルギー消費量">5.2 給湯設備の設計一次エネルギー消費量</a></h3>
 <div class="paragraph">
-<p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
+<p>給湯設備の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 198. 入力</caption>
@@ -12525,7 +12531,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{W,d,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iの日積算湯使用量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iによる日積算湯供給量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.6</p></td>
 </tr>
@@ -12778,13 +12784,13 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{W,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">給湯対象室rにサービスを提供する給湯設備iの定格加熱能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯対象室rに温水を提供する給湯設備iの定格加熱能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{W,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">給湯対象室rにサービスを提供する給湯設備の台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯対象室rに温水を提供する給湯設備の台数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
@@ -12845,42 +12851,77 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{W,d,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iの日積算湯使用量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iによる日積算湯供給量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.3</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>給湯設備iの日積算湯使用量 \(V_{W,d,i}\) は、
-給湯対象室（「給湯設備を利用する可能性がある人が存在する居室」と定義する。）の日積算湯使用量を、全ての給湯対象室について積算した値であるとする。
-ただし、給湯設備iの給湯対象室rが、給湯設備iからしかサービスを提供されない場合と給湯設備i以外の給湯設備からもサービスを提供される場合で、次のように算出方法が異なる。</p>
-</div>
-<div class="paragraph">
-<p>a）給湯設備iの給湯対象室rが、給湯設備iからしかサービスを提供されない場合</p>
+<p>まず、給湯対象室rの節湯器具による湯使用量削減効果を加味した日付dにおける室rの日積算湯使用量 \(V_{WR,d,r}\) を次式で算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[V_{W,d,i} = \sum_{d=1}^{n_{W,room,i}}( V_{WS,d,r1}×\phi_{W,ra} + V_{WS,d,r2}×\phi_{W,rb} + V_{WS,d,r3} + V_{WS,d,r4} )\]
+\[V_{WR,d,r} = V_{WS,d,r1}×\phi_{W,ra} + V_{WS,d,r2}×\phi_{W,rb} + V_{WS,d,r3} + V_{WS,d,r4}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>b）給湯設備iの給湯対象室rが、給湯設備i以外の給湯設備からもサービスを提供される場合（例えば、給湯対象室が事務室で、男子トイレ、女子トイレに別々に給湯設備がある場合）</p>
+<p>次に、給湯対象室rにおける給湯設備iからの日積算湯供給量（給湯設備iから室rへの日積算湯供給量） \(V_{W,d,i,r}\) を算出する。</p>
 </div>
 <div class="paragraph">
-<p>　給湯対象室rの標準日積算湯使用量 \(V_{W,d,r}\) を、
-給湯対象室rにサービスを提供する給湯設備の定格加熱能力で按分した値を「給湯設備iが負担する給湯対象室rのための湯使用量」とし、
-これを全給湯対象室について積算した値を \(V_{W,d,i}\) とする。</p>
+<p>ただし、\(V_{W,d,i,r}\) は、給湯対象室rが、a)給湯設備iからしか温水が提供されない場合と、b)給湯設備i以外の給湯設備からも温水が提供される場合で、次のように算出方法が異なる。</p>
+</div>
+<div class="paragraph">
+<p>a）給湯対象室rが給湯設備iからしか温水を提供されない場合</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[V_{W,d,i} = \sum_{d=1}^{n_{W,room,i}}( V_{WS,d,r1}×\phi_{W,ra} + V_{WS,d,r2}×\phi_{W,rb} + V_{WS,d,r3} + V_{WS,d,r4}) × \frac{Q_{W,r,i}}{ \sum_{d=1}^{n_{W,r,i}}(Q_{W,r,n}) }\]
+\[V_{W,d,i,r} = V_{WR,d,r}\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>b）給湯対象室rが給湯設備i以外の給湯設備から温水を提供される場合（例えば、給湯対象室が事務室で、男子トイレ、女子トイレに別々に給湯設備がある場合）</p>
+</div>
+<div class="paragraph">
+<p>　給湯対象室rに温水を提供する給湯設備の定格加熱能力の比率で日積算湯使用量 \(V_{WR,d,r}\) を按分し、これを \(V_{W,d,i,r}\) とする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[V_{W,d,i,r} = V_{WR,d,r}  × \frac{Q_{W,r,i}}{ \sum_{i=1}^{n_{W,r,i}}(Q_{W,r,i}) }\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>また、給湯対象室rが給湯設備iから温水を供給されない場合は、\(V_{W,d,i,r}\) は0とする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[V_{W,d,i,r} = 0\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>給湯設備iによる日積算湯供給量 \(V_{W,d,i}\) は、\(V_{W,d,i,r}\) を全ての給湯対象室について積算した値であるとする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[V_{W,d,i} = \sum_{r}( V_{W,d,i,r} )\]
 </div>
 </div>
 </div>
@@ -13160,9 +13201,11 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>上記の式の10.5分／人、2.1分／人は、巧水スタイル推進チームによる <a href="http://www.takumi-team.jp/wp-content/uploads/2015/02/53fd8eb05f3e38eddeae43d0a7ec71bd.pdf">日本国内のパブリック施設における節水効果について</a> による。</p>
 </div>
 <div class="paragraph">
-<p>給湯対象室rの室用途から、該当するカレンダーパターンを選択し、
-日付dにおける給湯利用の有無 \(\phi_{WS,r,d}\) （１：利用あり、０：利用なし）を選択する。
-これに基づき、日付dにおける給湯対象室rの標準日積算湯使用量を次式で求める。</p>
+<p>標準室使用条件より、給湯対象室rの室用途に該当する室使用条件を抽出し、これを給湯対象室rの使用条件とする。<br>
+給湯対象室rについて、日付dにおける室同時使用率（これは室使用条件にて定義されている）の日積算値を算出し、これが0より大きければ「日付dにおいて室rは使用されている」と判断する。
+一方、この日積算値が0であれば、「日付dにおいて室rは使用されていない」と判断する。<br>
+日付dにおいて室rが使用されている　と判断されれば　日付dにおける給湯利用の有無 \(\phi_{WS,r,d}\) は　1　とし、
+日付dにおいて室rが使用されていない　と判断されれば　日付dにおける給湯利用の有無 \(\phi_{WS,r,d}\) は　0 とする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">

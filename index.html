@@ -2462,9 +2462,16 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <div class="sect3">
 <h4 id="_2_5_1_空調室の使用時間"><a class="link" href="#_2_5_1_空調室の使用時間">2.5.1 空調室の使用時間</a></h4>
 <div class="paragraph">
-<p>各空調対象室の使用時間は、標準室使用条件で定められている。標準室使用条件は室用途毎に定められており、
-室用途毎に３つの基本スケジュールがあり、各日にどの基本スケジュールで動くかがカレンダーパターンとして定められている。
-これらの情報を利用して、各日の空調室の使用時間を算出する。</p>
+<p>各空調対象室の使用時間は「標準室使用条件」に基づき決定する。
+標準室使用条件は室用途毎に定められており、
+室用途毎に３つの「基本スケジュール（室使用パターン1, 2, 3）」があり、各日がどの基本スケジュールで動くかは「カレンダーパターン」として定められている。
+また、「カレンダーパターン」は室用途毎に定められている。これらの情報を利用して、各日の空調室の使用時間を決定する。</p>
+</div>
+<div class="paragraph">
+<p>なお、カレンダーパターンは「<a href="https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/CALENDAR.csv">CALENDAR.csv</a>」、
+3つの基本スケジュールは「<a href="https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/ROOM_COND.csv">ROOM_COND.csv</a>」、
+各室用途がどのカレンダーパターンであるかは「<a href="https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/ROOM_SPEC_H28.csv">ROOM_SPEC_H28.csv</a>」、
+上記３つのファイルを使用する際に必要となる検索キーは「<a href="https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/ROOM_NAME.csv">ROOM_NAME.csv</a>」で規定されている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 26. 入力</caption>
@@ -2485,9 +2492,9 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(O_{AC,room,ref,x,d,t}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用途xの室における日付dの時刻tの空調運転の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用途xの室における日付dの時刻tの室同時使用率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">真偽値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">標準室使用条件データベース</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">標準室使用条件</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{i}\)</p></td>
@@ -2535,10 +2542,21 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 </tbody>
 </table>
 <div class="paragraph">
-<p>まず、日付d時刻tにおける室iの空調運転の有無 \(O_{AC,room,i,d,t}\) を求める。
-室iの室用途 \(U_{i}\) に応じて、日付dの時刻tの空調運転の有無\(O_{AC,room,ref,x,d,t}\)が標準室使用条件によって定められているため、
-当該時刻の\(O_{AC,room,ref,x,d,t}\)が真（空調機が稼働している）であれば、\(O_{AC,room,i,d,t}\) は真、
-当該時刻の\(O_{AC,room,ref,x,d,t}\)が偽（空調機は停止している）であれば、\(O_{AC,room,i,d,t}\) は偽とする。</p>
+<p>まず、日付d時刻tにおける室iの空調運転の有無 \(O_{AC,room,i,d,t}\) を定める。日付dの時刻tの室同時使用率 \(O_{AC,room,ref,x,d,t}\) を以下の手順で決定する。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>室iの室用途 \(U_{i}\) のカレンダーパターン（A〜F）を調べ、CALENDAR.csv より各日がどの基本スケジュール（室使用パターン1, 2, 3）で運用されるかを調べる。<br></p>
+</li>
+<li>
+<p>ROOM_COND.csv には室使用パターン別に時々刻々の室同時使用率が規定されているため、各日の室使用パターンに基づき室同時使用率を決定する。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>当該時刻の室同時使用率 \(O_{AC,room,ref,x,d,t}\) が0より大きければ、空調機が稼働していると判断し、 \(O_{AC,room,i,d,t}\) は真とする。<br>
+当該時刻の室同時使用率 \(O_{AC,room,ref,x,d,t}\) が0であれば、空調機は停止していると判断し、\(O_{AC,room,i,d,t}\) は偽とする。</p>
 </div>
 <div class="paragraph">
 <p>日付dにおける室iの空調機の稼働状態 \(O_{AC,room,i,d}\) については、
@@ -2548,6 +2566,26 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <div class="paragraph">
 <p>日付dにおける室iの空調運転時間 \(T_{AC,room,i,d}\)は、
 各日において、\(O_{AC,room,i,d,t}\)が真となる時間数をカウントして算出する。</p>
+</div>
+<div class="paragraph">
+<p>＜参考＞
+日付d時刻tにおける室iの空調運転の有無を定める際の具体的なファイルの操作方法（事務所等・事務室の例）：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>ROOM_NAME.csv より、建物用途＋室用途に基づき「検索キー（今回はO-1）」を取得</p>
+</li>
+<li>
+<p>ROOM_SPEC_H28.csv　で　検索キー（O-1）を使用し「カレンダーパターンコード（A）」を取得</p>
+</li>
+<li>
+<p>CALENDAR.csv　で　カレンダーパターンコード（A）を使用し「日別のパターン（365要素の配列：1月1日木曜は”3”）」を取得</p>
+</li>
+<li>
+<p>ROOM_COND.csv　で　日別パターン（365要素の配列：1月1日木曜は”3”）を使用し、該当する室使用パターン（ここでは"3"）のT0~T23を積算し、0を超える場合はTRUEとする。※この作業を365日分繰り返し行う。</p>
+</li>
+</ol>
 </div>
 <div style="page-break-after: always;"></div>
 </div>

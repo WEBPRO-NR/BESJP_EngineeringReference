@@ -2679,18 +2679,6 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2.2、2.7.1.2、2.7.1.6</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T'_{AC,ahu,c,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの外気カットの効果を見込んだ冷房運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1.3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T'_{AC,ahu,h,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの外気カットの効果を見込んだ暖房運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1.3</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(O_{AC,ahu,i,d,t}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d時刻tにおける空調機群iの運転状態</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">真偽値</p></td>
@@ -2777,53 +2765,6 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（\(m^{2}\)・day�
 <div class="stemblock">
 <div class="content">
 \[T_{AC,ahu,h,i,d} = 0\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>また、外気カット制御の効果を見込んだ空調機群iの冷房運転時間\(T'_{AC,ahu,c,i,d}\)は次式で求める。
-冷房運転時間と暖房運転時間を比較して、各日において、運転時間が大きい方の負荷に対して外気カット制御の効果を見込むこととする。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>a) 外気カット制御があり、かつ ( \(T_{AC,ahu,c,i,d}&gt;1\) もしくは \(T_{AC,ahu,i,d}&gt;1\) ) かつ \(T_{AC,ahu,c,i,d} ≧ T_{AC,ahu,h,i,d}\)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[T'_{AC,ahu,c,i,d}=T_{AC,ahu,c,i,d}-1\]
-</div>
-</div>
-<div class="paragraph">
-<p>b) 上記以外</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[T'_{AC,ahu,c,i,d}=T_{AC,ahu,c,i,d}\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>外気カット制御の効果を見込んだ空調機群iの暖房運転時間\(T'_{AC,ahu,h,i,d}\)は次式で求める。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>a) 外気カット制御があり、かつ ( \(T_{AC,ahu,h,i,d}&gt;1\) ) かつ \(T_{AC,ahu,h,i,d} &gt; T_{AC,ahu,c,i,d}\)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[T'_{AC,ahu,h,i,d}=T_{AC,ahu,h,i,d}-1\]
-</div>
-</div>
-<div class="paragraph">
-<p>b) 上記以外</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[T'_{AC,ahu,h,i,d}=T_{AC,ahu,h,i,d}\]
 </div>
 </div>
 </div>
@@ -3374,14 +3315,14 @@ C_{bal} = 0.67\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T'_{AC,ahu,c,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの外気カットの効果を見込んだ冷房運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T'_{AC,ahu,h,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの外気カットの効果を見込んだ暖房運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
@@ -3394,6 +3335,12 @@ C_{bal} = 0.67\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷(冷房)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,h,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷(暖房)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1.1</p></td>
 </tr>
@@ -3436,32 +3383,103 @@ C_{bal} = 0.67\]
 算出された暖房負荷の値が正である場合はその値は冷房負荷として扱うものとする。</p>
 </div>
 <div class="paragraph">
-<p>まず、次のCとHを算出する。</p>
+<p>まず、次の \(Q_{ahu,c}\) [MJ/日] と \(Q_{ahu,h}\) [MJ/日] を算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(T_{AC,ahu,c,i,d}=0\) かつ \(T_{AC,ahu,h,i,d}=0\) かつ \(T_{AC,ahu,i,d}&gt;0\) の場合:</p>
+<p>a) \(T_{AC,ahu,c,i,d}=0\) かつ \(T_{AC,ahu,h,i,d}=0\) の場合（外気負荷だけの場合）</p>
+</div>
+<div class="paragraph">
+<p>　　a-1) 外気カット制御がない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[C = 3600 × q_{AC,ahu,oa,i,d} × T'_{AC,ahu,c,i,d} × 10^{-3}  \\
-H = 0\]
+\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} × T_{AC,ahu,c,i,d} × 3600 × 10^{-3}  \\
+Q_{ahu,h} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) a)に該当しない場合:</p>
+<p>　　a-2) 外気カット制御がある場合
+　　　　a-2-1) \(T_{AC,ahu,i,d}&gt;1\)</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[C = Q_{AC.ahu,room,c,i,d} + 3600 × q_{AC,ahu,oa,i,d} × T'_{AC,ahu,c,i,d} × 10^{-3}  \\
-H = Q_{AC.ahu,room,h,i,d} + 3600 × q_{AC,ahu,oa,i,d} × T'_{AC,ahu,h,i,d} × 10^{-3}\]
+\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} × (T_{AC,ahu,c,i,d}-1)  × 3600 × 10^{-3}  \\
+Q_{ahu,h} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　　　a-2-2) a-2-1)に該当しない場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} × T_{AC,ahu,c,i,d} × 3600 × 10^{-3}  \\
+Q_{ahu,h} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) a)に該当しない場合</p>
+</div>
+<div class="paragraph">
+<p>　　b1-1) \(T_{AC,ahu,c,i,d}&gt;0\) の場合</p>
+</div>
+<div class="paragraph">
+<p>　　　　b1-1-1) 外気カット制御があり、\(T_{AC,ahu,c,i,d}&gt;1\) かつ　\(T_{AC,ahu,c,i,d}&gt;=T_{AC,ahu,h,i,d}\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,c} = Q_{AC,ahu,room,c,i,d} + q_{AC,ahu,oa,i,d} × (T_{AC,ahu,c,i,d}-1) × 3600 × 10^{-3}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　　　b1-1-2) b1-1-1)に該当しない場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,c} = Q_{AC,ahu,room,c,i,d} + q_{AC,ahu,oa,i,d} × T_{AC,ahu,c,i,d} × 3600 × 10^{-3}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　b1-2) b1-1) に該当しない場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,c} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>　b2-1) \(T_{AC,ahu,h,i,d}&gt;0\) の場合</p>
+</div>
+<div class="paragraph">
+<p>　　　　b2-1-1) 外気カット制御があり、\(T_{AC,ahu,h,i,d}&gt;1\) かつ　\(T_{AC,ahu,c,i,d} &lt; T_{AC,ahu,h,i,d}\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,h} = Q_{AC,ahu,room,h,i,d} + q_{AC,ahu,oa,i,d} × (T_{AC,ahu,h,i,d}-1) × 3600 × 10^{-3}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　　　b2-1-2) b2-1-1)に該当しない場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,h} = Q_{AC,ahu,room,h,i,d} + q_{AC,ahu,oa,i,d} × T_{AC,ahu,h,i,d} × 3600 × 10^{-3}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　
+　　b2-2) b2-1) に該当しない場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,h} = 0\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>CとHを用いて、空調機群iの日積算空調負荷を次式で算出する。</p>
+<p>\(Q_{ahu_c}\) と \(Q_{ahu_c}\) を用いて、空調機群iの日積算空調負荷を次式で算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -3470,8 +3488,8 @@ H = Q_{AC.ahu,room,h,i,d} + 3600 × q_{AC,ahu,oa,i,d} × T'_{AC,ahu,h,i,d} × 10
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{AC,ahu,c,i,d} = C  \\
-Q_{AC,ahu,h,i,d} = H\]
+\[Q_{AC,ahu,c,i,d} = Q_{ahu,c}  \\
+Q_{AC,ahu,h,i,d} = Q_{ahu,h}\]
 </div>
 </div>
 <div class="paragraph">
@@ -3482,8 +3500,8 @@ Q_{AC,ahu,h,i,d} = H\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{AC,ahu,c,i,d} = \max⁡(0,C)  \\
-Q_{AC,ahu,h,i,d} = \max⁡(0,H)\]
+\[Q_{AC,ahu,c,i,d} = \max⁡(0,Q_{ahu,c})  \\
+Q_{AC,ahu,h,i,d} = \max⁡(0,Q_{ahu,h})\]
 </div>
 </div>
 <div class="paragraph">
@@ -3491,8 +3509,8 @@ Q_{AC,ahu,h,i,d} = \max⁡(0,H)\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{AC,ahu,c,i,d} = \min⁡(0,C)  \\
-Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
+\[Q_{AC,ahu,c,i,d} = \min⁡(0,Q_{ahu,c})  \\
+Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
 </div>
 </div>
 </div>
@@ -3532,7 +3550,7 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,sa,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">外気取込量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給気ファンの定格風量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kg/s</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
@@ -3547,18 +3565,6 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,H)\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける空調（冷房）の運転時間数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{p,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの空調対象床面積</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{h,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iの内部発熱等計算用床面積</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^{2}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(ΔH_{AC,oa,d}\)</p></td>
@@ -3668,13 +3674,13 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} × 10^3}{3600 × (-ΔH_{AC,oa,d}) ×T_{AC,ahu,c,
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
@@ -4446,13 +4452,13 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時の負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.3</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時の負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.3</p></td>
@@ -4515,8 +4521,8 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[L_{AC,ahu,C,i,d} = L_{AC,ahu,mix,c,i,d} \\
-L_{AC,ahu,H,i,d} = L_{AC,ahu,mix,h,i,d}\]
+\[L_{AC,ahu,c,i,d} = L_{AC,ahu,mix,c,i,d} \\
+L_{AC,ahu,h,i,d} = L_{AC,ahu,mix,h,i,d}\]
 </div>
 </div>
 <div class="paragraph">
@@ -4527,8 +4533,8 @@ L_{AC,ahu,H,i,d} = L_{AC,ahu,mix,h,i,d}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[L_{AC,ahu,C,i,d} = \max ⁡(L_{AC,ahu,mix,c,i,d},ε) \\
-L_{AC,ahu,H,i,d} = \max⁡ (L_{AC,ahu,mix,h,i,d},ε)\]
+\[L_{AC,ahu,c,i,d} = \max ⁡(L_{AC,ahu,mix,c,i,d},ε) \\
+L_{AC,ahu,h,i,d} = \max⁡ (L_{AC,ahu,mix,h,i,d},ε)\]
 </div>
 </div>
 <div class="paragraph">
@@ -4536,8 +4542,8 @@ L_{AC,ahu,H,i,d} = \max⁡ (L_{AC,ahu,mix,h,i,d},ε)\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[L_{AC,ahu,C,i,d} = \min⁡(L_{AC,ahu,mix,c,i,d},-ε) \\
-L_{AC,ahu,H,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
+\[L_{AC,ahu,c,i,d} = \min⁡(L_{AC,ahu,mix,c,i,d},-ε) \\
+L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </div>
 </div>
 </div>

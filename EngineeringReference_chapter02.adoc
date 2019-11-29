@@ -1776,37 +1776,37 @@ f_{AC,ahu,H,i,d} = 0
 |変数名|説明|単位|参照先|
 stem:[N_{AC,ahu,i}]|	空調機群iに属する送風機の台数	|台	|入力|
 stem:[E_{AC,ahu,i,j,rated}]| 	空調機群iに属する送風機jの定格消費電力|	kW|	2.7.1.1|
-stem:[f_{AC,ahu,C,i,j,d}]| 	空調機群iに属する送風機jの風量制御方式によって定まる係数(冷房)|	－	|2.7.1.3|
-stem:[f_{AC,ahu,H,i,j,d}]| 	空調機群iに属する送風機jの風量制御方式によって定まる係数(暖房)|	－	|2.7.1.3|
+stem:[f_{AC,ahu,c,i,j,d}]| 	空調機群iに属する送風機jの風量制御方式によって定まる係数(冷房)|	－	|2.7.1.3|
+stem:[f_{AC,ahu,h,i,j,d}]| 	空調機群iに属する送風機jの風量制御方式によって定まる係数(暖房)|	－	|2.7.1.3|
 |=================================
 
 .出力
 [options="header", cols="2,5,2,1"]
 |=================================
 |変数名|説明|単位|参照元|
-stem:[E_{AC,ahu,C,i,j,d}]| 	日付dにおける空調機群iに属する送風機jの冷房運転時の消費電力|	kW| -|
-stem:[E_{AC,ahu,H,i,j,d}]| 	日付dにおける空調機群iに属する送風機jの暖房運転時の消費電力|	kW|	-|
-stem:[E_{AC,ahu,C,i,d}]|	日付dにおける空調機群iに属する送風機の冷房運転時の消費電力|	kW|	2.7.1.6|
-stem:[E_{AC,ahu,H,i,d}]|	日付dにおける空調機群iに属する送風機の暖房運転時の消費電力|	kW|	2.7.1.6|
+stem:[E_{AC,ahu,c,i,j,d}]| 	日付dにおける空調機群iに属する送風機jの冷房運転時の消費電力|	kW| -|
+stem:[E_{AC,ahu,h,i,j,d}]| 	日付dにおける空調機群iに属する送風機jの暖房運転時の消費電力|	kW|	-|
+stem:[E_{AC,ahu,c,i,d}]|	日付dにおける空調機群iに属する送風機の冷房運転時の消費電力|	kW|	2.7.1.6|
+stem:[E_{AC,ahu,h,i,d}]|	日付dにおける空調機群iに属する送風機の暖房運転時の消費電力|	kW|	2.7.1.6|
 |=================================
 
-空調機群iに属する送風機jの冷房運転時の消費電力stem:[E_{AC,ahu,C,i,j,d}]、及び暖房運転時の消費電力stem:[E_{AC,ahu,H,i,j,d}]は
+空調機群iに属する送風機jの冷房運転時の消費電力stem:[E_{AC,ahu,c,i,j,d}]、及び暖房運転時の消費電力stem:[E_{AC,ahu,h,i,j,d}]は
 次式により算出する。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ahu,C,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,C,i,j,d}  \\
-E_{AC,ahu,H,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,H,i,j,d}
+E_{AC,ahu,c,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,c,i,j,d}  \\
+E_{AC,ahu,h,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,h,i,j,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
-空調機群iに属する送風機の「消費電力stem:[E_{AC,ahu,C,i,d}]、stem:[E_{AC,ahu,H,i,d}]は次式により算出する。
+空調機群iに属する送風機の「消費電力stem:[E_{AC,ahu,c,i,d}]、stem:[E_{AC,ahu,h,i,d}]は次式により算出する。
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ahu,C,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,C,i,j,d}  \\
-E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}
+E_{AC,ahu,c,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,c,i,j,d}  \\
+E_{AC,ahu,h,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,h,i,j,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

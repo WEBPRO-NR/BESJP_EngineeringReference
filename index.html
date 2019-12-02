@@ -3344,6 +3344,12 @@ C_{bal} = 0.67\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1.1</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Mode_{d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機の運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A5</p></td>
+</tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
@@ -3400,8 +3406,10 @@ Q_{ahu,h} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>　　a-2) 外気カット制御がある場合
-　　　　a-2-1) \(T_{AC,ahu,i,d}&gt;1\)</p>
+<p>　　a-2) 外気カット制御がある場合</p>
+</div>
+<div class="paragraph">
+<p>　　　　a-2-1) \(T_{AC,ahu,i,d}&gt;1\)</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3422,10 +3430,10 @@ Q_{ahu,h} = 0\]
 <p>b) a)に該当しない場合</p>
 </div>
 <div class="paragraph">
-<p>　　b1-1) \(T_{AC,ahu,c,i,d}&gt;0\) の場合</p>
+<p>　　b-1) \(T_{AC,ahu,c,i,d}&gt;0\) の場合</p>
 </div>
 <div class="paragraph">
-<p>　　　　b1-1-1) 外気カット制御があり、\(T_{AC,ahu,c,i,d}&gt;1\) かつ　\(T_{AC,ahu,c,i,d}&gt;=T_{AC,ahu,h,i,d}\) の場合</p>
+<p>　　　　b-1-1) 外気カット制御があり、\(T_{AC,ahu,c,i,d}&gt;1\) かつ　\(T_{AC,ahu,c,i,d}&gt;=T_{AC,ahu,h,i,d}\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3433,7 +3441,7 @@ Q_{ahu,h} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>　　　　b1-1-2) b1-1-1)に該当しない場合</p>
+<p>　　　　b-1-2) b-1-1)に該当しない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3441,7 +3449,7 @@ Q_{ahu,h} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>　　b1-2) b1-1) に該当しない場合</p>
+<p>　　b-2) b-1) に該当しない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3449,10 +3457,10 @@ Q_{ahu,h} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>　b2-1) \(T_{AC,ahu,h,i,d}&gt;0\) の場合</p>
+<p>　b-2) \(T_{AC,ahu,h,i,d}&gt;0\) の場合</p>
 </div>
 <div class="paragraph">
-<p>　　　　b2-1-1) 外気カット制御があり、\(T_{AC,ahu,h,i,d}&gt;1\) かつ　\(T_{AC,ahu,c,i,d} &lt; T_{AC,ahu,h,i,d}\) の場合</p>
+<p>　　　　b-2-1) 外気カット制御があり、\(T_{AC,ahu,h,i,d}&gt;1\) かつ　\(T_{AC,ahu,c,i,d} &lt; T_{AC,ahu,h,i,d}\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3460,7 +3468,7 @@ Q_{ahu,h} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>　　　　b2-1-2) b2-1-1)に該当しない場合</p>
+<p>　　　　b-2-2) b-2-1)に該当しない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3468,8 +3476,7 @@ Q_{ahu,h} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>　
-　　b2-2) b2-1) に該当しない場合</p>
+<p>　　　　b2-2) b2-1) に該当しない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -4150,8 +4157,8 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,pump,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iの二次ポンプ負荷</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,pump,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群jの二次ポンプ負荷</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2.3</p></td>
 </tr>
@@ -4579,13 +4586,13 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時の負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時の負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.2</p></td>
@@ -4610,13 +4617,13 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,C,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,c,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの風量制御方式によって定まる係数(冷房)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.4</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,H,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,h,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの風量制御方式によって定まる係数(暖房)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.4</p></td>
@@ -4624,17 +4631,17 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>空調機群iの風量制御方式によって定まる係数\(f_{AC,ahu,C,i,j,d}\)、\(f_{AC,ahu,H,i,j,d}\)は次式で求める。</p>
+<p>空調機群iの風量制御方式によって定まる係数\(f_{AC,ahu,c,i,j,d}\)、\(f_{AC,ahu,h,i,j,d}\)は次式で求める。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a} \(L_{AC,ahu,i,d}&lt;1.0\)の場合</p>
+<p>a) \(L_{AC,ahu,i,d}&lt;1.0\)の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[f_{AC,ahu,C,i,d} = \max( F_{AC,ahu,i,j}(L_{AC,ahu,C,i,d}) , f_{AC,ahu,i,j,min} ) \\
-f_{AC,ahu,H,i,d} = \max( F_{AC,ahu,i,j}(L_{AC,ahu,H,i,d}) , f_{AC,ahu,i,j,min} )  \\
+\[f_{AC,ahu,c,i,d} = \max( F_{AC,ahu,i,j}(L_{AC,ahu,c,i,d}) , f_{AC,ahu,i,j,min} ) \\
+f_{AC,ahu,h,i,d} = \max( F_{AC,ahu,i,j}(L_{AC,ahu,h,i,d}) , f_{AC,ahu,i,j,min} )  \\
 F_{AC,ahu,i,j}(L) = a_{i,j} × |L|^4 + b_{i,j} × |L|^3 + c_{i,j} × |L|^2 + d_{i,j} × |L| + e_{i,j}\]
 </div>
 </div>
@@ -4643,8 +4650,8 @@ F_{AC,ahu,i,j}(L) = a_{i,j} × |L|^4 + b_{i,j} × |L|^3 + c_{i,j} × |L|^2 + d_{
 </div>
 <div class="stemblock">
 <div class="content">
-\[f_{AC,ahu,C,i,d} = f_{AC,ahu,over} \\
-f_{AC,ahu,H,i,d} = f_{AC,ahu,over}\]
+\[f_{AC,ahu,c,i,d} = f_{AC,ahu,over} \\
+f_{AC,ahu,h,i,d} = f_{AC,ahu,over}\]
 </div>
 </div>
 <div class="paragraph">
@@ -4652,8 +4659,8 @@ f_{AC,ahu,H,i,d} = f_{AC,ahu,over}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[f_{AC,ahu,C,i,d} = 0 \\
-f_{AC,ahu,H,i,d} = 0\]
+\[f_{AC,ahu,c,i,d} = 0 \\
+f_{AC,ahu,h,i,d} = 0\]
 </div>
 </div>
 </div>
@@ -4749,13 +4756,13 @@ f_{AC,ahu,H,i,d} = 0\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.1</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,C,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,c,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの風量制御方式によって定まる係数(冷房)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.3</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,H,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,h,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの風量制御方式によって定まる係数(暖房)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.3</p></td>
@@ -4780,25 +4787,25 @@ f_{AC,ahu,H,i,d} = 0\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,C,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,c,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iに属する送風機jの冷房運転時の消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,H,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,h,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iに属する送風機jの暖房運転時の消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iに属する送風機の冷房運転時の消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.6</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iに属する送風機の暖房運転時の消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.6</p></td>
@@ -4806,28 +4813,28 @@ f_{AC,ahu,H,i,d} = 0\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>空調機群iに属する送風機jの冷房運転時の消費電力\(E_{AC,ahu,C,i,j,d}\)、及び暖房運転時の消費電力\(E_{AC,ahu,H,i,j,d}\)は
+<p>空調機群iに属する送風機jの冷房運転時の消費電力\(E_{AC,ahu,c,i,j,d}\)、及び暖房運転時の消費電力\(E_{AC,ahu,h,i,j,d}\)は
 次式により算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ahu,C,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,C,i,j,d}  \\
-E_{AC,ahu,H,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,H,i,j,d}\]
+\[E_{AC,ahu,c,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,c,i,j,d}  \\
+E_{AC,ahu,h,i,j,d} = E_{AC,ahu,i,j,rated} \times f_{AC,ahu,h,i,j,d}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>空調機群iに属する送風機の「消費電力\(E_{AC,ahu,C,i,d}\)、\(E_{AC,ahu,H,i,d}\)は次式により算出する。</p>
+<p>空調機群iに属する送風機の「消費電力\(E_{AC,ahu,c,i,d}\)、\(E_{AC,ahu,h,i,d}\)は次式により算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ahu,C,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,C,i,j,d}  \\
-E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
+\[E_{AC,ahu,c,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,c,i,j,d}  \\
+E_{AC,ahu,h,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,h,i,j,d}\]
 </div>
 </div>
 </div>
@@ -4835,7 +4842,7 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
-<h5 id="_2_7_1_5_全熱交換機の消費電力"><a class="link" href="#_2_7_1_5_全熱交換機の消費電力">2.7.1.5 全熱交換機の消費電力</a></h5>
+<h5 id="_2_7_1_5_全熱交換器の消費電力"><a class="link" href="#_2_7_1_5_全熱交換器の消費電力">2.7.1.5 全熱交換器の消費電力</a></h5>
 <div class="paragraph">
 <p>空調機群iに属する全熱交換器の消費電力を算出する。</p>
 </div>
@@ -4926,13 +4933,13 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iに属する送風機の冷房運転時の消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.4</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iに属する送風機の暖房運転時の消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.4</p></td>
@@ -4962,13 +4969,13 @@ E_{AC,ahu,H,i,d}  = \sum_{j=1}^{N_{AC,ahu,i}} E_{AC,ahu,H,i,j,d}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時の負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時の負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.2</p></td>
@@ -5043,12 +5050,12 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </div>
 <div class="stemblock">
 <div class="content">
-\[C_{i,d} = E_{AC,ahu,C,i,d} \times T_{AC,ahu,c,i,d} \times \frac{L_{AC,ahu,C,i,d}}{|L_{AC,ahu,C,i,d}|}\]
+\[C_{i,d} = E_{AC,ahu,C,i,d} \times T_{AC,ahu,c,i,d} \times \frac{L_{AC,ahu,c,i,d}}{|L_{AC,ahu,c,i,d}|}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[H_{i,d} = E_{AC,ahu,H,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,H,i,d}}{|L_{AC,ahu,H,i,d}|}\]
+\[H_{i,d} = E_{AC,ahu,H,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,ahu,h,i,d}|}\]
 </div>
 </div>
 </div>
@@ -5095,7 +5102,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,pump,i,j,rated}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iに属する二次ポンプjの定格流量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m^3/s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kg/s</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
@@ -5205,7 +5212,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.3</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{Ac,pump,i,rated}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,pump,i,rated}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iの仮想定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2.1</p></td>
@@ -5245,7 +5252,7 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <div class="stemblock">
 <div class="content">
 \[L_{AC,pump,i,d} = \begin{cases}
- F(  \frac{Q_{AC,pump,i,d}/T_{AC,pump,i,d}}{q_{Ac,pump,i,rated}×3600×10^{-3}},     T_{AC,pump,i,d}&gt;0 \\
+ F(  \frac{Q_{AC,pump,i,d}/T_{AC,pump,i,d}}{q_{AC,pump,i,rated}×3600×10^{-3}} ),     T_{AC,pump,i,d}&gt;0 \\
 0                     ,     T_{AC,pump,i,d}=0
 \end{cases}\]
 </div>

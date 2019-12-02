@@ -1956,7 +1956,7 @@ q_{Ac,pump,i,rated} = \sum_{j=1}^{N_{AC,pump,i}} q_{AC,pump,i,j,rated}
 |変数名|説明|単位|参照先|
 stem:[Q_{AC,pump,i,d}]|	日付dにおける二次ポンプ群iの二次ポンプ負荷|	MJ/日|	2.6.2.3|
 stem:[T_{AC,pump,i,d}]|	二次ポンプ群iの日付dにおける運転時間	|時間	|2.5.3|
-stem:[q_{Ac,pump,i,rated}]|	二次ポンプ群iの仮想定格能力|	kW	|2.7.2.1|
+stem:[q_{AC,pump,i,rated}]|	二次ポンプ群iの仮想定格能力|	kW	|2.7.2.1|
 |=================================
 
 .出力
@@ -1972,7 +1972,7 @@ stem:[L_{AC,pump,i,d}]|	二次ポンプ群iの日付dにおける負荷率|	－|
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,pump,i,d} = \begin{cases}
- F(  \frac{Q_{AC,pump,i,d}/T_{AC,pump,i,d}}{q_{Ac,pump,i,rated}×3600×10^{-3}},     T_{AC,pump,i,d}>0 \\
+ F(  \frac{Q_{AC,pump,i,d}/T_{AC,pump,i,d}}{q_{AC,pump,i,rated}×3600×10^{-3}} ),     T_{AC,pump,i,d}>0 \\
 0                     ,     T_{AC,pump,i,d}=0
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++

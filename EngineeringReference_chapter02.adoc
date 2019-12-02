@@ -1884,11 +1884,11 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-C_{i,d} = E_{AC,ahu,C,i,d} \times T_{AC,ahu,c,i,d} \times \frac{L_{AC,ahu,C,i,d}}{|L_{AC,ahu,C,i,d}|}
+C_{i,d} = E_{AC,ahu,C,i,d} \times T_{AC,ahu,c,i,d} \times \frac{L_{AC,ahu,c,i,d}}{|L_{AC,ahu,c,i,d}|}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-H_{i,d} = E_{AC,ahu,H,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,H,i,d}}{|L_{AC,ahu,H,i,d}|}
+H_{i,d} = E_{AC,ahu,H,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,ahu,h,i,d}|}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

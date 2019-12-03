@@ -2021,7 +2021,7 @@ a) stem:[L_{AC,pump,i,d}>0] (負荷率が0を超えている場合)
 a-1)台数制御がある場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-N_{AC,pump,i,d} = \min \{ N │ q_{AC,pump,i,rated} \times L_{AC,pump,i,d} ＜f_{q_{pump,i}}(N)　かつ　N ≤ N_{AC,pump,i}  \} \\
+N_{AC,pump,i,d} = \min \{0, N │ q_{AC,pump,i,rated} \times L_{AC,pump,i,d} ＜f_{q_{pump,i}}(N)　かつ　N ≤ N_{AC,pump,i}  \} \\
 f_{q_{pump,i}}(n) = C_{w} × \sum_{j=1}^{n} V_{AC,pump,i,j,rated} \times ∆θ_{AC,pump,i,rated}
 ++++++++++++++++++++++++++++++++++++++++++++
 a-2)台数制御がない場合

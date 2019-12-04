@@ -4580,12 +4580,6 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{AC,ahu,i,j,min}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">最小風量比率（定風量制御の場合は1.0とする）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時の負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
@@ -4596,6 +4590,18 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時の負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(FanCtrlType_{AC,ahu,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの風量制御方式（定風量制御 or 回転数制御）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,i,j,min}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの最小風量比率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tbody>
 </table>
@@ -4631,44 +4637,99 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>空調機群iの風量制御方式によって定まる係数\(f_{AC,ahu,c,i,j,d}\)、\(f_{AC,ahu,h,i,j,d}\)は次式で求める。</p>
+<p>空調機群iに属する送風機jの風量制御方式によって定まる係数 \(f_{AC,ahu,c,i,j,d}\) は次式で求める。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(L_{AC,ahu,i,d}&lt;1.0\)の場合</p>
+<p>a) \(|L_{AC,ahu,c,i,d}| &gt; 1.0\)の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[f_{AC,ahu,c,i,d} = \max( F_{AC,ahu,i,j}(L_{AC,ahu,c,i,d}) , f_{AC,ahu,i,j,min} ) \\
-f_{AC,ahu,h,i,d} = \max( F_{AC,ahu,i,j}(L_{AC,ahu,h,i,d}) , f_{AC,ahu,i,j,min} )  \\
-F_{AC,ahu,i,j}(L) = a_{i,j} × |L|^4 + b_{i,j} × |L|^3 + c_{i,j} × |L|^2 + d_{i,j} × |L| + e_{i,j}\]
+\[f_{AC,ahu,c,i,d} = 1.2\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) \(L_{AC,ahu,i,d}≥1.0\) の場合</p>
+<p>b) \(|L_{AC,ahu,c,i,d}| = 0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[f_{AC,ahu,c,i,d} = f_{AC,ahu,over} \\
-f_{AC,ahu,h,i,d} = f_{AC,ahu,over}\]
+\[f_{AC,ahu,c,i,d} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>c) \(L_{AC,ahu,i,d}=0\) の場合</p>
+<p>c) \(|L_{AC,ahu,c,i,d}| &lt; L_{AC,ahu,i,j,min}\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[f_{AC,ahu,c,i,d} = 0 \\
-f_{AC,ahu,h,i,d} = 0\]
+\[f_{AC,ahu,c,i,d} = F_{AC,ahu,i,j}(L_{AC,ahu,i,j,min})\]
+</div>
+</div>
+<div class="paragraph">
+<p>d) \(L_{AC,ahu,i,j,min} ≦ |L_{AC,ahu,c,i,d}| ≦ 1.0\)の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[f_{AC,ahu,c,i,d} = F_{AC,ahu,i,j}(|L_{AC,ahu,c,i,d}|)\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>ここで、\(f_{AC,ahu,over}\)は、過負荷時の補正係数であり、1.2とする。
-係数 \(a_{i,j},b_{i.j},c_{i,j},d_{i,j},e_{i,j}\)は、空調機iのエネルギー消費特性を表す係数であり、
-風量制御方式によって異なる。</p>
+<p>空調機群iに属する送風機jの風量制御方式によって定まる係数 \(f_{AC,ahu,h,i,j,d}\) は次式で求める。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) \(|L_{AC,ahu,h,i,d}| &gt; 1.0\)の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[f_{AC,ahu,h,i,d} = 1.2\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) \(|L_{AC,ahu,h,i,d}| ≦ 0\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[f_{AC,ahu,h,i,d} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>c) \(|L_{AC,ahu,h,i,d}| &lt; L_{AC,ahu,i,j,min}\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[f_{AC,ahu,h,i,d} = F_{AC,ahu,i,j}(L_{AC,ahu,i,j,min})\]
+</div>
+</div>
+<div class="paragraph">
+<p>d) \(L_{AC,ahu,i,j,min} ≦ |L_{AC,ahu,h,i,d}| ≦ 1.0\)の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[f_{AC,ahu,h,i,d} = F_{AC,ahu,i,j}(|L_{AC,ahu,h,i,d}|)\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>ここで、関数 \(F_{AC,ahu,i,j}(L)\)は、次式で表される4次式である。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[F_{AC,ahu,i,j}(L) = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j} × L + e_{i,j}\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>係数 \(a_{i,j},b_{i.j},c_{i,j},d_{i,j},e_{i,j}\)は、
+各送風機のエネルギー消費特性を表す係数であり、風量制御方式 \(FanCtrlType_{AC,ahu,i,j}\) によって決まる。
+\(FanCtrlType_{AC,ahu,i,j}\) の指定がない場合は「定風量制御」であるものとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -4681,7 +4742,7 @@ f_{AC,ahu,h,i,d} = 0\]
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">風量制御方式</th>
+<th class="tableblock halign-left valign-top">風量制御方式 \(FanCtrlType_{AC,ahu,i,j}\)</th>
 <th class="tableblock halign-left valign-top">\(a_{i,j}\)</th>
 <th class="tableblock halign-left valign-top">\(b_{i,j}\)</th>
 <th class="tableblock halign-left valign-top">\(c_{i,j}\)</th>
@@ -4691,14 +4752,6 @@ f_{AC,ahu,h,i,d} = 0\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">変風量制御</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">定風量制御</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
@@ -4706,10 +4759,19 @@ f_{AC,ahu,h,i,d} = 0\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">回転数制御</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>このエネルギー消費特性は、国土交通省による平成23、24年度建築基準整備促進事業の調査項目36「空調システム等の最適制御による省エネルギー効果に関する実証的評価」における
+<p>＜解説＞
+このエネルギー消費特性は、国土交通省による平成23、24年度建築基準整備促進事業の調査項目36「空調システム等の最適制御による省エネルギー効果に関する実証的評価」における
 実態調査結果に基づき定めた。ここで、変風量制御とは、送風機の回転数が室内温度等に応じて自動で変化する制御のことであり、
 ファンコイルユニットやパッケージ空調機の室内機に多くあるような手動による風量の切り替えは対象としない。
 変風量制御を行っている場合は、最小風量比率（定格風量に対する比率）を設定し、

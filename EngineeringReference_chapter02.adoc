@@ -2406,7 +2406,7 @@ stem:[P_{AC,ref,i,j,rated}]| 	熱源群iに属する熱源機器jの定格一次
 a) stem:[FuelType_{i,j}] = 電力　(エネルギー源が電力の場合)
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-P_{AC,ref,i,j,rated} = 9760/3600 \times P_{AC,ref,main,i,j}
+P_{AC,ref,i,j,rated} = \frac{f_{prim,e}}{3600} \times P_{AC,ref,main,i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
 
 b) stem:[FuelType_{i,j} ∈ \{地冷冷水\}]　(熱が他人から供給される場合)

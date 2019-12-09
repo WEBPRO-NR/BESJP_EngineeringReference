@@ -2362,8 +2362,8 @@ a) stem:[StorageType_{i}] = 追掛運転　かつ stem:[RefType_{i,1}] = 熱交�
 q'_{AC,ref,i,j,rated} = 
 \begin
 {cases}
-q_{AC,ref,i,j,rated} \times \frac{8}{\max(T_{AC,ref,base,i,d})} & (j = 1) \\
-q_{AC,ref,i,j,rated} & (それ以外)
+q_{AC,ref,i,j,rated} \times \frac{8}{\max(T_{AC,ref,base,i,d})} & ,j = 1 \\
+q_{AC,ref,i,j,rated} & ,それ以外
 \end
 {cases}
 ++++++++++++++++++++++++++++++++++++++++++++

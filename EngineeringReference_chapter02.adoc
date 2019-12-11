@@ -2370,10 +2370,16 @@ stem:[q'_{AC,ref,i,rated}]| 	熱源群iの仮想定格能力|kW|2.7.3.6、2.7.3.
 式中の stem:[max⁡(T_{AC,ref,base,i,d})] とは、各日の運転時間について、最大となる日の運転時間を使用するという意味である。
 
 ====
-a) stem:[StorageType_{i}] = 追掛運転　かつ stem:[RefType_{i,j}] = 熱交換器 かつ j =1　の場合
+a) stem:[StorageType_{i}] = 追掛運転　かつ stem:[RefType_{i,1}] = 熱交換器　の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q'_{AC,ref,i,1,rated} = q_{AC,ref,i,1,rated} \times \frac{8}{\max⁡(T_{AC,ref,base,i,d})}
+q'_{AC,ref,i,j,rated} = 
+\begin
+{cases}
+q_{AC,ref,i,j,rated} \times \frac{8}{\max(T_{AC,ref,base,i,d})} & ,j = 1 \\
+q_{AC,ref,i,j,rated} & ,それ以外
+\end
+{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -2383,7 +2389,10 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated} + (q'_{AC,ref,i,1,rated} - q_{AC,ref,i,
 b) a)以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated}　  \\
+q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated}
+++++++++++++++++++++++++++++++++++++++++++++
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
 q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

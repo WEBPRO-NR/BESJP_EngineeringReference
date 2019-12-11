@@ -14,6 +14,7 @@ stem:[C_{a}]|	乾き空気の定圧比熱|  1.006|	kJ ⁄ (kg・K)|
 stem:[C_{wv}]|	水蒸気の定圧比熱 | 1.805|	kJ ⁄ (kg・K)|
 stem:[C_{w}]|	水の定圧比熱 | 4.186|	kJ ⁄ (kg・K)|
 stem:[L_{w}]|	水の蒸発潜熱|  2502|	kJ ⁄ (kg・K)|
+stem:[\rho_{w}]|	水の密度（大気圧、7度）| 1000 | kg⁄stem:[m^{3}]|
 stem:[\alpha_{o}]| 室外側総合熱伝達率| 1/0.04	|W/(stem:[m^{2}]・K)|
 stem:[\alpha_{i}]|	室内側総合熱伝達率| 1/0.11|	W/(stem:[m^{2}]・K)|
 stem:[f_{fan,heat}]| ファンの発熱比率| 0.84| -|
@@ -1964,11 +1965,12 @@ stem:[q_{AC,pump,i,j,rated}]| 二次ポンプ群iに属する二次ポンプjの
 定格流量と設計温度差により、二次ポンプ群iに属する二次ポンプjの仮想定格能力[kW]を次式で求める。
 ここで、設計温度差 stem:[∆θ_{AC,pump,i}]とは、
 二次側空調系統への送水する冷温水の往き温度と還り温度の温度差（往復温度差の設計値）のことである。
+また、stem:[\rho_{w}] は水の密度 [kg/stem:[m^{3}]] である。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q_{AC,pump,i,j,rated} = \frac{C_w \times V_{AC,pump,i,j,rated} \times ∆θ_{AC,pump,i,rated} \times 1000 }{3600}
+q_{AC,pump,i,j,rated} = \frac{C_w \times V_{AC,pump,i,j,rated} \times ∆θ_{AC,pump,i,rated} \times \rho_{w} }{3600}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -2001,14 +2003,14 @@ stem:[q_{AC,pump,i,rated}]|	二次ポンプ群iの仮想定格能力|	kW	|2.7.2.
 stem:[L_{AC,pump,i,d}]|	日付dにおける二次ポンプ群iの負荷率|	－|2.7.2.3、2.7.2.4|
 |=================================
 
-二次ポンプ群iの日付dにおける負荷率 stem:[L_{AC,pump,i,d}] は次式で求める。
+日付dにおける二次ポンプ群iの負荷率 stem:[L_{AC,pump,i,d}] は次式で求める。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,pump,i,d} = \begin{cases}
- F(  \frac{　Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times 1000 / 3600}{ q_{AC,pump,i,rated} } ), 　：T_{AC,pump,i,d}>0 \\
-0,　　　　　　　　　　　　　　　　：T_{AC,pump,i,d}=0
+ F(  \frac{　Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times 1000 / 3600}{ q_{AC,pump,i,rated} } )  &　( T_{AC,pump,i,d}>0 ) \\
+0,　　　　　　　　　　　　　　　　  & (T_{AC,pump,i,d}=0 )
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
@@ -2018,8 +2020,8 @@ L_{AC,pump,i,d} = \begin{cases}
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 F(L) = \begin{cases}
- \frac{floor(L×10)}{10} + 0.05,　　：L>0の場合　\\
- L,　　　　　　　　　　：それ以外の場合
+ \frac{floor(L×10)}{10} + 0.05,　　& (L>0の場合)　\\
+ L,　　　　　　　　　　& (それ以外の場合)
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

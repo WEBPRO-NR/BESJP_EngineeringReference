@@ -726,6 +726,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">kJ ⁄ (kg・K)</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\rho_{w}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">水の密度（大気圧、7度）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kg⁄\(m^{3}\)</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\alpha_{o}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室外側総合熱伝達率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1/0.04</p></td>
@@ -5209,13 +5215,14 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <div class="paragraph">
 <p>定格流量と設計温度差により、二次ポンプ群iに属する二次ポンプjの仮想定格能力[kW]を次式で求める。
 ここで、設計温度差 \(∆θ_{AC,pump,i}\)とは、
-二次側空調系統への送水する冷温水の往き温度と還り温度の温度差（往復温度差の設計値）のことである。</p>
+二次側空調系統への送水する冷温水の往き温度と還り温度の温度差（往復温度差の設計値）のことである。
+また、\(\rho_{w}\) は水の密度 [kg/\(m^{3}\)] である。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[q_{AC,pump,i,j,rated} = \frac{C_w \times V_{AC,pump,i,j,rated} \times ∆θ_{AC,pump,i,rated} \times 1000 }{3600}\]
+\[q_{AC,pump,i,j,rated} = \frac{C_w \times V_{AC,pump,i,j,rated} \times ∆θ_{AC,pump,i,rated} \times \rho_{w} }{3600}\]
 </div>
 </div>
 </div>
@@ -5302,15 +5309,15 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 </tbody>
 </table>
 <div class="paragraph">
-<p>二次ポンプ群iの日付dにおける負荷率 \(L_{AC,pump,i,d}\) は次式で求める。</p>
+<p>日付dにおける二次ポンプ群iの負荷率 \(L_{AC,pump,i,d}\) は次式で求める。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
 \[L_{AC,pump,i,d} = \begin{cases}
- F(  \frac{　Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times 1000 / 3600}{ q_{AC,pump,i,rated} } ), 　：T_{AC,pump,i,d}&gt;0 \\
-0,　　　　　　　　　　　　　　　　：T_{AC,pump,i,d}=0
+ F(  \frac{　Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times 1000 / 3600}{ q_{AC,pump,i,rated} } )  &amp;　( T_{AC,pump,i,d}&gt;0 ) \\
+0,　　　　　　　　　　　　　　　　  &amp; (T_{AC,pump,i,d}=0 )
 \end{cases}\]
 </div>
 </div>
@@ -5324,8 +5331,8 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 <div class="stemblock">
 <div class="content">
 \[F(L) = \begin{cases}
- \frac{floor(L×10)}{10} + 0.05,　　：L&gt;0の場合　\\
- L,　　　　　　　　　　：それ以外の場合
+ \frac{floor(L×10)}{10} + 0.05,　　&amp; (L&gt;0の場合)　\\
+ L,　　　　　　　　　　&amp; (それ以外の場合)
 \end{cases}\]
 </div>
 </div>

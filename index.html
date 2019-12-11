@@ -6146,11 +6146,17 @@ L_{AC,pump,i,j,d} = \frac{ q_{AC,pump,i,j,d} }{ q_{AC,pump,i,j,rated} }\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(StorageType_{i}\) = 追掛運転　かつ \(RefType_{i,j}\) = 熱交換器 かつ j =1　の場合</p>
+<p>a) \(StorageType_{i}\) = 追掛運転　かつ \(RefType_{i,1}\) = 熱交換器　の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[q'_{AC,ref,i,1,rated} = q_{AC,ref,i,1,rated} \times \frac{8}{\max⁡(T_{AC,ref,base,i,d})}\]
+\[q'_{AC,ref,i,j,rated} =
+\begin
+{cases}
+q_{AC,ref,i,j,rated} \times \frac{8}{\max(T_{AC,ref,base,i,d})} &amp; ,j = 1 \\
+q_{AC,ref,i,j,rated} &amp; ,それ以外
+\end
+{cases}\]
 </div>
 </div>
 <div class="stemblock">
@@ -6163,8 +6169,12 @@ L_{AC,pump,i,j,d} = \frac{ q_{AC,pump,i,j,d} }{ q_{AC,pump,i,j,rated} }\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated}　  \\
-q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
+\[q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </div>
 </div>
 </div>
@@ -6172,9 +6182,9 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
-<h5 id="_2_7_3_3_熱源機器の定格一次エネルギー消費量"><a class="link" href="#_2_7_3_3_熱源機器の定格一次エネルギー消費量">2.7.3.3 熱源機器の定格一次エネルギー消費量</a></h5>
+<h5 id="_2_7_3_3_熱源機器の定格一次エネルギー"><a class="link" href="#_2_7_3_3_熱源機器の定格一次エネルギー">2.7.3.3 熱源機器の定格一次エネルギー</a></h5>
 <div class="paragraph">
-<p>熱源機器の定格一次エネルギー消費量を算出する。</p>
+<p>熱源機器の定格一次エネルギーを算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 82. 入力</caption>
@@ -6195,7 +6205,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{AC,ref,main,i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの主機エネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの主機エネルギー</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
@@ -6218,10 +6228,16 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(fueltype_{i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(FuelType_{i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの燃料タイプ</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{prim,e}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">電気の量1キロワット時を熱量に換算する係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9760</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/kWh</p></td>
 </tr>
 </tbody>
 </table>
@@ -6251,30 +6267,22 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>熱源機器の定格一次エネルギー消費量を算出する。熱源機器のエネルギー源が「電力」の場合は、電力の一次エネルギー換算係数を掛ける。
+<p>熱源機器の定格一次エネルギーを算出する。熱源機器のエネルギー源が「電力」の場合は、電力の一次エネルギー換算係数を掛ける。
 熱源機器のエネルギー源が「他人から供給された熱」の場合は、他人から供給された熱の一次エネルギー換算値を掛ける。
 これ以外の場合は、一次エネルギー換算された値が入力されているため、何も処理をしない。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(fueltype_{i,j}\) = 電力　(エネルギー源が電力の場合)</p>
+<p>a) \(FuelType_{i,j}\) = 電力　(エネルギー源が電力の場合)</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[P_{AC,ref,i,j,rated} = 9760/3600 \times P_{AC,ref,main,i,j}\]
+\[P_{AC,ref,i,j,rated} = \frac{f_{prim,e}}{3600} \times P_{AC,ref,main,i,j}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) \(fueltype_{i,j} ∈ \{ガス,重油,灯油,液化石油ガス\}\)　(エネルギー源が燃料の場合)</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[P_{AC,ref,i,j,rated} = P_{AC,ref,main,i,j}\]
-</div>
-</div>
-<div class="paragraph">
-<p>c) \(fueltype_{i,j} ∈ \{地冷冷水\}\)　(熱が他人から供給される場合)</p>
+<p>b) \(FuelType_{i,j} ∈ \{地冷冷水\}\)　(熱が他人から供給される場合)</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -6282,11 +6290,19 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </div>
 </div>
 <div class="paragraph">
-<p>d) \(fueltype_{i,j} ∈ \{地冷蒸気,地冷温水\}\)　(熱が他人から供給される場合)</p>
+<p>c) \(FuelType_{i,j} ∈ \{地冷蒸気,地冷温水\}\)　(熱が他人から供給される場合)</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[P_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times K_{prime,ex,h}\]
+</div>
+</div>
+<div class="paragraph">
+<p>d) a) b) c) 以外の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[P_{AC,ref,i,j,rated} = P_{AC,ref,main,i,j}\]
 </div>
 </div>
 </div>
@@ -6340,16 +6356,22 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.4.3</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの地中熱交換機からの熱源水温度(暖房時)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.4.4</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの地中熱交換機からの熱源水温度(冷房時)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.4.4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Mode_{d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機の運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A5</p></td>
 </tr>
 </tbody>
 </table>
@@ -6382,10 +6404,13 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <p>日付dにおける熱源群iに属する熱源機器jの熱源水等の温度\(θ_{AC,ref,base,i,j,d}\)は
 次式で算出する。</p>
 </div>
+<div class="paragraph">
+<p>ここで、\(Mode_d = 暖房\) 時は温熱源、\(Mode_d = 冷房\) 時は冷熱源とする。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a} \(CoolingType\) が 水冷式　の場合</p>
+<p>a) \(CoolingType\) が 水冷式　の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -6396,7 +6421,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b} \(CoolingType\) が 空冷式　の場合</p>
+<p>b) \(CoolingType\) が 空冷式　の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -6407,18 +6432,18 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </div>
 </div>
 <div class="paragraph">
-<p>c} \(CoolingType\) が 地中熱方式　の場合</p>
+<p>c) \(CoolingType\) が 地中熱方式　の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[θ_{AC,ref,base,i,j,d} = \begin{cases}
-  θ_{AC,w,C,i,d}  ,冷熱源の場合 \\
-  θ_{AC,w,H,i,d}  ,温熱源の場合 \\
+  θ_{AC,w,c,i,d}  ,冷熱源の場合 \\
+  θ_{AC,w,h,i,d}  ,温熱源の場合 \\
 \end{cases}\]
 </div>
 </div>
 <div class="paragraph">
-<p>d} 上記以外の場合</p>
+<p>d) 上記以外の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -6505,7 +6530,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </div>
 <div class="stemblock">
 <div class="content">
-\[G(T_{o}) = floor(T_{O}/5) × 5 + 2.5\]
+\[G(T_{o}) = floor(T_{o}/5) × 5 + 2.5\]
 </div>
 </div>
 </div>
@@ -6515,7 +6540,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <div class="sect5">
 <h6 id="_2_7_3_4_2_湿球温度"><a class="link" href="#_2_7_3_4_2_湿球温度">2.7.3.4.2 湿球温度</a></h6>
 <div class="paragraph">
-<p>日平均外気温度から湿球温度を算出する。</p>
+<p>熱源群iの補正日平均外気温度から湿球温度を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 88. 入力</caption>
@@ -6536,9 +6561,15 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,oa,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの日平均外気温</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの補正日平均外気温</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.4.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(R\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">建築物が建設される場所の省エネルギー地域区分</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">―</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
 </tbody>
 </table>
@@ -6688,7 +6719,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <div class="sect5">
 <h6 id="_2_7_3_4_4_地中熱交換機からの熱源水温度"><a class="link" href="#_2_7_3_4_4_地中熱交換機からの熱源水温度">2.7.3.4.4 地中熱交換機からの熱源水温度</a></h6>
 <div class="paragraph">
-<p>地中熱交換器のタイプに基づき、地盤からの冷却水還り温度を算出する。</p>
+<p>地中熱交換機のタイプに基づき、地盤からの冷却水還り温度を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 93. 入力</caption>
@@ -6714,13 +6745,13 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{oa,H,ave}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{oa,h,ave}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">暖房期の平均外気温[℃]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{oa,C,ave}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{oa,c,ave}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">冷房期の平均外気温[℃]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A7</p></td>
@@ -6755,22 +6786,22 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ'_{w,H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ'_{w,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">暖房期の期間平均熱源水温度と年間平均外気温の差</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ'_{w,C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ'_{w,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">冷房期の期間平均熱源水温度と年間平均外気温の差</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(k_{H,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(k_{h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(k_{C,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(k_{c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
@@ -6799,40 +6830,60 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated}\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,C,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの冷房運転時の地中熱交換器からの日平均熱源水温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,c,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの冷房運転時の地中熱交換機からの日平均熱源水温度</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.4</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,H,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの暖房運転時の地中熱交換器からの日平均熱源水温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(θ_{AC,w,h,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における熱源群iの暖房運転時の地中熱交換機からの日平均熱源水温度</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.4</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>地中熱交換器のタイプに基づき、地盤からの冷却水還り温度\(θ_{AC,w,C,i,d}\)及び\(θ_{AC,w,H,i,d}\)を算出する。
-ここで、係数\(a_{H,i},b_{H,i},c_{H,i},d_{H,i},a_{C,i},b_{C,i},c_{C,i},d_{C,i}\)は
+<p>地中熱交換機のタイプに基づき、地盤からの冷却水還り温度\(θ_{AC,w,c,i,d}\)及び\(θ_{AC,w,h,i,d}\)を算出する。
+ここで、係数\(a_{h,i},b_{h,i},c_{h,i},d_{h,i},a_{c,i},b_{c,i},c_{c,i},d_{c,i}\)は
 熱源群iに属する熱源機器jの地中熱交換機のタイプ(１～５）によって下表によって定めるものとする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[θ_{AC,w,H,i,d} = k_{H,i} × (θ_{AC,oa,d}-θ_{AC,oa,H,ave} ) + (θ_{AC,oa,ave}+θ'_{w,H,i}) \\
-θ_{AC,w,C,i,d} = k_{C,i} × (θ_{AC,oa,d}-θ_{AC,oa,C,ave} ) + (θ_{AC,oa,ave}+θ'_{w,C,i}) \\
-θ'_{w,H,i,d} = a_{H,i} × R_{Q,i,d}+b_{H,i} \\
-θ'_{w,C,i,d} = a_{C,i} × R_{Q,i,d}+b_{C,i} \\
-k_{H,i,d} = c_{H,i} × R_{Q,i,d}+d_{H,i} \\
-k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
+\[θ_{AC,w,h,i,d} = k_{h,i} × (θ_{AC,oa,d}-θ_{AC,oa,h,ave} ) + (θ_{AC,oa,ave}+θ'_{w,h,i})\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[θ_{AC,w,c,i,d} = k_{c,i} × (θ_{AC,oa,d}-θ_{AC,oa,c,ave} ) + (θ_{AC,oa,ave}+θ'_{w,c,i})\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[θ'_{w,h,i,d} = a_{h,i} × R_{Q,i,d}+b_{h,i}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[θ'_{w,c,i,d} = a_{c,i} × R_{Q,i,d}+b_{c,i}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[k_{h,i,d} = c_{h,i} × R_{Q,i,d}+d_{h,i}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[k_{c,i,d} = c_{c,i} × R_{Q,i,d}+d_{c,i}\]
 </div>
 </div>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 96. 係数 \(a_{H,i},b_{H,i},c_{H,i},d_{H,i},a_{C,i},b_{C,i},c_{C,i},d_{C,i}\)</caption>
+<caption class="title">表 96. 係数 \(a_{h,i},b_{h,i},c_{h,i},d_{h,i},a_{c,i},b_{c,i},c_{c,i},d_{c,i}\)</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 16.6666%;">
@@ -6853,7 +6904,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{H,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{h,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8.0278</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">13.0253</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">16.7424</p></td>
@@ -6861,7 +6912,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">21.2833</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(b_{H,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(b_{h,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-1.1462</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-1.8689</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-2.4651</p></td>
@@ -6869,7 +6920,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">-3.8325</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(c_{H,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(c_{h,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-0.1128</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-0.1846</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-0.2643</p></td>
@@ -6877,7 +6928,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">-0.3474</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(d_{H,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(d_{h,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.1256</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.2023</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.2623</p></td>
@@ -6885,7 +6936,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.3629</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{C,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{c,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8.0633</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">12.6226</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">16.1703</p></td>
@@ -6893,7 +6944,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">21.8702</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(b_{C,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(b_{c,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.9083</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.7711</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.3128</p></td>
@@ -6901,7 +6952,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">9.148</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(c_{C,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(c_{c,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.0613</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.0568</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.1027</p></td>
@@ -6909,7 +6960,7 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.249</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(d_{C,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(d_{c,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.2178</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.3509</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.4697</p></td>
@@ -6925,17 +6976,17 @@ k_{C,i,d} = c_{C,i} × R_{Q,i,d}+d_{C,i}\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[R_{Q,i,d} = \frac{ | Q_{AC,ref,i,d,C}^{MAX} | - | Q_{AC,ref,i,d,H}^{MAX} |  }{ | Q_{AC,ref,i,d,C}^{MAX} |  + | Q_{AC,ref,i,d,H}^{MAX} | }  \\\]
+\[R_{Q,i,d} = \frac{ | Q_{AC,ref,c,i,d}^{MAX} | - | Q_{AC,ref,h,i,d}^{MAX} |  }{ | Q_{AC,ref,c,i,d}^{MAX} |  + | Q_{AC,ref,h,i,d}^{MAX} | }  \\\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
 <p>ここで、
-\(Q_{AC,ref,i,d,H}^{MAX}\) は、熱源群 i の日積算温熱生成量の年間最大値、
-\(Q_{AC,ref,i,d,C}^{MAX}\) は、熱源群 i の日積算冷熱生成量の年間最大値であるとする。<br>
-ただし、熱源群 i の日積算温熱生成量の年間最大値が0である場合は、\(Q_{AC,ref,i,d,H}^{MAX}\) は \(Q_{AC,ref,i,d,C}^{MAX}\) と等しいとする。<br>
-また、熱源群 i の日積算冷熱生成量の年間最大値が0である場合は、\(Q_{AC,ref,i,d,C}^{MAX}\) は \(Q_{AC,ref,i,d,H}^{MAX}\) と等しいとする。</p>
+\(Q_{AC,ref,h,i,d}^{MAX}\) は、熱源群 i の日積算温熱生成量の年間最大値、
+\(Q_{AC,ref,c,i,d}^{MAX}\) は、熱源群 i の日積算冷熱生成量の年間最大値であるとする。<br>
+ただし、熱源群 i の日積算温熱生成量の年間最大値が0である場合は、\(Q_{AC,ref,h,i,d}^{MAX}\) は \(Q_{AC,ref,h,i,d}^{MAX}\) と等しいとする。<br>
+また、熱源群 i の日積算冷熱生成量の年間最大値が0である場合は、\(Q_{AC,ref,c,i,d}^{MAX}\) は \(Q_{AC,ref,c,i,d}^{MAX}\) と等しいとする。</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>

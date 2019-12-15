@@ -2009,8 +2009,8 @@ stem:[L_{AC,pump,i,d}]|	日付dにおける二次ポンプ群iの負荷率|	－|
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,pump,i,d} = \begin{cases}
- F(  \frac{　Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times 1000 / 3600}{ q_{AC,pump,i,rated} } )  &　( T_{AC,pump,i,d}>0 ) \\
-0,　　　　　　　　　　　　　　　　  & (T_{AC,pump,i,d}=0 )
+ F(  \frac{　Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times 1000 / 3600}{ q_{AC,pump,i,rated} } ), & ( T_{AC,pump,i,d}>0 ) \\
+0, & (T_{AC,pump,i,d}=0 )
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
@@ -2020,8 +2020,8 @@ L_{AC,pump,i,d} = \begin{cases}
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 F(L) = \begin{cases}
- \frac{floor(L×10)}{10} + 0.05,　　& (L>0の場合)　\\
- L,　　　　　　　　　　& (それ以外の場合)
+ \frac{floor(L×10)}{10} + 0.05, & (L>0\mbox{の場合})　\\
+ L, & (\mbox{それ以外の場合})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

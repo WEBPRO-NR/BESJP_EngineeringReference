@@ -2935,19 +2935,19 @@ stem:[min_{i,j},max_{i,j}]| 	熱源群iに属する熱源機器jの部分負荷�
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 F_{AC,ref,x,i,j,d}= \begin{cases}
-F   　　　,xL_{AC,ref,i,d} ≦ 1 \\
-F×1.2    ,xL_{AC,ref,i,d} > 1  \\
+F_{i,j}, & (OV_{AC,ref,i,d}=false) \\
+F_{i,j} \times 1.2, & (OV_{AC,ref,i,d}=true) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-F = a_{i,j} × L^4 + b_{i,j} × L^3 + c_{i,j} × L^2 + d_{i,j}×L + e_{i,j}
+F_{i,j} = a_{i,j} \times L_{i,j}^4 + b_{i,j} \times L_{i,j}^3 + c_{i,j} \times L_{i,j}^2 + d_{i,j} \times L_{i,j} + e_{i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-L = \begin{cases}
- max⁡( min⁡(xL_{AC,ref,i,d},max_{i,j} ),min_{i,j} )  , xL_{AC,ref,i,d} ≦ 1 \\
- max_{i,j,d}                                       , xL_{AC,ref,i,d} > 1 \\
+L_{i,j} = \begin{cases}
+ max⁡( min⁡(xL_{AC,ref,i,d},max_{i,j} ),min_{i,j} ), & (OV_{AC,ref,i,d}=false) \\
+ max_{i,j,d}, & (OV_{AC,ref,i,d}=true) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

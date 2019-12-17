@@ -7204,7 +7204,7 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[q_{AC,ref,i,j,max,d} = q'_{AC,ref,i,j,rated} \times F_{ref,q,i,j}(θ_{i,j})\]
+\[q_{AC,ref,i,j,max,d} = q'_{AC,ref,i,j,rated} \times F_{ref,q,i,j}(θ_{i,j,d})\]
 </div>
 </div>
 </div>
@@ -7216,8 +7216,8 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[F_{ref,q,i,j}(θ_{i,j}) = a_{ref,q,i,j} × θ_{i,j}^4 + b_{ref,q,i,j} × θ_{i,j}^3 + c_{ref,q,i,j} × θ_{i,j}^2 + d_{ref,q,i,j} × θ_{i,j} + e_{ref,q,i,j} \\
-θ_{i,j} = \begin{cases}
+\[F_{ref,q,i,j}(θ_{i,j,d}) = a_{ref,q,i,j} × θ_{i,j,d}^4 + b_{ref,q,i,j} × θ_{i,j,d}^3 + c_{ref,q,i,j} × θ_{i,j,d}^2 + d_{ref,q,i,j} × θ_{i,j,d} + e_{ref,q,i,j} \\
+θ_{i,j,d} = \begin{cases}
   θ_{ref,q,i,j,min}, &amp;(θ_{AC,ref,base,i,j,d} &lt; θ_{ref,q,i,j,min}) \\
   θ_{AC,ref,base,i,j,d}, &amp;(θ_{ref,q,i,j,min} ≦ θ_{AC,ref,base,i,j,d} ≦ θ_{ref,q,i,j,max}) \\
   θ_{ref,q,i,j,max} &amp;(θ_{ref,q,i,j,max} &lt; θ_{AC,ref,base,i,j,d}) \\
@@ -7308,7 +7308,7 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[P_{AC,ref,i,j,max,d} = P_{AC,ref,i,j,rated} \times F_{ref,p,i,j}(θ_{i,j})\]
+\[P_{AC,ref,i,j,max,d} = P_{AC,ref,i,j,rated} \times F_{ref,p,i,j}(θ_{i,j,d})\]
 </div>
 </div>
 </div>
@@ -7320,8 +7320,8 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[F_{ref,p,i,j}(θ_{i,j}) = a_{ref,p,i,j} × θ_{i,j}^4 + b_{ref,p,i,j} × θ_{i,j}^3 + c_{ref,p,i,j} × θ_{i,j}^2 + d_{ref,p,i,j} × θ_{i,j} + e_{ref,p,i,j} \\
-θ_{i,j} = \begin{cases}
+\[F_{ref,p,i,j}(θ_{i,j,d}) = a_{ref,p,i,j} × θ_{i,j,d}^4 + b_{ref,p,i,j} × θ_{i,j,d}^3 + c_{ref,p,i,j} × θ_{i,j,d}^2 + d_{ref,p,i,j} × θ_{i,j,d} + e_{ref,p,i,j} \\
+θ_{i,j,d} = \begin{cases}
   θ_{ref,p,i,j,min}, &amp;(θ_{AC,ref,base,i,j,d} &lt; θ_{ref,p,i,j,min}) \\
   θ_{AC,ref,base,i,j,d}, &amp;(θ_{ref,p,i,j,min} ≦ θ_{AC,ref,base,i,j,d} ≦ θ_{ref,p,i,j,max}) \\
   θ_{ref,p,i,j,max} &amp;(θ_{ref,p,i,j,max} &lt; θ_{AC,ref,base,i,j,d}) \\
@@ -7407,7 +7407,7 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <div class="stemblock">
 <div class="content">
 \[f_{AC,ref,x,i,j,d}= \begin{cases}
- F_{ref,x,i,j}(L_{i,j}), &amp; (xL_{AC,ref,i,d} ≦ 1.0) \\
+ F_{ref,x,i,j}(L_{i,j,d}), &amp; (xL_{AC,ref,i,d} ≦ 1.0) \\
  1.2, &amp; (xL_{AC,ref,i,d} &gt; 1.0) \\
 \end{cases}\]
 </div>
@@ -7422,8 +7422,8 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[F_{ref,x,i,j}(L_{i,j}) = a_{ref,x,i,j} \times L_{i,j}^4 + b_{ref,x,i,j} \times L_{i,j}^3 + c_{ref,x,i,j} \times L_{i,j}^2 + d_{ref,x,i,j} \times L_{i,j} + e_{ref,x,i,j} \\
-L_{i,j} = \begin{cases}
+\[F_{ref,x,i,j}(L_{i,j,d}) = a_{ref,x,i,j} \times L_{i,j,d}^4 + b_{ref,x,i,j} \times L_{i,j,d}^3 + c_{ref,x,i,j} \times L_{i,j,d}^2 + d_{ref,x,i,j} \times L_{i,j,d} + e_{ref,x,i,j} \\
+L_{i,j,d} = \begin{cases}
   L_{ref,x,i,j,min}, &amp;(xL_{AC,ref,i,d} &lt; L_{ref,x,i,j,min}) \\
   xL_{AC,ref,i,d}, &amp;(L_{ref,x,i,j,min} ≦ xL_{AC,ref,i,d} ≦ L_{ref,x,i,j,max}) \\
   L_{ref,x,i,j,max}, &amp;(L_{ref,x,i,j,max} &lt; xL_{AC,ref,i,d}) \\
@@ -7502,13 +7502,13 @@ L_{i,j} = \begin{cases}
 </tbody>
 </table>
 <div class="paragraph">
-<p>送水温度特性は、送水温度 \(θ_{i,j}\) の関数として次式で求める。</p>
+<p>送水温度特性は、送水温度 \(θ_{i,j,d}\) の関数として次式で求める。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[f_{AC,ref,t,i,j,d}= F_{ref,t,i,j}(θ_{i,j})\]
+\[f_{AC,ref,t,i,j,d}= F_{ref,t,i,j}(θ_{i,j,d})\]
 </div>
 </div>
 </div>
@@ -7520,8 +7520,8 @@ L_{i,j} = \begin{cases}
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[F_{ref,t,i,j}(θ_{i,j}) = a_{ref,t,i,j} \times θ_{i,j}^4 + b_{ref,t,i,j} \times θ_{i,j}^3 + c_{ref,t,i,j} \times θ_{i,j}^2 + d_{ref,t,i,j} \times θ_{i,j} + e_{ref,t,i,j} \\
-θ_{i,j} = \begin{cases}
+\[F_{ref,t,i,j}(θ_{i,j,d}) = a_{ref,t,i,j} \times θ_{i,j,d}^4 + b_{ref,t,i,j} \times θ_{i,j,d}^3 + c_{ref,t,i,j} \times θ_{i,j,d}^2 + d_{ref,t,i,j} \times θ_{i,j,d} + e_{ref,t,i,j} \\
+θ_{i,j,d} = \begin{cases}
   θ_{ref,t,i,j,min}, &amp;(θ_{AC,ref,i,j,wtr} &lt; θ_{ref,t,i,j,min}) \\
   θ_{AC,ref,i,j,wtr}, &amp;(θ_{ref,t,i,j,min} ≦ θ_{AC,ref,i,j,wtr} ≦ θ_{ref,t,i,j,max}) \\
   θ_{ref,t,i,j,max}, &amp;(θ_{ref,t,i,j,max} &lt; θ_{AC,ref,i,j,wtr}) \\

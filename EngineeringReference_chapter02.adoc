@@ -1,26 +1,31 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 4
+:toc-title: 目次
+:sectnums!:
+:sectnumlevels: 4
+:sectlinks:
+:linkattrs:
+:icons: font
+:source-highlighter: coderay
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:docname: = 平成28年省エネルギー基準一次エネルギー消費量算定方法の解説（非住宅建築物）
 :stem: latexmath
+:xrefstyle: short
+
+= 平成28年 省エネルギー基準 一次エネルギー消費量算定方法の解説（非住宅建築物）
+
+国土交通省 国土技術政策総合研究所、国立研究開発法人 建築研究所
+
+===== link:./index.html[トップページに戻る]
+
 
 == 2. 空気調和設備の評価方法
 
 空気調和設備の一次エネルギー消費量算出ロジックを示す。 +
-本章で使用する共通の定数を以下に示す。
-
-.共通の定数
-[options="header", cols="2,6,2,2"]
-|=================================
-|定数名| 説明| 値| 単位|
-stem:[f_{prim,e}]|電気の量1キロワット時を熱量に換算する係数| 9760|kJ/kWh|
-stem:[C_{a}]|	乾き空気の定圧比熱|  1.006|	kJ ⁄ (kg・K)|
-stem:[C_{wv}]|	水蒸気の定圧比熱 | 1.805|	kJ ⁄ (kg・K)|
-stem:[C_{w}]|	水の定圧比熱 | 4.186|	kJ ⁄ (kg・K)|
-stem:[L_{w}]|	水の蒸発潜熱|  2502|	kJ ⁄ (kg・K)|
-stem:[\rho_{w}]|	水の密度（大気圧、7度）| 1000 | kg⁄stem:[m^{3}]|
-stem:[\alpha_{o}]| 室外側総合熱伝達率| 1/0.04	|W/(stem:[m^{2}]・K)|
-stem:[\alpha_{i}]|	室内側総合熱伝達率| 1/0.11|	W/(stem:[m^{2}]・K)|
-stem:[f_{fan,heat}]| ファンの発熱比率| 0.84| -|
-stem:[f_{pump,heat}]| ポンプの発熱比率| 0.84| -|
-stem:[f_{ref,ts,loss}]| 蓄熱槽の熱損失係数| 0.03|-|
-|=================================
 
 === 2.1 はじめに
 

@@ -2995,7 +2995,7 @@ F_{ref,t,i,j}(θ_{i,j,d}) = a_{ref,t,i,j} \times θ_{i,j,d}^4 + b_{ref,t,i,j} \t
 [options="header", cols="2,5,2,1"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[StorageType_{i,j}]|	熱源群iに属する熱源機器jの蓄熱時運転モード|	―|	入力|
+stem:[StorageType_{i}]| 熱源群iの蓄熱システムの運転モード（水蓄熱（混合型）、水蓄熱（成層型）、氷蓄熱、追掛、無）| ―| 入力（様式2-5④）|
 stem:[Q_{AC,ref,i,d}]|	日付dにおける熱源機iの熱負荷|	MJ/日|2.6.3.3|
 stem:[T_{AC,ref,base,i,d}]|	日付dにおける熱源機群iの基本運転時間|	時間/日|	2.5.4|
 stem:[q'_{AC,ref,i,rated}]|	熱源群iの仮想定格能力	|kW	|2.7.3.2|
@@ -3027,7 +3027,7 @@ q_{AC,ref,i,max,d} = \sum_{j=1}^{N_{AC,ref,i,d}} q_{AC,ref,i,j,max,d}
 なお、蓄熱槽があり蓄熱運転をする熱源群の負荷率は、常に1.0とする。
 
 ====
-a) StorageTypeが「蓄熱」の場合
+a) stem:[StrageType_{i}]が「水蓄熱（混合型）」、「水蓄熱（成層型）」、「氷蓄熱」の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,ref,i,d} = 1.0
@@ -3041,13 +3041,13 @@ b) 上記以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,ref,i,d} = \begin{cases}
- F(Q_{AC,ref,i,d} / T_{AC,ref,base,i,d} ×1000/3600),       T_{AC,ref,base,i,d}≠0 \\
- 0,       T_{AC,ref,base,i,d}=0 \\
+ F(\frac{Q_{AC,ref,i,d}}{T_{AC,ref,base,i,d}} \times \frac{1000}{3600}), & (T_{AC,ref,base,i,d} \neq 0) \\
+ 0, & (T_{AC,ref,base,i,d}=0) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} × L_{AC,ref,i,d} /q_{AC,ref,i,max,d}
+xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} \times \frac{L_{AC,ref,i,d}}{q_{AC,ref,i,max,d}}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -3056,8 +3056,8 @@ xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} × L_{AC,ref,i,d} /q_{AC,ref,i,max,d}
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 F(L) = \begin{cases}
- \frac{floor(L×10)}{10} + 0.05,　　L>0の場合　\\
- L,　　それ以外の場合
+ \frac{floor(L \times 10)}{10} + 0.05, & (L>0 \mbox{の場合})　\\
+ L, & (\mbox{それ以外の場合})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
@@ -3066,7 +3066,10 @@ F(L) = \begin{cases}
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-OV_{AC,ref,i,d} = true　： L_{AC,ref,i,d} > 1.0
+OV_{AC,ref,i,d} =  \begin{cases}
+True, & (L_{AC,ref,i,d} > 1.0) \\
+False, & (\mbox{それ以外の場合})
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -3080,8 +3083,8 @@ OV_{AC,ref,i,d} = true　： L_{AC,ref,i,d} > 1.0
 |=================================
 |変数名|説明|単位|参照先|
 stem:[q_{AC,ref,i,j,max,d}]| 	熱源群iに属する熱源機器jの日付dにおける最大能力	|kW	|2.7.3.5.1|
-stem:[q'_{AC,ref,i,rated}]| 	熱源群iの蓄熱槽による補正定格能力	|kW	|2.7.3.2|
-stem:[L_{AC,ref,i,d}]| 日付dにおける熱源群iの機器負荷率	|－|2.7.3.6|
+stem:[q'_{AC,ref,i,rated}]| 	熱源群iの仮想定格能力	|kW	|2.7.3.2|
+stem:[L_{AC,ref,i,d}]| 日付dにおける熱源群iの負荷率	|－|2.7.3.6|
 stem:[N_{AC,ref,i}]| 	熱源群iに属する熱源機器jの台数|	台	|入力|
 |=================================
 
@@ -3095,15 +3098,15 @@ stem:[N_{AC,ref,i,d}]| 	日付dにおける熱源群iに属する熱源機器j�
 熱源群の熱源運転台数は、台数制御が導入されているか否かによって、次のa）またはb）の方法にて算出する。
 
 ====
-a}台数制御が導入されている場合
+a) 台数制御が導入されている場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-N_{AC,ref,i,d} = min⁡( N │  A＜B  and N ≤ N_{AC,ref,i} ) \\
+N_{AC,ref,i,d} = min⁡( N │  A < B \land N \leqq N_{AC,ref,i} ) \\
 A = q'_{AC,ref,i,rated} ×L_{AC,ref,i,d} \\
 B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 
-b}台数制御が導入されていない場合
+b) 台数制御が導入されていない場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 N_{AC,ref,i,d} = N_{AC,ref,i}
@@ -3156,7 +3159,7 @@ stem:[P_{AC,ref,sub,nG,i,j,d}]| 	熱源群iに属する熱源機器jの補機電
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ref,main,i,j,d} = P_{AC,ref,i,j,max,d} × F_{AC,ref,t,i,j} × F_{AC,ref,x,i,j,d} \\
+E_{AC,ref,main,i,j,d} = P_{AC,ref,i,j,max,d} \times F_{AC,ref,t,i,j} \times F_{AC,ref,x,i,j,d} \\
 E_{AC,ref,pump,i,j,d} = P_{AC,ref,pump,i,j} \\
 E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -3170,21 +3173,21 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}
 a) stem:[RefType_{i,j}]に「消費電力自給装置付」が含まれない場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j} × \max⁡(0.3,L_{AC,ref,i,d} )
+E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j} \times \max⁡(0.3,L_{AC,ref,i,d} )
 ++++++++++++++++++++++++++++++++++++++++++++
 b) stem:[RefType_{i,j}]に「消費電力自給装置付」が含まれる場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 P_{AC,ref,sub,nG,i,j,d} = \begin{cases}
-  0.017×q_{AC,ref,i,j,rated} 、冷房時 \\
-  0.012×q_{AC,ref,i,j,rated} 、暖房時 \\
+  0.017 \times q_{AC,ref,i,j,rated}, & (\mbox{冷房時}) \\
+  0.012 \times q_{AC,ref,i,j,rated}, & (\mbox{暖房時}) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 E_{AC,ref,sub,i,j,d} = \begin{cases}
-  P_{AC,ref,sub,i,j}×L_{AC,ref,i,d} 、0.3＜L_{AC,ref,i,d}  \\
-  0.3×P_{AC,ref,sub,nG,i,j,d}-(P_{AC,ref,sub,nG,i,j,d}-P_{AC,ref,sub,i,j} ) × L_{AC,ref,i,d} 、0≤L_{AC,ref,i,d}≤0.3 \\
+  P_{AC,ref,sub,i,j} \times L_{AC,ref,i,d}, & (0.3＜L_{AC,ref,i,d})  \\
+  0.3 \times P_{AC,ref,sub,nG,i,j,d}-(P_{AC,ref,sub,nG,i,j,d}-P_{AC,ref,sub,i,j} ) \times L_{AC,ref,i,d}, & (0 \leqq L_{AC,ref,i,d} \leqq 0.3) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
@@ -3201,7 +3204,7 @@ E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j}
 b) stem:[RefType_{i,j}]に「冷却水変流量」が含まれない場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j}×max⁡(0.5,L_{AC,ref,i,d})
+E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j} \times max⁡(0.5,L_{AC,ref,i,d})
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

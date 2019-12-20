@@ -3157,7 +3157,7 @@ stem:[P_{AC,ref,sub,nG,i,j,d}]| 	熱源群iに属する熱源機器jの補機電
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ref,main,i,j,d} = P_{AC,ref,i,j,max,d} × F_{AC,ref,t,i,j} × F_{AC,ref,x,i,j,d} \\
+E_{AC,ref,main,i,j,d} = P_{AC,ref,i,j,max,d} \times F_{AC,ref,t,i,j} \times F_{AC,ref,x,i,j,d} \\
 E_{AC,ref,pump,i,j,d} = P_{AC,ref,pump,i,j} \\
 E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -3170,21 +3170,21 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}
 a) 発電機能がない場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j} × \max⁡(0.3,L_{AC,ref,i,d} )
+E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j} \times \max⁡(0.3,L_{AC,ref,i,d} )
 ++++++++++++++++++++++++++++++++++++++++++++
 b) 発電機能がある場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 P_{AC,ref,sub,nG,i,j,d} = \begin{cases}
-  0.017×q_{AC,ref,i,j,rated} 、冷房時 \\
-  0.012×q_{AC,ref,i,j,rated} 、暖房時 \\
+  0.017 \times q_{AC,ref,i,j,rated}, & (\mbox{冷房時}) \\
+  0.012 \times q_{AC,ref,i,j,rated}, & (\mbox{暖房時}) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 E_{AC,ref,sub,i,j,d} = \begin{cases}
-  P_{AC,ref,sub,i,j}×L_{AC,ref,i,d} 、0.3＜L_{AC,ref,i,d}  \\
-  0.3×P_{AC,ref,sub,nG,i,j,d}-(P_{AC,ref,sub,nG,i,j,d}-P_{AC,ref,sub,i,j} ) × L_{AC,ref,i,d} 、0≤L_{AC,ref,i,d}≤0.3 \\
+  P_{AC,ref,sub,i,j} \times L_{AC,ref,i,d}, & (0.3＜L_{AC,ref,i,d})  \\
+  0.3 \times P_{AC,ref,sub,nG,i,j,d}-(P_{AC,ref,sub,nG,i,j,d}-P_{AC,ref,sub,i,j} ) \times L_{AC,ref,i,d}, & (0 \leqq L_{AC,ref,i,d} \leqq 0.3) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
@@ -3194,15 +3194,15 @@ E_{AC,ref,sub,i,j,d} = \begin{cases}
 同じ熱源群に発電機能が有となる機種と無となる機種が混在する場合については、有となる機種の補機についてのみ補正をかける。
 
 ====
-a} 冷却水変流量制御がない場合
+a) 冷却水変流量制御がない場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
-b} 冷却水変流量制御がある場合
+b) 冷却水変流量制御がある場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j}×max⁡(0.5,L_{AC,ref,i,d})
+E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j} \times max⁡(0.5,L_{AC,ref,i,d})
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

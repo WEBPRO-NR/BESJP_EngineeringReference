@@ -3041,13 +3041,13 @@ b) 上記以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,ref,i,d} = \begin{cases}
- F(Q_{AC,ref,i,d} / T_{AC,ref,base,i,d} ×1000/3600),       T_{AC,ref,base,i,d}≠0 \\
- 0,       T_{AC,ref,base,i,d}=0 \\
+ F(\frac{Q_{AC,ref,i,d}}{T_{AC,ref,base,i,d}} \times \frac{1000}{3600}), & (T_{AC,ref,base,i,d} \neq 0) \\
+ 0, & (T_{AC,ref,base,i,d}=0) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} × L_{AC,ref,i,d} /q_{AC,ref,i,max,d}
+xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} \times \frac{L_{AC,ref,i,d}}{q_{AC,ref,i,max,d}}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -3056,8 +3056,8 @@ xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} × L_{AC,ref,i,d} /q_{AC,ref,i,max,d}
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 F(L) = \begin{cases}
- \frac{floor(L×10)}{10} + 0.05,　　L>0の場合　\\
- L,　　それ以外の場合
+ \frac{floor(L \times 10)}{10} + 0.05, & (L>0 \mbox{の場合})　\\
+ L, & (\mbox{それ以外の場合})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
@@ -3066,7 +3066,10 @@ F(L) = \begin{cases}
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-OV_{AC,ref,i,d} = true　： L_{AC,ref,i,d} > 1.0
+OV_{AC,ref,i,d} =  \begin{cases}
+True, & (L_{AC,ref,i,d} > 1.0) \\
+False, & (\mbox{それ以外の場合})
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

@@ -7395,10 +7395,10 @@ L_{i,j,d} = \begin{cases}
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(StorageType_{i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの蓄熱時運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(StorageType_{i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱システムの運転モード（水蓄熱（混合型）、水蓄熱（成層型）、氷蓄熱、追掛、無）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">―</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力（様式2-5④）</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
@@ -7495,7 +7495,7 @@ L_{i,j,d} = \begin{cases}
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) StorageTypeが「蓄熱」の場合</p>
+<p>a) \(StrageType_{i}\)が「水蓄熱（混合型）」、「水蓄熱（成層型）」、「氷蓄熱」の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7513,14 +7513,14 @@ L_{i,j,d} = \begin{cases}
 <div class="stemblock">
 <div class="content">
 \[L_{AC,ref,i,d} = \begin{cases}
- F(Q_{AC,ref,i,d} / T_{AC,ref,base,i,d} ×1000/3600),       T_{AC,ref,base,i,d}≠0 \\
- 0,       T_{AC,ref,base,i,d}=0 \\
+ F(\frac{Q_{AC,ref,i,d}}{T_{AC,ref,base,i,d}} \times \frac{1000}{3600}), &amp; (T_{AC,ref,base,i,d} \neq 0) \\
+ 0, &amp; (T_{AC,ref,base,i,d}=0) \\
 \end{cases}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} × L_{AC,ref,i,d} /q_{AC,ref,i,max,d}\]
+\[xL_{AC,ref,i,d} = q'_{AC,ref,i,rated} \times \frac{L_{AC,ref,i,d}}{q_{AC,ref,i,max,d}}\]
 </div>
 </div>
 </div>
@@ -7533,8 +7533,8 @@ L_{i,j,d} = \begin{cases}
 <div class="stemblock">
 <div class="content">
 \[F(L) = \begin{cases}
- \frac{floor(L×10)}{10} + 0.05,　　L&gt;0の場合　\\
- L,　　それ以外の場合
+ \frac{floor(L \times 10)}{10} + 0.05, &amp; (L&gt;0 \mbox{の場合})　\\
+ L, &amp; (\mbox{それ以外の場合})
 \end{cases}\]
 </div>
 </div>
@@ -7547,7 +7547,10 @@ L_{i,j,d} = \begin{cases}
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[OV_{AC,ref,i,d} = true　： L_{AC,ref,i,d} &gt; 1.0\]
+\[OV_{AC,ref,i,d} =  \begin{cases}
+True, &amp; (L_{AC,ref,i,d} &gt; 1.0) \\
+False, &amp; (\mbox{それ以外の場合})
+\end{cases}\]
 </div>
 </div>
 </div>
@@ -7584,13 +7587,13 @@ L_{i,j,d} = \begin{cases}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱槽による補正定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの仮想定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ref,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの機器負荷率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3.6</p></td>
 </tr>
@@ -7633,17 +7636,17 @@ L_{i,j,d} = \begin{cases}
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a}台数制御が導入されている場合</p>
+<p>a) 台数制御が導入されている場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[N_{AC,ref,i,d} = min⁡( N │  A＜B  and N ≤ N_{AC,ref,i} ) \\
+\[N_{AC,ref,i,d} = min⁡( N │  A &lt; B \land N \leqq N_{AC,ref,i} ) \\
 A = q'_{AC,ref,i,rated} ×L_{AC,ref,i,d} \\
 B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b}台数制御が導入されていない場合</p>
+<p>b) 台数制御が導入されていない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7730,6 +7733,18 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RefType_{i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群 i に属する熱源機器 j の熱源機種名称</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Mode_{d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機の運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">附属書A5</p></td>
+</tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
@@ -7811,7 +7826,7 @@ B = \sum_{j=1}^{N} q_{AC,ref,i,j,max,d}\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ref,main,i,j,d} = P_{AC,ref,i,j,max,d} × F_{AC,ref,t,i,j} × F_{AC,ref,x,i,j,d} \\
+\[E_{AC,ref,main,i,j,d} = P_{AC,ref,i,j,max,d} \times F_{AC,ref,t,i,j} \times F_{AC,ref,x,i,j,d} \\
 E_{AC,ref,pump,i,j,d} = P_{AC,ref,pump,i,j} \\
 E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 </div>
@@ -7820,34 +7835,35 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 </div>
 <div class="paragraph">
 <p>日付dにおける熱源群iに属する熱源機器jの補機のエネルギー消費量は、発電機能の有無によって算出方法が異なる。
-発電機能の有無は、熱源機種毎に予め設定されている。</p>
+発電機能の有無は、熱源機種毎に予め設定されている。
+同じ熱源群に発電機能が有となる機種と無となる機種が混在する場合については、有となる機種の補機についてのみ補正をかける。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 発電機能がない場合</p>
+<p>a) \(RefType_{i,j}\)に「消費電力自給装置付」が含まれない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j} × \max⁡(0.3,L_{AC,ref,i,d} )\]
+\[E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j} \times \max⁡(0.3,L_{AC,ref,i,d} )\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 発電機能がある場合</p>
+<p>b) \(RefType_{i,j}\)に「消費電力自給装置付」が含まれる場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[P_{AC,ref,sub,nG,i,j,d} = \begin{cases}
-  0.017×q_{AC,ref,i,j,rated} 、冷房時 \\
-  0.012×q_{AC,ref,i,j,rated} 、暖房時 \\
+  0.017 \times q_{AC,ref,i,j,rated}, &amp; (\mbox{冷房時}) \\
+  0.012 \times q_{AC,ref,i,j,rated}, &amp; (\mbox{暖房時}) \\
 \end{cases}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
 \[E_{AC,ref,sub,i,j,d} = \begin{cases}
-  P_{AC,ref,sub,i,j}×L_{AC,ref,i,d} 、0.3＜L_{AC,ref,i,d}  \\
-  0.3×P_{AC,ref,sub,nG,i,j,d}-(P_{AC,ref,sub,nG,i,j,d}-P_{AC,ref,sub,i,j} ) × L_{AC,ref,i,d} 、0≤L_{AC,ref,i,d}≤0.3 \\
+  P_{AC,ref,sub,i,j} \times L_{AC,ref,i,d}, &amp; (0.3＜L_{AC,ref,i,d})  \\
+  0.3 \times P_{AC,ref,sub,nG,i,j,d}-(P_{AC,ref,sub,nG,i,j,d}-P_{AC,ref,sub,i,j} ) \times L_{AC,ref,i,d}, &amp; (0 \leqq L_{AC,ref,i,d} \leqq 0.3) \\
 \end{cases}\]
 </div>
 </div>
@@ -7855,13 +7871,12 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 </div>
 <div class="paragraph">
 <p>日付dにおける熱源群iに属する熱源機器jの冷却水ポンプのエネルギー消費量は、冷却水変流量制御の有無によって算出方法が異なる。
-冷却水変流量制御の有無は、熱源機種毎に予め設定されている。
-同じ熱源群に発電機能が有となる機種と無となる機種が混在する場合については、有となる機種の補機についてのみ補正をかける。</p>
+冷却水変流量制御の有無は、熱源機種毎に予め設定されている。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a} 冷却水変流量制御がない場合</p>
+<p>a) \(RefType_{i,j}\)に「冷却水変流量」が含まれる場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7869,11 +7884,11 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b} 冷却水変流量制御がある場合</p>
+<p>b) \(RefType_{i,j}\)に「冷却水変流量」が含まれない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j}×max⁡(0.5,L_{AC,ref,i,d})\]
+\[E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j} \times max⁡(0.5,L_{AC,ref,i,d})\]
 </div>
 </div>
 </div>
@@ -10051,7 +10066,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-19 11:44:08 +0900
+Last updated 2019-12-20 11:35:27 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

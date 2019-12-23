@@ -26,8 +26,10 @@ https://webpro-nr.github.io/BESJP_EngineeringReference/index.html
 　EngineeringReference_chapter05.adoc <br>
 昇降機 <br>
 　EngineeringReference_chapter06.adoc <br>
-基準一次エネルギー消費量 <br>
+その他一次エネルギー消費量 <br>
 　EngineeringReference_chapter09.adoc <br>
+基準一次エネルギー消費量 <br>
+　EngineeringReference_chapter10.adoc <br>
 
 → htmlファイルの生成は、マージした後、管理者の方で行います。
 

@@ -482,22 +482,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(ROOMTYPE_{AC,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調計算対象室rの建物用途・室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(ROOMTYPE_{M,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">計算対象室rの建物用途・室用途</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①建物用途、室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式1：①建物用途、室用途</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{AC,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調算対象室rの床面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{M,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">計算対象室rの床面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①室面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式1：①室面積</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{AC}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調計算対象室の数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{M}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">計算対象室の数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①室名 の総入力行数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式1：①室名 の総入力行数</p></td>
 </tr>
 </tbody>
 </table>
@@ -533,7 +533,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{M} = \sum_{r=1}^{n_{AC}} (a_{M,r} \times A_{AC,r} )\]
+\[E_{M} = \sum_{r=1}^{n_{M}} (a_{M,r} \times A_{M,r} )\]
 </div>
 </div>
 </div>
@@ -542,11 +542,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>係数 \(a_{M,r}\) [MJ/（m<sup>2</sup>・年）]は 国交省平成28年告示265号別表第2 で規定されている値であり、床面積あたりのその他一次エネルギー消費量である。</p>
 </div>
 <div class="paragraph">
-<p>この係数は、空調計算対象室rの室用途毎に規定されており、
-空調計算対象室 r の様式2-1：①建物用途、室用途( \(ROOMTYPE_{AC,r}\) )の情報から、国交省平成28年告示265号 別表第2 より該当する係数 \(a_{M,r}\) を抽出する。</p>
+<p>この係数は、計算対象室rの室用途毎に規定されており、
+計算対象室 r の様式1：①建物用途、室用途( \(ROOMTYPE_{M,r}\) )の情報から、国交省平成28年告示265号 別表第2 より該当する係数 \(a_{M,r}\) を抽出する。</p>
 </div>
 <div class="paragraph">
-<p>式中のΣは、入力シートに入力された全ての空調計算対象室について積算することを意味しており、具体的には「様式2-1 空調ゾーン入力シート」に入力された全ての室について積算を行う。<br></p>
+<p>式中のΣは、入力シートに入力された全ての計算対象室について積算することを意味しており、具体的には「様式1 室仕様入力シート」に入力された全ての室について積算を行う。<br></p>
 </div>
 <div class="paragraph">
 <p>ここで、係数 \(a_{M,r}\) は、各室用途の標準室使用条件における機器発熱量の年間積算値を一次エネルギー換算した値であり、算定式は次式のとおりである。</p>
@@ -555,23 +555,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[a_{M,r} = \sum_{d=1}^{365} \sum_{t=1}^{24} (Q_{A,r,d,t}) \times f_{prime,e} \times 10^{-6}\]
+\[a_{M,r} = \sum_{d=1}^{365} \sum_{t=1}^{24} (Q_{app,r,d,t}) \times f_{prime,e} \times 10^{-6}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>式中の \(Q_{A,r,d,t}\) は日付d、時刻tにおける室の機器発熱量［W/m<sup>2</sup>］であり、室用途毎に標準室使用条件で定められている。
+<p>式中の \(Q_{app,r,d,t}\) は日付d、時刻tにおける室の機器発熱量［W/m<sup>2</sup>］であり、室用途毎に標準室使用条件で定められている。
 なお、一部の室用途については、待機電力を想定して非空調時間帯における機器発熱量を見込んでいるが、その他エネルギー消費量の計算には、この非空調時間帯の機器発熱量も含めて算出するものとする。<br>
-標準室使用条件において、非空調室については機器発熱量は常に0であるとされている。
-\(E_{M}\) の算出式において空調計算対象室のみ積算するのは、非空調室については 係数 \(a_{M,r}\) が0になるためである。</p>
+標準室使用条件において、非空調室用途（空気調和設備の基準値が設定されていない室用途）については機器発熱量は常に0であるとされているため、
+非空調室用途については係数 \(a_{M,r}\) は0である。</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-23 13:34:57 +0900
+Last updated 2019-12-23 14:34:32 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

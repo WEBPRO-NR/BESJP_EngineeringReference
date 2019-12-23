@@ -58,7 +58,17 @@ stem:[f_{ref,ts,loss}]| 蓄熱槽の熱損失係数| 0.03|-|
 
 === 第６章　link:./EngineeringReference_chapter06.html[昇降機の評価方法]
 
+=== 第７章　太陽光発電設備の評価方法
 
+太陽光発電設備の評価方法は、エネルギー消費性能計算プログラム（住宅版） の評価方法と同じです。link:https://www.kenken.go.jp/becc/documents/house/9-1_191119_v08_PVer0207.pdf[仕様書はこちら]。
+
+=== 第８章　link:https://www.kenken.go.jp/becc/documents/building/Definitions/Webpro_Specification_06CGS_180402.pdf[コージェネレーション設備の評価方法]
+
+=== 第９章　link:./EngineeringReference_chapter09.html[基準一次エネルギー消費量の算定方法]
+ 
+   
+ 
+ 
 ==== 参考資料
 
 * 建築研究資料第191号: 業務用コージェネレーション設備の性能評価手法の高度化に関する研究、H31.04

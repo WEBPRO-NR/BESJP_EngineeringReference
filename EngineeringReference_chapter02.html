@@ -570,7 +570,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_a_3_日射量">A.3 日射量</a></li>
 <li><a href="#_a_4_ペリメータゾーン面積">A.4 ペリメータゾーン面積</a></li>
-<li><a href="#_a_5_空調機の運転モード">A.5 空調機の運転モード</a></li>
+<li><a href="#_a_5_季節冷房期中間期暖房期">A.5 季節（冷房期、中間期、暖房期）</a></li>
 <li><a href="#_a_6_空調室の設定温度">A.6 空調室の設定温度</a></li>
 <li><a href="#_a_7_平均外気温">A.7 平均外気温</a></li>
 <li><a href="#_a_8_外気エンタルピー">A.8 外気エンタルピー</a></li>
@@ -9160,7 +9160,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
-<h4 id="_a_5_空調機の運転モード"><a class="link" href="#_a_5_空調機の運転モード">A.5 空調機の運転モード</a></h4>
+<h4 id="_a_5_季節冷房期中間期暖房期"><a class="link" href="#_a_5_季節冷房期中間期暖房期">A.5 季節（冷房期、中間期、暖房期）</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 130. 入力</caption>
 <colgroup>
@@ -9211,8 +9211,8 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Mode_{d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機の運転モード</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(m^2\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dの季節（冷房期、中間期、暖房期）</p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.7、2.6.1.2、附属書A6、附属書A11</p></td>
 </tr>
 </tbody>
@@ -9234,7 +9234,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 \(month(d)\)は与えられた日付dの月(1月から12月)を取得する関数とする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 132. 空調機の運転モードの設定</caption>
+<caption class="title">表 132. 季節（冷房期、中間期、暖房期）の設定</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 7.1428%;">
@@ -9270,123 +9270,123 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">7地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">暖房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">冷房</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">暖房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">冷房期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期</p></td>
 </tr>
 </tbody>
 </table>
@@ -9413,7 +9413,7 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Mode_{d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機の運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dの季節（冷房期、中間期、暖房期）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A5</p></td>
 </tr>
@@ -9454,9 +9454,9 @@ A_{H,i} = \{ A_{i,x} |W_{typ} ∈ {日蔭} 　かつ　W_{typ,i,x} = 外壁 \}\]
 <div class="stemblock">
 <div class="content">
 \[θ_{AC,room,i,d} = \begin{cases}
-　22,   Mode_{d}=暖房 \\
-　24,   Mode_{d}=中間 \\
-　26,   Mode_{d}=冷房
+　22,   Mode_{d}=暖房期 \\
+　24,   Mode_{d}=中間期 \\
+　26,   Mode_{d}=冷房期
 \end{cases}\]
 </div>
 </div>
@@ -10066,7 +10066,7 @@ T_{AC,room,human,i,d} = Schedule_{human,x,d} | x=CalendarNum_{i}\]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-20 11:35:27 +0900
+Last updated 2019-12-20 12:00:40 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

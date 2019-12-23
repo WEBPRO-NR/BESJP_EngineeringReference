@@ -443,15 +443,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">第9章 目次</div>
 <ul class="sectlevel1">
-<li><a href="#_9_基準一次エネルギー消費量の算定方法">9. 基準一次エネルギー消費量の算定方法</a>
-<ul class="sectlevel2">
-<li><a href="#_9_1_空気調和設備の基準一次エネルギー消費量">9.1 空気調和設備の基準一次エネルギー消費量</a></li>
-<li><a href="#_9_2_機械換気設備の基準一次エネルギー消費量">9.2 機械換気設備の基準一次エネルギー消費量</a></li>
-<li><a href="#_9_3_照明設備の基準一次エネルギー消費量">9.3 照明設備の基準一次エネルギー消費量</a></li>
-<li><a href="#_9_4_給湯設備の基準一次エネルギー消費量">9.4 給湯設備の基準一次エネルギー消費量</a></li>
-<li><a href="#_9_5_昇降機の基準一次エネルギー消費量">9.5 昇降機の基準一次エネルギー消費量</a></li>
-</ul>
-</li>
+<li><a href="#_9_その他一次エネルギー消費量の算定方法">9. その他一次エネルギー消費量の算定方法</a></li>
 </ul>
 </div>
 </div>
@@ -467,19 +459,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_9_基準一次エネルギー消費量の算定方法"><a class="link" href="#_9_基準一次エネルギー消費量の算定方法">9. 基準一次エネルギー消費量の算定方法</a></h2>
+<h2 id="_9_その他一次エネルギー消費量の算定方法"><a class="link" href="#_9_その他一次エネルギー消費量の算定方法">9. その他一次エネルギー消費量の算定方法</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>基準一次エネルギー消費量の算定ロジックを示す。
-なお、国交省平成28年告示265号別表第2の係数及び当該係数の算定根拠については、次の資料を参照のこと。<br></p>
+<p>その他一次エネルギー消費量の算定ロジックを示す。</p>
 </div>
-<div class="paragraph">
-<p><strong>建築研究所　平成28年省エネルギー基準に準拠したエネルギー消費性能の評価に関する技術情報（非住宅建築物）</strong><br>
-<strong>４．基準値に関する情報　4.1　一次エネルギー消費量の基準値に関する情報</strong>
-<a href="https://www.kenken.go.jp/becc/documents/building/Definitions/kaisetsusyo_DefaultSpec_20140602.pdf">https://www.kenken.go.jp/becc/documents/building/Definitions/kaisetsusyo_DefaultSpec_20140602.pdf</a></p>
-</div>
-<div class="sect2">
-<h3 id="_9_1_空気調和設備の基準一次エネルギー消費量"><a class="link" href="#_9_1_空気調和設備の基準一次エネルギー消費量">9.1 空気調和設備の基準一次エネルギー消費量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 1. 入力</caption>
 <colgroup>
@@ -498,12 +482,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(CLIMATEZONE\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">評価対象建築物の所在地の地域区分</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式0：⑤省エネ基準地域区分</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(ROOMTYPE_{AC,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調計算対象室rの建物用途・室用途</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
@@ -511,7 +489,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{AC,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調計算対象室rの床面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調算対象室rの床面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①室面積</p></td>
 </tr>
@@ -541,430 +519,59 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{SAC}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空気調和設備の基準一次エネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{M}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">その他一次エネルギー消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>空気調和設備の基準一次エネルギー消費量 \(E_{SAC}\) [MJ/年] は、次式で算出する。</p>
+<p>その他一次エネルギー消費量 \(E_{M}\) [MJ/年] は、次式で算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{SAC} = \sum_{r=1}^{n_{AC}} (a_{SAC,r} \times A_{r} )\]
+\[E_{M} = \sum_{r=1}^{n_{AC}} (a_{M,r} \times A_{AC,r} )\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>係数 \(a_{SAC,r}\) [MJ/（m<sup>2</sup>・年）]は 国交省平成28年告示265号別表第2 で規定されている値であり、床面積あたりの基準一次エネルギー消費量である。
-この係数は、空調計算対象室の室用途及び地域区分毎に規定されており、
-様式0：⑤省エネ基準地域区分( \(CLIMATEZONE\)  )及び 空調計算対象室 r の様式2-1：①建物用途、室用途( \(ROOMTYPE_{AC,r}\) )の情報から、国交省平成28年告示265号 別表第2 より該当する係数 \(a_{SAC,r}\) を抽出する。</p>
+<p>係数 \(a_{M,r}\) [MJ/（m<sup>2</sup>・年）]は 国交省平成28年告示265号別表第2 で規定されている値であり、床面積あたりのその他一次エネルギー消費量である。</p>
 </div>
 <div class="paragraph">
-<p>式中のΣは、入力シートに入力された全ての空調計算対象室について積算することを意味しており、具体的には「様式2-1 空調ゾーン入力シート」に入力された全ての室について積算を行う。
-床面積 \(A_{AC,r}\) には、様式2-1：①室面積 に入力された値を使用する。<br></p>
+<p>この係数は、空調計算対象室rの室用途毎に規定されており、
+空調計算対象室 r の様式2-1：①建物用途、室用途( \(ROOMTYPE_{AC,r}\) )の情報から、国交省平成28年告示265号 別表第2 より該当する係数 \(a_{M,r}\) を抽出する。</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_9_2_機械換気設備の基準一次エネルギー消費量"><a class="link" href="#_9_2_機械換気設備の基準一次エネルギー消費量">9.2 機械換気設備の基準一次エネルギー消費量</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 3. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(ROOMTYPE_{V,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気計算対象室rの建物用途・室用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-1：①建物用途、室用途</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{V,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気計算対象室rの床面積</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-1：①室面積</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{V}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気計算対象室の数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-1：①室名 の総入力行数</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 4. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{SV}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備の基準一次エネルギー消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
 <div class="paragraph">
-<p>機械換気設備の基準一次エネルギー消費量 \(E_{SV}\) [MJ/年] は、次式で算出する。</p>
+<p>式中のΣは、入力シートに入力された全ての空調計算対象室について積算することを意味しており、具体的には「様式2-1 空調ゾーン入力シート」に入力された全ての室について積算を行う。<br></p>
+</div>
+<div class="paragraph">
+<p>ここで、係数 \(a_{M,r}\) は、各室用途の標準室使用条件における機器発熱量の年間積算値を一次エネルギー換算した値であり、算定式は次式のとおりである。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{SV} = \sum_{r=1}^{n_{V}} (a_{SV,r} \times A_{V,r} )\]
+\[a_{M,r} = \sum_{d=1}^{365} \sum_{t=1}^{24} (Q_{A,r,d,t}) \times f_{prime,e} \times 10^{-6}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>係数 \(a_{SV,r}\) [MJ/（m<sup>2</sup>・年）]は 国交省平成28年告示265号別表第2 で規定されている値であり、床面積あたりの基準一次エネルギー消費量である。
-この係数は、換気計算対象室の室用途及び地域区分毎に規定されており、
-換気計算対象室 r の様式3-1：①建物用途、室用途( \(ROOMTYPE_{V,r}\) )の情報から、国交省平成28年告示265号 別表第2 より該当する係数 \(a_{SV,r}\) を抽出する。</p>
-</div>
-<div class="paragraph">
-<p>式中のΣは、入力シートに入力された全ての換気計算対象室について積算することを意味しており、具体的には「様式3-1 換気対象室入力シート」に入力された全ての室について積算を行う。
-床面積 \(A_{V,r}\) には、様式3-1：①室面積 に入力された値を使用する。<br></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_9_3_照明設備の基準一次エネルギー消費量"><a class="link" href="#_9_3_照明設備の基準一次エネルギー消費量">9.3 照明設備の基準一次エネルギー消費量</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(ROOMTYPE_{L,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">照明計算対象室rの建物用途・室用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式4：①建物用途、室用途</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{L,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">照明計算対象室rの床面積</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式4：①室面積</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{L}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">照明計算対象室の数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式4：①室名 の総入力行数</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{SL}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">照明設備の基準一次エネルギー消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>照明設備の基準一次エネルギー消費量 \(E_{SL}\) [MJ/年] は、次式で算出する。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[E_{SL} = \sum_{r=1}^{n_{L}} (a_{SL,r} \times A_{L,r} )\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>係数 \(a_{SL,r}\) [MJ/（m<sup>2</sup>・年）]は 国交省平成28年告示265号別表第2 で規定されている値であり、床面積あたりの基準一次エネルギー消費量である。
-この係数は、照明計算対象室の室用途及び地域区分毎に規定されており、
-照明計算対象室 r の様式4：①建物用途、室用途( \(ROOMTYPE_{L,r}\) )の情報から、国交省平成28年告示265号 別表第2 より該当する係数 \(a_{SL,r}\) を抽出する。</p>
-</div>
-<div class="paragraph">
-<p>式中のΣは、入力シートに入力された全ての照明計算対象室について積算することを意味しており、具体的には「様式4 照明入力シート」に入力された全ての室について積算を行う。
-床面積 \(A_{L,r}\) には、様式4：①室面積 に入力された値を使用する。<br></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_9_4_給湯設備の基準一次エネルギー消費量"><a class="link" href="#_9_4_給湯設備の基準一次エネルギー消費量">9.4 給湯設備の基準一次エネルギー消費量</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(CLIMATEZONE\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">評価対象建築物の所在地の地域区分</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式0：⑤省エネ基準地域区分</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(ROOMTYPE_{HW,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">給湯計算対象室rの建物用途・室用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-1：①建物用途、室用途</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{HW,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">給湯計算対象室rの床面積</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-1：①室面積</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{HW}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">給湯計算対象室の数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-1：①室名 の総入力行数</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 8. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{SHW}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備の基準一次エネルギー消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>給湯設備の基準一次エネルギー消費量 \(E_{SHW}\) [MJ/年] は、次式で算出する。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[E_{SHW} = \sum_{r=1}^{n_{HW}} (a_{SHW,r} \times A_{HW,r} )\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>係数 \(a_{SHW,r}\) [MJ/（m<sup>2</sup>・年）]は 国交省平成28年告示265号別表第2 で規定されている値であり、床面積あたりの基準一次エネルギー消費量である。
-この係数は、給湯計算対象室の室用途及び地域区分毎に規定されており、
-様式0：⑤省エネ基準地域区分( \(CLIMATEZONE\) )及び 給湯計算対象室 r の様式5-1：①建物用途、室用途( \(ROOMTYPE_{HW,r}\) )の情報から、国交省平成28年告示265号 別表第2 より該当する係数 \(a_{SHW,r}\) を抽出する。</p>
-</div>
-<div class="paragraph">
-<p>式中のΣは、入力シートに入力された全ての給湯計算対象室について積算することを意味しており、具体的には「様式5-1 給湯対象室入力シート」に入力された全ての室について積算を行う。
-床面積 \(A_{HW,r}\) には、様式5-1：①室面積 に入力された値を使用する。<br></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_9_5_昇降機の基準一次エネルギー消費量"><a class="link" href="#_9_5_昇降機の基準一次エネルギー消費量">9.5 昇降機の基準一次エネルギー消費量</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 9. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(ROOMTYPE_{EV,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機計算対象室rの建物用途・室用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：①建物用途、室用途</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機の数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：③台数</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの積載量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：④積載量</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの定格速度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m/min</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑤速度</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(M_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの輸送能力係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑥輸送能力係数</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{EV}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機の系統の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">系統</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：②機器名称の総行数</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 10. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{SEV}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機の基準一次エネルギー消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>昇降機の基準一次エネルギー消費量 \(E_{SEV}\) [MJ/年] は、次式で算出する。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[E_{SEV} = \sum_{r=1}^{n_{EV}} ( \frac{ L_{EV,i} \times V_{EV,i} \times C_{SEV,i} \times T_{EV,i} \times M_{EV,i} }{860} \times N_{EV,i} ) \times f_{prim,e} × 10^{-3}\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>式中の \(T_{EV,i}\) は昇降機系統iの年間運転時間であり、昇降機計算対象室rの建物用途・室用途 \(ROOMTYPE_{EV,r}\) によって定まる。
-なお、昇降機の年間運転時間は、照明設備の年間点灯時間と等しいとする。</p>
-</div>
-<div class="paragraph">
-<p>係数 \(C_{SEV,i}\) は基準設定速度制御係数であり 1/40 とする。
-この値は、速度制御方式が「可変電圧可変周波数制御方式（電力回生なし）」のときの速度制御係数である。</p>
-</div>
-<div class="paragraph">
-<p>式中のΣは、入力シートに入力された全ての昇降機計算対象室について積算することを意味しており、具体的には「様式6 昇降機入力シート」に入力された全ての室について積算を行う。</p>
-</div>
-<div class="paragraph">
-<p>式中の \(M_{EV,i}\) は昇降機系統iの輸送能力係数である。輸送能力係数とは、標準的な5分間輸送能力と計画された昇降機の5分間輸送能力との比であり、エレベーターのサービス水準が過剰に設定された場合に、基準一次エネルギー消費量を見かけ上小さくなるように補正するための係数である。輸送能力係数の算出には次のルールを適用できるものとする。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>主たる建物用途が事務所等、ホテル等の場合において、昇降機の台数が2台以下の場合、もしくはバックヤードに設置される場合は、輸送能力係数は1とすることができるものとする。</p>
-</li>
-<li>
-<p>主たる建物用途が事務所等、ホテル等以外の場合は、輸送能力係数は台数に依らず1とすることができるものとする。</p>
-</li>
-<li>
-<p>事務所等、ホテル等において、計画輸送能力が標準輸送能力を超えるときにおいて、（計画台数-1）の台数で標準輸送能力を下回る場合は、輸送能力係数は1とすることができるものとする。</p>
-</li>
-<li>
-<p>主たる建物用途が事務所等であり、当該建築物の階数が4階以下または床面積の合計が4，000㎡以下の場合には、平均運転時間間隔ΔT［秒］を30で除した値を輸送能力係数とすることができるものとする。但し、平均運転時間間隔が30秒以上の場合は輸送能力係数は1とする。</p>
-</li>
-</ul>
-</div>
+<p>式中の \(Q_{A,r,d,t}\) は日付d、時刻tにおける室の機器発熱量［W/m<sup>2</sup>］であり、室用途毎に標準室使用条件で定められている。
+なお、一部の室用途については、待機電力を想定して非空調時間帯における機器発熱量を見込んでいるが、その他エネルギー消費量の計算には、この非空調時間帯の機器発熱量も含めて算出するものとする。<br>
+標準室使用条件において、非空調室については機器発熱量は常に0であるとされている。
+\(E_{M}\) の算出式において空調計算対象室のみ積算するのは、非空調室については 係数 \(a_{M,r}\) が0になるためである。</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-23 12:51:52 +0900
+Last updated 2019-12-23 13:34:57 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

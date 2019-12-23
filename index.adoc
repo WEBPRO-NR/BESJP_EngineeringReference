@@ -64,7 +64,9 @@ stem:[f_{ref,ts,loss}]| 蓄熱槽の熱損失係数| 0.03|-|
 
 === 第８章　link:https://www.kenken.go.jp/becc/documents/building/Definitions/Webpro_Specification_06CGS_180402.pdf[コージェネレーション設備の評価方法]
 
-=== 第９章　link:./EngineeringReference_chapter09.html[基準一次エネルギー消費量の算定方法]
+=== 第９章　link:./EngineeringReference_chapter09.html[その他一次エネルギー消費量の算定方法]
+
+=== 第１０章　link:./EngineeringReference_chapter10.html[基準一次エネルギー消費量の算定方法]
  
    
  

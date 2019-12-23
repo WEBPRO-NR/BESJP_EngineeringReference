@@ -469,10 +469,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>建築物省エネ法に基づく省エネルギー基準への適合性を判定するプログラムの解説書です。設計一次エネルギー消費量の計算方法を解説します。
 プログラムは<a href="http://building.app.lowenergy.jp/">こちら</a>で公開しています。</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_第１章はじめに"><a class="link" href="#_第１章はじめに">第１章　はじめに</a></h3>
 <div class="paragraph">
 <p>本資料で使用する共通の定数を次に示す。</p>
 </div>
@@ -562,6 +558,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_第１章設計一次エネルギー消費量の算定方法"><a class="link" href="#_第１章設計一次エネルギー消費量の算定方法">第１章　設計一次エネルギー消費量の算定方法</a></h3>
+<div class="paragraph">
+<p>設計一次エネルギー消費量 \(E_{T}\) [GJ/年] は次式で算出するものとする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[E_{T} = (E_{AC} + E_{V} + E_{L} + E_{HW} + E_{EV} - E_{PV} - E_{CGS} + E_{M}) \times 10^{-3}\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>\(E_{AC}\)は空気調和設備の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第２章で示す。<br>
+\(E_{V}\)は機械換気設備の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第３章で示す。<br>
+\(E_{L}\)は照明設備の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第４章で示す。<br>
+\(E_{HW}\)は給湯設備の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第５章で示す。<br>
+\(E_{EV}\)は昇降機の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第６章で示す。<br>
+\(E_{PV}\)は太陽光発電設備による一次エネルギー消費量の削減量 [MJ/年] であり、その算出方法は第７章で示す。<br>
+\(E_{CGS}\)はコージェネレーション設備による一次エネルギー消費量の削減量 [MJ/年] であり、その算出方法は第８章で示す。<br>
+\(E_{M}\)はその他一次エネルギー消費量 [MJ/年] であり、その算出方法は第９章で示す。<br></p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_第２章空気調和設備の評価方法"><a class="link" href="#_第２章空気調和設備の評価方法">第２章　<a href="./EngineeringReference_chapter02.html">空気調和設備の評価方法</a></a></h3>
 
@@ -585,7 +607,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_第７章太陽光発電設備の評価方法"><a class="link" href="#_第７章太陽光発電設備の評価方法">第７章　太陽光発電設備の評価方法</a></h3>
 <div class="paragraph">
-<p>太陽光発電設備の評価方法は、エネルギー消費性能計算プログラム（住宅版） の評価方法と同じです。<a href="https://www.kenken.go.jp/becc/documents/house/9-1_191119_v08_PVer0207.pdf">仕様書はこちら</a>。</p>
+<p>太陽光発電設備の評価方法は、エネルギー消費性能計算プログラム（住宅版） の評価方法と同じである（<a href="https://www.kenken.go.jp/becc/documents/house/9-1_191119_v08_PVer0207.pdf">仕様書はこちら</a>）。
+ただし、発電した電力を少しでも売電する場合は、当該太陽光発電設備は評価の対象とはしない。
+一方、いわゆる「売電」をしない場合は、その発電量を 100%自己消費するものとして、評価の対象とする。
+また、当該建築物以外の建築物に設置された太陽光発電設備による発電量についても評価の対象とはしない。</p>
 </div>
 </div>
 <div class="sect2">
@@ -598,6 +623,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect2">
 <h3 id="_第１０章基準一次エネルギー消費量の算定方法"><a class="link" href="#_第１０章基準一次エネルギー消費量の算定方法">第１０章　<a href="./EngineeringReference_chapter10.html">基準一次エネルギー消費量の算定方法</a></a></h3>
+<div class="sect3">
+<h4 id="_計算に必要となるデータ集"><a class="link" href="#_計算に必要となるデータ集">計算に必要となるデータ集</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.kenken.go.jp/becc/documents/building/Definitions/ROOM_SPEC_H28.zip">標準室使用条件</a></p>
+</li>
+<li>
+<p><a href="https://www.kenken.go.jp/becc/documents/building/Definitions/RoomUsageCondition_20140303.pdf">標準室使用条件の詳細</a></p>
+</li>
+<li>
+<p><a href="https://www.kenken.go.jp/becc/documents/building/Definitions/CalenderPattern_20140303.pdf">カレンダーパターン</a></p>
+</li>
+<li>
+<p><a href="https://www.kenken.go.jp/becc/documents/building/Definitions/HeatThermalConductivity.zip">建材物性値の一覧</a></p>
+</li>
+<li>
+<p><a href="https://www.kenken.go.jp/becc/documents/building/Definitions/WindowHeatTransferPerformance_H30_181005.zip">窓性能の一覧</a></p>
+</li>
+<li>
+<p><a href="https://www.kenken.go.jp/becc/documents/building/Definitions/QROOM_COEFFI.zip">負荷計算用係数</a></p>
+</li>
+<li>
+<p><a href="https://www.kenken.go.jp/becc/documents/building/Definitions/REFLIST_H28_REFCURVE_H28.zip">熱源機器特性係数</a></p>
+</li>
+</ul>
+</div>
+</div>
 <div class="sect3">
 <h4 id="_参考資料"><a class="link" href="#_参考資料">参考資料</a></h4>
 <div class="ulist">
@@ -679,7 +732,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-23 13:04:44 +0900
+Last updated 2019-12-23 14:10:55 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

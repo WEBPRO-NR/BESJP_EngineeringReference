@@ -26,8 +26,6 @@
 プログラムはlink:http://building.app.lowenergy.jp/[こちら]で公開しています。
 
 
-=== 第１章　はじめに
-
 本資料で使用する共通の定数を次に示す。
 
 .共通の定数
@@ -48,6 +46,28 @@ stem:[f_{ref,ts,loss}]| 蓄熱槽の熱損失係数| 0.03|-|
 |=================================
 
 
+=== 第１章　設計一次エネルギー消費量の算定方法
+
+設計一次エネルギー消費量 stem:[E_{T}] [GJ/年] は次式で算出するものとする。
+
+====
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+E_{T} = (E_{AC} + E_{V} + E_{L} + E_{HW} + E_{EV} - E_{PV} - E_{CGS} + E_{M}) \times 10^{-3}
+++++++++++++++++++++++++++++++++++++++++++++
+====
+
+stem:[E_{AC}]は空気調和設備の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第２章で示す。 +
+stem:[E_{V}]は機械換気設備の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第３章で示す。 +
+stem:[E_{L}]は照明設備の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第４章で示す。 +
+stem:[E_{HW}]は給湯設備の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第５章で示す。 +
+stem:[E_{EV}]は昇降機の設計一次エネルギー消費量 [MJ/年] であり、その算出方法は第６章で示す。 +
+stem:[E_{PV}]は太陽光発電設備による一次エネルギー消費量の削減量 [MJ/年] であり、その算出方法は第７章で示す。 +
+stem:[E_{CGS}]はコージェネレーション設備による一次エネルギー消費量の削減量 [MJ/年] であり、その算出方法は第８章で示す。 +
+stem:[E_{M}]はその他一次エネルギー消費量 [MJ/年] であり、その算出方法は第９章で示す。 +
+
+
+
 === 第２章　link:./EngineeringReference_chapter02.html[空気調和設備の評価方法]
 
 === 第３章　link:./EngineeringReference_chapter03.html[機械換気設備の評価方法]
@@ -60,7 +80,11 @@ stem:[f_{ref,ts,loss}]| 蓄熱槽の熱損失係数| 0.03|-|
 
 === 第７章　太陽光発電設備の評価方法
 
-太陽光発電設備の評価方法は、エネルギー消費性能計算プログラム（住宅版） の評価方法と同じです。link:https://www.kenken.go.jp/becc/documents/house/9-1_191119_v08_PVer0207.pdf[仕様書はこちら]。
+太陽光発電設備の評価方法は、エネルギー消費性能計算プログラム（住宅版） の評価方法と同じである（link:https://www.kenken.go.jp/becc/documents/house/9-1_191119_v08_PVer0207.pdf[仕様書はこちら]）。
+ただし、発電した電力を少しでも売電する場合は、当該太陽光発電設備は評価の対象とはしない。
+一方、いわゆる「売電」をしない場合は、その発電量を 100%自己消費するものとして、評価の対象とする。
+また、当該建築物以外の建築物に設置された太陽光発電設備による発電量についても評価の対象とはしない。
+
 
 === 第８章　link:https://www.kenken.go.jp/becc/documents/building/Definitions/Webpro_Specification_06CGS_180402.pdf[コージェネレーション設備の評価方法]
 
@@ -68,8 +92,18 @@ stem:[f_{ref,ts,loss}]| 蓄熱槽の熱損失係数| 0.03|-|
 
 === 第１０章　link:./EngineeringReference_chapter10.html[基準一次エネルギー消費量の算定方法]
  
-   
- 
+
+==== 計算に必要となるデータ集
+
+* link:https://www.kenken.go.jp/becc/documents/building/Definitions/ROOM_SPEC_H28.zip[標準室使用条件]
+* link:https://www.kenken.go.jp/becc/documents/building/Definitions/RoomUsageCondition_20140303.pdf[標準室使用条件の詳細]
+* link:https://www.kenken.go.jp/becc/documents/building/Definitions/CalenderPattern_20140303.pdf[カレンダーパターン]
+
+* link:https://www.kenken.go.jp/becc/documents/building/Definitions/HeatThermalConductivity.zip[建材物性値の一覧]
+* link:https://www.kenken.go.jp/becc/documents/building/Definitions/WindowHeatTransferPerformance_H30_181005.zip[窓性能の一覧]
+* link:https://www.kenken.go.jp/becc/documents/building/Definitions/QROOM_COEFFI.zip[負荷計算用係数]
+* link:https://www.kenken.go.jp/becc/documents/building/Definitions/REFLIST_H28_REFCURVE_H28.zip[熱源機器特性係数]
+
  
 ==== 参考資料
 

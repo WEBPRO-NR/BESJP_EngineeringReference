@@ -448,18 +448,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_4_1_はじめに">4.1 はじめに</a>
 <ul class="sectlevel3">
 <li><a href="#_4_1_1_適用範囲">4.1.1 適用範囲</a></li>
-<li><a href="#_4_1_2_用語の定義">4.1.2 用語の定義</a>
-<ul class="sectlevel4">
-<li><a href="#_4_1_2_1照明設備">4.1.2.1　照明設備</a></li>
-<li><a href="#_4_1_2_2照明器具">4.1.2.2　照明器具</a></li>
-<li><a href="#_4_1_2_3照明設備の年間一次エネルギー消費量">4.1.2.3　照明設備の年間一次エネルギー消費量</a></li>
-<li><a href="#_4_1_2_4照明設備の標準一次エネルギー消費量原単位">4.1.2.4　照明設備の標準一次エネルギー消費量原単位</a></li>
-<li><a href="#_4_1_2_5照明器具の消費電力">4.1.2.5　照明器具の消費電力</a></li>
-<li><a href="#_4_1_2_6年間照明点灯時間">4.1.2.6　年間照明点灯時間</a></li>
-<li><a href="#_4_1_2_7照明制御システム">4.1.2.7　照明制御システム</a></li>
-<li><a href="#_4_1_2_8室指数">4.1.2.8　室指数</a></li>
-</ul>
-</li>
+<li><a href="#_4_1_2_用語の定義">4.1.2 用語の定義</a></li>
 <li><a href="#_4_1_3_記号及び単位">4.1.3 記号及び単位</a></li>
 <li><a href="#_4_1_4_入出力">4.1.4 入出力</a></li>
 </ul>
@@ -504,7 +493,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_4_照明設備の評価方法"><a class="link" href="#_4_照明設備の評価方法">4. 照明設備の評価方法</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>照明設備の一次エネルギー消費量の算出ロジックを示す。</p>
+<p>照明設備の設計一次エネルギー消費量の算出ロジックを示す。</p>
 </div>
 <div class="sect2">
 <h3 id="_4_1_はじめに"><a class="link" href="#_4_1_はじめに">4.1 はじめに</a></h3>
@@ -518,9 +507,9 @@ c) 明視性確保が主たる役割であるが、明視性確保以外の役�
 </div>
 <div class="paragraph">
 <p>　一方、次に示す照明設備は、評価の対象とはしない。<br>
-a) 避難用、救命用その他特殊な目的のために設けられた照明設備（航空障害灯、ヘリポート灯火、進入口赤色灯等）+
+a) 避難用、救命用その他特殊な目的のために設けられた照明設備（航空障害灯、ヘリポート灯火、進入口赤色灯等）<br>
 b) 安全性確保のための照明設備（誘導灯、非常時のみ点灯する非常灯等）<br>
-c) 明視性確保のための照明設備のうち、以下に掲げるもの<br>
+c) 明視性確保のための照明設備のうち、以下に掲げるもの。<br>
 ・タスク照明など、コンセント接続される照明器具であり、設計図書上に記されていないもの。<br>
 ・高度な機能や目的を有する照明設備（手術室における無影灯等）<br>
 ・常時点灯されず、年間点灯時間が非常に短い室の照明（設備シャフト等）。<br>
@@ -530,53 +519,41 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </div>
 <div class="sect3">
 <h4 id="_4_1_2_用語の定義"><a class="link" href="#_4_1_2_用語の定義">4.1.2 用語の定義</a></h4>
-<div class="sect4">
-<h5 id="_4_1_2_1照明設備"><a class="link" href="#_4_1_2_1照明設備">4.1.2.1　照明設備</a></h5>
-<div class="paragraph">
-<p>　照明環境を形成するために、光源や点灯回路ならびにこれらを含む照明器具を組み合わせて配置し構成した設備。「照明システム」ともいう。1つの室に、複数の異なる照明器具が設備されるときは、同種類の照明器具を1つのグループと解釈する。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_4_1_2_2照明器具"><a class="link" href="#_4_1_2_2照明器具">4.1.2.2　照明器具</a></h5>
-<div class="paragraph">
-<p>　光源から出る光を制御・調整する光学的機能があり、この機能を果たすために光源を保持、保護するための機械的機能と電気エネルギーを供給、制御する電気的機能を併せ持っている装置。　</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_4_1_2_3照明設備の年間一次エネルギー消費量"><a class="link" href="#_4_1_2_3照明設備の年間一次エネルギー消費量">4.1.2.3　照明設備の年間一次エネルギー消費量</a></h5>
-<div class="paragraph">
-<p>　実際に建設される建築物の評価対象とするすべての室に設けられた照明設備が、標準的な室形状（室指数2.5）の室に設備されたときに、一年間に消費すると計算上予想される仮想的な一次エネルギー消費量。照明制御システムが導入されるときは、そのエネルギー削減効果が反映される。単位はMJ/年。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_4_1_2_4照明設備の標準一次エネルギー消費量原単位"><a class="link" href="#_4_1_2_4照明設備の標準一次エネルギー消費量原単位">4.1.2.4　照明設備の標準一次エネルギー消費量原単位</a></h5>
-<div class="paragraph">
-<p>　建築物におけるさまざまな室において、その時々の最も一般的な照明方式、照明器具等により構成される照明設備が、標準的な室形状（室指数2.5）の室に設備されたときに、一年間に消費すると計算上予想される単位床面積（1㎡）当たりの仮想的な一次エネルギー消費量。単位は MJ/m2/年。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_4_1_2_5照明器具の消費電力"><a class="link" href="#_4_1_2_5照明器具の消費電力">4.1.2.5　照明器具の消費電力</a></h5>
-<div class="paragraph">
-<p>　照明器具1台あたりの消費電力（安定器を必要とする照明器具はその損失を含む）。単位はW。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_4_1_2_6年間照明点灯時間"><a class="link" href="#_4_1_2_6年間照明点灯時間">4.1.2.6　年間照明点灯時間</a></h5>
-<div class="paragraph">
-<p>　各室において照明器具が点灯されると予測される時間の年間合計値。照明設備の実際の運用による点灯時間の長短の影響を避けて客観的な評価を行うため、共通の前提として標準室使用条件により室用途別に設定される条件である。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_4_1_2_7照明制御システム"><a class="link" href="#_4_1_2_7照明制御システム">4.1.2.7　照明制御システム</a></h5>
-<div class="paragraph">
-<p>　照明設備のエネルギー消費量の削減（低減）を図るため、各種センサやタイマなどにより、自動的に調光・点滅するためのシステム。当該制御が採用されるときは、照明設備の年間一次エネルギー消費量にその削減効果が反映される。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_4_1_2_8室指数"><a class="link" href="#_4_1_2_8室指数">4.1.2.8　室指数</a></h5>
-<div class="paragraph">
-<p>　室の間口、奥行、照明器具の光源高さの関係を表す数値。この値が大きいほど、光源から作業面に直接到達する光束が多くなるため、照明率（光源から出力された光束のうち、相互反射成分も含めて作業面に到達する光束の割合）が大きくなり、照明の効率が向上する。</p>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>照明設備</strong><br>
+照明環境を形成するために、光源や点灯回路ならびにこれらを含む照明器具を組み合わせて配置し構成した設備。「照明システム」ともいう。1つの室に、複数の異なる照明器具が設備されるときは、同種類の照明器具を1つのグループと解釈する。</p>
+</li>
+<li>
+<p><strong>照明器具</strong><br>
+光源から出る光を制御・調整する光学的機能があり、この機能を果たすために光源を保持、保護するための機械的機能と電気エネルギーを供給、制御する電気的機能を併せ持っている装置。　</p>
+</li>
+<li>
+<p><strong>照明設備の年間一次エネルギー消費量</strong><br>
+実際に建設される建築物の評価対象とするすべての室に設けられた照明設備が、標準的な室形状（室指数2.5）の室に設備されたときに、一年間に消費すると計算上予想される仮想的な一次エネルギー消費量。照明制御システムが導入されるときは、そのエネルギー削減効果が反映される。単位はMJ/年。</p>
+</li>
+<li>
+<p><strong>照明設備の標準一次エネルギー消費量原単位</strong><br>
+建築物におけるさまざまな室において、その時々の最も一般的な照明方式、照明器具等により構成される照明設備が、標準的な室形状（室指数2.5）の室に設備されたときに、一年間に消費すると計算上予想される単位床面積（1㎡）当たりの仮想的な一次エネルギー消費量。単位は MJ/m2/年。</p>
+</li>
+<li>
+<p><strong>照明器具の消費電力</strong><br>
+照明器具1台あたりの消費電力（安定器を必要とする照明器具はその損失を含む）。単位はW。</p>
+</li>
+<li>
+<p><strong>年間照明点灯時間</strong><br>
+各室において照明器具が点灯されると予測される時間の年間合計値。照明設備の実際の運用による点灯時間の長短の影響を避けて客観的な評価を行うため、共通の前提として標準室使用条件により室用途別に設定される条件である。</p>
+</li>
+<li>
+<p><strong>照明制御システム</strong><br>
+照明設備のエネルギー消費量の削減（低減）を図るため、各種センサやタイマなどにより、自動的に調光・点滅するためのシステム。当該制御が採用されるときは、照明設備の年間一次エネルギー消費量にその削減効果が反映される。</p>
+</li>
+<li>
+<p><strong>室指数</strong><br>
+室の間口、奥行、照明器具の光源高さの関係を表す数値。この値が大きいほど、光源から作業面に直接到達する光束が多くなるため、照明率（光源から出力された光束のうち、相互反射成分も含めて作業面に到達する光束の割合）が大きくなり、照明の効率が向上する。</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
@@ -584,9 +561,9 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 1. 記号</caption>
 <colgroup>
-<col style="width: 18.1818%;">
-<col style="width: 45.4545%;">
-<col style="width: 36.3637%;">
+<col style="width: 22.2222%;">
+<col style="width: 55.5555%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
@@ -703,39 +680,14 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 2. 共通の定数</caption>
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 16.6666%;">
-<col style="width: 16.6668%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">定数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">値</th>
-<th class="tableblock halign-left valign-top">単位</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{prim,e}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">電気の量 1kWh を熱量に換算する係数（告示265号における別表第1）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9760</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/kWh</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect3">
 <h4 id="_4_1_4_入出力"><a class="link" href="#_4_1_4_入出力">4.1.4 入出力</a></h4>
 <div class="paragraph">
-<p>　本章全体における入力、出力、共通の定数は下表の通りである。</p>
+<p>　本章全体における入力、出力は下表の通りである。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 3. 入力</caption>
+<caption class="title">表 2. 入力</caption>
 <colgroup>
 <col style="width: 11.7647%;">
 <col style="width: 29.4117%;">
@@ -847,7 +799,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 4. 出力</caption>
+<caption class="title">表 3. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 60%;">
@@ -876,7 +828,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>照明設備の年間一次エネルギー消費量 \(E_{L}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. 入力</caption>
+<caption class="title">表 4. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -937,7 +889,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 出力</caption>
+<caption class="title">表 5. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -986,7 +938,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>制御等の方式に応じて定められる係数 \(F_{L,r,i}\)を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 入力</caption>
+<caption class="title">表 6. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1029,7 +981,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 8. 出力</caption>
+<caption class="title">表 7. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1076,7 +1028,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_3_1_在室検知制御の方式によって決まる係数"><a class="link" href="#_4_3_1_在室検知制御の方式によって決まる係数">4.3.1 在室検知制御の方式によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 9. 入力</caption>
+<caption class="title">表 8. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1101,7 +1053,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 10. 出力</caption>
+<caption class="title">表 9. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1126,10 +1078,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <div class="paragraph">
-<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 11</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
+<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 10</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
 </div>
 <table id="Table441A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 11. 在室検知制御の方式による係数</caption>
+<caption class="title">表 10. 在室検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -1184,7 +1136,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更"><a class="link" href="#_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更">4.3.2 明るさ検知制御の方式によって決まる係数【Ver.2.4から変更】</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 12. 入力</caption>
+<caption class="title">表 11. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1209,7 +1161,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 13. 出力</caption>
+<caption class="title">表 12. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1234,10 +1186,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <div class="paragraph">
-<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 14</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 13</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table442A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 14. 明るさ検知制御の方式による係数</caption>
+<caption class="title">表 13. 明るさ検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -1322,7 +1274,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_3_3_タイムスケジュール制御の方式によって決まる係数"><a class="link" href="#_4_3_3_タイムスケジュール制御の方式によって決まる係数">4.3.3 タイムスケジュール制御の方式によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 15. 入力</caption>
+<caption class="title">表 14. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1347,7 +1299,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 16. 出力</caption>
+<caption class="title">表 15. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1372,10 +1324,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <div class="paragraph">
-<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 17</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 16</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table443A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 17. タイムスケジュール制御の方式による係数</caption>
+<caption class="title">表 16. タイムスケジュール制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -1416,7 +1368,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <div class="sect3">
 <h4 id="_4_3_4_初期照度補正機能の有無によって決まる係数"><a class="link" href="#_4_3_4_初期照度補正機能の有無によって決まる係数">4.3.4 初期照度補正機能の有無によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 18. 入力</caption>
+<caption class="title">表 17. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1441,7 +1393,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 19. 出力</caption>
+<caption class="title">表 18. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1466,10 +1418,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <div class="paragraph">
-<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 20</a>に示すとおり、機能の有無によって係数 は定まる。</p>
+<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 19</a>に示すとおり、機能の有無によって係数 は定まる。</p>
 </div>
 <table id="Table444A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 20. 初期照度補正機能の有無による係数</caption>
+<caption class="title">表 19. 初期照度補正機能の有無による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -1524,7 +1476,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>室の形状によって定められる係数 \(C_{L,r}\)[-]は、室rの室指数 \(K_{L,r}\)[-]によって定める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 21. 入力</caption>
+<caption class="title">表 20. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1567,7 +1519,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 22. 出力</caption>
+<caption class="title">表 21. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1605,10 +1557,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </div>
 </div>
 <div class="paragraph">
-<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 23</a>にて規定される。</p>
+<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 22</a>にて規定される。</p>
 </div>
 <table id="Table34A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 23. 室の形状によって定められる係数</caption>
+<caption class="title">表 22. 室の形状によって定められる係数</caption>
 <colgroup>
 <col style="width: 7.6923%;">
 <col style="width: 15.3846%;">
@@ -1657,7 +1609,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>室rの照明点灯時間 \(T_{L,r}\) を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 24. 入力</caption>
+<caption class="title">表 23. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1682,7 +1634,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 25. 出力</caption>
+<caption class="title">表 24. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1752,10 +1704,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 　建築物の廊下など、主として視作業を伴わない執務者等の移動のための室において、人感センサ等により在室していると判断される箇所の照明設備を、急激な明るさの変化による光環境の質的な低下が生じないよう、在室時には100%点灯、それ以外の場合に調光により減光することでエネルギー消費削減を図る制御の方式である。国土交通省による建築基準整備促進事業の実態調査における廊下及び階段におけるOn-Off制御の場合の削減率のデータ等より推定し、減光の場合においても20%程度の削減が見込まれることからエネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table441B">表 26</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table441B">表 25</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table441B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 26. 在室検知制御の各方式の判断条件</caption>
+<caption class="title">表 25. 在室検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 21.4285%;">
@@ -1837,10 +1789,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 　平成21年基準のCEC/Lにおける評価法と同様に、20%のエネルギー削減効果があると想定し、エネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table442B">表 27</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table442B">表 26</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table442B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 27. 明るさ検知制御の各方式の判断条件</caption>
+<caption class="title">表 26. 明るさ検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 21.4285%;">
@@ -1917,10 +1869,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 　建築物の照明設備に要求される照度レベルが、事務所ビルの始業前や昼休みと残業時間のように、時刻で異なる場合に、あらかじめ設定された時刻に消灯する照明制御システムである。建築基準整備促進事業の実態調査における消灯による削減率のデータ等より10%程度の削減率が見込まれることから、エネルギー削減係数は0.90とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table443B">表 28</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table443B">表 27</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table443B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 28. タイムスケジュール制御の各方式の判断条件</caption>
+<caption class="title">表 27. タイムスケジュール制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 16.6666%;">
@@ -1969,10 +1921,10 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 <p>　明るさセンサ・タイマーを利用した点灯時間による光源の光束低下を見込んだ調光制御であり、建築物の完成直後あるいはランプ交換及び器具清掃初期の過剰照度を抑制（初期照度を補正）し、消費電力量の低減を図るものである。初期照度補正制御は、平成21年基準のCEC/Lにおいては「適正照度制御」と表されている。平成5年に照明設備が省エネ法の規制対象に追加されたときに、「初期照度補正制御」の用語で提案されたが、法律用語に馴染まないとして「適正照度制御」となったいきさつがあるが、本基準では、後述するカテゴリ（f）明るさセンサ等による照度調整調光制御との違いを明確にするため、制御の内容をより適切に示す当初の「初期照度補正制御」とした。<br>
 　経年による光束量の低下を考慮した初期照度の補正の既存の予測カーブより、初期照度補正制御のエネルギー削減係数は、平成21年基準のCEC/Lと同じ0.85とした。LEDの係数については、照明工業会技術仕様の設計例の保守率0.885を安全側に四捨五入して0.90と想定し、この条件下で係数を算出すると0.95とした。<br>
 なお、初期照度補正制御の方法には、天井面に明るさ検知センサを設置し、作業面の明るさを検出することにより調整する方法（明るさセンサを利用した方法）と、明るさの減衰予測カーブのデータをあらかじめ照明設備に記憶させて、点灯時間に応じてタイマにより明るさを変化させる方法（タイマを利用した方法）の2つがあり、両方とも評価対象とし、同じエネルギー削減係数を適用する。
-どの方式に属するかについては、<a href="#Table444B">表 29</a>に示すハードウェア等の条件によるものとする。</p>
+どの方式に属するかについては、<a href="#Table444B">表 28</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table444B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 29. 初期照度補正機能の各方式の判断条件</caption>
+<caption class="title">表 28. 初期照度補正機能の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2032,7 +1984,7 @@ d) 演出性確保のためのカラー照明（ショールームにおける�
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-19 11:44:24 +0900
+Last updated 2019-12-23 14:23:29 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

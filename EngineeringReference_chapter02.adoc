@@ -332,9 +332,9 @@ stem:[\theta_{AC,room,i,d}]|	日付d における室iの設定温度	|℃	|2.4.2
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 \theta_{AC,room,i,d} = \begin{cases}
-　22,   SEASON_{d}=暖房期 \\
-　24,   SEASON_{d}=中間期 \\
-　26,   SEASON_{d}=冷房期
+26, & (SEASON_{d}=\mbox{冷房期}) \\
+24, & (SEASON_{d}=\mbox{中間期}) \\
+22, & (SEASON_{d}=\mbox{暖房期})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

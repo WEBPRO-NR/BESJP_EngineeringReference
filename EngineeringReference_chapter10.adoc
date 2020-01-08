@@ -218,7 +218,7 @@ stem:[E_{SEV}]|昇降機の基準一次エネルギー消費量| MJ/年||
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{SEV} = \sum_{r=1}^{n_{EV}} ( \frac{ L_{EV,i} \times V_{EV,i} \times C_{SEV,i} \times T_{EV,i} \times M_{EV,i} }{860} \times N_{EV,i} ) \times f_{prim,e} × 10^{-3}
+E_{SEV} = \sum_{i=1}^{n_{EV}} ( \frac{ L_{EV,i} \times V_{EV,i} \times C_{SEV,i} \times T_{EV,i} \times M_{EV,i} }{860} \times N_{EV,i} ) \times f_{prim,e} × 10^{-3}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

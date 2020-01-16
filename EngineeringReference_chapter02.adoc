@@ -592,10 +592,10 @@ stem:[I_{nsr,j,d}]|日付dにおける方位jへの長波長放射量積算値|W
 stem:[\eta_{max}]|入射角特性の最大値|-|2.4.2.7|
 |=================================
 
-まず、室iに属する外皮等jの方位 stem:[D_{env,i,j}] に応じて、傾斜角stem:[\theta_{env,slp,j}]と方位角 stem:[\theta_{env,drct,j}] を次表のように規定する。
+まず、室iに属する外皮等jの方位 stem:[D_{env,i,j}] に応じて、傾斜角stem:[\theta_{env,slp,j}] [°]と方位角 stem:[\theta_{env,drct,j}] [°]を次表のように規定する。
 
 .外皮の方位に対する方位角と傾斜角
-[options="header" cols="4,2,2"]
+[options="header" cols="1,1,1"]
 |=================================
 |方位 stem:[D_{env,i,j}]|傾斜角 stem:[\theta_{env,slp,j}]|方位角 stem:[\theta_{env,drct,j}]|
 南|90|0|
@@ -615,6 +615,8 @@ stem:[\eta_{max}]|入射角特性の最大値|-|2.4.2.7|
 なお、式中の0.5は垂直面からみた天空の形態係数、0.1は地表面における日射反射率である。
 また、stem:[\theta_{j,d,t}]は、日付d時刻tにおける外皮jの法線と太陽方向のなす角、stem:[h_{sun,d,t}]は、日付d時刻tにおける太陽高度、
 stem:[\theta_{sun,d,t}]は、日付d時刻tにおける太陽方位角である。
+stem:[\eta_{j,d,t}]は、日付d時刻tにおける外皮jの入射角特性であり、次式で求めるものとする。
+stem:[\eta_{max}]は	stem:[\eta_{j,d,t}]の最大値であり、0.89 である。
 
 ====
 
@@ -625,7 +627,7 @@ I_{dsr,j,d} = \sum_{t=1}^{24} ( S_{dsr,d,t} \times \cos⁡ \theta_{j,d,t} )
 
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-I'_{dsr,j,d} = \sum_{t=1}^{24} ( S_{dsr,d,t} \times \cos⁡ \theta_{j,d,t} \times  η_{j,d,t})
+I'_{dsr,j,d} = \sum_{t=1}^{24} ( S_{dsr,d,t} \times \cos⁡ \theta_{j,d,t} \times  \eta_{j,d,t})
 ++++++++++++++++++++++++++++++++++++++++++++
 
 [stem]
@@ -646,29 +648,24 @@ I_{nsr,j,d} = \begin{cases}
 
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-\cos⁡ \theta_{j,d,t} = \begin{cases}
-\cos h_{sun,d,t} \times ( \cos \theta_{sun,d,t} \times \cos \theta_{wall,j} + \sin \theta_{sun,d,t} \times \sin \theta_{wall,j} ), & (\theta_{wall,slp,j} = 90) \\
-\sin⁡ h_{sun,d,t}, & (\theta_{wall,slp,j} = 0)
-\end{cases}
+\eta_{j,d,t} = 
+\frac
+{2.3920 \times \cos⁡ \theta_{j,d,t} - 3.8636 \times \cos^3⁡ \theta_{j,d,t} + 3.7568 \times \cos^5⁡ \theta_{j,d,t} -1.3952 \times \cos^7⁡ \theta_{j,d,t}}
+{\eta_{max}}
 ++++++++++++++++++++++++++++++++++++++++++++
-====
 
-
-stem:[\eta_{j,d,t}]は、日付d時刻tにおける外皮jの入射角特性であり、次式で求めるものとする。
-====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-\begin{eqnarray*}
-\eta_{j,d,t} 
-& = & 2.3920 \times \cos⁡ \theta_{j,d,t} \\ 
-& \quad & - 3.8636 \times \cos^3⁡ \theta_{j,d,t} \\ 
-& \quad & + 3.7568 \times \cos^5⁡ \theta_{j,d,t} \\
-& \quad & -1.3952 \times \cos^7⁡ \theta_{j,d,t}
-\end{eqnarray*}
+\cos⁡ \theta_{j,d,t} =
+\max
+\{0,
+\cos h_{sun,d,t} \times ( \cos \theta_{sun,d,t} \times \cos \theta_{env,drct,j} + \sin \theta_{sun,d,t} \times \sin \theta_{env,drct,j} )
+\}
 ++++++++++++++++++++++++++++++++++++++++++++
+
 ====
 
-stem:[\eta_{max}]は	stem:[\eta_{j,d,t}]の最大値であり、0.89 である。
+
 ここで、stem:[\eta_{j,d,t}]と stem:[\eta_{max}] は、本来、窓への入射日射に対して考慮する係数であるが、
 外壁面とガラス面とで積算日射量を統一的に扱うために、外壁への日射についても乗じることとしている。
 
@@ -722,7 +719,6 @@ w = \begin{cases}
 \frac{2\pi}{366} \times daynum(d), & (daynum(d) \leqq 59)　\\
 \frac{2\pi}{366} \times \{daynum(d) + 1\}, & (\mbox{それ以外})
 \end{cases}
-
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

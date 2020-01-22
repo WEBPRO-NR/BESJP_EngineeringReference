@@ -1296,9 +1296,9 @@ stem:[O_{AC,ahu,i,d,t}]| 日付d時刻tにおける空調機群iの運転状態|
 空調機群iの冷房運転時間 stem:[T_{AC,ahu,c,i,d}]、暖房運転時間 stem:[T_{AC,ahu,h,i,d}]は次式で求める。
 
 ====
-A) 空調機群iが室負荷を処理する場合
+a) 空調機群iが室負荷を処理する場合
 
-a) stem:[T_{AC,ahu,i,d}=0] の場合
+　a-1) stem:[T_{AC,ahu,i,d}=0] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 T_{AC,ahu,c,i,d} = 0
@@ -1308,9 +1308,9 @@ T_{AC,ahu,c,i,d} = 0
 T_{AC,ahu,h,i,d} = 0
 ++++++++++++++++++++++++++++++++++++++++++++
 
-b) それ以外の場合
+　a-2) それ以外の場合
 
-1) stem:[| Q_{AC,ahu,room,c,i,d}| ≦ |Q_{AC,ahu,room,h,i,d}|] の場合
+　　a-2-1) stem:[| Q_{AC,ahu,room,c,i,d}| ≦ |Q_{AC,ahu,room,h,i,d}|] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 T_{AC,ahu,c,i,d} = ceil( T_{AC,ahu,i,d} \times \frac{|Q_{AC,ahu,room,c,i,d}|}{|Q_{AC,ahu,room,c,i,d}|+|Q_{AC,ahu,room,h,i,d}|} )
@@ -1320,7 +1320,7 @@ T_{AC,ahu,c,i,d} = ceil( T_{AC,ahu,i,d} \times \frac{|Q_{AC,ahu,room,c,i,d}|}{|Q
 T_{AC,ahu,h,i,d} = T_{AC,ahu,i,d} - T_{AC,ahu,c,i,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 
-2) stem:[| Q_{AC,ahu,room,c,i,d}| > |Q_{AC,ahu,room,h,i,d}|] の場合
+　　a-2-2) stem:[| Q_{AC,ahu,room,c,i,d}| > |Q_{AC,ahu,room,h,i,d}|] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 T_{AC,ahu,h,i,d} = ceil( T_{AC,ahu,i,d} \times \frac{|Q_{AC,ahu,room,h,i,d}|}{|Q_{AC,ahu,room,c,i,d}|+|Q_{AC,ahu,room,h,i,d}|} )
@@ -1331,7 +1331,7 @@ T_{AC,ahu,c,i,d} = T_{AC,ahu,i,d} - T_{AC,ahu,h,i,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 
 
-B) 空調機群iが室負荷を処理しない場合（外気負荷のみを処理する場合） +
+b) 空調機群iが室負荷を処理しない場合（外気負荷のみを処理する場合） +
 外気負荷のみを処理する空調機群については処理する室負荷は冷房、暖房ともに0となるので、
 便宜上次式により算出する。
 

@@ -544,9 +544,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_2_7_16_熱源機器の一次エネルギー消費量">2.7.16 熱源機器の一次エネルギー消費量</a></li>
 <li><a href="#_2_7_17_熱源群の一次エネルギー消費量">2.7.17 熱源群の一次エネルギー消費量</a></li>
 <li><a href="#_2_7_18_熱源群の年間一次エネルギー消費量">2.7.18 熱源群の年間一次エネルギー消費量</a></li>
-<li><a href="#_2_8_空気調和設備の設計一次エネルギー消費量">2.8 空気調和設備の設計一次エネルギー消費量</a></li>
 </ul>
 </li>
+<li><a href="#_2_8_設計一次エネルギー消費量">2.8 設計一次エネルギー消費量</a></li>
 <li><a href="#_附属書a空調">附属書A（空調）</a>
 <ul class="sectlevel3">
 <li><a href="#_a_1_外壁等の熱貫流率の算出方法">A.1 外壁等の熱貫流率の算出方法</a></li>
@@ -1490,9 +1490,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="stemblock">
 <div class="content">
 \[H_{AC,room,i,d} =　\begin{cases}
-　52.91,　 SEASON_{d}=冷房期　\\
-　47.81,　 SEASON_{d}=中間期　\\
-　38.81,　 SEASON_{d}=暖房期
+52.91, &amp; (SEASON_{d}=\mbox{冷房期}) \\
+47.81, &amp; (SEASON_{d}=\mbox{中間期}) \\
+38.81, &amp; (SEASON_{d}=\mbox{暖房期})
 \end{cases}\]
 </div>
 </div>
@@ -1587,25 +1587,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ol>
 </div>
 <div class="paragraph">
-<p>日付d時刻tにおける室iの空調機の稼働状態\(O_{AC,room,i,d,t}\) については、
+<p>日付d時刻tにおける室iの空調機の稼働状態 \(O_{AC,room,i,d,t}\) については、
 当該時刻の室同時使用率 \(O_{AC,room,ref,x,d,t}\) が0より大きければ、空調機が稼働していると判断し、 \(O_{AC,room,i,d,t}\) は真、それ以外は偽とする。</p>
 </div>
 <div class="paragraph">
 <p>日付dにおける室iの空調機の稼働状態 \(O_{AC,room,i,d}\) については、
-日付dにおいて、1時間でも\(O_{AC,room,i,d,t}\) が真であれば、\(O_{AC,room,i,d}\)は真、
+日付dにおいて、1時間でも \(O_{AC,room,i,d,t}\) が真であれば、\(O_{AC,room,i,d}\) は真、
 それ以外は偽とする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p>＜参考＞<br>
-日付d時刻tにおける室iの空調機の稼働状態\(O_{AC,room,i,d,t}\) の算出例<br>
+日付d時刻tにおける室iの空調機の稼働状態 \(O_{AC,room,i,d,t}\) の算出例<br>
 （建物用途＝事務所等、室用途=事務室の場合）<br></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>ROOM_NAME.csv より、建物用途\(BUILDINGTYPE\) と室用途\(ROOMTYPE_{i}\) の組合せに基づき「検索キー（O-1）」を取得する。<br></p>
+<p>ROOM_NAME.csv より、建物用途 \(BUILDINGTYPE\) と室用途 \(ROOMTYPE_{i}\) の組合せに基づき「検索キー（O-1）」を取得する。<br></p>
 </li>
 <li>
 <p>ROOM_SPEC.csv　で検索キー（O-1）を使用し「カレンダーパターンコード（A）」を取得する。<br></p>
@@ -1617,7 +1617,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>ROOM_COND.csv　で日別パターン（365要素の配列）を使用し、該当する室使用パターン（1月1日は"3"）の室同時使用率のT0~T23を参照し、日付dの時刻tの室同時使用率 \(O_{AC,room,ref,x,d,t}\) を取得する。<br></p>
 </li>
 <li>
-<p>日付dの時刻tの室同時使用率 \(O_{AC,room,ref,x,d,t}\)が0より大きい場合は真とする。※この作業を365日分繰り返し行う。</p>
+<p>日付dの時刻tの室同時使用率 \(O_{AC,room,ref,x,d,t}\) が0より大きい場合は真とする。※この作業を365日分繰り返し行う。</p>
 </li>
 </ol>
 </div>
@@ -1760,7 +1760,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="paragraph">
 <p>各日がどの基本スケジュールで動くかは「カレンダーパターン」として定められている。
-よって、室用途毎に定められている カレンダーパターン \(CalendarNum_{i}\)| に基づき、
+よって、室用途毎に定められている カレンダーパターン \(CalendarNum_{i}\) に基づき、
 各日の時刻別の発熱比率を決定する。</p>
 </div>
 <div class="ulist">
@@ -1896,7 +1896,7 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①床面積</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(W_{dir,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮jの方位</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
@@ -1914,22 +1914,10 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：③日よけ効果係数(暖房)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：④外壁名称の総数</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{env,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：⑤外皮面積（窓含）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：⑥開口部名称の総数</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,i,j}\)</p></td>
@@ -2016,7 +2004,7 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(η_{i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日射熱取得率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
@@ -2093,7 +2081,7 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(W_{dir,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮等jの方位</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
@@ -2119,13 +2107,13 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(lati\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">緯度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">°</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rad</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.2.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(longi\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">経度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">°</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rad</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.2.1</p></td>
 </tr>
 </tbody>
@@ -2154,6 +2142,12 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.6、2.4.2.7</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I'_{dsr,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける方位jへの直達日射量積算値（入射角特性あり）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.6、2.4.2.7</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける方位jへの天空日射量積算値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
@@ -2166,7 +2160,7 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.4、2.4.2.5</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(η_{max}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{max}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入射角特性の最大値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.7</p></td>
@@ -2174,20 +2168,20 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>まず、室iに属する外皮等jの方位 \(W_{dir,i,j}\) に応じて、傾斜角と方位角 \(\theta_{wall,j}\) を次表のように規定する。</p>
+<p>まず、室iに属する外皮等jの方位 \(D_{env,i,j}\) に応じて、傾斜角\(\theta_{env,slp,j}\) [°]と方位角 \(\theta_{env,drct,j}\) [°]を次表のように規定する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 26. 外皮の方位に対する方位角と傾斜角</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">方位</th>
-<th class="tableblock halign-left valign-top">傾斜角</th>
-<th class="tableblock halign-left valign-top">方位角 \(\theta_{wall,j}\)</th>
+<th class="tableblock halign-left valign-top">方位 \(D_{env,i,j}\)</th>
+<th class="tableblock halign-left valign-top">傾斜角 \(\theta_{env,slp,j}\)</th>
+<th class="tableblock halign-left valign-top">方位角 \(\theta_{env,drct,j}\)</th>
 </tr>
 </thead>
 <tbody>
@@ -2239,57 +2233,67 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>日付dにおける外皮jへの直達日射量積算値 \(I_{dsr,j,d}\) [Wh/m<sup>2</sup>・day]、天空日射量積算値 \(I_{isr,j,d}\)、
+<p>日付dにおける外皮jへの直達日射量積算値 \(I_{dsr,j,d}\)、天空日射量積算値 \(I_{isr,j,d}\)、
 長波長放射量積算値 \(I_{nsr,j,d}\)は、外皮jの方位角や傾斜角に応じて次のように算出する。
 なお、式中の0.5は垂直面からみた天空の形態係数、0.1は地表面における日射反射率である。
 また、\(\theta_{j,d,t}\)は、日付d時刻tにおける外皮jの法線と太陽方向のなす角、\(h_{sun,d,t}\)は、日付d時刻tにおける太陽高度、
-\(\theta_{sun,d,t}\)は、日付d時刻tにおける太陽方位角である。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>a) 外皮iが垂直面（傾斜角が90°）である場合</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[I_{dsr,j,d} = \sum_{t=1}^{24} \{ S_{dsr,d,t} \times \frac{η_{j,d,t}}{η_{max}} \times \cos⁡ \theta_{j,d,t}  \} \\
-I_{isr,j,d} = \sum_{t=1}^{24} 0.5 \times S_{isr,d,t} + 0.1 \times 0.5 \times (S_{isr,d,t} + S_{dsr,d,t} \times \sin⁡ h_{sun,d,t} ) \\
-I_{nsr,j,d} = \sum_{t=1}^{24} 0.5 \times S_{nsr,d,t} \\
-\cos⁡ \theta_{j,d,t} = \cos h_{sun,d,t}  ( \cos \theta_{sun,d,t} \cos \theta_{wall,j} + \sin \theta_{sun,d,t} \sin \theta_{wall,j} )\]
-</div>
-</div>
-<div class="paragraph">
-<p>b) 外皮iが水平面（傾斜角が0°）である場合</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[I_{dsr,j,d} = \sum_{t=1}^{24} \{ S_{dsr,d,t} \times \frac{η_{j,d,t}}{η_{max}} \times \cos⁡ \theta_{j,d,t} \} \\
-I_{isr,j,d} = \sum_{t=1}^{24} S_{isr,d,t}  \\
-I_{nsr,j,d} = \sum_{t=1}^{24} S_{nsr,d,t} \\
-\cos⁡ \theta_{j,d,t} = \sin⁡ h_{sun,d,t}\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>\(η_{j,d,t}\)は、日付d時刻tにおける外皮jの入射角特性であり、次式で求めるものとする。</p>
+\(\theta_{sun,d,t}\)は、日付d時刻tにおける太陽方位角である。
+\(\eta_{j,d,t}\)は、日付d時刻tにおける外皮jの入射角特性であり、次式で求めるものとする。
+\(\eta_{max}\)は	\(\eta_{j,d,t}\)の最大値であり、0.89 である。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[η_{j,d,t} = 2.3920 \cos⁡ \theta_{j,d,t} - 3.8636 \cos^3⁡ \theta_{j,d,t} + 3.7568 \cos^5⁡ \theta_{j,d,t} -1.3952 \cos^7⁡ \theta_{j,d,t}\]
+\[I_{dsr,j,d} = \sum_{t=1}^{24} ( S_{dsr,d,t} \times \cos⁡ \theta_{j,d,t} )\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[I'_{dsr,j,d} = \sum_{t=1}^{24} ( S_{dsr,d,t} \times \cos⁡ \theta_{j,d,t} \times  \eta_{j,d,t})\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[I_{isr,j,d} = \begin{cases}
+\sum_{t=1}^{24} \{ 0.5 \times S_{isr,d,t} + 0.1 \times 0.5 \times (S_{isr,d,t} + S_{dsr,d,t} \times \sin⁡ h_{sun,d,t} ) \}, &amp; (\theta_{env,slp,j} = 90) \\
+\sum_{t=1}^{24} S_{isr,d,t}, &amp;  (\theta_{env,slp,j} = 0)
+\end{cases}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[I_{nsr,j,d} = \begin{cases}
+\sum_{t=1}^{24} ( 0.5 \times S_{nsr,d,t} ), &amp; (\theta_{wall,slp,j} = 90) \\
+\sum_{t=1}^{24} S_{nsr,d,t}, &amp; (\theta_{wall,slp,j} = 0)
+\end{cases}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\eta_{j,d,t} =
+\frac
+{2.3920 \times \cos⁡ \theta_{j,d,t} - 3.8636 \times \cos^3⁡ \theta_{j,d,t} + 3.7568 \times \cos^5⁡ \theta_{j,d,t} -1.3952 \times \cos^7⁡ \theta_{j,d,t}}
+{\eta_{max}}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\cos⁡ \theta_{j,d,t} =
+\max
+\{0,
+\cos h_{sun,d,t} \times ( \cos \theta_{sun,d,t} \times \cos \theta_{env,drct,j} + \sin \theta_{sun,d,t} \times \sin \theta_{env,drct,j} )
+\}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>\(η_{max}\)は	\(η_{j,d,t}\)の最大値であり、0.89 である。
-ここで、\(η_{j,d,t}\)と \(η_{max}\) は、本来、窓への入射日射に対して考慮する係数であるが、
+<p>ここで、\(\eta_{j,d,t}\)と \(\eta_{max}\) は、本来、窓への入射日射に対して考慮する係数であるが、
 外壁面とガラス面とで積算日射量を統一的に扱うために、外壁への日射についても乗じることとしている。</p>
 </div>
 <div class="paragraph">
-<p>日付d時刻tにおける太陽高度 \(h_{sun,d,t}\) 及び 太陽方位角 \(\theta_{sun,d,t}\) の正弦、余弦は次式で算出する。
+<p>日付d時刻tにおける太陽高度 \(h_{sun,d,t}\) [rad]及び 太陽方位角 \(\theta_{sun,d,t}\) [rad]の正弦、余弦は次式で算出する。
 なお、正弦、余弦を求める際の角度の単位はラジアンであることに注意が必要である。</p>
 </div>
 <div class="exampleblock">
@@ -2313,28 +2317,51 @@ I_{nsr,j,d} = \sum_{t=1}^{24} S_{nsr,d,t} \\
 </div>
 </div>
 <div class="paragraph">
-<p>ここで、\(del_{d}\) は日付dの日赤緯、\(e_{d}\) は 日付dの均時差であり、次式より求める。
+<p>ここで、\(del_{d}\) [rad]は日付dの日赤緯、\(e_{d}\) [rad]は 日付dの均時差であり、次式より求める。
 式中の関数 daynum(d) は、日付dの通日を求める関数であるとする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[del_{d} = 0.006322 - 0.405748 cos(w + 0.153231) - 0.005880 cos(2w - 0.207099) - 0.003233 cos(3w + 0.620129) \\
-e_{d} = - 0.0002786409 + 0.1227715 cos(w + 1.498311) - 0.1654575 cos(2w - 1.261546) - 0.00535383 cos(3w -1.1571) \\
-w = daynum(d)  \times  2.0  \times  pi / 366;\]
+\[\begin{eqnarray*}
+del_{ d }
+&amp; = &amp; 0.006322 \\
+&amp; \quad &amp; - 0.405748 \times cos(w + 0.153231) \\
+&amp; \quad &amp; - 0.005880 \times cos(2w - 0.207099) \\
+&amp; \quad &amp; - 0.003233 \times cos(3w + 0.620129)
+\end{eqnarray*}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\begin{eqnarray*}
+e_{d}
+&amp; = &amp; - 0.0002786409 \\
+&amp; \quad &amp; + 0.1227715 \times cos(w + 1.498311) \\
+&amp; \quad &amp; - 0.1654575 \times cos(2w - 1.261546) \\
+&amp; \quad &amp; - 0.00535383 \times cos(3w -1.1571)
+\end{eqnarray*}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[w = \begin{cases}
+\frac{2\pi}{366} \times daynum(d), &amp; (daynum(d) \leqq 59)　\\
+\frac{2\pi}{366} \times \{daynum(d) + 1\}, &amp; (\mbox{それ以外})
+\end{cases}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>\(Tim_{d,t}\) は日付d時刻tの時角であり、次式より求める。ただし、時刻 t は 1〜24 とする。</p>
+<p>\(Tim_{d,t}\) [rad]は日付d時刻tの時角であり、次式より求める。ただし、時刻 t は 1〜24 とする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Tim_{d,t} = (15.0  \times  t + 15.0  \times  e_{d} + longi - 315.0)  \times  2  \times  pi / 360;\]
+\[Tim_{d,t} = \frac{\pi}{12} \times (t + e_{d} -12) + longi - \frac{3\pi}{4}\]
 </div>
 </div>
 </div>
@@ -2405,6 +2432,12 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①室面積</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(AirConditioning_{i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iが空調室か否か</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">真偽値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：①空調ゾーン名に室名がある場合はTrue。それ以外はFalse</p></td>
+</tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
@@ -2444,24 +2477,24 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 室iが空調対象室である場合</p>
+<p>a) 室iが空調対象室である場合(\(AirCondioning_{i}=True\))</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[Q_{AC,room,tin,i,d} = \begin{cases}
-    \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d}-(Q_{wall,n,i,d}+Q_{wind,n,i,d} )} {A_{room,i}}, &amp; A_{room,i} &gt; 0 \\
-    0, &amp; A_{room,i} = 0 \\
+    \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d}+Q_{wall,n,i,d}+Q_{wind,n,i,d}} {A_{room,i}}, &amp; (A_{room,i} &gt; 0) \\
+    0, &amp; (A_{room,i} = 0) \\
 \end{cases}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 室iが非空調室である場合（PAL＊計算時のみ）</p>
+<p>b) 室iが非空調室である場合（PAL＊計算時のみ）(\(AirCondioning_{i}=False\))</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[Q_{AC,room,tin,i,d} = \begin{cases}
-    \frac{1}{2} \times \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d} - (Q_{wall,n,i,d}+Q_{wind,n,i,d})} {A_{room,i}}, &amp; A_{room,i} &gt; 0 \\
-    0, &amp; A_{room,i} = 0 \\
+    \frac{1}{2} \times \frac{ Q_{wall,t,i,d}+Q_{wind,t,i,d}+Q_{wall,n,i,d}+Q_{wind,n,i,d}} {A_{room,i}}, &amp; (A_{room,i} &gt; 0) \\
+    0, &amp; (A_{room,i} = 0) \\
 \end{cases}\]
 </div>
 </div>
@@ -2473,24 +2506,24 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 室iが空調対象室である場合</p>
+<p>a) 室iが空調対象室である場合(\(AirCondioning_{i}=True\))</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[Q_{AC,room,sin,i,d} = \begin{cases}
-    \frac{ Q_{wall,s,i,d}+Q_{wind,s,i,d}}{A_{room,i}}, &amp; A_{room,i} &gt; 0 \\
-    0, &amp; A_{room,i} = 0 \\
+    \frac{ Q_{wall,s,i,d}+Q_{wind,s,i,d}}{A_{room,i}}, &amp; (A_{room,i} &gt; 0) \\
+    0, &amp; (A_{room,i} = 0) \\
 \end{cases}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 室iが非空調室である場合（PAL＊計算時のみ）</p>
+<p>b) 室iが非空調室である場合（PAL＊計算時のみ）(\(AirCondioning_{i}=False\))</p>
 </div>
 <div class="stemblock">
 <div class="content">
 \[Q_{AC,room,sin,i,d} = \begin{cases}
-    \frac{1}{2} \times \frac{ Q_{wall,s,i,d}+Q_{wind,s,i,d}}{A_{room,i}}, &amp; A_{room,i} &gt; 0 \\
-    0, &amp; A_{room,i} = 0 \\
+    \frac{1}{2} \times \frac{ Q_{wall,s,i,d}+Q_{wind,s,i,d}}{A_{room,i}}, &amp; (A_{room,i} &gt; 0) \\
+    0, &amp; (A_{room,i} = 0) \\
 \end{cases}\]
 </div>
 </div>
@@ -2600,10 +2633,10 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.1</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：④外壁名称の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(WALLTYPE_{i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの種類</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">　</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-2：②壁の種類</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,i,j}\)</p></td>
@@ -2666,7 +2699,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,t,i,d} = \sum_{j=1}^{N_{wall,i}} Q_{wall,t,i,j,d}\]
+\[Q_{wall,t,i,d} = \sum_{j=1} Q_{wall,t,i,j,d}\]
 </div>
 </div>
 </div>
@@ -2674,7 +2707,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 外気に接する外壁である場合</p>
+<p>a) 外気に接する外壁である場合(\(WALLTYPE_{i,j}=\mbox{外壁}\))</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -2682,7 +2715,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 接地壁（地盤に接する壁）である場合</p>
+<p>b) 接地壁（地盤に接する壁）である場合(\(WALLTYPE_{i,j}=\mbox{接地壁}\))</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -2722,10 +2755,10 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：⑦開口部 窓面積</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮等jの方位</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：⑥開口部名称の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,i,j}\)</p></td>
@@ -2740,8 +2773,8 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.3.1</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(\theta_{AC,oa,ave}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">年間平均外気温</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\theta_{AC,oa,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける日平均外気温</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.2.3</p></td>
 </tr>
@@ -2780,7 +2813,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,t,i,d} = \sum_{j=1}^{N_{wind,i}} Q_{wind,t,i,j,d}\]
+\[Q_{wind,t,i,d} = \sum_{j=1} Q_{wind,t,i,j,d}\]
 </div>
 </div>
 </div>
@@ -2830,12 +2863,6 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：④外壁名称の総数</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの熱貫流率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">W/(m<sup>2</sup>・K)</p></td>
@@ -2883,18 +2910,18 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="paragraph">
 <p>日付dにおける室iの外壁等からの長波長放射による定常貫流熱損失\(Q_{wall,n,i,d}\)は、
 外気に接する外壁等の場合は次のa）の方法により、
-地盤に接する外壁等の場合は次のb）の方法により算出する。</p>
+地盤に接する外壁等の場合は次のb）の方法により算出する。損失は負の値のため、-1を乗じる。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,n,i,d} = \sum_{j=1}^{N_{wall,i}} Q_{wall,n,i,j,d}\]
+\[Q_{wall,n,i,d} = \sum_{j=1} Q_{wall,n,i,j,d}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,n,i,j,d} = \frac{ 0.9 \times U_{wall,i,j} \times A_{wall,i,j} \times I_{nsr,i,j,d} }{\alpha_{o}}\]
+\[Q_{wall,n,i,j,d} = -1 \times \frac{ 0.9 \times U_{wall,i,j} \times A_{wall,i,j} \times I_{nsr,i,j,d} }{\alpha_{o}}\]
 </div>
 </div>
 </div>
@@ -2931,12 +2958,6 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：⑦開口部 窓面積</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：⑥開口部名称の総数</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,i,j}\)</p></td>
@@ -2978,18 +2999,18 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>日付dにおける室iの窓等からの長波長放射による定常貫流熱損失\(Q_{wind,n,i,d}\)は、窓の次式により算出する。</p>
+<p>日付dにおける室iの窓等からの長波長放射による定常貫流熱損失\(Q_{wind,n,i,d}\)は、窓の次式により算出する。損失は負の値のため、-1を乗じる。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,n,i,d} = \sum_{j=1}^{N_{wind,i}} Q_{wind,n,i,j,d}\]
+\[Q_{wind,n,i,d} = \sum_{j=1} Q_{wind,n,i,j,d}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,n,i,j,d} = \frac{ 0.9 \times U_{wind,i,j} \times A_{wind,i,j} \times I_{nsr,i,j,d} }{\alpha_{o}}\]
+\[Q_{wind,n,i,j,d} = -1 \times \frac{ 0.9 \times U_{wind,i,j} \times A_{wind,i,j} \times I_{nsr,i,j,d} }{\alpha_{o}}\]
 </div>
 </div>
 </div>
@@ -3022,10 +3043,10 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wall,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮等jの方位</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：④外壁名称の総数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall,i,j}\)</p></td>
@@ -3087,7 +3108,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{wall,s,i,d} = \sum_{j=1}^{N_{wall,i}} Q_{wall,s,i,j,d}\]
+\[Q_{wall,s,i,d} = \sum_{j=1} Q_{wall,s,i,j,d}\]
 </div>
 </div>
 </div>
@@ -3095,7 +3116,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 外壁等jの方位が「日陰」ではない場合</p>
+<p>a) 外皮等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3103,7 +3124,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 外壁等jの方位が「日陰」である場合</p>
+<p>b) 外皮等jの方位が「日陰」である場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3140,28 +3161,22 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(W_{dir,i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの方位</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮等jの方位</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,c,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\gamma_{wind,c,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(冷房)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：③日よけ効果係数(冷房)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,h,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\gamma_{wind,h,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(暖房)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：③日よけ効果係数(暖房)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{wind,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：⑥開口部名称の総数</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{wind,i,j}\)</p></td>
@@ -3170,7 +3185,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：⑦開口部 窓面積</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(η_{i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日射熱取得率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">附属書A2</p></td>
@@ -3182,8 +3197,8 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.2.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{dsr,i,j,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮j への直達日射量積算値</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(I'_{dsr,i,j,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮jへの直達日射量積算値（入射角特性あり）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
@@ -3194,7 +3209,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(η_{max}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{max}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入射角特性の最大値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
@@ -3237,7 +3252,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,s,i,d} = \sum_{j=1}^{N_{wind,i}} Q_{wind,s,i,j,d}\]
+\[Q_{wind,s,i,d} = \sum_{j=1} Q_{wind,s,i,j,d}\]
 </div>
 </div>
 </div>
@@ -3245,23 +3260,23 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 窓等jの方位が「日陰」ではない場合</p>
+<p>a) 外皮等jの方位が「日陰」ではない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{wind,s,i,j,d} = (γ_{wind,i,j,d} \times A_{wind,i,j} \times \frac{η_{i,j}}{0.88} \times (η_{max} \times I_{dsr,i,j,d} + 0.808 \times I_{isr,i,j,d}))\]
+\[Q_{wind,s,i,j,d} = (\gamma_{wind,i,j,d} \times A_{wind,i,j} \times \frac{\eta_{i,j}}{0.88} \times (\eta_{max} \times I'_{dsr,i,j,d} + 0.808 \times I_{isr,i,j,d}))\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[γ_{wind,i,j,d} = \begin{cases}
- γ_{wind,c,i,j},   ：冷暖房期間が「冷房期」もしくは「中間期」 \\
- γ_{wind,h,i,j},   ：冷暖房期間が「暖房期」 \\
+\[\gamma_{wind,i,j,d} = \begin{cases}
+\gamma_{wind,c,i,j}, &amp; (\mbox{冷暖房期間が「冷房期」もしくは「中間期」}) \\
+\gamma_{wind,h,i,j}, &amp; (\mbox{冷暖房期間が「暖房期」})
 \end{cases}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 窓等jの方位が「日陰」である場合</p>
+<p>b) 外皮等jの方位が「日陰」である場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3357,7 +3372,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 室iについて、日付dにおいて空調がONである場合</p>
+<p>a) 室iについて、日付dにおいて空調がONである場合（\(O_{AC,room,i,d}=True\)）</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3365,7 +3380,7 @@ w = daynum(d)  \times  2.0  \times  pi / 366;\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 室iについて、日付dにおいて空調がOFFである場合</p>
+<p>b) 室iについて、日付dにおいて空調がOFFである場合（\(O_{AC,room,i,d}=False\)）</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3598,7 +3613,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（m<sup>2</sup>・
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{room,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{room,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iの面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①床面積</p></td>
@@ -3701,8 +3716,8 @@ Q_{AC,ahu,room,h,i,d} = 0\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(O_{AC,room,i,d,t}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dの時刻tにおける室iの空調運転の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(O_{AC,room,r,d,t}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dの時刻tにおける室rの空調運転の有無</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">真偽値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.3.3</p></td>
 </tr>
@@ -3770,19 +3785,18 @@ Q_{AC,ahu,room,h,i,d} = 0\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>日付dにおける空調群iの運転時間\(T_{AC,ahu,i,d}\)は、
-各時刻において、空調機群iに属する空調機jが空調をする室nのうち、
+<p>日付dにおける空調機群iの運転時間\(T_{AC,ahu,i,d}\)は、
+各時刻において、空調機群iに属する空調機jが空調をする室rのうち、
 1つの室でも空調時間内であれば空調機群iは運転していると判断し、
 各時刻の空調機群iの稼動状態を日単位で集計することにより算出する。</p>
 </div>
 <div class="paragraph">
 <p>まず、日付dの時刻tにおける空調機群iの運転状態\(O_{AC,ahu,i,d,t}\)を算出する。
-空調機群iが空調する室について、\(O_{AC,room,i,d,t}\)が1つの室でも真であれば、\(O_{AC,ahu,i,d,t}\)は真、
-\(O_{AC,room,i,d,t}\)が全ての室で偽であれば、\(O_{AC,ahu,i,d,t}\)は偽とする。</p>
+空調機群iが空調する室について、\(O_{AC,room,r,d,t}\) が1つの室でも真であれば、\(O_{AC,ahu,i,d,t}\)は真、 \(O_{AC,room,i,d,t}\) が全ての室で偽であれば、 \(O_{AC,ahu,i,d,t}\)は偽とする。</p>
 </div>
 <div class="paragraph">
 <p>また、日付dにおける空調機群iの運転時間 \(T_{AC,ahu,i,d}\) については、
-各日において、\(O_{AC,ahu,i,d,t}\)が真となる時間数をカウントして算出する。</p>
+各日において、\(O_{AC,ahu,i,d,t}\) が真となる時間数をカウントして算出する。</p>
 </div>
 <div class="paragraph">
 <p>次に、各空調機群の冷房・暖房運転時間を算出する。
@@ -3799,12 +3813,31 @@ Q_{AC,ahu,room,h,i,d} = 0\]
 冷房期及び中間期の暖房負荷、暖房期の冷房負荷は処理されずに無視されるとしている（これを未処理負荷と呼ぶ）。</p>
 </div>
 <div class="paragraph">
-<p>空調機群iの冷房運転時間\(T_{AC,ahu,c,i,d}\)、暖房運転時間\(T_{AC,ahu,h,i,d}\)は次式で求める。</p>
+<p>空調機群iの冷房運転時間 \(T_{AC,ahu,c,i,d}\)、暖房運転時間 \(T_{AC,ahu,h,i,d}\)は次式で求める。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(| Q_{AC,ahu,room,c,i,d}| ≦ |Q_{AC,ahu,room,h,i,d}|\) の場合</p>
+<p>a) 空調機群iが室負荷を処理する場合</p>
+</div>
+<div class="paragraph">
+<p>　a-1) \(T_{AC,ahu,i,d}=0\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[T_{AC,ahu,c,i,d} = 0\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[T_{AC,ahu,h,i,d} = 0\]
+</div>
+</div>
+<div class="paragraph">
+<p>　a-2) それ以外の場合</p>
+</div>
+<div class="paragraph">
+<p>　　a-2-1) \(| Q_{AC,ahu,room,c,i,d}| ≦ |Q_{AC,ahu,room,h,i,d}|\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3817,7 +3850,7 @@ Q_{AC,ahu,room,h,i,d} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) \(| Q_{AC,ahu,room,c,i,d}| &gt; |Q_{AC,ahu,room,h,i,d}|\) の場合</p>
+<p>　　a-2-2) \(| Q_{AC,ahu,room,c,i,d}| &gt; |Q_{AC,ahu,room,h,i,d}|\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -3829,17 +3862,11 @@ Q_{AC,ahu,room,h,i,d} = 0\]
 \[T_{AC,ahu,c,i,d} = T_{AC,ahu,i,d} - T_{AC,ahu,h,i,d}\]
 </div>
 </div>
-</div>
-</div>
 <div class="paragraph">
-<p>式中の「ceil」とは、小数点以下を切り上げて整数値で値を求めることを意味する関数である。</p>
-</div>
-<div class="paragraph">
-<p>ただし、外気負荷のみを処理する空調機群については処理する室負荷は冷房、暖房ともに0となるので、
+<p>b) 空調機群iが室負荷を処理しない場合（外気負荷のみを処理する場合）<br>
+外気負荷のみを処理する空調機群については処理する室負荷は冷房、暖房ともに0となるので、
 便宜上次式により算出する。</p>
 </div>
-<div class="exampleblock">
-<div class="content">
 <div class="stemblock">
 <div class="content">
 \[T_{AC,ahu,c,i,d} = T_{AC,ahu,i,d}\]
@@ -3853,11 +3880,18 @@ Q_{AC,ahu,room,h,i,d} = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>全熱交換器の運転時間 \(T_{AC,ahu,aex,i,d}\)は、空調機群iの運転時間と同じであるとする。</p>
+<p>式中の「ceil」とは、小数点以下を切り上げて整数値で値を求めることを意味する関数である。</p>
 </div>
+<div class="paragraph">
+<p>全熱交換器の運転時間 \(T_{AC,ahu,aex,i,d}\) は、空調機群iの運転時間と同じであるとする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="stemblock">
 <div class="content">
 \[T_{AC,ahu,aex,i,d}  = T_{AC,ahu,i,d}\]
+</div>
+</div>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -9430,8 +9464,9 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect3">
-<h4 id="_2_8_空気調和設備の設計一次エネルギー消費量"><a class="link" href="#_2_8_空気調和設備の設計一次エネルギー消費量">2.8 空気調和設備の設計一次エネルギー消費量</a></h4>
+</div>
+<div class="sect2">
+<h3 id="_2_8_設計一次エネルギー消費量"><a class="link" href="#_2_8_設計一次エネルギー消費量">2.8 設計一次エネルギー消費量</a></h3>
 <div class="paragraph">
 <p>空気調和設備の設計一次エネルギー消費量は次の式で算出する。
 なお、二次ポンプを持たない空調機群を評価する場合には、
@@ -9454,24 +9489,6 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：①空調機群名称 の入力行数の総数</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,pump}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-6：①二次ポンプ群名称 の入力行数の総数</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ref}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-5：①熱源群名称 の入力行数の総数</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの年間一次エネルギー消費量</p></td>
@@ -9521,13 +9538,12 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{AC} = \sum_{i=1}^{N_{AC,ahu}} E_{AC,ahu,i} + \sum_{i=1}^{N_{AC,pump}} E_{AC,pump,i} + \sum_{i=1}^{N_{AC,ref}} E_{AC,ref,i}\]
+\[E_{AC} = \sum_{i=1} E_{AC,ahu,i} + \sum_{i=1} E_{AC,pump,i} + \sum_{i=1} E_{AC,ref,i}\]
 </div>
 </div>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_附属書a空調"><a class="link" href="#_附属書a空調">附属書A（空調）</a></h3>
@@ -10190,7 +10206,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-01-14 21:21:28 +0900
+Last updated 2020-01-23 09:04:11 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

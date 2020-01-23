@@ -1521,13 +1521,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(BUILDINGTYPE\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">建物用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①建物用途・室用途</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(ROOMTYPE_{i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①建物用途・室用途</p></td>
 </tr>
 </tbody>
@@ -1567,61 +1567,260 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>空調機の稼働状態は「標準室使用条件」に基づき決定する。
 標準室使用条件は室用途毎に定められており、
 室用途毎に3つの「基本スケジュール（室使用パターン1, 2, 3）」があり、各日がどの基本スケジュールで動くかは「カレンダーパターン」として定められている。
-これら「基本スケジュール」「カレンダーパターン」から空調室の使用率を取得し、使用率に応じて空調機の稼働状態を判定する。</p>
+これら「基本スケジュール」「カレンダーパターン」から空調の開始時刻と終了時刻を取得し、その値に応じて空調機の稼働状態を判定する。</p>
 </div>
 <div class="paragraph">
-<p>なお、カレンダーパターンは「CALENDAR.csv」、3つの基本スケジュールは「ROOM_COND.csv」、
-各室用途がどのカレンダーパターンであるかは「ROOM_SPEC.csv」、 上記3つのファイルを使用する際に必要となる検索キーは「ROOM_NAME.csv」で規定されている。</p>
+<p>なお、カレンダーパターンは「CALENDAR.csv」、各室用途がどのカレンダーパターンであるかは「ROOM_SPEC.csv」、 上記のファイルを使用する際に必要となる検索キーは「ROOM_NAME.csv」で規定されている。</p>
 </div>
-<div class="paragraph">
-<p>まず、日付dの時刻tの室同時使用率 \(O_{AC,room,ref,x,d,t}\) を以下の手順で決定する。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>室iの室用途 \(ROOMTYPE_{i}\) のカレンダーパターン（A〜F）を調べ、CALENDAR.csv より各日がどの基本スケジュール（室使用パターン1, 2, 3）で運用されるかを調べる。<br></p>
+<p>データベースの検索キーを取得する。</p>
 </li>
-<li>
-<p>ROOM_COND.csv には室使用パターン別に時々刻々の室同時使用率が規定されているため、各日の室使用パターンに基づき室同時使用率を決定する。</p>
-</li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
-<p>日付d時刻tにおける室iの空調機の稼働状態 \(O_{AC,room,i,d,t}\) については、
-当該時刻の室同時使用率 \(O_{AC,room,ref,x,d,t}\) が0より大きければ、空調機が稼働していると判断し、 \(O_{AC,room,i,d,t}\) は真、それ以外は偽とする。</p>
-</div>
-<div class="paragraph">
-<p>日付dにおける室iの空調機の稼働状態 \(O_{AC,room,i,d}\) については、
-日付dにおいて、1時間でも \(O_{AC,room,i,d,t}\) が真であれば、\(O_{AC,room,i,d}\) は真、
-それ以外は偽とする。</p>
+<p>建物用途 \(BUILDINGTYPE\) と室用途 \(ROOMTYPE_i\) を用いて、ROOM_NAME.csvより検索キーを取得する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>＜参考＞<br>
-日付d時刻tにおける室iの空調機の稼働状態 \(O_{AC,room,i,d,t}\) の算出例<br>
-（建物用途＝事務所等、室用途=事務室の場合）<br></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>ROOM_NAME.csv より、建物用途 \(BUILDINGTYPE\) と室用途 \(ROOMTYPE_{i}\) の組合せに基づき「検索キー（O-1）」を取得する。<br></p>
-</li>
-<li>
-<p>ROOM_SPEC.csv　で検索キー（O-1）を使用し「カレンダーパターンコード（A）」を取得する。<br></p>
-</li>
-<li>
-<p>CALENDAR.csv　でカレンダーパターンコード（A）を使用し「日別のパターン（365要素の配列：要素1である1月1日の値は”3”）」を取得する。<br></p>
-</li>
-<li>
-<p>ROOM_COND.csv　で日別パターン（365要素の配列）を使用し、該当する室使用パターン（1月1日は"3"）の室同時使用率のT0~T23を参照し、日付dの時刻tの室同時使用率 \(O_{AC,room,ref,x,d,t}\) を取得する。<br></p>
-</li>
-<li>
-<p>日付dの時刻tの室同時使用率 \(O_{AC,room,ref,x,d,t}\) が0より大きい場合は真とする。※この作業を365日分繰り返し行う。</p>
-</li>
-</ol>
+<p>例）建物用途が「事務所等」で室用途が「事務室」の場合、検索キーは「O-1」となる。</p>
 </div>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>カレンダーパターンコード（A, B, C, D, E, F）を取得する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>検索キーを用いて、ROOM_SPEC.csvよりカレンダーパターンコードを取得する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>例）検索キーが「O-1」の場合、カレンダーパターンコードは「A」となる。</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>日別のカレンダーパターン（1, 2, 3）を取得する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>日付dとカレンダーコードを用いて、ROOM_CALENDAR.csvよりカレンダーパターンを取得する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>例）日付dが「1月1日」でカレンダーコードが「A」の場合、日付dにおけるカレンダーパターン \(Ptrn_{clndr,d}\) は「3」となる。</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>WSCパターン（WSC1, WSC2）を取得する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>検索キーを用いて、ROOM_SPEC.csvよりWSCパターンを取得する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>例）検索キーが「O-1」の場合、WSCパターン \(Ptrn_{WSC}\) は「WSC1」となる。</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>カレンダーパターン1, 2の空調開始時刻、終了時刻（1～24）を取得する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>検索キーを用いて、ROOM_SPEC.csvよりパターン別空調開始時刻、終了時刻を取得する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>例）検索キーが「O-1」の場合、<br>
+パターン1空調開始時刻1 \(t_{AC,1,strt,1}\) は、「7」となる。<br>
+パターン1空調終了時刻1 \(t_{AC,1,end,1}\) は、「21」となる。<br>
+パターン1空調開始時刻2 \(t_{AC,1,strt,2}\) は、「0（空欄）」となる。<br>
+パターン1空調終了時刻2 \(t_{AC,1,end,2}\) は、「0（空欄）」となる。<br></p>
+</div>
+<div class="paragraph">
+<p>パターン2空調開始時刻1 \(t_{AC,2,strt,1}\) は、「0（空欄）」となる。<br>
+パターン2空調終了時刻1 \(t_{AC,2,end,1}\) は、「0（空欄）」となる。<br>
+パターン2空調開始時刻2 \(t_{AC,2,strt,2}\) は、「0（空欄）」となる。<br>
+パターン2空調終了時刻2 \(t_{AC,2,end,2}\) は、「0（空欄）」となる。</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>カレンダーパターン毎の空調開始時刻、終了時刻を算出する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>パターン別空調開始時刻、終了時刻とWSCパターンより、カレンダーパターン毎の空調開始時刻、終了時刻を算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>カレンダーパターン1の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[t_{AC,1,strt} = \begin{cases}
+t_{AC,1,strt,1}, &amp; (t_{AC,1,strt,2} = t_{AC,1,end,2}) \\
+t_{AC,1,strt,2}, &amp; (\mbox{それ以外})
+\end{cases}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[t_{AC,1,end} = t_{AC,1,end,1}\]
+</div>
+</div>
+<div class="paragraph">
+<p>カレンダーパターン2の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[t_{AC,2,strt} = \begin{cases}
+t_{AC,2,strt,1}, &amp; (t_{AC,2,strt,2} = t_{AC,2,end,2}) \\
+t_{AC,2,strt,2}, &amp; (\mbox{それ以外})
+\end{cases}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[t_{AC,2,end} = t_{AC,2,end,1}\]
+</div>
+</div>
+<div class="paragraph">
+<p>カレンダーパターン3場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[t_{AC,3,strt} = \begin{cases}
+0, &amp; (Ptrn_{WSC} = WSC1) \\
+t_{AC,2,strt}, &amp; (Ptrn_{WSC} = WSC2)
+\end{cases}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[t_{AC,3,end} = \begin{cases}
+0, &amp; (Ptrn_{WSC} = WSC1) \\
+t_{AC,2,end}, &amp; (Ptrn_{WSC} = WSC2)
+\end{cases}\]
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>日付dにおける空調開始時刻、終了時刻を算出する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>日付dにおけるカレンダーパターンとカレンダーパターン1, 2, 3の空調開始時刻、終了時刻を用いて、日付dにおける空調開始時刻、終了時刻を算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[t_{AC,strt,d} = \begin{cases}
+t_{AC,1,strt}, &amp; (Ptrn_{clndr,d} = 1) \\
+t_{AC,2,strt}, &amp; (Ptrn_{clndr,d} = 2) \\
+t_{AC,3,strt}, &amp; (Ptrn_{clndr,d} = 3)
+\end{cases}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[t_{AC,end,d} = \begin{cases}
+t_{AC,1,end}, &amp; (Ptrn_{clndr,d} = 1) \\
+t_{AC,2,end}, &amp; (Ptrn_{clndr,d} = 2) \\
+t_{AC,3,end}, &amp; (Ptrn_{clndr,d} = 3)
+\end{cases}\]
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>日付d時刻tにおける室iの空調機の稼働状態 \(O_{AC,room,i,d,t}\) を算出する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>日付dにおける空調開始時刻、終了時刻を用いて、日付d時刻tにおける空調機の稼働状態を算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) 空調開始時刻と空調終了時刻が等しい場合（\(t_{AC,strt,d} = t_{AC,end,d}\)）</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[O_{AC,room,i,d,t} = FALSE\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) それ以外の場合</p>
+</div>
+<div class="paragraph">
+<p>　　b-1) 空調開始時刻 \(t_{AC,strt,d}\) が空調終了時刻 \(t_{AC,end,d}\) よりも小さい場合（\(t_{AC,strt,d} &lt; t_{AC,end,d}\)）</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[O_{AC,room,i,d,t} = \begin{cases}
+TRUE, &amp; (t_{AC,strt,d} \leqq t \land t &lt; t_{AC,end,d}) \\
+FALSE, &amp; (\mbox{それ以外})
+\end{cases}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　b-2) それ以外の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[O_{AC,room,i,d,t} = \begin{cases}
+TRUE, &amp; (t_{AC,strt,d} \leqq t \lor t &lt; t_{AC,end,d}) \\
+FALSE, &amp; (\mbox{それ以外})
+\end{cases}\]
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>日付dにおける室iの空調機の稼働状態 \(O_{AC,room,i,d}\) を算出する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>日付dにおいて、1時間でも \(O_{AC,room,i,d,t}\) が真であれば、\(O_{AC,room,i,d}\) は真、
+それ以外は偽とする。</p>
 </div>
 </div>
 <div class="sect3">
@@ -9603,8 +9802,8 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wall}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">外壁等jの熱貫流率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">W/(m2・K)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W/(m<sup>2</sup>・K)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.2、2.4.2.4、2.4.2.6</p></td>
 </tr>
 </tbody>
 </table>
@@ -9645,10 +9844,10 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 143. 入力</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 18.1818%;">
+<col style="width: 45.4545%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
 </colgroup>
 <thead>
 <tr>
@@ -9700,15 +9899,17 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 144. 出力</caption>
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 18.1818%;">
+<col style="width: 45.4545%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">変数名</th>
 <th class="tableblock halign-left valign-top">説明</th>
 <th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
 </tr>
 </thead>
 <tbody>
@@ -9716,21 +9917,25 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの熱貫流率（ブラインド無）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">W/m<sup>2</sup>K</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.3、2.4.2.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(U_{wind,j,bl}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの熱貫流率（ブラインド有）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">W/m<sup>2</sup>K</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.3、2.4.2.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{wind,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの日射熱取得率（ブラインド無）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.7</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{wind,j,bl}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">窓等jの日射熱取得率（ブラインド有）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.7</p></td>
 </tr>
 </tbody>
 </table>
@@ -10206,7 +10411,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-01-23 10:09:59 +0900
+Last updated 2020-01-23 21:22:32 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

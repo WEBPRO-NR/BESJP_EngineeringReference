@@ -1379,7 +1379,7 @@ T_{AC,ahu,h,i,d} = 0
 
 　a-2) それ以外の場合
 
-　　a-2-1) stem:[| Q_{AC,ahu,room,c,i,d}| ≦ |Q_{AC,ahu,room,h,i,d}|] の場合
+　　a-2-1) stem:[| Q_{AC,ahu,room,c,i,d}| < |Q_{AC,ahu,room,h,i,d}|] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 T_{AC,ahu,c,i,d} = ceil( T_{AC,ahu,i,d} \times \frac{|Q_{AC,ahu,room,c,i,d}|}{|Q_{AC,ahu,room,c,i,d}|+|Q_{AC,ahu,room,h,i,d}|} )
@@ -1389,7 +1389,7 @@ T_{AC,ahu,c,i,d} = ceil( T_{AC,ahu,i,d} \times \frac{|Q_{AC,ahu,room,c,i,d}|}{|Q
 T_{AC,ahu,h,i,d} = T_{AC,ahu,i,d} - T_{AC,ahu,c,i,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 
-　　a-2-2) stem:[| Q_{AC,ahu,room,c,i,d}| > |Q_{AC,ahu,room,h,i,d}|] の場合
+　　a-2-2) stem:[| Q_{AC,ahu,room,c,i,d}| ≧ |Q_{AC,ahu,room,h,i,d}|] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 T_{AC,ahu,h,i,d} = ceil( T_{AC,ahu,i,d} \times \frac{|Q_{AC,ahu,room,h,i,d}|}{|Q_{AC,ahu,room,c,i,d}|+|Q_{AC,ahu,room,h,i,d}|} )

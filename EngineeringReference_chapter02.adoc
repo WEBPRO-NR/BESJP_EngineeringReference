@@ -1601,9 +1601,9 @@ V_{AC,ahu,oa,i} =
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 H_{AC,oa,d} = \begin{cases}
-\sum_{t=1}^{24} H_{AC,oa,d,t} &,(\mbox{終日運転}) \\
-\sum_{t=19}^{24} H_{AC,oa,d,t} + \sum_{t=1}^{6} H_{AC,oa,d+1,t} &,(\mbox{夜間運転}) \\
-\sum_{t=7}^{18} H_{AC,oa,d,t} &,(\mbox{昼間運転})
+\frac{\sum_{t=1}^{24} H_{AC,oa,d,t}}{24} &,(\mbox{終日運転}) \\
+\frac{\sum_{t=19}^{24} H_{AC,oa,d,t} + \sum_{t=1}^{6} H_{AC,oa,d+1,t}}{12} &,(\mbox{夜間運転}) \\
+\frac{\sum_{t=7}^{18} H_{AC,oa,d,t}}{12} &,(\mbox{昼間運転})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

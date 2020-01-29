@@ -1420,13 +1420,13 @@ stem:[Q_{AC,ahu,room,h,i,d}]|	空調機群iの日付dにおける日積算室負
 ここで、stem:[n_{i}] とは、空調機群iが空調をする室の総数である。
 
 ====
-a) 空調機群iが室負荷を処理する場合（室負荷処理用の空調機群名称 stem:[EquipmentName_AC,room] が存在する場合）
+a) 空調機群iが室負荷を処理する場合（室負荷処理用の空調機群名称 stem:[EquipmentName_{AC,room}] が存在する場合）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,room,c,i,d} = \sum_{r=1}^{n_{i}} (Q_{AC,room,c,r,d} \times A_{room,r} ) \times 3600 \times 10^{-6}  \\
 Q_{AC,ahu,room,h,i,d} = \sum_{r=1}^{n_{i}} (Q_{AC,room,h,r,d} \times A_{room,r} ) \times 3600 \times 10^{-6}
 ++++++++++++++++++++++++++++++++++++++++++++
-b) 空調機群iが室負荷を処理しない場合（外気負荷のみを処理する場合。室負荷処理用の空調機群名称 stem:[EquipmentName_AC,room] が存在しない場合）
+b) 空調機群iが室負荷を処理しない場合（外気負荷のみを処理する場合。室負荷処理用の空調機群名称 stem:[EquipmentName_{AC,room}] が存在しない場合）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,room,c,i,d} = 0 \\
@@ -1492,7 +1492,7 @@ stem:[O_{AC,ahu,i,d,t}]|日付d時刻tにおける空調機群iの運転状態|�
 ====
 a) 空調機群iが室負荷を処理する場合
 
-　a-1) stem:[T_{AC,ahu,i,d}=0] の場合（室負荷処理用の空調機群名称 stem:[EquipmentName_AC,room] が存在する場合）
+　a-1) stem:[T_{AC,ahu,i,d}=0] の場合（室負荷処理用の空調機群名称 stem:[EquipmentName_{AC,room}] が存在する場合）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 T_{AC,ahu,c,i,d} = 0
@@ -1525,7 +1525,7 @@ T_{AC,ahu,c,i,d} = T_{AC,ahu,i,d} - T_{AC,ahu,h,i,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 
 
-b) 空調機群iが室負荷を処理しない場合（外気負荷のみを処理する場合。室負荷処理用の空調機群名称 stem:[EquipmentName_AC,room] が存在しない場合） +
+b) 空調機群iが室負荷を処理しない場合（外気負荷のみを処理する場合。室負荷処理用の空調機群名称 stem:[EquipmentName_{AC,room}] が存在しない場合） +
 外気負荷のみを処理する空調機群については処理する室負荷は冷房、暖房ともに0となるので、
 便宜上次式により算出する。
 
@@ -1563,8 +1563,10 @@ T_{AC,ahu,aex,i,d}  = T_{AC,ahu,i,d}
 |変数名|説明|単位|参照先|
 stem:[A_{room,r}]|室rの面積|m^2^|様式2-1：①床面積|
 stem:[EquipmentName_{AC,room}]|空調群i名称|-|様式2-1：③室負荷処理|
+stem:[EquipmentName_{AC,oa}]|空調群i名称|-|様式2-1：④外気負荷処理|
 stem:[V_{AC,ahu,aex,i}]|空調機群iに属する全熱交換器の給気風量|kg/s|様式2-7：⑯全熱交換器の設計風量|
 stem:[\eta_{ahu,aex,i}]|空調機群iに属する全熱交換器の全熱交換効率|-|様式2-7：⑯全熱交換効率|
+stem:[AutoChangeCtrl_{ahu,aex,i}]|空調機群iに属する全熱交換器の自動換気切換機能の有無|有/無|様式2-7：⑱自動換気切換機能の有無|
 stem:[V_{AC,room,oa,r}]|室rの新鮮外気導入量|m^3^/(h・m^2^)|2.3.5|
 stem:[T_{AC,ahu,i,d}]|日付dの空調機群iの運転時間|時間/日|2.5.2|
 stem:[H_{AC,oa,d,t}]|日付d時刻tにおける外気エンタルピー|kJ/kg	|2.2.4|
@@ -1628,7 +1630,7 @@ H_{AC,oa,d} = \begin{cases}
 全熱交換器に自動換気切換機能が採用されているかどうかで算出方法が異なる。
 
 ====
-a) 空調機群iが室内負荷のみを処理する場合（室負荷処理用の空調機群名称 stem:[EquipmentName_AC,room] が存在する場合）　または　stem:[T_{AC,ahu,i,d}=0] である場合
+a) 空調機群iが室内負荷のみを処理する場合（室負荷処理用の空調機群名称 stem:[EquipmentName_{AC,room}] が存在せず、かつ、外気負荷処理用の空調機群名称 stem:[EquipmentName_{AC,oa}]が存在する）　または　stem:[T_{AC,ahu,i,d}=0] である場合
 
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -1639,7 +1641,7 @@ b) 上記のa)以外の場合
 
 　b-1) stem:[Season_{d}] が 暖房期の場合
 
-　　b-1-1) 全熱交換器の自動換気切換機能が有効で、stem:[\Delta H_{AC,oa,d}>0]である場合
+　　b-1-1) 全熱交換器の自動換気切換機能が有効（ stem:[AutoChangeCtrl_{ahu,aex,i} = \mbox{有}] ）で、stem:[\Delta H_{AC,oa,d}>0]である場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 q_{AC,ahu,oa,i,d} = \Delta H_{AC,oa,d} \times V_{AC,ahu,oa,i}
@@ -1653,7 +1655,7 @@ q_{AC,ahu,oa,i,d} = \Delta H_{AC,oa,d} \times max⁡(0,V_{AC,ahu,oa,i} - V'_{AC,
 
 　b-2) stem:[Season_{d}] が 冷房期または中間期の場合
 
-　　b-2-1) 全熱交換器の自動換気切換機能が有効で、stem:[ΔH_{AC,oa,d}≦0] である場合
+　　b-2-1) 全熱交換器の自動換気切換機能が有効（ stem:[AutoChangeCtrl_{ahu,aex,i} = \mbox{有}] ）で、stem:[ΔH_{AC,oa,d}≦0] である場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 q_{AC,ahu,oa,i,d} = \Delta H_{AC,oa,d} \times V_{AC,ahu,oa,i}
@@ -1763,7 +1765,7 @@ Q_{AC,ahu,oacool,i,d} = V_{AC,ahu,oacool,i,d} \times (-ΔH_{AC,oa,d}) \times T_{
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[OACutCtrl_{AC,ahu,i}]]|予熱時外気取り入れ停止制御の有無|有/無|様式2-7⑬：予熱時外気取り入れ停止の有無|
+stem:[OACutCtrl_{AC,ahu,i}]|予熱時外気取り入れ停止制御の有無|有/無|様式2-7⑬：予熱時外気取り入れ停止の有無|
 stem:[SimultenousCtrl_{AC,ref,j}]|空調機群iが属する熱源群jの冷暖同時供給の有無|有/無|様式2-5②：冷暖房同時供給の有無|
 stem:[T_{AC,ahu,i,d}]|日付dにおける空調機群iの運転時間|時間/日|2.5.2|
 stem:[T_{AC,ahu,c,i,d}]|日付dにおける空調機群iの冷房運転時間|時間/日| 2.5.2|
@@ -1771,7 +1773,7 @@ stem:[T_{AC,ahu,h,i,d}]|日付dにおける空調機群iの暖房運転時間|�
 stem:[q_{AC,ahu,oa,i,d}]|日付dにおける空調機群iの外気負荷|kW|2.5.3|
 stem:[Q_{AC,ahu,room,h,c,d}]|空調機群iの日付dにおける日積算室負荷（冷房）|MJ/日|2.5.1|
 stem:[Q_{AC,ahu,room,h,i,d}]|空調機群iの日付dにおける日積算室負荷（暖房）|MJ/日|2.5.1|
-stem:[Season_{d}]|		日付dの冷暖房期間（冷房期、中間期、暖房期）|	－|	2.2.2 |
+stem:[Season_{d}]|日付dの冷暖房期間（冷房期、中間期、暖房期）|-|2.2.2|
 |=================================
 
 .出力
@@ -1875,26 +1877,26 @@ Q_{ahu,h} = 0
 
 stem:[Q_{ahu_c}] と stem:[Q_{ahu_c}] を用いて、空調機群iの日積算空調負荷を次式で算出する。
 
-尚、空調機群iが属する熱源群jの冷暖同時供給の有無 stem:[SimultenousCtrl_{AC,ref,j}] は、空調機群iが属する熱源群名称（様式2-7：㉒冷熱、㉓温熱）を検索キーとして、様式2-5：②冷暖同時供給有無の値で判断する。
+尚、空調機群iが属する熱源群jの冷暖同時供給の有無 stem:[SimultenousCtrl_{AC,ref,j}] は、空調機群iが属する熱源群名称（様式2-7：㉒冷熱、㉓温熱）を検索キーとして、様式2-5：②冷暖同時供給有無の値を取得する。
 
 ====
-a) 空調機群iの冷暖同時供給が「有」の場合（stem:[SimultenousCtrl_{AC,ref,j} = \mbox{有}] ）
+a) 空調機群iが属する熱源群jの冷暖同時供給が「有」の場合（stem:[SimultenousCtrl_{AC,ref,j} = \mbox{有}] ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,c,i,d} = Q_{ahu,c}  \\
 Q_{AC,ahu,h,i,d} = Q_{ahu,h}
 ++++++++++++++++++++++++++++++++++++++++++++
 
-b) 空調機群iの冷暖同時供給が「無」の場合（stem:[SimultenousCtrl_{AC,ref,j} = \mbox{無}] ）
+b) 空調機群iが属する熱源群jの冷暖同時供給が「無」の場合（stem:[SimultenousCtrl_{AC,ref,j} = \mbox{無}] ）
 
-　b-1) 冷暖房期間が「冷房期」もしくは「中間期」である場合
+　b-1) 冷暖房期間が「冷房期」もしくは「中間期」である場合（stem:[Season_{d} = \mbox{冷房期} \lor Season_{d} = \mbox{中間期}]）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,c,i,d} = \max⁡(0,Q_{ahu,c})  \\
 Q_{AC,ahu,h,i,d} = \max⁡(0,Q_{ahu,h})
 ++++++++++++++++++++++++++++++++++++++++++++
 
-　b-2) 冷暖房期間が「暖房期」である場合
+　b-2) 冷暖房期間が「暖房期」である場合（stem:[Season_{d} = \mbox{暖房期}]）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,c,i,d} = \min⁡(0,Q_{ahu,c})  \\

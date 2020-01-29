@@ -1757,7 +1757,7 @@ Q_{AC,ahu,oacool,i,d} = V_{AC,ahu,oacool,i,d} \times (-ΔH_{AC,oa,d}) \times T_{
 <<<<
 ==== 2.5.5 日積算空調負荷
 
-日積算空調負荷は、各空調機群の室負荷に外気負荷を足し合わせて算出する。この際、外気カット制御の導入効果を見込む。
+日積算空調負荷は、各空調機群の室負荷に外気負荷を足し合わせて算出する。この際、予熱時外気取り入れ停止制御の導入効果を見込む。
 
 .入力
 [options="header", cols="2,5,2,2"]
@@ -1790,7 +1790,7 @@ stem:[Q_{AC,ahu,h,i,d}]|日付dにおける空調機群iの日積算空調負荷
 ====
 a) stem:[T_{AC,ahu,c,i,d}=0] かつ stem:[T_{AC,ahu,h,i,d}=0] の場合（外気負荷だけの場合）
 
-　　a-1) 外気カット制御がない場合（ stem:[OACutCtrl_{AC,ahu,i} = \mbox{無}] ）
+　　a-1) 予熱時外気取り入れ停止制御がない場合（ stem:[OACutCtrl_{AC,ahu,i} = \mbox{無}] ）
 
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -1798,7 +1798,7 @@ Q_{ahu,c} = q_{AC,ahu,oa,i,d} \times T_{AC,ahu,c,i,d} \times 3600 \times 10^{-3}
 Q_{ahu,h} = 0
 ++++++++++++++++++++++++++++++++++++++++++++
 
-　　a-2) 外気カット制御がある場合（ stem:[OACutCtrl_{AC,ahu,i} = \mbox{有}] ）
+　　a-2) 予熱時外気取り入れ停止制御がある場合（ stem:[OACutCtrl_{AC,ahu,i} = \mbox{有}] ）
 
 　　　　a-2-1) stem:[T_{AC,ahu,i,d}>1] 
 
@@ -1823,7 +1823,7 @@ b) a)に該当しない場合
 
 　　b-1,c) stem:[T_{AC,ahu,c,i,d}>0] の場合 
 
-　　　　b-1-1,c) 外気カット制御があり（ stem:[OACutCtrl_{AC,ahu,i} = \mbox{有}] ）、stem:[T_{AC,ahu,c,i,d}>1] かつ　stem:[T_{AC,ahu,c,i,d}>=T_{AC,ahu,h,i,d}] の場合
+　　　　b-1-1,c) 予熱時外気取り入れ停止制御があり（ stem:[OACutCtrl_{AC,ahu,i} = \mbox{有}] ）、stem:[T_{AC,ahu,c,i,d}>1] かつ　stem:[T_{AC,ahu,c,i,d}>=T_{AC,ahu,h,i,d}] の場合
 
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -1848,7 +1848,7 @@ Q_{ahu,c} = 0
 
 　b-1,h) stem:[T_{AC,ahu,h,i,d}>0] の場合
 
-　　　　b-1-1,h) 外気カット制御があり（ stem:[OACutCtrl_{AC,ahu,i} = \mbox{有}] ）、stem:[T_{AC,ahu,h,i,d}>1] かつ　stem:[T_{AC,ahu,c,i,d} < T_{AC,ahu,h,i,d}] の場合
+　　　　b-1-1,h) 予熱時外気取り入れ停止制御があり（ stem:[OACutCtrl_{AC,ahu,i} = \mbox{有}] ）、stem:[T_{AC,ahu,h,i,d}>1] かつ　stem:[T_{AC,ahu,c,i,d} < T_{AC,ahu,h,i,d}] の場合
 
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++

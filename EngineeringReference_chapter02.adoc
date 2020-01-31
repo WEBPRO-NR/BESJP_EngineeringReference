@@ -286,16 +286,35 @@ stem:[X_{AC,oa,d,t}]|	日付d時刻tにおける絶対湿度|	kg/kgDA	|2.2.1|
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[H_{AC,oa,d,t}]|	日付d時刻tにおける外気エンタルピー|kJ/kg|2.5.3|
+stem:[H_{AC,oa,d}]|	日付dにおける外気エンタルピー|kJ/kg|2.5.3|
+stem:[H_{AC,oa,d,daytime}]|	日付dの昼間における外気エンタルピー|kJ/kg|2.5.3|
+stem:[H_{AC,oa,d,nighttime}]|	日付dの夜間における外気エンタルピー|kJ/kg|2.5.3|
 |=================================
 
-日付d、時刻tにおける外気エンタルピー stem:[H_{AC,oa,d,t}] は次式で求める。
+日付dにおける外気エンタルピー stem:[H_{AC,oa,d,}]、 stem:[H_{AC,oa,d,daytime}] 、 stem:[H_{AC,oa,d,nighttime}] は次式で求める。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-H_{AC,oa,d,t} = C_{a} \times \theta_{AC,oa,d,t} + (C_{wv} \times \theta_{AC,oa,d,t} + L_{w} ) \times X_{AC,oa,d,t}
+
+H_{AC,oa,d} = C_{a} \times \sum_{t=1}^{24} \frac{\theta_{AC,oa,d,t}}{24} + (C_{wv} \times \sum_{t=1}^{24} \frac {\theta_{AC,oa,d,t}}{24} + L_{w} ) \times \sum_{t=1}^{24} \frac {X_{AC,oa,d,t}}{24}
 ++++++++++++++++++++++++++++++++++++++++++++
+
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+H_{AC,oa,d,daytime} = C_{a} \times \sum_{t=7}^{18} \frac {\theta_{AC,oa,d,t}}{12} + (C_{wv} \times \sum_{t=7}^{18} \frac {\theta_{AC,oa,d,t}}{12} + L_{w} ) \times \sum_{t=7}^{18} \frac {X_{AC,oa,d,t}}{12}
+++++++++++++++++++++++++++++++++++++++++++++
+
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+\begin{eqnarray*}
+H_{AC,oa,d,nighttime} 
+& = & C_{a} \times (\sum_{t=1}^{6} \frac {\theta_{AC,oa,d,t}}{12} + \sum_{t=19}^{24} \frac {\theta_{AC,oa,d,t}}{12})  \\
+& \quad &  + \{C_{wv} \times (\sum_{t=1}^{6} \frac {\theta_{AC,oa,d,t}}{12} + \sum_{t=9}^{24} \frac {\theta_{AC,oa,d,t}}{12}) + L_{w} \} \\
+& \quad & \times (\sum_{t=1}^{6} \frac {X_{AC,oa,d,t}}{12} + \sum_{t=19}^{24} \frac {X_{AC,oa,d,t}}{12})
+\end{eqnarray*}
+++++++++++++++++++++++++++++++++++++++++++++
+
 ====
 
 
@@ -1976,14 +1995,14 @@ F(L) = \begin{cases}
 尚、空調機群iが属する熱源群jの冷暖同時供給の有無 stem:[SimultenousCtrl_{AC,ref,j}] は、空調機群iが属する熱源群名称（様式2-7：㉒冷熱、㉓温熱）を検索キーとして、様式2-5：②冷暖同時供給有無の値を取得する。
 
 ====
-a) 空調機群iが「冷暖同時運転あり」の場合
+a) 空調機群iが「冷暖同時運転あり」の場合（ stem:[SimultenousCtrl_{AC,ref,j} = \mbox{有}] ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,ahu,c,i,d} = L_{AC,ahu,mix,c,i,d} \\
 L_{AC,ahu,h,i,d} = L_{AC,ahu,mix,h,i,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 
-b) 空調機群iが「冷暖同時運転なし」の場合
+b) 空調機群iが「冷暖同時運転なし」の場合（ stem:[SimultenousCtrl_{AC,ref,j} = \mbox{無}] ）
 
 　b-1) 冷暖房期間 stem:[Season_{d}] が「冷房期」もしくは「中間期」である場合
 [stem]

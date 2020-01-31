@@ -1578,8 +1578,6 @@ T_{AC,ahu,aex,i,d}  = T_{AC,ahu,i,d}
 |=================================
 |変数名|説明|単位|参照先|
 stem:[A_{room,i,r}]|空調機群iに属する室rの面積|m^2^|様式2-1：①床面積|
-stem:[EquipmentName_{AC,room}]|空調群i名称|-|様式2-1：③室負荷処理|
-stem:[EquipmentName_{AC,oa}]|空調群i名称|-|様式2-1：④外気負荷処理|
 stem:[EquipmentName_{AC,ahu,oa,i,r}]|空調機群iに属する室rの外気負荷処理用の空調機群名称|-|様式2-1：④外気負荷処理|
 stem:[Count_{AC,ahu,aex,i}]|空調機群iに属する全熱交換器の台数|台|様式2-7：②台数|
 stem:[V_{AC,ahu,aex,i,unit}]|1台あたりの空調機群iに属する全熱交換器の設計風量|m^3^/(h・台)|様式2-7：⑯全熱交換器の設計風量|

@@ -1505,7 +1505,7 @@ stem:[O_{AC,ahu,i,d,t}]|日付d時刻tにおける空調機群iの運転状態|�
 空調機群iの冷房運転時間 stem:[T_{AC,ahu,c,i,d}]、暖房運転時間 stem:[T_{AC,ahu,h,i,d}]は次式で求める。
 
 ====
-a) 空調機群iが外気負荷のみ処理する場合（ stem:[OnlyOALoad_{AC,ahu,i} = TRUE] ） +
+a) 外気負荷のみ処理する場合（ stem:[OnlyOALoad_{AC,ahu,i} = TRUE] ） +
 外気負荷のみを処理する空調機群については処理する室負荷は冷房、暖房ともに0となるので、
 便宜上次式により算出する。
 

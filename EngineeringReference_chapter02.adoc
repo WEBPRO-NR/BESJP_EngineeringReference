@@ -1400,8 +1400,8 @@ Dを日積算室負荷（暖房）stem:[Q_{AC,room,h,i,d}]［Wh/（m^2^・day）
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[A_{room,r}]|室iの面積|m^2^|様式2-1：①床面積|
-stem:[EquipmentName_{AC,room}]|空調群i名称|-|様式2-1：③室負荷処理|
+stem:[A_{room,i,r}]|空調機群iに属する室rの面積|m^2^|様式2-1：①床面積|
+stem:[EquipmentName_{AC,ahu,room,i,r}]|空調機群iに属する室rの室負荷処理用の空調機群名称|-|様式2-1：③室負荷処理|
 stem:[Q_{AC,room,c,r,d}]|日付dにおける室rの日積算室負荷（冷房）|Wh/(m^2^・day)|2.4.4|
 stem:[Q_{AC,room,h,r,d}]|日付dにおける室rの日積算室負荷（暖房）|Wh/(m^2^・day)|2.4.4|
 |=================================
@@ -1414,24 +1414,38 @@ stem:[Q_{AC,ahu,room,c,i,d}]|	空調機群iの日付dにおける日積算室負
 stem:[Q_{AC,ahu,room,h,i,d}]|	空調機群iの日付dにおける日積算室負荷(暖房)|MJ/日|2.5.2、2.5.5|
 |=================================
 
+
+空調機群iが外気負荷のみ処理するか否か stem:[OnlyOALoad_{AC,ahu,i}] は、空調機群iの名称が空調機群iに属する室rの室負荷処理用の空調機群名称 stem:[EquipmentName_{AC,ahu,room,i,r}] に1つでも一致すれば偽、それ以外を真とする。
+
+====
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+OnlyOALoad_{AC,ahu,i} = \begin{cases}
+FALSE & ,(EquipmentName_{AC,ahu,room,i,r} = \mbox{空調機群i名称}) \\
+TRUE & ,(\mbox{それ以外})
+\end{cases}
+++++++++++++++++++++++++++++++++++++++++++++
+====
+
 空調機群iの日付dにおける日積算室負荷（冷房）stem:[Q_{AC,ahu,room,c,i,d}] と
 日積算室負荷（暖房）stem:[Q_{AC,ahu,room,h,i,d}] は次式により算出する。
 外気負荷のみを処理する空調機群については、日積算室負荷は0とし、後述する外気負荷のみを積算することとする。
-ここで、stem:[n_{i}] とは、空調機群iが空調をする室の総数である。
 
 ====
-a) 空調機群iが室負荷を処理する場合（室負荷処理用の空調機群名称 stem:[EquipmentName_{AC,room}] が存在する場合）
-[stem]
-++++++++++++++++++++++++++++++++++++++++++++
-Q_{AC,ahu,room,c,i,d} = \sum_{r=1}^{n_{i}} (Q_{AC,room,c,r,d} \times A_{room,r} ) \times 3600 \times 10^{-6}  \\
-Q_{AC,ahu,room,h,i,d} = \sum_{r=1}^{n_{i}} (Q_{AC,room,h,r,d} \times A_{room,r} ) \times 3600 \times 10^{-6}
-++++++++++++++++++++++++++++++++++++++++++++
-b) 空調機群iが室負荷を処理しない場合（外気負荷のみを処理する場合。室負荷処理用の空調機群名称 stem:[EquipmentName_{AC,room}] が存在しない場合）
+a) 外気負荷のみ処理する場合（ stem:[OnlyOALoad_{AC,ahu,i} = TRUE] ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,room,c,i,d} = 0 \\
 Q_{AC,ahu,room,h,i,d} = 0
 ++++++++++++++++++++++++++++++++++++++++++++
+
+b) それ以外
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+Q_{AC,ahu,room,c,i,d} = \sum_{r=1} (Q_{AC,room,c,r,d} \times A_{room,i,r} ) \times 3600 \times 10^{-6}  \\
+Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \times 3600 \times 10^{-6}
+++++++++++++++++++++++++++++++++++++++++++++
+
 ====
 
 

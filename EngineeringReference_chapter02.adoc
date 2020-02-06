@@ -2416,7 +2416,7 @@ H_{i,d} = E_{AC,ahu,H,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ahu,aex,i} = \sum_{d=1}^{365} E_{AC,ahu,aex,i,d} \times T_{AC,ahu,aex,i,d} \times 10^{-3}
+E_{AC,ahu,aex,i} = \sum_{d=1}^{365} (E_{AC,ahu,aex,i,d} \times T_{AC,ahu,aex,i,d}) \times 10^{-3}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

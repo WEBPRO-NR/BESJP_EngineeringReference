@@ -2258,13 +2258,14 @@ E_{AC,ahu,h,i,d}  = \sum_{j} E_{AC,ahu,h,i,j,d}
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[T_{AC,ahu,i,d}]|		日付dにおける空調機群iの運転時間|	時間/日|	2.5.2|
-stem:[T_{AC,ahu,c,i,d}]|	日付dにおける空調機群iの冷房運転時間|	時間/日|	2.5.2|
-stem:[T_{AC,ahu,h,i,d}]|	日付dにおける空調機群iの暖房運転時間|	時間/日|	2.5.2|
-stem:[E_{AC,ahu,c,i,d}]|　日付dにおける空調機群iに属する送風機の冷房運転時の消費電力|	kW| 2.5.9|
-stem:[E_{AC,ahu,h,i,d}]|	日付dにおける空調機群iに属する送風機の暖房運転時の消費電力|	kW| 2.5.9|
-stem:[L_{AC,ahu,c,i,d}]|　日付dにおける空調機群iの冷房運転時の負荷率|	－	|2.5.6|
-stem:[L_{AC,ahu,h,i,d}]|　日付dにおける空調機群iの暖房運転時の負荷率|	－	|2.5.6|
+stem:[ACType_{i,j}]]|空調機群iに属する空調機jの空調機タイプ|-|様式2-7：③空調機タイプ|
+stem:[T_{AC,ahu,i,d}]|日付dにおける空調機群iの運転時間|時間/日|2.5.2|
+stem:[T_{AC,ahu,c,i,d}]|日付dにおける空調機群iの冷房運転時間|時間/日|2.5.2|
+stem:[T_{AC,ahu,h,i,d}]|日付dにおける空調機群iの暖房運転時間|時間/日|2.5.2|
+stem:[E_{AC,ahu,c,i,d}]|日付dにおける空調機群iに属する送風機の冷房運転時の消費電力|kW|2.5.9|
+stem:[E_{AC,ahu,h,i,d}]|日付dにおける空調機群iに属する送風機の暖房運転時の消費電力|kW|2.5.9|
+stem:[L_{AC,ahu,c,i,d}]|日付dにおける空調機群iの冷房運転時の負荷率|-|2.5.6|
+stem:[L_{AC,ahu,h,i,d}]|日付dにおける空調機群iの暖房運転時の負荷率|-|2.5.6|
 |=================================
 
 .出力
@@ -2278,35 +2279,48 @@ stem:[Q_{AC,ahu,heat,h,i,d}]|		日付dにおける空調機群iのファン発�
 空調機群のファンによる発熱量 stem:[Q_{AC,ahu,heat,c,i,d}] 及び stem:[Q_{AC,ahu,heat,h,i,d}]は次式で算出する。
 なお、発熱量を計上するのは、空調機群iに属する空調機の種類が「空調機」である場合のみとする。
 
-====
-a) 空調機群iに属する空調機の種類に「空調機」が含まれる場合
+ここで、
+stem:[ACExists] は空調機群iに属する空調機jの空調機タイプ stem:[ACType_{i,j}] が1つでも「空調機」であれば TRUE 、そうでない場合は FALSE となる真偽値とする。
 
-a-1) stem:[L_{AC,ahu,c,i,d}≥0] かつ stem:[L_{AC,ahu,h,i,d}<0]
+また、
+stem:[f_{fan,heat}]] はファンの発熱比率である。
+
+====
+a) 空調機群iに属する空調機の種類に「空調機」が含まれる場合（ stem:[ACExists = TRUE] ）
+
+　a-1) 冷房運転時の負荷率が負数ではなく、かつ、暖房運転時の負荷率が負数の場合 + 
+（stem:[L_{AC,ahu,c,i,d} \geqq 0 \land L_{AC,ahu,h,i,d}<0] ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,heat,c,i,d} = f_{fan,heat} \times E_{AC,ahu,c,i,d} \times T_{AC,ahu,c,i,d} \times 3.6  \\
 Q_{AC,ahu,heat,h,i,d} = f_{fan,heat} \times E_{AC,ahu,h,i,d} \times T_{AC,ahu,h,i,d} \times 3.6
 ++++++++++++++++++++++++++++++++++++++++++++
-a-2) stem:[L_{AC,ahu,c,i,d}≥0] かつ  stem:[L_{AC,ahu,h,i,d}≥0]
+
+　a-2) 冷房運転時の負荷率が負数ではなく、かつ、暖房運転時の負荷率が負数ではない場合 + 
+（stem:[L_{AC,ahu,c,i,d} \geqq 0 \land L_{AC,ahu,h,i,d} \geqq 0] ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,heat,c,i,d} = f_{fan,heat} \times (E_{AC,ahu,c,i,d} + E_{AC,ahu,h,i,d} ) \times T_{AC,ahu,i,d} \times 3.6  \\
 Q_{AC,ahu,heat,h,i,d} = 0
 ++++++++++++++++++++++++++++++++++++++++++++
-a-3) stem:[L_{AC,ahu,c,i,d}<0] かつ  stem:[L_{AC,ahu,h,i,d}<0]
+
+　a-3) 冷房運転時の負荷率が負数で、かつ、暖房運転時の負荷率が負数の場合 + 
+（stem:[L_{AC,ahu,c,i,d} < 0 \land L_{AC,ahu,h,i,d} < 0] ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,heat,c,i,d} = 0  \\
 Q_{AC,ahu,heat,h,i,d} = f_{fan,heat} \times (E_{AC,ahu,c,i,d} + E_{AC,ahu,h,i,d}) \times T_{AC,ahu,i,d} \times 3.6
 ++++++++++++++++++++++++++++++++++++++++++++
-a-4) stem:[L_{AC,ahu,c,i,d}<0] かつ  stem:[L_{AC,ahu,h,i,d}≥0]
+
+　a-4) 冷房運転時の負荷率が負数で、かつ、暖房運転時の負荷率が負数ではない場合 + 
+（stem:[L_{AC,ahu,c,i,d} < 0 \land L_{AC,ahu,h,i,d} \geqq 0] ）
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,heat,c,i,d} = f_{fan,heat} \times E_{AC,ahu,h,i,d} \times T_{AC,ahu,c,i,d} \times 3.6  \\
 Q_{AC,ahu,heat,h,i,d} = f_{fan,heat} \times E_{AC,ahu,c,i,d} \times T_{AC,ahu,h,i,d} \times 3.6
 ++++++++++++++++++++++++++++++++++++++++++++
 
-b) a)以外の場合
+b) それ以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ahu,heat,c,i,d}=0 \\

@@ -2404,11 +2404,17 @@ E_{AC,ahu,h,i} = \sum_{d=1}^{365} \{ \max⁡(-C_{i,d},0) + \max⁡(-H_{i,d},0) \
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-C_{i,d} = E_{AC,ahu,c,i,d} \times T_{AC,ahu,c,i,d} \times \frac{L_{AC,ahu,c,i,d}}{|L_{AC,ahu,c,i,d}|}
+C_{i,d} = \begin{cases}
+0 & ,(L_{AC,ahu,c,i,d} = 0) \\
+E_{AC,ahu,c,i,d} \times T_{AC,ahu,c,i,d} \times \frac{L_{AC,ahu,c,i,d}}{|L_{AC,ahu,c,i,d}|} & ,(\mbox{それ以外})
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-H_{i,d} = E_{AC,ahu,h,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,ahu,h,i,d}|}
+H_{i,d} = \begin{cases}
+0 & ,(L_{AC,ahu,h,i,d} = 0) \\
+E_{AC,ahu,h,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,ahu,h,i,d}|} & ,(\mbox{それ以外})
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

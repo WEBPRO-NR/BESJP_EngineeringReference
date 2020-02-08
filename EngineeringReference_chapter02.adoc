@@ -286,16 +286,37 @@ stem:[X_{AC,oa,d,t}]|	日付d時刻tにおける絶対湿度|	kg/kgDA	|2.2.1|
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[H_{AC,oa,d,t}]|	日付d時刻tにおける外気エンタルピー|kJ/kg|2.5.3|
+stem:[H_{AC,oa,d,alltime}]|	日付dの終日における外気エンタルピー|kJ/kg|2.5.3|
+stem:[H_{AC,oa,d,daytime}]|	日付dの昼間における外気エンタルピー|kJ/kg|2.5.3|
+stem:[H_{AC,oa,d,nighttime}]|	日付dの夜間における外気エンタルピー|kJ/kg|2.5.3|
 |=================================
 
-日付d、時刻tにおける外気エンタルピー stem:[H_{AC,oa,d,t}] は次式で求める。
+日付dにおける外気エンタルピー stem:[H_{AC,oa,d,alltime}]、 stem:[H_{AC,oa,d,daytime}] 、 stem:[H_{AC,oa,d,nighttime}] は次式で求める。 +
+
+stem:[C_{a}] は乾き空気の定圧比熱、stem:[C_{wv}] は水蒸気の定圧比熱、stem:[L_{w}] は水の蒸発潜熱である。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-H_{AC,oa,d,t} = C_{a} \times \theta_{AC,oa,d,t} + (C_{wv} \times \theta_{AC,oa,d,t} + L_{w} ) \times X_{AC,oa,d,t}
+
+H_{AC,oa,d,alltime} = C_{a} \times \sum_{t=1}^{24} \frac{\theta_{AC,oa,d,t}}{24} + (C_{wv} \times \sum_{t=1}^{24} \frac {\theta_{AC,oa,d,t}}{24} + L_{w} ) \times \sum_{t=1}^{24} \frac {X_{AC,oa,d,t}}{24}
 ++++++++++++++++++++++++++++++++++++++++++++
+
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+H_{AC,oa,d,daytime} = C_{a} \times \sum_{t=7}^{18} \frac {\theta_{AC,oa,d,t}}{12} + (C_{wv} \times \sum_{t=7}^{18} \frac {\theta_{AC,oa,d,t}}{12} + L_{w} ) \times \sum_{t=7}^{18} \frac {X_{AC,oa,d,t}}{12}
+++++++++++++++++++++++++++++++++++++++++++++
+
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+\begin{eqnarray*}
+H_{AC,oa,d,nighttime} 
+& = & C_{a} \times (\sum_{t=1}^{6} \frac {\theta_{AC,oa,d,t}}{12} + \sum_{t=19}^{24} \frac {\theta_{AC,oa,d,t}}{12})  \\
+& \quad &  + \{C_{wv} \times (\sum_{t=1}^{6} \frac {\theta_{AC,oa,d,t}}{12} + \sum_{t=9}^{24} \frac {\theta_{AC,oa,d,t}}{12}) + L_{w} \} \\
+& \quad & \times (\sum_{t=1}^{6} \frac {X_{AC,oa,d,t}}{12} + \sum_{t=19}^{24} \frac {X_{AC,oa,d,t}}{12})
+\end{eqnarray*}
+++++++++++++++++++++++++++++++++++++++++++++
+
 ====
 
 

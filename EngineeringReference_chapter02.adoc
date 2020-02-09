@@ -2745,16 +2745,16 @@ q_{AC,pump,i,rated} = \sum_{j} q_{AC,pump,i,j,rated}
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[Q_{AC,pump,i,d}]|	日付dにおける二次ポンプ群iの二次ポンプ負荷|	MJ/日|	2.6.1|
-stem:[T_{AC,pump,i,d}]|	日付dにおける二次ポンプ群iの運転時間	|時間	|2.6.2|
-stem:[q_{AC,pump,i,rated}]|	二次ポンプ群iの仮想定格能力|	kW	|2.6.3|
+stem:[Q_{AC,pump,i,d}]|日付dにおける二次ポンプ群iの二次ポンプ負荷|MJ/日|2.6.1|
+stem:[T_{AC,pump,i,d}]|日付dにおける二次ポンプ群iの運転時間|時間|2.6.2|
+stem:[q_{AC,pump,i,rated}]|二次ポンプ群iの仮想定格能力|kW|2.6.3|
 |=================================
 
 .出力
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照元|
-stem:[L_{AC,pump,i,d}]|	日付dにおける二次ポンプ群iの負荷率|	－|2.6.5、2.6.6|
+stem:[L_{AC,pump,i,d}]|日付dにおける二次ポンプ群iの負荷率|-|2.6.5、2.6.6|
 |=================================
 
 日付dにおける二次ポンプ群iの負荷率 stem:[L_{AC,pump,i,d}] は次式で求める。
@@ -2763,8 +2763,8 @@ stem:[L_{AC,pump,i,d}]|	日付dにおける二次ポンプ群iの負荷率|	－|
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,pump,i,d} = \begin{cases}
- F(  \frac{　Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times 1000 / 3600}{ q_{AC,pump,i,rated} } ), & ( T_{AC,pump,i,d}>0 ) \\
-0, & (T_{AC,pump,i,d}=0 )
+F( \frac {Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times \frac{1000}{3600}}{ q_{AC,pump,i,rated} } ) & ,( T_{AC,pump,i,d} > 0 ) \\
+0 & ,(T_{AC,pump,i,d} = 0 )
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
@@ -2774,8 +2774,8 @@ L_{AC,pump,i,d} = \begin{cases}
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 F(L) = \begin{cases}
- \frac{floor(L \times 10)}{10} + 0.05, & (L>0\mbox{の場合})　\\
- L, & (\mbox{それ以外の場合})
+\frac{floor(L \times 10)}{10} + 0.05 & ,(L>0\mbox{の場合})　\\
+L & ,(\mbox{それ以外の場合})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

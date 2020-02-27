@@ -2878,7 +2878,7 @@ stem:[L_{AC,pump,i,j,d}]|日付dにおける二次ポンプ群iに属する二�
 ====
 a) 台数制御がない場合
 
-　a-1) 全ての二次ポンプjの流量制御方式が「変流量制御」である場合
+　a-1) 全ての二次ポンプjの流量制御方式が「回転数制御」である場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,pump,i,j,d} = L_{AC,pump,i,d}
@@ -2910,7 +2910,7 @@ L_{AC,pump,i,j,d} = \begin{cases}
 　b-2) 上記以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q_{AC,pump,i,d,CWV} = \sum \{q_{AC,pump,i,j,rated} \mid j \leqq N_{AC,pump,i,d} \land C_{i,j} \}
+q_{AC,pump,i,d,CWV} = \sum_{j} \{q_{AC,pump,i,j,rated} \mid j \leqq N_{AC,pump,i,d} \land C_{i,j} \}
 ++++++++++++++++++++++++++++++++++++++++++++
 
 [stem]
@@ -2925,18 +2925,21 @@ N_{AC,pump,i,d,VWV} = count \{ j \mid j \leqq N_{AC,pump,i,d} \land \lnot C_{i,j
 
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q_{AC,pump,i,j,d} = \frac{ q_{AC,pump,i,d,VWV} }{ N_{AC,pump,i,d,VWV} } \\
+q_{AC,pump,i,j,d} = \frac{ q_{AC,pump,i,d,VWV} }{ N_{AC,pump,i,d,VWV} }
+++++++++++++++++++++++++++++++++++++++++++++
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,pump,i,j,d} = \frac{ q_{AC,pump,i,j,d} }{ q_{AC,pump,i,j,rated} }
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
 ここで、
-stem:[C_{i,j}] は、二次ポンプ群iに属する二次ポンプjの流量制御方式が「定流量制御」であれば TRUE, 「変流量制御」であれば FALSE となる真偽値とする。
+stem:[C_{i,j}] は、二次ポンプ群iに属する二次ポンプjの流量制御方式が「定流量制御」であれば TRUE, 「回転数制御」であれば FALSE となる真偽値とする。
 
 b-2)において、
 stem:[q_{AC,pump,i,d,CWV}] は、流量制御方式が「定流量制御」である二次ポンプjによる処理熱量の総和[kW]であり、
-stem:[q_{AC,pump,i,d,VWV}] は、流量制御方式が「変流量制御」である二次ポンプjによる処理熱量の総和[kW]であり、
-stem:[N_{AC,pump,i,d,VWV}] は、流量制御方式が「変流量制御」である二次ポンプjの運転台数である。
+stem:[q_{AC,pump,i,d,VWV}] は、流量制御方式が「回転数制御」である二次ポンプjによる処理熱量の総和[kW]であり、
+stem:[N_{AC,pump,i,d,VWV}] は、流量制御方式が「回転数制御」である二次ポンプjの運転台数である。
 
 
 

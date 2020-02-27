@@ -2956,7 +2956,7 @@ stem:[N_{AC,pump,i,d,VWV}] は、流量制御方式が「回転数制御」で�
 |変数名|説明|単位|参照先|
 stem:[L_{AC,pump,i,j,d}]|日付dにおける二次ポンプ群iに属する二次ポンプjの負荷率|-|2.6.6|
 stem:[PumpCtrlType_{AC,pump,i,j}]|二次ポンプ群iに属する二次ポンプjの流量制御方式|-|様式2-6：⑧流量制御方式|
-stem:[L_{AC,pump,i,j,min}]|二次ポンプ群iに属する二次ポンプjの最小流量比率|-|様式2-6：⑨変流量時最小流量比|
+stem:[L_{AC,pump,i,j,min}]|二次ポンプ群iに属する二次ポンプjの最小流量比率|%|様式2-6：⑨変流量時最小流量比|
 |=================================
 
 .出力
@@ -2967,7 +2967,7 @@ stem:[f_{AC,pump,i,j,d}]|日付dにおける二次ポンプ群iに属する二�
 |=================================
 
 二次ポンプ群iに属する二次ポンプjの最小流量比率 stem:[L_{AC,pump,i,j,min}] について、
-二次ポンプjの流量制御方式が「定流量制御」であれば stem:[L_{AC,pump,i,j,min} = 1] とする。
+二次ポンプjの流量制御方式が「定流量制御」であれば stem:[L_{AC,pump,i,j,min} = 100] とする。
 
 二次ポンプ群iの流量制御方式によって定まる係数 stem:[f_{AC,pump,i,j,d}] は次式で算出する。
 
@@ -2984,16 +2984,16 @@ b) stem:[L_{AC,pump,i,j,d}=0] の場合
 f_{AC,pump,i,j,d} = 0
 ++++++++++++++++++++++++++++++++++++++++++++
 
-c) stem:[0 < L_{AC,pump,i,j,d} < L_{AC,pump,i,j,min}] の場合
+c) stem:[0 < L_{AC,pump,i,j,d} < \frac{L_{AC,pump,i,j,min}}{100}] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-f_{AC,pump,i,j,d} = F_{AC,pump,i,j}( L_{AC,pump,i,j,min} ) \\
+f_{AC,pump,i,j,d} = F_{AC,pump,i,j}( \frac{L_{AC,pump,i,j,min}}{100} )
 ++++++++++++++++++++++++++++++++++++++++++++
 
-d) stem:[L_{AC,pump,i,j,min} \leqq L_{AC,pump,i,j,d} \leqq 1.0] の場合
+d) stem:[\frac{L_{AC,pump,i,j,min}}{100} \leqq L_{AC,pump,i,j,d} \leqq 1.0] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-f_{AC,pump,i,j,d} = F_{AC,pump,i,j}( L_{AC,pump,i,j,d} ) \\
+f_{AC,pump,i,j,d} = F_{AC,pump,i,j}( L_{AC,pump,i,j,d} )
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

@@ -3734,8 +3734,8 @@ a) stem:[StorageType_{i} = \mbox{追掛}] かつ stem:[RefType_{i,1} = \mbox{熱
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 q'_{AC,ref,i,j,rated} = \begin{cases}
-q_{AC,ref,i,j,rated} \times \frac{8}{\max_{d}(T_{AC,ref,base,i,d})} & ,(j = 1 ) \\
-q_{AC,ref,i,j,rated} & ,(それ以外)
+q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} \times \frac{8}{\max_{d}(T_{AC,ref,base,i,d})} & ,(j = 1 ) \\
+q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} & ,(それ以外)
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
@@ -3746,7 +3746,7 @@ q'_{Ac,ref,i,rated} = q_{Ac,ref,i,rated} + (q'_{AC,ref,i,1,rated} - q_{AC,ref,i,
 b) a)以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated}
+q'_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} 
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++

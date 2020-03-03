@@ -3711,7 +3711,8 @@ q_{AC,ref,i,rated} = \sum_{j=1} ( q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} )
 |変数名|説明|単位|参照先|
 stem:[StorageType_{i}]|熱源群iの蓄熱システムの運転モード（水蓄熱（混合型）、水蓄熱（成層型）、氷蓄熱、追掛、無）|-|様式2-5：④蓄熱システム 運転モード|
 stem:[RefType_{i,j}]|熱源群iに属する熱源機器jの熱源機種|-|様式2-5：⑥熱源機種|
-stem:[q_{AC,ref,i,j,rated}]|熱源群iに属する熱源機器jの定格能力|kW|様式2-5：⑩定格冷却／加熱能力|
+stem:[N_{AC,ref,i,j}]|熱源群iに属する熱源機器jの台数|台|様式2-5：⑧台数|
+stem:[q_{AC,ref,i,j,rated}]|熱源群iに属する熱源機器jの定格能力|kW/台|様式2-5：⑩定格冷却／加熱能力|
 stem:[q_{AC,ref,i,rated}]|熱源群iの定格能力|kW|2.7.5|
 stem:[T_{AC,ref,base,i,d}]|日付dにおける熱源群iの標準運転時間|時間/日|2.7.3|
 |=================================
@@ -3726,19 +3727,16 @@ stem:[q'_{AC,ref,i,rated}]|熱源群iの仮想定格能力|kW|2.7.7、2.7.9、2.
 
 まず、熱源群に蓄熱槽があり、追掛運転時に1番目に動く熱源機器が「熱交換器」である場合は、
 追掛運転時間を8時間として見かけ上の熱源処理能力（仮想定格能力）を算出する。
-式中の stem:[max⁡(T_{AC,ref,base,i,d})] とは、各日の運転時間について、最大となる日の運転時間を使用するという意味である。
+式中の stem:[\max_{d}(T_{AC,ref,base,i,d})] とは、各日の運転時間について、最大となる日の運転時間を使用するという意味である。
 
 ====
-a) stem:[StorageType_{i}] = 追掛運転　かつ stem:[RefType_{i,1}] = 熱交換器　の場合
+a) stem:[StorageType_{i} = \mbox{追掛}] かつ stem:[RefType_{i,1} = \mbox{熱交換器}] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q'_{AC,ref,i,j,rated} = 
-\begin
-{cases}
-q_{AC,ref,i,j,rated} \times \frac{8}{\max(T_{AC,ref,base,i,d})} & ,j = 1 \\
-q_{AC,ref,i,j,rated} & ,それ以外
-\end
-{cases}
+q'_{AC,ref,i,j,rated} = \begin{cases}
+q_{AC,ref,i,j,rated} \times \frac{8}{\max_{d}(T_{AC,ref,base,i,d})} & ,(j = 1 ) \\
+q_{AC,ref,i,j,rated} & ,(それ以外)
+\end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++

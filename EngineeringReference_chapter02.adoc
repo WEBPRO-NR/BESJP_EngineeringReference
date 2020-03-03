@@ -3820,17 +3820,17 @@ L & , (\mbox{それ以外})
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[q'_{AC,ref,i,j,rated}]|	熱源群iに属する熱源機器jの仮想定格能力|	kW|2.7.6|
-stem:[\theta_{AC,ref,base,i,j,d}]|	日付dにおける熱源群iに属する熱源機器jの熱源水等の温度	|℃|2.7.4|
-stem:[a_{ref,q,i,j},b_{ref,q,i,j},c_{ref,q,i,j},d_{ref,q,i,j},e_{ref,q,i,j}]|熱源群iに属する熱源機器jの最大能力特性の係数|	－|A.4|
-stem:[\theta_{ref,q,i,j,min},\theta_{ref,q,i,j,max}]|熱源群iに属する熱源機器jの最大能力特性の最小温度、最大温度|	－	|A.4|
+stem:[q'_{AC,ref,i,j,rated}]|熱源群iに属する熱源機器jの仮想定格能力|kW|2.7.6|
+stem:[\theta_{AC,ref,base,i,j,d}]|日付dにおける熱源群iに属する熱源機器jの熱源水等の温度|℃|2.7.4|
+stem:[a_{ref,q,i,j},b_{ref,q,i,j},c_{ref,q,i,j},d_{ref,q,i,j},e_{ref,q,i,j}]|熱源群iに属する熱源機器jの最大能力特性の係数|-|A.4|
+stem:[\theta_{ref,q,i,j,min},\theta_{ref,q,i,j,max}]|熱源群iに属する熱源機器jの最大能力特性の最小温度、最大温度|℃|A.4|
 |=================================
 
 .出力
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[q_{AC,ref,i,j,max,d}]|	熱源群iに属する熱源機器jの日付dにおける最大能力|	kW|2.7.9、2.7.15、2.7.12|
+stem:[q_{AC,ref,i,j,max,d}]|熱源群iに属する熱源機器jの日付dにおける最大能力|kW|2.7.9、2.7.15、2.7.12|
 |=================================
 
 熱源群iに属する熱源機器jの日付dにおける最大能力 stem:[q_{AC,ref,i,j,max,d}] は次式で算出する。
@@ -3838,20 +3838,23 @@ stem:[q_{AC,ref,i,j,max,d}]|	熱源群iに属する熱源機器jの日付dにお
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-q_{AC,ref,i,j,max,d} = q'_{AC,ref,i,j,rated} \times F_{ref,q,i,j}(\theta_{i,j,d})
+q_{AC,ref,i,j,max,d} = q'_{AC,ref,i,j,rated} \times {\rm F_{ref,q,i,j}}(\theta_{i,j,d})
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
-ここで、関数 stem:[F_{ref,q,i,j}] は次式で定義する。
+ここで、関数 stem:[{\rm F_{ref,q,i,j}}] は次式で定義する。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-F_{ref,q,i,j}(\theta_{i,j,d}) = a_{ref,q,i,j} \times \theta_{i,j,d}^4 + b_{ref,q,i,j} \times \theta_{i,j,d}^3 + c_{ref,q,i,j} \times \theta_{i,j,d}^2 + d_{ref,q,i,j} \times \theta_{i,j,d} + e_{ref,q,i,j} \\
+{\rm F_{ref,q,i,j}} (\theta_{i,j,d}) = a_{ref,q,i,j} \times \theta_{i,j,d}^4 + b_{ref,q,i,j} \times \theta_{i,j,d}^3 + c_{ref,q,i,j} \times \theta_{i,j,d}^2 + d_{ref,q,i,j} \times \theta_{i,j,d} + e_{ref,q,i,j}
+++++++++++++++++++++++++++++++++++++++++++++
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
 \theta_{i,j,d} = \begin{cases}
-  \theta_{ref,q,i,j,min}, &(\theta_{AC,ref,base,i,j,d} < \theta_{ref,q,i,j,min}) \\
-  \theta_{AC,ref,base,i,j,d}, &(\theta_{ref,q,i,j,min} ≦ \theta_{AC,ref,base,i,j,d} ≦ \theta_{ref,q,i,j,max}) \\
-  \theta_{ref,q,i,j,max} &(\theta_{ref,q,i,j,max} < \theta_{AC,ref,base,i,j,d}) \\
+\theta_{ref,q,i,j,min} & ,(\theta_{AC,ref,base,i,j,d} < \theta_{ref,q,i,j,min}) \\
+\theta_{AC,ref,base,i,j,d} & ,(\theta_{ref,q,i,j,min} \leqq \theta_{AC,ref,base,i,j,d} \leqq \theta_{ref,q,i,j,max}) \\
+\theta_{ref,q,i,j,max} & ,(\theta_{ref,q,i,j,max} < \theta_{AC,ref,base,i,j,d})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

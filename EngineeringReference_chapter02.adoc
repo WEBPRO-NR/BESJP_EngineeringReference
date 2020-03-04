@@ -4137,16 +4137,16 @@ L_{ref,x,i,j,max} & ,(L_{ref,x,i,j,max} < xL_{AC,ref,i,d})
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[\theta_{AC,ref,i,j,wtr}]| 	熱源群iの熱源機器jの送水温度	|℃|	入力|
-stem:[a_{ref,t,i,j},b_{ref,t,i,j},c_{ref,t,i,j},d_{ref,t,i,j},e_{ref,t,i,j}]| 	熱源群iに属する熱源機器jの送水温度特性の係数|	－|A.4|
-stem:[\theta_{ref,t,i,j,min},\theta_{ref,t,i,j,max}]| 	熱源群iに属する熱源機器jの送水温度特性の最小負荷率、最大負荷率|	－	|A.4|
+stem:[\theta_{AC,ref,i,j,wtr}]|熱源群iの熱源機器jの送水温度|℃|様式2-5：⑨送水温度|
+stem:[a_{ref,t,i,j},b_{ref,t,i,j},c_{ref,t,i,j},d_{ref,t,i,j},e_{ref,t,i,j}]|熱源群iに属する熱源機器jの送水温度特性の係数|-|A.4|
+stem:[\theta_{ref,t,i,j,min},\theta_{ref,t,i,j,max}]|熱源群iに属する熱源機器jの送水温度特性の最小温度、最大温度|℃|A.4|
 |=================================
 
 .出力
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[f_{AC,ref,t,i,j}]| 	熱源群iに属する熱源機器jの送水温度特性|	－	|2.7.16|
+stem:[f_{AC,ref,t,i,j}]|熱源群iに属する熱源機器jの送水温度特性|-|2.7.16|
 |=================================
 
 送水温度特性は、送水温度 stem:[\theta_{i,j,d}] の関数として次式で求める。
@@ -4154,20 +4154,20 @@ stem:[f_{AC,ref,t,i,j}]| 	熱源群iに属する熱源機器jの送水温度特�
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-f_{AC,ref,t,i,j,d}= F_{ref,t,i,j}(\theta_{i,j,d})
+f_{AC,ref,t,i,j,d}= {\rm F_{ref,t,i,j}}(\theta_{i,j,d})
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
-ここで、関数 stem:[F_{ref,t,i,j}] は次式で定義する。
+ここで、関数 stem:[{\rm F_{ref,t,i,j}}] は次式で定義する。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-F_{ref,t,i,j}(\theta_{i,j,d}) = a_{ref,t,i,j} \times \theta_{i,j,d}^4 + b_{ref,t,i,j} \times \theta_{i,j,d}^3 + c_{ref,t,i,j} \times \theta_{i,j,d}^2 + d_{ref,t,i,j} \times \theta_{i,j,d} + e_{ref,t,i,j} \\
+{\rm F_{ref,t,i,j}}(\theta_{i,j,d}) = a_{ref,t,i,j} \times \theta_{i,j,d}^4 + b_{ref,t,i,j} \times \theta_{i,j,d}^3 + c_{ref,t,i,j} \times \theta_{i,j,d}^2 + d_{ref,t,i,j} \times \theta_{i,j,d} + e_{ref,t,i,j} \\
 \theta_{i,j,d} = \begin{cases}
-  \theta_{ref,t,i,j,min}, &(\theta_{AC,ref,i,j,wtr} < \theta_{ref,t,i,j,min}) \\
-  \theta_{AC,ref,i,j,wtr}, &(\theta_{ref,t,i,j,min} ≦ \theta_{AC,ref,i,j,wtr} ≦ \theta_{ref,t,i,j,max}) \\
-  \theta_{ref,t,i,j,max}, &(\theta_{ref,t,i,j,max} < \theta_{AC,ref,i,j,wtr}) \\
+\theta_{ref,t,i,j,min} & ,(\theta_{AC,ref,i,j,wtr} < \theta_{ref,t,i,j,min}) \\
+\theta_{AC,ref,i,j,wtr} & ,(\theta_{ref,t,i,j,min} \leqq \theta_{AC,ref,i,j,wtr} \leqq \theta_{ref,t,i,j,max}) \\
+\theta_{ref,t,i,j,max} & ,(\theta_{ref,t,i,j,max} < \theta_{AC,ref,i,j,wtr})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

@@ -3804,7 +3804,7 @@ b) 上記以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 L_{AC,ref,i,d} = \begin{cases}
-{\rm F}(\frac{Q_{AC,ref,i,d}}{q'_{AC,ref,i,rated}} \times \frac{1000}{3600}) & ,(T_{AC,ref,base,i,d} \neq 0) \\
+{\rm F}(\frac{Q_{AC,ref,i,d}}{q'_{AC,ref,i,rated}} \times \frac{1000}{3600} \times \frac{1}{T_{AC,ref,base,i,d}}) & ,(T_{AC,ref,base,i,d} \neq 0) \\
 0 & ,(T_{AC,ref,base,i,d}=0)
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++

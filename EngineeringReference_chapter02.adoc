@@ -3955,25 +3955,25 @@ stem:[P_{AC,ref,i,j,rated}]|熱源群iに属する熱源機器jの定格一次�
 a) stem:[FuelType_{i,j} = \mbox{電力}]　(エネルギー源が電力の場合)
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-P_{AC,ref,i,j,rated} = \frac{f_{prim,e}}{3600} \times P_{AC,ref,main,i,j} \times　N_{AC,ref,i,j}
+P_{AC,ref,i,j,rated} = \frac{f_{prim,e}}{3600} \times P_{AC,ref,main,i,j} \times N_{AC,ref,i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
 
 b) stem:[FuelType_{i,j} \in \{\mbox{地冷冷水}\}]　(熱が他人から供給される場合)
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-P_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times　N_{AC,ref,i,j}　\times K_{prime,ex,c}
+P_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} \times K_{prime,ex,c}
 ++++++++++++++++++++++++++++++++++++++++++++
 
 c) stem:[FuelType_{i,j} \in \{\mbox{地冷蒸気,地冷温水}\}]　(熱が他人から供給される場合)
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-P_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times　N_{AC,ref,i,j} \times K_{prime,ex,h}
+P_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} \times K_{prime,ex,h}
 ++++++++++++++++++++++++++++++++++++++++++++
 
 d) a) b) c) 以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-P_{AC,ref,i,j,rated} = P_{AC,ref,main,i,j} \times　N_{AC,ref,i,j}
+P_{AC,ref,i,j,rated} = P_{AC,ref,main,i,j} \times N_{AC,ref,i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -3988,17 +3988,17 @@ P_{AC,ref,i,j,rated} = P_{AC,ref,main,i,j} \times　N_{AC,ref,i,j}
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[P_{AC,ref,i,j,rated}]|日付dにおける熱源群iに属する熱源機器jの最大入力 (一次エネルギー換算値）|kW	|2.7.10|
-stem:[\theta_{AC,ref,base,i,j,d}]|	日付dにおける熱源群iに属する熱源機器jの熱源水等の温度	|℃	|2.7.4|
-stem:[a_{ref,p,i,j},b_{ref,p,i,j},c_{ref,p,i,j},d_{ref,p,i,j},e_{ref,p,i,j}]| 	熱源群iに属する熱源機器jの最大入力特性の係数|	－|A.4|
-stem:[\theta_{ref,p,i,j,min},\theta_{ref,p,i,j,max}]| 	熱源群iに属する熱源機器jの最大入力特性の最小温度、最大温度|	－	|A.4|
+stem:[P_{AC,ref,i,j,rated}]|熱源群iに属する熱源機器jの定格一次消費エネルギー|kW|2.7.10|
+stem:[\theta_{AC,ref,base,i,j,d}]|日付dにおける熱源群iに属する熱源機器jの熱源水等の温度|℃|2.7.4|
+stem:[a_{ref,p,i,j},b_{ref,p,i,j},c_{ref,p,i,j},d_{ref,p,i,j},e_{ref,p,i,j}]|熱源群iに属する熱源機器jの最大入力特性の係数|-|A.4|
+stem:[\theta_{ref,p,i,j,min},\theta_{ref,p,i,j,max}]|熱源群iに属する熱源機器jの最大入力特性の最小温度、最大温度|℃|A.4|
 |=================================
 
 .出力
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[P_{AC,ref,i,j,max,d}]|	日付dにおける熱源群iに属する熱源機器jの最大入力 (一次エネルギー換算値)|	kW|2.7.16|
+stem:[P_{AC,ref,i,j,max,d}]|日付dにおける熱源群iに属する熱源機器jの最大入力 (一次エネルギー換算値)|	kW|2.7.16|
 |=================================
 
 熱源群iに属する熱源機器jの日付dにおける最大入力 stem:[P_{AC,ref,i,j,max,d}] は次式で算出する。
@@ -4006,20 +4006,20 @@ stem:[P_{AC,ref,i,j,max,d}]|	日付dにおける熱源群iに属する熱源機�
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-P_{AC,ref,i,j,max,d} = P_{AC,ref,i,j,rated} \times F_{ref,p,i,j}(\theta_{i,j,d})
+P_{AC,ref,i,j,max,d} = P_{AC,ref,i,j,rated} \times {\rm F_{ref,p,i,j}}(\theta_{i,j,d})
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
-ここで、関数 stem:[F_{ref,p,i,j}] は次式で定義する。
+ここで、関数 stem:[{\rm F_{ref,p,i,j}}] は次式で定義する。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-F_{ref,p,i,j}(\theta_{i,j,d}) = a_{ref,p,i,j} \times \theta_{i,j,d}^4 + b_{ref,p,i,j} \times \theta_{i,j,d}^3 + c_{ref,p,i,j} \times \theta_{i,j,d}^2 + d_{ref,p,i,j} \times \theta_{i,j,d} + e_{ref,p,i,j} \\
+{\rm F_{ref,p,i,j}}(\theta_{i,j,d}) = a_{ref,p,i,j} \times \theta_{i,j,d}^4 + b_{ref,p,i,j} \times \theta_{i,j,d}^3 + c_{ref,p,i,j} \times \theta_{i,j,d}^2 + d_{ref,p,i,j} \times \theta_{i,j,d} + e_{ref,p,i,j} \\
 \theta_{i,j,d} = \begin{cases}
-  \theta_{ref,p,i,j,min}, &(\theta_{AC,ref,base,i,j,d} < \theta_{ref,p,i,j,min}) \\
-  \theta_{AC,ref,base,i,j,d}, &(\theta_{ref,p,i,j,min} ≦ \theta_{AC,ref,base,i,j,d} ≦ \theta_{ref,p,i,j,max}) \\
-  \theta_{ref,p,i,j,max} &(\theta_{ref,p,i,j,max} < \theta_{AC,ref,base,i,j,d}) \\
+\theta_{ref,p,i,j,min} & ,(\theta_{AC,ref,base,i,j,d} < \theta_{ref,p,i,j,min}) \\
+\theta_{AC,ref,base,i,j,d} & ,(\theta_{ref,p,i,j,min} ≦ \theta_{AC,ref,base,i,j,d} ≦ \theta_{ref,p,i,j,max}) \\
+\theta_{ref,p,i,j,max} & ,(\theta_{ref,p,i,j,max} < \theta_{AC,ref,base,i,j,d}) \\
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

@@ -4105,23 +4105,23 @@ stem:[f_{AC,ref,x,i,j,d}]| 	日付dにおける熱源群iに属する熱源機�
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 f_{AC,ref,x,i,j,d}= \begin{cases}
- F_{ref,x,i,j}(L_{i,j,d}), & (xL_{AC,ref,i,d} ≦ 1.0) \\
- 1.2, & (xL_{AC,ref,i,d} > 1.0) \\
+{\rm F_{ref,x,i,j}}(L_{i,j,d}) & ,(xL_{AC,ref,i,d} \leqq 1.0) \\
+1.2 & ,(xL_{AC,ref,i,d} > 1.0)
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
-ここで、関数 stem:[F_{ref,x,i,j}] は次式で定義する。
+ここで、関数 stem:[{\rm F_{ref,x,i,j}}] は次式で定義する。
 部分負荷特性の係数が部分負荷率または冷却水温度によって異なる場合は、その条件に合致する適切な係数が選択されるものとする。 
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-F_{ref,x,i,j}(L_{i,j,d}) = a_{ref,x,i,j} \times L_{i,j,d}^4 + b_{ref,x,i,j} \times L_{i,j,d}^3 + c_{ref,x,i,j} \times L_{i,j,d}^2 + d_{ref,x,i,j} \times L_{i,j,d} + e_{ref,x,i,j} \\
+{\rm F_{ref,x,i,j}}(L_{i,j,d}) = a_{ref,x,i,j} \times L_{i,j,d}^4 + b_{ref,x,i,j} \times L_{i,j,d}^3 + c_{ref,x,i,j} \times L_{i,j,d}^2 + d_{ref,x,i,j} \times L_{i,j,d} + e_{ref,x,i,j} \\
 L_{i,j,d} = \begin{cases}
-  L_{ref,x,i,j,min}, &(xL_{AC,ref,i,d} < L_{ref,x,i,j,min}) \\
-  xL_{AC,ref,i,d}, &(L_{ref,x,i,j,min} ≦ xL_{AC,ref,i,d} ≦ L_{ref,x,i,j,max}) \\
-  L_{ref,x,i,j,max}, &(L_{ref,x,i,j,max} < xL_{AC,ref,i,d}) \\
+L_{ref,x,i,j,min} & ,(xL_{AC,ref,i,d} < L_{ref,x,i,j,min}) \\
+xL_{AC,ref,i,d} & ,(L_{ref,x,i,j,min} \leqq xL_{AC,ref,i,d} \leqq L_{ref,x,i,j,max}) \\
+L_{ref,x,i,j,max} & ,(L_{ref,x,i,j,max} < xL_{AC,ref,i,d})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====

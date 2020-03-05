@@ -2150,7 +2150,7 @@ stem:[f_{AC,ahu,h,i,j,d}]|空調機群iに属する送風機jの風量制御方�
 空調機群iに属する送風機jの風量制御方式によって定まる係数 stem:[f_{AC,ahu,c,i,j,d}] は次式で求める。
 
 
-空調機群iに属する送風機jの最小風量比率 stem:[L_{AC,ahu,i,j,min}] が、様式2-7において空欄の場合には、 stem:[L_{AC,ahu,i,j,min} = 1.0] とする。 
+空調機群iに属する送風機jの最小風量比率 stem:[L_{AC,ahu,i,j,min}] が、様式2-7において空欄の場合には、 stem:[L_{AC,ahu,i,j,min} = 100] とする。 
 
 ====
 a) stem:[|L_{AC,ahu,c,i,d}| > 1.0]の場合

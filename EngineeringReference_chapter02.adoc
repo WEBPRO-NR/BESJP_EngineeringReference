@@ -4238,7 +4238,7 @@ C = 1.0
 stem:[N_{AC,ref,i,d} \neq 1]の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-C = 1.0 - (q_{AC,ref,i,1,max,d} \times \frac { 1.0 - xL_{AC,ref,i,d} }{ xL_{AC,ref,i,d} \times \sum_{j}^{j>1} q_{AC,ref,i,j,max,d} }
+C = 1.0 - (q_{AC,ref,i,1,max,d} \times \frac { 1.0 - xL_{AC,ref,i,d} }{ xL_{AC,ref,i,d} \times \sum_{j=2}^{N_{AC,ref,i,d}} q_{AC,ref,i,j,max,d} }
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

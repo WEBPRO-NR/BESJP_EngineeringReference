@@ -4708,24 +4708,59 @@ stem:[a_{sc1,d}, a_{sc2,d}]|日付dにおける日射による定常熱取得を
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[RefType_{i,j}]| 	熱源群iに属する熱源機器jの熱源機種|	―	|様式2-5：⑥熱源機種|
+stem:[RefType_{i,j}]|熱源群iに属する熱源機器jの熱源機種|-|様式2-5：⑥熱源機種|
+stem:[CtrlMode_{AC,ref,i}]|熱源群iの運転モード|冷熱源/温熱源|2.7|
 |=================================
 
 .出力
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[a_{ref,q,i,j},b_{ref,q,i,j},c_{ref,q,i,j},d_{ref,q,i,j},e_{ref,q,i,j}]|熱源群iに属する熱源機器jの最大能力特性の係数|	－|2.7.8|
-stem:[\theta_{ref,q,i,j,min},\theta_{ref,q,i,j,max}]|熱源群iに属する熱源機器jの最大能力特性の最小温度、最大温度|	－	|2.7.8|
-stem:[a_{ref,p,i,j},b_{ref,p,i,j},c_{ref,p,i,j},d_{ref,p,i,j},e_{ref,p,i,j}]|熱源群iに属する熱源機器jの最大入力特性の係数|	－|2.7.11|
-stem:[\theta_{ref,p,i,j,min},\theta_{ref,p,i,j,max}]|熱源群iに属する熱源機器jの最大入力特性の最小温度、最大温度|	－	|2.7.11|
-stem:[a_{ref,x,i,j},b_{ref,x,i,j},c_{ref,x,i,j},d_{ref,x,i,j},e_{ref,x,i,j}]|熱源群iに属する熱源機器jの部分負荷特性の係数|	－|2.7.13|
-stem:[L_{ref,x,i,j,min},L_{ref,x,i,j,max}]| 	熱源群iに属する熱源機器jの部分負荷特性の最小負荷率、最大負荷率|	－	|2.7.13|
-stem:[a_{ref,t,i,j},b_{ref,t,i,j},c_{ref,t,i,j},d_{ref,t,i,j},e_{ref,t,i,j}]|熱源群iに属する熱源機器jの送水温度特性の係数|	－|2.7.14|
-stem:[\theta_{ref,t,i,j,min},\theta_{ref,t,i,j,max}]| 	熱源群iに属する熱源機器jの送水温度特性の最小負荷率、最大負荷率|	－	|2.7.14|
+stem:[a_{ref,q,i,j},b_{ref,q,i,j},c_{ref,q,i,j},d_{ref,q,i,j},e_{ref,q,i,j}]|熱源群iに属する熱源機器jの最大能力特性の係数|-|2.7.8|
+stem:[\theta_{ref,q,i,j,min},\theta_{ref,q,i,j,max}]|熱源群iに属する熱源機器jの最大能力特性の最小温度、最大温度|℃|2.7.8|
+stem:[a_{ref,p,i,j},b_{ref,p,i,j},c_{ref,p,i,j},d_{ref,p,i,j},e_{ref,p,i,j}]|熱源群iに属する熱源機器jの最大入力特性の係数|-|2.7.11|
+stem:[\theta_{ref,p,i,j,min},\theta_{ref,p,i,j,max}]|熱源群iに属する熱源機器jの最大入力特性の最小温度、最大温度|℃|2.7.11|
+stem:[a_{ref,x,i,j},b_{ref,x,i,j},c_{ref,x,i,j},d_{ref,x,i,j},e_{ref,x,i,j}]|熱源群iに属する熱源機器jの部分負荷特性の係数|-|2.7.13|
+stem:[L_{ref,x,i,j,min},L_{ref,x,i,j,max}]|熱源群iに属する熱源機器jの部分負荷特性の最小負荷率、最大負荷率|-|2.7.13|
+stem:[a_{ref,t,i,j},b_{ref,t,i,j},c_{ref,t,i,j},d_{ref,t,i,j},e_{ref,t,i,j}]|熱源群iに属する熱源機器jの送水温度特性の係数|-|2.7.14|
+stem:[\theta_{ref,t,i,j,min},\theta_{ref,t,i,j,max}]|熱源群iに属する熱源機器jの送水温度特性の最小負荷率、最大負荷率|-|2.7.14|
 |=================================
 
-熱源機器のエネルギ-消費特性に関する係数は、熱源機種毎に、次のファイルにて規定されている。
+熱源機器のエネルギー消費特性に関する係数は「REFCURVE_H28.csv」にて規定されている。 + 
+係数を特定するIDは熱源機種毎に「REFLIST_H28.csv」にて規定されている。
+
+* 特定IDを取得する。
+
+熱源機種 stem:[RefType_{i,j}] と熱源群iの運転モード stem:[CtrlMode_{AC,ref,i}] と特性種別（最大能力、最大入力、部分負荷、送水温度）を用いて、REFLIST_H28.csvより特定IDを取得する。
+
+====
+例）熱源機種が「ウォータチリングユニット(空冷式)」、運転モードが「冷熱源」で特性種別が「最大能力」の場合、「機種」列で「ウォータチリングユニット(空冷式)」、「冷房／暖房」列で「Cooling」、「特性種類」列で「能力比」である行の「特定ID」列の値（Cq_AS_A）を取得する。
+====
+
+「特性種別」と「特性種別の値」の対応は以下になる。 + 
+最大能力　->　能力比 + 
+最大入力　->　入力比 + 
+部分負荷　->　部分負荷特性 + 
+送水温度　->　送水温度特性
+
+
+* 最小値、最大値を取得する。
+
+熱源機種 stem:[RefType_{i,j}] と熱源群iの運転モード stem:[CtrlMode_{AC,ref,i}] と特性種別（最大能力、最大入力、部分負荷、送水温度）を用いて、REFLIST_H28.csvより最小値、最大値を取得する。
+====
+例）熱源機種が「ウォータチリングユニット(空冷式)」で特性種別が「最大能力」の場合、「機種」列で「ウォータチリングユニット(空冷式)」、「冷房／暖房」列で「Cooling」、「特性種類」列で「能力比」である行の「下限」列の値（25）を最小値として、「上限」列の値（40）を最大値として取得する。
+====
+
+* 特性係数（a, b, c, d, e）を取得する。
+
+特性IDを用いて、REFCURVE_H28.csvより特性係数を取得する。 + 
+
+====
+例）特定IDが「Cq_AS_A」の場合、「名称」列で「Cq_AS_A」である行の「x4」列の値（0）をaとして、「x3」列の値（0）をbとして、「x2」列の値（0）をcとして、「x1」列の値（-0.0091）をdとして、「a」列の値（1.3185）をeとして取得する。
+====
+
+また、特定IDが重複している場合は入力値の範囲によって特性係数が異なるケースとなる。入力値が収まる「最小値」と「最大値」を持つ係数を採用する。入力値が全てのケースの最小値よりも小さい場合は、最小の「最小値」を持つ係数を、最大値よりも大きい場合は、最大の「最大値」を持つ係数を採用する。
+
 
 * 熱源機種一覧： link:https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/REFLIST_H28.csv[REFLIST_H28.csv]
-* 熱源特性係数表： link:https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/REFCURVE_H28.csv[REFCURVE.csv]
+* 熱源特性係数表： link:https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/REFCURVE_H28.csv[REFCURVE_H28.csv]

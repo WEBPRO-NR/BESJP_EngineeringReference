@@ -459,7 +459,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_6_2_昇降機の設計一次エネルギー消費量">6.2 昇降機の設計一次エネルギー消費量</a></li>
-<li><a href="#_6_3_昇降機の年間電力消費量">6.3 昇降機の年間電力消費量</a></li>
+<li><a href="#_6_3_昇降機系統の年間電力消費量">6.3 昇降機系統の年間電力消費量</a></li>
 <li><a href="#_6_4_速度制御方式に応じて定められる係数">6.4 速度制御方式に応じて定められる係数</a></li>
 </ul>
 </li>
@@ -551,13 +551,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{EV,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機の数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{EV}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機の系統の総数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">系統</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：③台数</p></td>
 </tr>
 </tbody>
 </table>
@@ -582,7 +576,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機の設計一次エネルギー消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 </tbody>
 </table>
@@ -590,14 +584,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{EV} = \sum_{r=1}^{n_{EV}} ( (E_{EV,i} × N_{EV,i} ) × f_{prim,e} × 10^{-3}\]
+\[E_{EV} = \sum_{i=1} (E_{EV,i} \times N_{EV,i} ) \times f_{prim,e} \times 10^{-3}\]
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_6_3_昇降機の年間電力消費量"><a class="link" href="#_6_3_昇降機の年間電力消費量">6.3 昇降機の年間電力消費量</a></h3>
+<h3 id="_6_3_昇降機系統の年間電力消費量"><a class="link" href="#_6_3_昇降機系統の年間電力消費量">6.3 昇降機系統の年間電力消費量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 3. 入力</caption>
 <colgroup>
@@ -616,16 +610,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(BuildingType\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">建物用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：①建物用途・室用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：①建物用途・室用途</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{EV,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの積載質量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：④積載量</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{EV,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの定格速度</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m/min</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑤速度</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{EV,i}\)</p></td>
@@ -637,7 +643,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{EV,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの年間運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室使用条件</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">標準室使用条件</p></td>
 </tr>
 </tbody>
 </table>
@@ -667,16 +673,67 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div class="paragraph">
+<p>なお、昇降機系統iの年間運転時間は、照明設備の年間点灯時間と等しいとする。
+照明設備の年間点灯時間は標準室使用条件で室用途毎に定められている。</p>
+</div>
+<div class="paragraph">
+<p>なお、各室用途の照明設備の年間点灯時間は「ROOM_SPEC.csv」、 このファイルを使用する際に必要となる検索キーは「ROOM_NAME.csv」で規定されている。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>データベースの検索キーを取得する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>建物用途 \(BuildingType\) と室用途 \(RoomType_i\) を用いて、ROOM_NAME.csvより検索キーを取得する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>例）建物用途が「事務所等」で室用途が「事務室」の場合、検索キーは「O-1」となる。</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>照明設備の年間点灯時間を取得する。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>検索キーを用いて、ROOM_SPEC.csvより照明設備の年間点灯時間を取得する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>例）検索キーが「O-1」の場合、照明設備の年間点灯時間（「年間照明点灯時間」列）は「3133」となる。</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
 <p>昇降機系統iの年間電力消費量 \(E_{EV,i}\) [kWh/年]は次式により算出される。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{EV,i} = \frac{ L_{EV,i} × V_{EV,i} × C_{EV,i} × T_{EV,i} }{860}\]
+\[E_{EV,i} = \frac{ L_{EV,i} \times V_{EV,i} \times C_{EV,i} \times T_{EV,i} }{860}\]
 </div>
 </div>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>建物用途・室用途の一覧： <a href="https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/ROOM_NAME.csv">ROOM_NAME.csv</a></p>
+</li>
+<li>
+<p>年間照明点灯時間等の参照値： <a href="https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/ROOM_SPEC_H28.csv">ROOM_SPEC_H28.csv</a></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -775,7 +832,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-19 11:44:37 +0900
+Last updated 2020-03-10 23:56:04 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

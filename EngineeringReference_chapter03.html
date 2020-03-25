@@ -452,20 +452,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_3_1_3_共通の定数">3.1.3 共通の定数</a></li>
 </ul>
 </li>
-<li><a href="#_3_2_機械換気設備の年間一次エネルギー消費量">3.2 機械換気設備の年間一次エネルギー消費量</a></li>
-<li><a href="#_3_3_機械換気設備の年間電力消費量">3.3 機械換気設備の年間電力消費量</a>
+<li><a href="#_3_2_機械換気設備の制御方式に応じて定められる係数">3.2 機械換気設備の制御方式に応じて定められる係数</a>
 <ul class="sectlevel3">
-<li><a href="#_3_3_1_換気送風機">3.3.1 換気送風機</a></li>
-<li><a href="#_3_3_2_換気代替空調機">3.3.2 換気代替空調機</a></li>
+<li><a href="#_3_2_1_高効率電動機の採用">3.2.1 高効率電動機の採用</a></li>
+<li><a href="#_3_2_2_インバータの採用">3.2.2 インバータの採用</a></li>
+<li><a href="#_3_2_3_送風量制御の採用">3.2.3 送風量制御の採用</a></li>
 </ul>
 </li>
-<li><a href="#_3_4_制御の方式に応じて定められる係数">3.4 制御の方式に応じて定められる係数</a>
-<ul class="sectlevel3">
-<li><a href="#_3_4_1_高効率電動機の採用">3.4.1 高効率電動機の採用</a></li>
-<li><a href="#_3_4_2_インバータの採用">3.4.2 インバータの採用</a></li>
-<li><a href="#_3_4_3_送風量制御の採用">3.4.3 送風量制御の採用</a></li>
-</ul>
-</li>
+<li><a href="#_3_3_換気送風機の年間電力消費量">3.3 換気送風機の年間電力消費量</a></li>
+<li><a href="#_3_4_換気代替空調機の年間電力消費量">3.4 換気代替空調機の年間電力消費量</a></li>
+<li><a href="#_3_5_機械換気設備の年間一次エネルギー消費量">3.5 機械換気設備の年間一次エネルギー消費量</a></li>
 <li><a href="#_附属書b機械換気">附属書B（機械換気）</a>
 <ul class="sectlevel3">
 <li><a href="#_b_1_中間期平均外気温度">B.1 中間期平均外気温度</a></li>
@@ -504,35 +500,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>主として排熱、除湿、脱臭を目的とした送風機を空気調和設備以外の機械換気設備と定義し、 これを計算対象とする。</p>
+<p>主として排熱、除湿、脱臭を目的とした送風機を空気調和設備以外の機械換気設備と定義し、これを計算対象とする。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>空調対象室に設置された新鮮外気導入のための機械換気設備は、機械換気設備とはせず空 気調和設備とする。例えば、パッケージ型空調機等と併用される全熱交換器は、新鮮外気導入のための設備 であるため空気調和設備の一部とみなし、空気調和設備の計算対象とする。</p>
+<p>空調対象室に設置された新鮮外気導入のための機械換気設備は、機械換気設備とはせず空気調和設備とする。例えば、パッケージ型空調機等と併用される全熱交換器は、新鮮外気導入のための設備であるため空気調和設備の一部とみなし、空気調和設備の計算対象とする。</p>
 </li>
 <li>
-<p>ただし、排熱、除湿、脱臭を主目的とした機械換気設備がある空調対象室(例えばトイレ や喫煙室など)については、新鮮外気分は空気調和設備のエネルギー消費量に、排熱などの 分は換気エネルギー消費量に計上する。</p>
+<p>ただし、排熱、除湿、脱臭を主目的とした機械換気設備がある空調対象室(例えばトイレや喫煙室など)については、新鮮外気分は空気調和設備のエネルギー消費量に、排熱などの分は換気エネルギー消費量に計上する。</p>
 </li>
 <li>
-<p>電気室やエレベータ機械室などのように、一般的に換気をするところを冷房する場合につ いては、換気設備とみなし、換気設備の計算対象とする。</p>
+<p>電気室やエレベータ機械室などのように、一般的に換気をするところを冷房する場合については、換気設備とみなし、換気設備の計算対象とする。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>旧基準では対象外であった単相の送風機、単体の定格出力が 0.2kW 以下の送風機も、定格 出力の合計が 5.5kW 未満の送風機も、平成 25 年基準では計算の対象とする。</p>
+<p>旧基準では対象外であった単相の送風機、単体の定格出力が 0.2kW 以下の送風機も、定格出力の合計が 5.5kW 未満の送風機も、平成 25 年基準では計算の対象とする。</p>
 </li>
 <li>
-<p>非常用発電機室の換気設備のように、常時運転されない換気設備や、会議室に設置されるタ バコの煙を排気するための(給排気バランス上常時運転しない)換気設備などは計算対象外 とする。</p>
+<p>非常用発電機室の換気設備のように、常時運転されない換気設備や、会議室に設置されるタバコの煙を排気するための(給排気バランス上常時運転しない)換気設備などは計算対象外とする。</p>
 </li>
 <li>
-<p>最近、給気を冷却あるいは加熱する場合も増えている厨房については、給気空気を冷却ある いは加熱するためのエネルギーは計算対象外とし、厨房用の給気と排気の送風機動力のみを 計算対象とする。</p>
+<p>最近、給気を冷却あるいは加熱する場合も増えている厨房については、給気空気を冷却あるいは加熱するためのエネルギーは計算対象外とし、厨房用の給気と排気の送風機動力のみを計算対象とする。</p>
 </li>
 <li>
-<p>駐車場のドライエリアについては省エネルギー手法とみなし、ドライエリアを設けて第三種 換気方式とした場合は、排気送風機の動力のみを換気設備の計算対象とする。(基準値は第 一種換気方式を想定して決定されている)</p>
+<p>駐車場のドライエリアについては省エネルギー手法とみなし、ドライエリアを設けて第三種換気方式とした場合は、排気送風機の動力のみを換気設備の計算対象とする。(基準値は第一種換気方式を想定して決定されている)</p>
 </li>
 <li>
-<p>換気の一部を自然通風により賄う場合は、その分選定された換気設備の容量が小さくなって いると想定されるため、何も補正を行わず、選定された機器の消費電力を用いて計算する。(基 準値は自然通風なしを想定した消費電力であるため、これと設計値との差が自然通風による省エネルギー量である) 7)空気の移動を促進するために給排気設備とは別に空気循環用送風機設備を設ける時は、その設備が設置される室が空調対象室であれば、空気循環用送風機設備は空気調和設備として空 調設備の送風機動力として計上する。非空調室であれば、空気循環用送風機設備は機械換気 設備として機械換気設備の送風機動力として計上する。</p>
+<p>換気の一部を自然通風により賄う場合は、その分選定された換気設備の容量が小さくなっていると想定されるため、何も補正を行わず、選定された機器の消費電力を用いて計算する。(基準値は自然通風なしを想定した消費電力であるため、これと設計値との差が自然通風による省エネルギー量である)</p>
+</li>
+<li>
+<p>空気の移動を促進するために給排気設備とは別に空気循環用送風機設備を設ける時は、その設備が設置される室が空調対象室であれば、空気循環用送風機設備は空気調和設備として空調設備の送風機動力として計上する。非空調室であれば、空気循環用送風機設備は機械換気設備として機械換気設備の送風機動力として計上する。</p>
 </li>
 </ol>
 </div>
@@ -595,25 +594,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <th class="tableblock halign-left valign-top">定数名</th>
 <th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">値</th>
 <th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">値</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{m}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">電動機効率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.75</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.75</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_2_機械換気設備の年間一次エネルギー消費量"><a class="link" href="#_3_2_機械換気設備の年間一次エネルギー消費量">3.2 機械換気設備の年間一次エネルギー消費量</a></h3>
+<h3 id="_3_2_機械換気設備の制御方式に応じて定められる係数"><a class="link" href="#_3_2_機械換気設備の制御方式に応じて定められる係数">3.2 機械換気設備の制御方式に応じて定められる係数</a></h3>
 <div class="paragraph">
-<p>機械換気設備の年間一次エネルギー消費量 \(E_{V}\) [MJ/年]を算出する。</p>
+<p>機械換気設備の運転効率化のための各種措置について、3つのカテゴリに分類し、それぞれ講じた措置の種類に応じて、高効率電動機の有無によって決まる係数 \(f_{V,ctrl,motor,i}\) 、インバータの有無によって決まる係数 \(f_{V,ctrl,inverter,i}\) 、送風量制御の種類によって決まる係数 \(f_{V,ctrl,type,i}\) の値を定める。同じカテゴリの中から重複して係数を採用することはできず、各カテゴリの中から何れか1つを選択して値を決定する。</p>
+</div>
+<div class="paragraph">
+<p>これらの値をもとに機械換気設備の制御方式に応じて定められる係数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 2. 入力</caption>
@@ -633,15 +635,724 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの年間電力消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kWh</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,motor,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">高効率電動機の有無によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,inverter,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">インバータの有無によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,type,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送風量制御の種類によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2.3</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 3. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備の制御方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.3、3.4</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>機械換気設備の制御方式に応じて定められる係数は次式で求める。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[f_{V,ctrl,i} = f_{V,ctrl,motor,i} \times f_{V,ctrl,inverter,i} \times f_{V,ctrl,type,i}\]
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_2_1_高効率電動機の採用"><a class="link" href="#_3_2_1_高効率電動機の採用">3.2.1 高効率電動機の採用</a></h4>
+<div class="paragraph">
+<p>入力値の参照先は機械換気設備を評価する場合は様式3-2、換気代替空調機を評価する場合には様式3-3となる。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 4. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Motor_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">高効率電動機の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：④高効率電動機の有無、または、様式3-3：⑨高効率電動機の有無</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 5. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,motor,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">高効率電動機の有無によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>下表に示すとおり、高効率電動機を採用していない場合は「無」の係数を、高効率電動機を採用している場合は「有」の係数を適用する。<br>
+選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 6. 高効率電動機の採用による係数</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 66.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">選択肢 \(Motor_{V,i}\)</th>
+<th class="tableblock halign-left valign-top">適用</th>
+<th class="tableblock halign-left valign-top">高効率電動機の有無によって決まる係数 \(f_{V,ctrl,motor,i}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JIS C 4212に準拠した低圧三相かご形誘導電動機が採用されている場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.95</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>電動機効率 は 0.75 を想定しているので、高効率電動機とは0.79（ \(= \frac{0.75}{0.95}\) ）程度の効率を想定していることになる。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_2_2_インバータの採用"><a class="link" href="#_3_2_2_インバータの採用">3.2.2 インバータの採用</a></h4>
+<div class="paragraph">
+<p>入力値の参照先は機械換気設備を評価する場合は様式3-2、換気代替空調機を評価する場合には様式3-3となる。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 7. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Inverter_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">インバータの有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：⑤インバーターの有無、または、様式3-3：⑩インバーターの有無</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 8. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,inverter,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">インバータの有無によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>下表に示す通り、インバータを採用していない場合は「無」の係数を、インバータを採用している場合は「有」の係数を適用する。<br>
+選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 9. インバータの採用による係数</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 66.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">選択肢 \(Inverter_{V,i}\)</th>
+<th class="tableblock halign-left valign-top">適用</th>
+<th class="tableblock halign-left valign-top">インバータの有無によって決まる係数 \(f_{V,ctrl,inverter,i}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ンバータが設置されている場合。ただし、自動制御が行われておらず固定周波数で運用する場合も含まれる</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.60</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>なお、インバータによる回転数の自動制御が行われておらずに固定周波数で運用する場合も「有」を適用して良い。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_2_3_送風量制御の採用"><a class="link" href="#_3_2_3_送風量制御の採用">3.2.3 送風量制御の採用</a></h4>
+<div class="paragraph">
+<p>入力値の参照先は機械換気設備を評価する場合は様式3-2、換気代替空調機を評価する場合には様式3-3となる。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 10. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送風量制御の種類</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：⑥送風量制御、または、様式3-3：⑪送風量制御</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 11. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,type,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送風量制御の種類によって決まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>下表に示す通り、CO濃度制御やCO<sub>2</sub>濃度制御を採用している場合は「CO・CO<sub>2</sub>濃度制御」の係数を、
+室内温度により送風機制御を行っている場合は「温度制御」の係数を、これらの制御を行っていない場合は「無」の係数を適用する。<br>
+選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 12. 送風機制御の採用による係数</caption>
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 55.5555%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">選択肢 \(CtrlType_{V,i}\)</th>
+<th class="tableblock halign-left valign-top">適用</th>
+<th class="tableblock halign-left valign-top">送風量制御の種類によって決まる係数 \(f_{V,ctrl,type,i}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CO・CO<sub>2</sub>濃度制御</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">駐車場などにおいてCO濃度やCO<sub>2</sub>濃度により送風機制御を行っている場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.60</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">温度制御</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">電気室などにおいて室内温度により送風機制御を行っている場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.70</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_3_換気送風機の年間電力消費量"><a class="link" href="#_3_3_換気送風機の年間電力消費量">3.3 換気送風機の年間電力消費量</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 13. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V,motor,rated,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気送風機iの電動機定格出力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：③電動機定格出力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気送風機iの制御方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{V,i,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気送風機iが接続する室rの年間運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B.2</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 14. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気送風機iの年間電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[E_{V,i} = \frac{ P_{V,motor,rated,i} \times f_{V,ctrl,i} }{ \eta_{m} } \times \max_{r}( T_{V,i,r} )\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>また、
+\(\eta_{m}\) は電動機効率である。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_4_換気代替空調機の年間電力消費量"><a class="link" href="#_3_4_換気代替空調機の年間電力消費量">3.4 換気代替空調機の年間電力消費量</a></h3>
+<div class="paragraph">
+<p>電気室やエレベータ機械室などのように、一般的に換気をするところを空調機やパッケージユニットを利用して冷房を行う場合については、次式により年間電力消費量 \(E_{V_{AC},j}\) [kWh]を求める。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 15. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{V_{AC},j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jによる換気対象室の用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：②換気対象室の用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{V_{AC},c,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jの必要冷却能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：③必要冷却能力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{V_{AC},sys,prim,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jの熱源システムCOP（一次エネルギー換算）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-4：④熱源効率（一次換算）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V_{AC},pump,rated,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jのポンプの定格電動機出力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑤ポンプ定格出力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V_{AC},motor,rated,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jの送風機の電動機定格出力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑧電動機定格出力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Type_{V,j,k}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jと併用される換気送風機kの種類</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑥送風機の種類</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{V,design,j,k}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jと併用される換気送風機kの設計風量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>3</sup>/h</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑦設計風量</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V,motor,rated,j,k}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jと併用される換気送風機kの定格電動機出力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑧電動機定格出力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V_{AC},ctrl,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jの送風機の制御方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,j,k}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jと併用される換気送風機kに採用される制御方式に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\theta_{oa,m}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中間期平均外気温度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{V,j,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jが接続する室rの年間運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B.2</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 16. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V_{AC},j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jの年間電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[E_{V_{AC},j} = ( P_{V_{AC},j} + P_{V_{AC},motor,j} + P'_{V,motor,j} ) \times \max_{r} ( T_{V,j,r} )\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[P_{V_{AC},j} = (\frac{ q_{V_{AC},c,j} \times R_{V_{AC},load,j} }{ 2.71 \times \eta_{V_{AC},sys,prim,j} } +  \frac{ P_{V_{AC},pump,rated,j} }{ \eta_{m} } ) \times R_{V_{AC},operate,j}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[P_{V_{AC},motor,j} = \sum_{k=1} ( \frac{ P_{V_{AC},motor,rated,j,k} \times f_{V_{AC},ctrl,j,k} }{ \eta_{m} } ) \times R_{V_{AC},operate,j}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[P'_{V,motor,j} = \sum_{k=1} ( \frac{ P_{V,motor,rated,j,k} \times f_{V,ctrl,j,k} }{ \eta_{m} } \times R_{V,operate,j,k} )\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>また、
+\(\eta_{m}\) は電動機効率である。</p>
+</div>
+<div class="paragraph">
+<p>換気代替空調機jの年間平均負荷率 \(R_{V_{AC},load,j}\)　は下表より求める。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 17. 換気対象室の用途に応じた換気代替空調機の年間平均負荷率</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">換気対象室の用途 \(RoomType_{V_{AC},j}\)</th>
+<th class="tableblock halign-left valign-top">年間平均負荷率 \(R_{V_{AC},load,j}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">電気室</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">機械室</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">エレベータ機械室</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">その他</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>換気代替空調機jの稼働率 \(R_{V_{AC},operate,j}\) 、換気代替空調機jと併用される換気送風機kの稼働率 \(R_{V,operate,j,k}\) は下表より求める。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 18. 換気代替空調機および併用する換気送風機の年間稼働率</caption>
+<colgroup>
+<col style="width: 55.5555%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">適用条件</th>
+<th class="tableblock halign-left valign-top">換気代替空調機jの年間稼働率 \(R_{V_{AC},operate,j}\)</th>
+<th class="tableblock halign-left valign-top">換気代替空調機jと併用される換気送風機kの年間稼働率 \(R_{V,operate,j,k}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">「換気送風機の外気導入量」が「外気冷房に必要な外気導入量」より大きい場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.35</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.65</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>ここで、「換気送風機の外気導入量」は下表のように求める。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 19. 換気代替空調機jと併用される換気送風機の外気導入量</caption>
+<colgroup>
+<col style="width: 57.1428%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">適用条件</th>
+<th class="tableblock halign-left valign-top">換気送風機の外気導入量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送風機の種類が「給気」である換気送風機が1台以上ある場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送風機の種類が「給気」である換気送風機の「設計風量」の合計値</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送風機の種類が「給気」が１台もなく、送風機の種類が「排気」である換気送風機が１台以上ある場合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送風機の種類が「排気」である換気送風機の「設計風量」の合計値</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>外気冷房に必要な外気導入量 \(V_{AC,oacool,j}\) は次式により求める。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[V_{AC,oacool,j} =  \frac{ 1000 \times q_{AC,c,j} }{ 0.33 \times ( 40 - \theta_{oa,m} ) }\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>なお、換気代替空調機jの必要冷却能力の決定方法について、以下のルールを設ける。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>電気室等において、設置される機器の能力に余裕を見込んでいる場合は、必要とされる能力を算出し、この値を入力してもよい。
+例えば故障時の対応として必要冷房能力 100%の機器が2台設置されている場合は、1台分のみ能力を入力してもよい。
+ただし、この必要能力の算出根拠は別途提出する必要がある。</p>
+</li>
+<li>
+<p>エレベータ機械室については、昇降機メーカー等が算出した設計発熱量を用いても良い。
+ただし、算出根拠は別途提出する必要がある。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_5_機械換気設備の年間一次エネルギー消費量"><a class="link" href="#_3_5_機械換気設備の年間一次エネルギー消費量">3.5 機械換気設備の年間一次エネルギー消費量</a></h3>
+<div class="paragraph">
+<p>機械換気設備の年間一次エネルギー消費量 \(E_{V}\) [MJ/年]を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 20. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気送風機iの年間電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V_{AC},j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jの年間電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.4</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 21. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -669,549 +1380,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{V} = \sum_{i=1}E_{V,i} \times f_{prim,e} \times 10^{-3}\]
+\[E_{V} = ( \sum_{i=1}E_{V,i} + \sum_{j=1}E_{V_{AC},j} ) \times f_{prim,e} \times 10^{-3}\]
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_3_3_機械換気設備の年間電力消費量"><a class="link" href="#_3_3_機械換気設備の年間電力消費量">3.3 機械換気設備の年間電力消費量</a></h3>
-<div class="sect3">
-<h4 id="_3_3_1_換気送風機"><a class="link" href="#_3_3_1_換気送風機">3.3.1 換気送風機</a></h4>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 4. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V,motor,rated,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの電動機定格出力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-1：③電動機定格出力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの制御方法に応じて定められる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{V,i,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iが接続する室rの年間運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">B.2</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの年間電力消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kWh</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
-</tr>
-</tbody>
-</table>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[E_{V,i} = \frac{ P_{V,motor,rated,i} \times f_{V,ctrl,i} }{ \eta_{m} } \times \max_{r}( T_{V,i,r} )\]
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_3_3_2_換気代替空調機"><a class="link" href="#_3_3_2_換気代替空調機">3.3.2 換気代替空調機</a></h4>
-<div class="paragraph">
-<p>電気室やエレベータ機械室などのように、一般的に換気をするところを空調機やパッケージユニットを利用して冷房を行う場合については、次式により年間電力消費量 \(E_{V,i}\) [kWh]を求める。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{V_{AC},i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iによる換気対象室の用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：②換気対象室の用途</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{V_{AC},c,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iの必要冷却能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：③必要冷却能力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{V_{AC},sys,prime,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iの熱源システムCOP（一次エネルギー換算）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-4：④熱源効率（一次換算）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V_{AC},pump,rated,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iのポンプの定格電動機出力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑤ポンプ定格出力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V_{AC},motor,rated,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iの送風機の電動機定格出力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑧電動機定格出力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(Type_{V,i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iと併用される送風機jの種類</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑥送風機の種類</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{V,design,i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iと併用される送風機jの設計風量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>3</sup>/h</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑦設計風量</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V,motor,rated,i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iと併用される換気送風機jの定格電動機出力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑧電動機定格出力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V_{AC},ctrl,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iの制御方法に応じて定められる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,i,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iと併用される換気送風機jに採用される制御方式に応じて定められる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(\theta_{oa,m}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中間期平均外気温度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">℃</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">B.1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{V,i,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機iが接続する室rの年間運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">B.2</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの年間電力消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kWh</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
-</tr>
-</tbody>
-</table>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[E_{V,i} = ( P_{Vac,i} + P_{V_{AC},motor,i} + P'_{V,motor,i} ) \times \max_{r} ( T_{V,i,r} )\]
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[P_{V_{AC},i} = (\frac{ q_{V_{AC},c,i} \times R_{V_{AC},load,i} }{ 2.71 \times \eta_{V_{AC},sys,prime,i} } +  \frac{ P_{V_{AC},pump,rated,i} }{ \eta_{m} } ) \times R_{V_{AC},operate,i}\]
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[P_{V_{AC},motor,i} = \sum_{j=1} ( \frac{ P_{V_{AC},motor,rated,i,j} \times f_{V_{AC},ctrl,i,j} }{ \eta_{m} } ) \times R_{V_{AC},operate,i}\]
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[P'_{V,motor,i} = \sum_{j=1} ( \frac{ P_{V,motor,rated,i,j} \times f_{V,ctrl,i,j} }{ \eta_{m} } \times R_{V,operate,i,j} )\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>換気代替空調機iの年間平均負荷率 \(R_{V_{AC},load,i}\)　は下表より求める。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 8. 換気対象室の用途に応じた換気代替空調機の年間平均負荷率</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">換気対象室の用途 \(RoomType_{V,i}\)</th>
-<th class="tableblock halign-left valign-top">年間平均負荷率 \(R_{V_{AC},load,i}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">電気室</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械室</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">エレベータ機械室</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">その他</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>換気代替空調機iの稼働率 \(R_{V_{AC},operate,i}\) 、換気代替空調機iと併用される送風機の稼働率 \(R_{V,operate,i,j}\) は下表より求める。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 9. 換気代替空調機および併用する送風機の年間稼働率</caption>
-<colgroup>
-<col style="width: 55.5555%;">
-<col style="width: 22.2222%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">適用条件</th>
-<th class="tableblock halign-left valign-top">換気代替空調機の年間稼働率 \(R_{V_{AC},operate,i}\)</th>
-<th class="tableblock halign-left valign-top">併用する送風機の年間稼働率 \(R_{V,operate,i,j}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">「換気代替空調機iと併用される送風機jの外気導入量」が「外気冷房に必要な外気導入量」より大きい場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.35</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.65</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>ここで、「換気代替空調機iと併用される送風機jの外気導入量」は下表のように求める。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 10. 換気代替空調機iと併用される送風機の外気導入量</caption>
-<colgroup>
-<col style="width: 57.1428%;">
-<col style="width: 42.8572%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">適用条件</th>
-<th class="tableblock halign-left valign-top">換気代替空調機iと併用される送風機jの外気導入量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">送風機の種類が「給気」である送風機が1台以上ある場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">送風機の種類が「給気」である送風機の「設計風量」の合計値</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">送風機の種類が「給気」が１台もなく、送風機の種類が「排気」である送風機が１台以上ある場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">送風機の種類が「排気」である送風機の「設計風量」の合計値</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>外気冷房に必要な外気導入量 \(V_{AC,oacool,i}\) は次式により求める。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[V_{AC,oacool,i} =  \frac{ 1000 \times q_{AC,c,i} }{ 0.33 \times ( 40 - \theta_{oa,m} ) }\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>なお、換気代替空調機iの必要冷却能力の決定方法について、以下のルールを設ける。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>電気室等において、設置される機器の能力に余裕を見込んでいる場合は、必要とされる能力を算出し、この値を入力してもよい。
-例えば故障時の対応として必要冷房能力 100%の機器が2台設置されている場合は、1台分のみ能力を入力してもよい。
-ただし、この必要能力の算出根拠は別途提出する必要がある。</p>
-</li>
-<li>
-<p>エレベータ機械室については、昇降機メーカー等が算出した設計発熱量を用いても良い。
-ただし、算出根拠は別途提出する必要がある。</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_3_4_制御の方式に応じて定められる係数"><a class="link" href="#_3_4_制御の方式に応じて定められる係数">3.4 制御の方式に応じて定められる係数</a></h3>
-<div class="paragraph">
-<p>機械換気設備の運転効率化のための各種措置について、次のように3つのカテゴリに分類し、それぞれ講じた措置の種類に応じて、係数 \(f_{V,ctrl,motor,i}\) 、\(f_{V,ctrl,inverter,i}\) 、\(f_{V,ctrl,type,i}\) の値を定める。同じカテゴリの中から重複して係数を採用することはできず、各カテゴリの中から何れか1つを選択して値を決定する。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 11. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,motor,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">高効率電動機の有無によって決まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,inverter,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">インバータの有無によって決まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,type,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">送風量制御の種類によって決まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.4.3</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 12. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(f_{V,ctrl,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備iの制御方法に応じて定められる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3.3.1, 3.3.2</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>エネルギー消費量計算に用いる係数 は次式で求める。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[f_{V,ctrl,i} = f_{V,ctrl,motor,i} \times f_{V,ctrl,inverter,i} \times F_{V,ctrl,type,i}\]
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_3_4_1_高効率電動機の採用"><a class="link" href="#_3_4_1_高効率電動機の採用">3.4.1 高効率電動機の採用</a></h4>
-<div class="paragraph">
-<p>下表に示すとおり、高効率電動機を採用していない場合は「無」の係数を、高効率電動機を採用している場合は「有」の係数を適用する。<br>
-選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 13. 高効率電動機の採用による係数</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 66.6666%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">選択肢</th>
-<th class="tableblock halign-left valign-top">適用</th>
-<th class="tableblock halign-left valign-top">高効率電動機の有無によって決まる係数 \(f_{V,ctrl,motor,i}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JIS C 4212に準拠した低圧三相かご形誘導電動機が採用されている場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.95</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>電動機効率 は 0.75 を想定しているので、高効率電動機とは0.79（ \(= \frac{0.75}{0.95}\) ）程度の効率を想定していることになる。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_3_4_2_インバータの採用"><a class="link" href="#_3_4_2_インバータの採用">3.4.2 インバータの採用</a></h4>
-<div class="paragraph">
-<p>下表に示す通り、インバータを採用していない場合は「無」の係数を、インバータを採用している場合は「有」の係数を適用する。<br>
-選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 14. インバータの採用による係数</caption>
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 66.6666%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">選択肢</th>
-<th class="tableblock halign-left valign-top">適用</th>
-<th class="tableblock halign-left valign-top">インバータの有無によって決まる係数 \(f_{V,ctrl,inverter,i}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">有</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ンバータが設置されている場合。ただし、自動制御が行われておらず固定周波数で運用する場合も含まれる</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.60</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>なお、インバータによる回転数の自動制御が行われておらずに固定周波数で運用する場合も「有」を適用して良い。</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_3_4_3_送風量制御の採用"><a class="link" href="#_3_4_3_送風量制御の採用">3.4.3 送風量制御の採用</a></h4>
-<div class="paragraph">
-<p>下表に示す通り、CO濃度制御やCO<sub>2</sub>濃度制御を採用している場合は「CO・CO<sub>2</sub>濃度制御」の係数を、
-室内温度により送風機制御を行っている場合は「温度制御」の係数を、これらの制御を行っていない場合は「無」の係数を適用する。<br>
-選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 15. 送風機制御の採用による係数</caption>
-<colgroup>
-<col style="width: 22.2222%;">
-<col style="width: 55.5555%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">選択肢</th>
-<th class="tableblock halign-left valign-top">適用</th>
-<th class="tableblock halign-left valign-top">送風量制御の種類によって決まる係数 \(f_{V,ctrl,type,i}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CO・CO<sub>2</sub>濃度制御</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">駐車場などにおいてCO濃度やCO<sub>2</sub>濃度により送風機制御を行っている場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.60</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">温度制御</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">電気室などにおいて室内温度により送風機制御を行っている場合</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.70</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上記以外</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.00</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -1222,7 +1394,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>中間期平均外気温度 \(\theta_{oa,m}\) は地域区分毎に下表で定められる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 16. 入力</caption>
+<caption class="title">表 22. 入力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1247,7 +1419,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 17. 出力</caption>
+<caption class="title">表 23. 出力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1272,7 +1444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 18. 中間期平均外気温</caption>
+<caption class="title">表 24. 中間期平均外気温</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1336,7 +1508,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 19. 入力</caption>
+<caption class="title">表 25. 入力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1367,7 +1539,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 20. 出力</caption>
+<caption class="title">表 26. 出力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1387,7 +1559,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{V,i,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rに接続する機械換気設備iの年間運転時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.3.1、3.3.2</p></td>
 </tr>
 </tbody>
 </table>
@@ -1432,7 +1604,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-12 22:48:31 +0900
+Last updated 2020-03-25 17:03:02 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

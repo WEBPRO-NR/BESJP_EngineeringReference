@@ -4266,26 +4266,26 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：④外気負荷処理</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu,aex,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する全熱交換器の台数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：②台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(EquipmentName_{AC,ahu,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの名称</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：①空調機群名称</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,aex,i,unit}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1台あたりの空調機群iに属する全熱交換器の設計風量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,aex,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの全熱交換器の設計風量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>3</sup>/(h・台)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑯全熱交換器の設計風量</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{ahu,aex,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する全熱交換器の全熱交換効率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{ahu,aex,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの全熱交換器の全熱交換効率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">%</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑯全熱交換効率</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(AutoChangeCtrl_{ahu,aex,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する全熱交換器の自動換気切換機能の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(AutoChangeCtrl_{ahu,aex,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの全熱交換器の自動換気切換機能の有無</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑱自動換気切換機能の有無</p></td>
 </tr>
@@ -4401,8 +4401,7 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[V_{AC,ahu,aex,i} =
-V_{AC,ahu,aex,i,unit} \times N_{AC,ahu,aex,i}
+\[V_{AC,ahu,aex,i} = \sum_{j} V_{AC,ahu,aex,i,j}
 \times
 \frac{1.293}{3600}\]
 </div>
@@ -4445,14 +4444,15 @@ H_{AC,oa,d,nighttime} &amp;,(\mbox{夜間運転})
 </div>
 </div>
 <div class="paragraph">
-<p>空調機群iが室負荷のみ処理するか否か \(OnlyRoomLoad_{AC,ahu,i}\) は、空調機群iの名称が空調機群iに属する室rの外気負荷処理用の空調機群名称 \(EquipmentName_{AC,ahu,oa,i,r}\) に1つでも一致すれば偽、それ以外を真とする。</p>
+<p>空調機群iが室負荷のみ処理するかを表す \(OnlyRoomLoad_{AC,ahu,i}\) は、
+空調機群iの名称が空調機群iに属する室rの外気負荷処理用の空調機群名称 \(EquipmentName_{AC,ahu,oa,i,r}\) に1つでも一致すれば偽、それ以外を真とする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
 \[OnlyRoomLoad_{AC,ahu,i} = \begin{cases}
-{\rm False} &amp; ,(EquipmentName_{AC,ahu,oa,i,r} = \mbox{空調機群i名称}) \\
+{\rm False} &amp; ,(EquipmentName_{AC,ahu,oa,i,r} = EquipmentName_{AC,ahu,i}) \\
 {\rm True} &amp; ,(\mbox{それ以外})
 \end{cases}\]
 </div>
@@ -4460,6 +4460,30 @@ H_{AC,oa,d,nighttime} &amp;,(\mbox{夜間運転})
 </div>
 </div>
 <div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>空調機群iの全熱交換器の自動換気切換機能が有効であるかを表す \(AutoChangeCtrl_{ahu,aex,i}\) は、
+空調機群iに属する送風機jの全熱交換器のうち1つでも自動換気切換機能が有効であれば真、それ以外の場合は偽とする。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) 自動換気切換機能が有効である全熱交換器（ \(AutoChangeCtrl_{ahu,aex,i,j} = {\rm True}\) ）が1つ以上ある場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[AutoChangeCtrl_{ahu,aex,i} = {\rm True}\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) それ以外の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[AutoChangeCtrl_{ahu,aex,i} = {\rm False}\]
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>日付dにおける空調機群iの外気負荷 \(q_{AC,ahu,oa,i,d}\) は次式により算出する。
 外気負荷を算出する際に、各空調機群に全熱交換器がある場合の負荷削減効果を見込むが、
@@ -4545,10 +4569,37 @@ H_{AC,oa,d,nighttime} &amp;,(\mbox{夜間運転})
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[\eta'_{ahu,aex,i} = \frac{\eta_{ahu,aex,i}}{100} \times C_{tol} \times C_{eff} \times C_{bal} \\
+\[\eta'_{ahu,aex,i} = \begin{cases}
+\frac{\eta_{ahu,aex,i}}{100} \times C_{tol} \times C_{eff} \times C_{bal} &amp; ,(\eta_{ahu,aex,i} &gt; 0) \\
+0 &amp; ,(\eta_{ahu,aex,i} = 0)
+\end{cases} \\
 C_{tol} = 0.95  \\
 C_{eff} = 1-(\frac{1}{0.85}-1) \times \frac{1-\frac{\eta_{ahu,aex,i}}{100}}{\frac{\eta_{ahu,aex,i}}{100}} \\
 C_{bal} = 0.67\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>式中の \(\eta_{ahu,aex,i}\) [%]は、補正前の空調機群iに属する全熱交換器の全熱交換効率であり、
+空調機群iに属する送風機jの全熱交換器のうち最も悪い全熱交換効率を採用する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>a) 全熱交換器がある送風機が1つ以上ある場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\eta_{ahu,aex,i} = \min \{ \eta_{ahu,aex,i,j} \mid 空調機群iに属する送風機jに全熱交換器がある \}\]
+</div>
+</div>
+<div class="paragraph">
+<p>b) それ以外の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\eta_{ahu,aex,i} = 0\]
 </div>
 </div>
 </div>

@@ -4272,6 +4272,12 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：①空調機群名称</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：②台数</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,aex,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの全熱交換器の設計風量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>3</sup>/(h・台)</p></td>
@@ -4379,7 +4385,7 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>まず、空調機群iの外気導入量 \(V_{AC,ahu,oa,i}\) を算出する。
-空調機群iが空調する全ての室の外気導入量 \(V_{AC,room,oa,r}\) の積算値を
+空調機群iが空調する全ての室の外気導入量 \(V_{AC,room,oa,i,r}\) の積算値を
 空調機群iの外気導入量 \(V_{AC,ahu,oa,i}\) とする。</p>
 </div>
 <div class="exampleblock">
@@ -4387,7 +4393,7 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <div class="stemblock">
 <div class="content">
 \[V_{AC,ahu,oa,i} =
-\sum_{r=1} (V_{AC,room,oa,i,r} \times A_{room,i,r})
+\sum_{r} (V_{AC,room,oa,i,r} \times A_{room,i,r})
 \times
 \frac{1.293}{3600}\]
 </div>
@@ -4401,7 +4407,7 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[V_{AC,ahu,aex,i} = \sum_{j} V_{AC,ahu,aex,i,j}
+\[V_{AC,ahu,aex,i} = \sum_{j} ( V_{AC,ahu,aex,i,j} \times N_{AC,ahu,i,j} )
 \times
 \frac{1.293}{3600}\]
 </div>
@@ -4640,14 +4646,14 @@ C_{bal} = 0.67\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する空調機の台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する空調機jの台数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：②台数</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,oacool,i,max,unit}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する空調機1台あたりの設計最大外気風量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,oacool,i,j,max,unit}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する空調機jの1台あたりの設計最大外気風量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>3</sup>/(h・台)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑥設計最大外気風量</p></td>
 </tr>
@@ -4717,7 +4723,7 @@ C_{bal} = 0.67\]
 <div class="stemblock">
 <div class="content">
 \[V_{AC,ahu,oacool,max,i} =
-V_{AC,ahu,oacool,max,i,unit} \times N_{AC,ahu,i}
+\sum ( V_{AC,ahu,oacool,max,i,j,unit} \times N_{AC,ahu,i,j} )
 \times
 \frac{1.293}{3600}\]
 </div>
@@ -5850,14 +5856,14 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,aex,R,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する全熱交換器ローターの定格消費電力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,aex,R,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの全熱交換器ローターの定格消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW/台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑲ローター消費電力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu,aex,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する全熱交換器の台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する空調機jの台数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：②台数</p></td>
 </tr>
@@ -5882,7 +5888,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,aex,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iに属する全熱交換器ローターの消費電力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する全熱交換器ローターの消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.12</p></td>
 </tr>
@@ -5895,7 +5901,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ahu,aex,i,d} = E_{AC,ahu,aex,R,i} \times N_{AC,ahu,aex,i}\]
+\[E_{AC,ahu,aex,i,d} = \sum_{j} ( E_{AC,ahu,aex,R,i,j} \times N_{AC,ahu,i,j} )\]
 </div>
 </div>
 </div>
@@ -5938,7 +5944,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,aex,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iに属する全熱交換器の消費電力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する全熱交換器の消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.11</p></td>
 </tr>

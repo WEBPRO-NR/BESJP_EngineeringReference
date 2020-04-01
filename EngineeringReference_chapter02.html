@@ -639,6 +639,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="title">　　　　　　　　　　　　　　　　　　　　　　　　　図 2.1.2.2　二次ポンプ群の例</div>
 </div>
+<div style="page-break-after: always;"></div>
 </li>
 <li>
 <p><strong>熱源群</strong><br>
@@ -837,6 +838,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 該当する代表地点の気象データファイルから
 日付d時刻tの外気温度、絶対湿度、法線面直達日射量、水平面天空日射量、水平面長波長放射量を読み込む。</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>また、緯度 \(lati\) 、経度 \(longi\) は下表で定める値を使用する。</p>
 </div>
@@ -1459,6 +1461,7 @@ H_{AC,oa,d,nighttime}
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="_2_3_2_空調室の室内エンタルピー"><a class="link" href="#_2_3_2_空調室の室内エンタルピー">2.3.2 空調室の室内エンタルピー</a></h4>
@@ -1662,6 +1665,7 @@ H_{AC,oa,d,nighttime}
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="ulist">
 <ul>
 <li>
@@ -1715,6 +1719,7 @@ H_{AC,oa,d,nighttime}
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="ulist">
 <ul>
 <li>
@@ -1812,6 +1817,7 @@ t_{AC,3,end}, &amp; (Ptrn_{clndr,d} = 3)
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="ulist">
 <ul>
 <li>
@@ -2065,6 +2071,7 @@ t_{AC,3,end}, &amp; (Ptrn_{clndr,d} = 3)
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>日付d時刻tにおける室iの内部発熱量[Wh]は次式によって求められる。</p>
 </div>
@@ -2606,6 +2613,7 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>ここで、\(del_{d}\) [rad]は日付dの日赤緯、\(e_{d}\) [rad]は 日付dの均時差であり、次式より求める。
 式中の関数 daynum(d) は、日付dの通日を求める関数であるとする。</p>
@@ -2790,6 +2798,7 @@ e_{d}
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>日付dにおける室iの日射による日積算定常熱取得\(Q_{AC,room,sin,i,d}\)は次式により求める。</p>
 </div>
@@ -3548,6 +3557,7 @@ e_{d}
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -3781,7 +3791,7 @@ e_{d}
 </tbody>
 </table>
 <div class="paragraph">
-<p>まず、温度差による冷房負荷 \(Q_{AC,room,tc,i,d}\)［Wh/（m<sup>2</sup>�����day）］、
+<p>まず、温度差による冷房負荷 \(Q_{AC,room,tc,i,d}\)［Wh/（m<sup>2</sup>・day）］、
 温度差による暖房負荷 \(Q_{AC,room,th,i,d}\)［Wh/（m<sup>2</sup>・day）］、
 日射による冷房負荷 \(Q_{AC,room,sc,i,d}\)［Wh/（m<sup>2</sup>・day）］をそれぞれ算出する。
 なお、便宜上、冷房負荷を正、暖房負荷を負の数値で表現することとし、
@@ -3981,6 +3991,7 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（m<sup>2</sup>・
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>空調機群iの日付dにおける日積算室負荷（冷房）\(Q_{AC,ahu,room,c,i,d}\) と
 日積算室負荷（暖房）\(Q_{AC,ahu,room,h,i,d}\) は次式により算出する。
@@ -4135,6 +4146,7 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 また、詳細は後述するが、熱源システムの冷暖同時供給機能がない場合（季節により冷暖切り替え運転を行う場合）は、
 冷房期及び中間期の暖房負荷、暖房期の冷房負荷は処理されずに無視されるとしている（これを未処理負荷と呼ぶ）。</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>空調機群iの冷房運転時間 \(T_{AC,ahu,c,i,d}\)、暖房運転時間 \(T_{AC,ahu,h,i,d}\)は次式で求める。</p>
 </div>
@@ -4364,6 +4376,7 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>まず、空調機群iの外気導入量 \(V_{AC,ahu,oa,i}\) を算出する。
 空調機群iが空調する全ての室の外気導入量 \(V_{AC,room,oa,r}\) の積算値を
@@ -4446,6 +4459,7 @@ H_{AC,oa,d,nighttime} &amp;,(\mbox{夜間運転})
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>日付dにおける空調機群iの外気負荷 \(q_{AC,ahu,oa,i,d}\) は次式により算出する。
 外気負荷を算出する際に、各空調機群に全熱交換器がある場合の負荷削減効果を見込むが、
@@ -4520,6 +4534,7 @@ H_{AC,oa,d,nighttime} &amp;,(\mbox{夜間運転})
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>式中の \(\eta'_{ahu,aex,i}\) [-]は、実動性能を加味して補正された空調機群iに属する全熱交換器の全熱交換効率であり、
 次式で算出する。
@@ -4658,6 +4673,7 @@ V_{AC,ahu,oacool,max,i,unit} \times N_{AC,ahu,i}
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>次に、外気冷房時給気風量 \(V_{AC,ahu,oacool,i,d}\) を算出する。
 外気冷房時給気風量は設計最大外気風量 \(V_{AC,ahu,oacool,max,i}\) を超えないものとする。</p>
@@ -4822,6 +4838,7 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} \times 10^3}{3600 \times (- \Delta H_{AC,oa,d}) 
 <div class="paragraph">
 <p>まず、次の \(Q_{ahu,c}\) [MJ/日] と \(Q_{ahu,h}\) [MJ/日] を算出する。</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -4931,6 +4948,7 @@ Q_{ahu,h} = 0\]
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>\(Q_{ahu_c}\) と \(Q_{ahu_c}\) を用いて、空調機群iの日積算空調負荷を次式で算出する。</p>
 </div>
@@ -5080,6 +5098,7 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
 <p>まず、日付dにおける空調機群iの冷房期の負荷率 \(L_{AC,ahu,mix,c,i,d}\)、日付dにおける空調機群iの暖房期の負荷率\(L_{AC,ahu,mix,h,i,d}\)を算出する。
 本計算法においては、日積算負荷を用いて日平均負荷率を算出し、一日を通してこの一定の負荷率で運転すると想定してエネルギー消費量の計算を行う。</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
@@ -5102,6 +5121,7 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>ここで、上記の式の関数Fは次のように定義する。
 関数 \(floor(x)\)は実数xに対してx以下の最大の整数を求める関数であり、
@@ -5287,6 +5307,7 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>空調機群iに属する送風機jの風量制御方式によって定まる係数 \(f_{AC,ahu,h,i,j,d}\) は次式で求める。</p>
 </div>
@@ -5696,6 +5717,7 @@ E_{AC,ahu,h,i,d}  = \sum_{j} E_{AC,ahu,h,i,j,d}\]
 <p>また、
 \(f_{fan,heat}\) はファンの発熱比率である。</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -5938,6 +5960,7 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>ここで、\(E_{AC,ahu,c,i}\)、\(E_{AC,ahu,h,i}\) は次式で算出する。</p>
 </div>
@@ -6066,6 +6089,7 @@ E_{AC,ahu,h,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -6198,6 +6222,7 @@ E_{AC,ahu,h,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,
 外気冷房の効果と空調機ファンの発熱量を積算して算出する。　
 添え字jは各ポンプ群が冷水を供給する空調機群について積算することを表している。</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -6210,21 +6235,37 @@ E_{AC,ahu,h,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,
 </div>
 <div class="stemblock">
 <div class="content">
-\[C_{i,j,d} = \begin{cases}
-Q_{AC,ahu,c,i,j,d} - Q_{AC,ahu,oacool,i,j,d} + Q_{AC,ahu,heat,c,i,j,d} &amp;
-,(Q_{AC,ahu,c,i,j,d}&gt;0 \land Q_{AC,ahu,oacool,i,j,d} \leqq 0) \\
-Q_{AC,ahu,c,i,j,d} - Q_{AC,ahu,oacool,i,j,d} &amp;
-,(Q_{AC,ahu,c,i,j,d}&gt;0 \land Q_{AC,ahu,oacoo,i,j,d}&gt;0 \land |Q_{AC,ahu,c,i,j,d}-Q_{AC,ahu,oacool,i,j,d} | \geqq 1) \\
-0 &amp; ,(\mbox{それ以外})
+\[H_{i,j,d} = \begin{cases}
+Q_{AC,ahu,h,i,j,d} + Q_{AC,ahu,heat,h,i,j,d} - Q_{AC,ahu,oacool,i,j,d} &amp; ,(Q_{AC,ahu,h,i,j,d}&gt;0) \\
+0 &amp; ,(Q_{AC,ahu,h,i,j,d} \leqq 0)
 \end{cases}\]
 </div>
+</div>
+<div class="paragraph">
+<p>　\(C_{i,j,d}\)については、条件に応じて以下のように算出する。</p>
+</div>
+<div class="paragraph">
+<p>　　1) \(Q_{AC,ahu,c,i,j,d}&gt;0 \land Q_{AC,ahu,oacool,i,j,d} \leqq 0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[H_{i,j,d} = \begin{cases}
- Q_{AC,ahu,h,i,j,d} + Q_{AC,ahu,heat,h,i,j,d} - Q_{AC,ahu,oacool,i,j,d} &amp; ,(Q_{AC,ahu,h,i,j,d}&gt;0) \\
- 0 &amp; ,(Q_{AC,ahu,h,i,j,d} \leqq 0)
-\end{cases}\]
+\[　　C_{i,j,d} = Q_{AC,ahu,c,i,j,d} - Q_{AC,ahu,oacool,i,j,d} + Q_{AC,ahu,heat,c,i,j,d}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　2) \(Q_{AC,ahu,c,i,j,d}&gt;0 \land Q_{AC,ahu,oacoo,i,j,d}&gt;0 \land |Q_{AC,ahu,c,i,j,d}-Q_{AC,ahu,oacool,i,j,d} | \geqq 1\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[　　C_{i,j,d} = Q_{AC,ahu,c,i,j,d} - Q_{AC,ahu,oacool,i,j,d}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　3) 上記以外の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[　　C_{i,j,d} = 0\]
 </div>
 </div>
 <div class="paragraph">
@@ -6825,6 +6866,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>台数制御がある場合は、以下のように算出する。</p>
 </div>
@@ -7008,6 +7050,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>係数 \(a_{i,j},b_{i.j},c_{i,j},d_{i,j},e_{i,j}\)は、二次ポンプjのエネルギー消費特性を表す係数であり、
 流量制御方式 \(PumpCtrlType_{AC,pump,i,j}\) によって決まる。
@@ -7392,6 +7435,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -7668,6 +7712,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>次に、蓄熱槽からの放熱分を加味し、熱源負荷を算出する。</p>
 </div>
@@ -7900,6 +7945,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <div class="paragraph">
 <p>熱源群iに属する熱源機器jの冷却モード \(CoolingType_{i,j}\) は、熱源機種 \(RefType_{i,j}\) 毎に規定されている。</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -8362,6 +8408,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
@@ -8382,7 +8429,6 @@ k_{c,i,j,d} = c_{c,i,j} \times R_{Q,i,j,d} + d_{c,i,j}\]
 </div>
 </div>
 </div>
-<div style="page-break-after: always;"></div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 113. 係数 \(a_{h,i,j},b_{h,i,j},c_{h,i,j},d_{h,i,j},a_{c,i,j},b_{c,i,j},c_{c,i,j},d_{c,i,j}\)</caption>
 <colgroup>
@@ -8547,6 +8593,7 @@ k_{c,i,j,d} = c_{c,i,j} \times R_{Q,i,j,d} + d_{c,i,j}\]
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>ここで、
 \(Q_{AC,ref,h,i,d}^{MAX}\) は、熱源群 i の日積算温熱生成量の年間最大値、
@@ -9231,6 +9278,7 @@ B = \sum_{j=1}^N q_{AC,ref,i,j,max,d}\]
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -9829,6 +9877,7 @@ L_{ref,x,i,j,max} &amp; ,(L_{ref,x,i,j,max} &lt; xL_{AC,ref,i,d})
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>上記の式における定数Cは次の式で算出する。</p>
 </div>
@@ -10056,16 +10105,25 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 \end{cases}\]
 </div>
 </div>
+<div class="paragraph">
+<p>　　1) \(0.3 &lt; L_{AC,ref,i,d}\) の場合</p>
+</div>
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ref,sub,i,j,d} = \begin{cases}
-P_{AC,ref,sub,i,j,rated} \times L_{AC,ref,i,d} &amp; ,(0.3 &lt; L_{AC,ref,i,d})  \\
-0.3 \times P_{AC,ref,sub,nG,i,j,d} - (P_{AC,ref,sub,nG,i,j,d} - P_{AC,ref,sub,i,j,rated} ) \times L_{AC,ref,i,d} &amp; ,(0 \leqq L_{AC,ref,i,d} \leqq 0.3)
-\end{cases}\]
+\[　　E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j,rated} \times L_{AC,ref,i,d}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　2) \(0 \leqq L_{AC,ref,i,d} \leqq 0.3\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[　　E_{AC,ref,sub,i,j,d} = 0.3 \times P_{AC,ref,sub,nG,i,j,d} - (P_{AC,ref,sub,nG,i,j,d} - P_{AC,ref,sub,i,j,rated} ) \times L_{AC,ref,i,d}\]
 </div>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>日付dにおける熱源群iに属する熱源機器jの冷却水ポンプのエネルギー消費量は、冷却水変流量制御の有無によって算出方法が異なる。
 冷却水変流量制御の有無は、熱源機種毎に予め設定されている。</p>
@@ -10201,6 +10259,7 @@ P_{AC,ref,sub,i,j,rated} \times L_{AC,ref,i,d} &amp; ,(0.3 &lt; L_{AC,ref,i,d}) 
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>熱源群の一次エネルギー消費量および消費電力は次式で算出する。式中の3.6はkWをMJ/hに換算するための係数（3600/1000）である。</p>
 </div>
@@ -10623,6 +10682,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="sect4">
 <h5 id="_方法1窓等の熱貫流率と日射熱取得率を直接入力する"><a class="link" href="#_方法1窓等の熱貫流率と日射熱取得率を直接入力する">（方法1）窓等の熱貫流率と日射熱取得率を直接入力する</a></h5>
 <div class="paragraph">
@@ -10837,6 +10897,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 「アルミ樹脂複合」→「金属樹脂複合製（複層）」
 「アルミ」→「金属製（複層）」</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>＜参考＞窓の熱貫流率への変換係数（建具種類別）＜Ver.2.4（201710）までの値＞</p>
 </div>
@@ -11156,7 +11217,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-01 10:42:03 +0900
+Last updated 2020-04-01 23:41:11 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

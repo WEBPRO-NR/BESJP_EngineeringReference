@@ -1654,6 +1654,7 @@ stem:[A_{room,i,r}]|空調機群iに属する室rの面積|m^2^|様式2-1：①�
 stem:[EquipmentName_{AC,ahu,oa,i,r}]|空調機群iに属する室rの外気負荷処理用の空調機群名称|-|様式2-1：④外気負荷処理|
 stem:[EquipmentName_{AC,ahu,i}]|空調機群iの名称|-|様式2-7：①空調機群名称|
 stem:[N_{AC,ahu,i,j}]|空調機群iに属する送風機jの台数|台|様式2-7：②台数|
+stem:[TotalHeatExchanger_{AC,ahu,i,j}]|空調機群iに属する送風機jの全熱交換器の有無|有/無|様式2-7：⑮全熱交換器の有無|
 stem:[V_{AC,ahu,aex,i,j}]|空調機群iに属する送風機jの全熱交換器の設計風量|m^3^/(h・台)|様式2-7：⑯全熱交換器の設計風量|
 stem:[\eta_{ahu,aex,i,j}]|空調機群iに属する送風機jの全熱交換器の全熱交換効率|%|様式2-7：⑯全熱交換効率|
 stem:[AutoChangeCtrl_{ahu,aex,i,j}]|空調機群iに属する送風機jの全熱交換器の自動換気切換機能の有無|有/無|様式2-7：⑱自動換気切換機能の有無|
@@ -1744,18 +1745,18 @@ OnlyRoomLoad_{AC,ahu,i} = \begin{cases}
 
 <<<<
 空調機群iの全熱交換器の自動換気切換機能が有効であるかを表す stem:[AutoChangeCtrl_{ahu,aex,i}] は、
-空調機群iに属する送風機jの全熱交換器のうち1つでも自動換気切換機能が有効であれば真、それ以外の場合は偽とする。
+空調機群iに属する送風機jの全熱交換器のうち1つでも自動換気切換機能が有効であれば有、それ以外の場合は無とする。
 ====
-a) 自動換気切換機能が有効である全熱交換器（ stem:[AutoChangeCtrl_{ahu,aex,i,j} = {\rm True}] ）が1つ以上ある場合
+a) 自動換気切換機能が有効である全熱交換器（ stem:[AutoChangeCtrl_{ahu,aex,i,j} = \mbox{有}] ）が1つ以上ある場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-AutoChangeCtrl_{ahu,aex,i} = {\rm True}
+AutoChangeCtrl_{ahu,aex,i} = \mbox{有}
 ++++++++++++++++++++++++++++++++++++++++++++
 
 b) それ以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-AutoChangeCtrl_{ahu,aex,i} = {\rm False}
+AutoChangeCtrl_{ahu,aex,i} = \mbox{無}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -1839,10 +1840,10 @@ C_{bal} = 0.67
 式中の stem:[\eta_{ahu,aex,i}] [%]は、補正前の空調機群iに属する全熱交換器の全熱交換効率であり、
 空調機群iに属する送風機jの全熱交換器のうち最も悪い全熱交換効率を採用する。
 ====
-a) 全熱交換器がある送風機が1つ以上ある場合
+a) 全熱交換器がある（ stem:[TotalHeatExchanger_{AC,ahu,i,j} = \mbox{有}] ）送風機が1つ以上ある場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-\eta_{ahu,aex,i} = \min \{ \eta_{ahu,aex,i,j} \mid 空調機群iに属する送風機jに全熱交換器がある \}
+\eta_{ahu,aex,i} = \min \{ \eta_{ahu,aex,i,j} \mid TotalHeatExchanger_{AC,ahu,i,j} = \mbox{有} \}
 ++++++++++++++++++++++++++++++++++++++++++++
 b) それ以外の場合
 [stem]

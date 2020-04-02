@@ -4278,6 +4278,12 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：②台数</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(TotalHeatExchanger_{AC,ahu,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの全熱交換器の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑮全熱交換器の有無</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{AC,ahu,aex,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの全熱交換器の設計風量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>3</sup>/(h・台)</p></td>
@@ -4468,16 +4474,16 @@ H_{AC,oa,d,nighttime} &amp;,(\mbox{夜間運転})
 <div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>空調機群iの全熱交換器の自動換気切換機能が有効であるかを表す \(AutoChangeCtrl_{ahu,aex,i}\) は、
-空調機群iに属する送風機jの全熱交換器のうち1つでも自動換気切換機能が有効であれば真、それ以外の場合は偽とする。</p>
+空調機群iに属する送風機jの全熱交換器のうち1つでも自動換気切換機能が有効であれば有、それ以外の場合は無とする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 自動換気切換機能が有効である全熱交換器（ \(AutoChangeCtrl_{ahu,aex,i,j} = {\rm True}\) ）が1つ以上ある場合</p>
+<p>a) 自動換気切換機能が有効である全熱交換器（ \(AutoChangeCtrl_{ahu,aex,i,j} = \mbox{有}\) ）が1つ以上ある場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[AutoChangeCtrl_{ahu,aex,i} = {\rm True}\]
+\[AutoChangeCtrl_{ahu,aex,i} = \mbox{有}\]
 </div>
 </div>
 <div class="paragraph">
@@ -4485,7 +4491,7 @@ H_{AC,oa,d,nighttime} &amp;,(\mbox{夜間運転})
 </div>
 <div class="stemblock">
 <div class="content">
-\[AutoChangeCtrl_{ahu,aex,i} = {\rm False}\]
+\[AutoChangeCtrl_{ahu,aex,i} = \mbox{無}\]
 </div>
 </div>
 </div>
@@ -4593,11 +4599,11 @@ C_{bal} = 0.67\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 全熱交換器がある送風機が1つ以上ある場合</p>
+<p>a) 全熱交換器がある（ \(TotalHeatExchanger_{AC,ahu,i,j} = \mbox{有}\) ）送風機が1つ以上ある場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[\eta_{ahu,aex,i} = \min \{ \eta_{ahu,aex,i,j} \mid 空調機群iに属する送風機jに全熱交換器がある \}\]
+\[\eta_{ahu,aex,i} = \min \{ \eta_{ahu,aex,i,j} \mid TotalHeatExchanger_{AC,ahu,i,j} = \mbox{有} \}\]
 </div>
 </div>
 <div class="paragraph">

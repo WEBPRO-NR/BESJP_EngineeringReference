@@ -1652,10 +1652,12 @@ T_{AC,ahu,aex,i,d}  = T_{AC,ahu,i,d}
 |変数名|説明|単位|参照先|
 stem:[A_{room,i,r}]|空調機群iに属する室rの面積|m^2^|様式2-1：①床面積|
 stem:[EquipmentName_{AC,ahu,oa,i,r}]|空調機群iに属する室rの外気負荷処理用の空調機群名称|-|様式2-1：④外気負荷処理|
-stem:[N_{AC,ahu,aex,i}]|空調機群iに属する全熱交換器の台数|台|様式2-7：②台数|
-stem:[V_{AC,ahu,aex,i,unit}]|1台あたりの空調機群iに属する全熱交換器の設計風量|m^3^/(h・台)|様式2-7：⑯全熱交換器の設計風量|
-stem:[\eta_{ahu,aex,i}]|空調機群iに属する全熱交換器の全熱交換効率|%|様式2-7：⑯全熱交換効率|
-stem:[AutoChangeCtrl_{ahu,aex,i}]|空調機群iに属する全熱交換器の自動換気切換機能の有無|有/無|様式2-7：⑱自動換気切換機能の有無|
+stem:[EquipmentName_{AC,ahu,i}]|空調機群iの名称|-|様式2-7：①空調機群名称|
+stem:[N_{AC,ahu,i,j}]|空調機群iに属する送風機jの台数|台|様式2-7：②台数|
+stem:[TotalHeatExchanger_{AC,ahu,i,j}]|空調機群iに属する送風機jの全熱交換器の有無|有/無|様式2-7：⑮全熱交換器の有無|
+stem:[V_{AC,ahu,aex,i,j}]|空調機群iに属する送風機jの全熱交換器の設計風量|m^3^/(h・台)|様式2-7：⑯全熱交換器の設計風量|
+stem:[\eta_{ahu,aex,i,j}]|空調機群iに属する送風機jの全熱交換器の全熱交換効率|%|様式2-7：⑯全熱交換効率|
+stem:[AutoChangeCtrl_{ahu,aex,i,j}]|空調機群iに属する送風機jの全熱交換器の自動換気切換機能の有無|有/無|様式2-7：⑱自動換気切換機能の有無|
 stem:[V_{AC,room,oa,i,r}]|空調機群iに属する室rの新鮮外気導入量|m^3^/(h・m^2^)|2.3.5|
 stem:[T_{AC,ahu,i,d}]|日付dの空調機群iの運転時間|時間/日|2.5.2|
 stem:[H_{AC,oa,d,alltime}]|日付dにおける外気エンタルピー|kJ/kg|2.2.4|
@@ -1678,14 +1680,14 @@ stem:[q_{AC,ahu,oa,i,d}]|日付dにおける空調機群iの外気負荷|kW|2.5.
 <<<<
 
 まず、空調機群iの外気導入量 stem:[V_{AC,ahu,oa,i}] を算出する。
-空調機群iが空調する全ての室の外気導入量 stem:[V_{AC,room,oa,r}] の積算値を
+空調機群iが空調する全ての室の外気導入量 stem:[V_{AC,room,oa,i,r}] の積算値を
 空調機群iの外気導入量 stem:[V_{AC,ahu,oa,i}] とする。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 V_{AC,ahu,oa,i} = 
-\sum_{r=1} (V_{AC,room,oa,i,r} \times A_{room,i,r})
+\sum_{r} (V_{AC,room,oa,i,r} \times A_{room,i,r})
 \times
 \frac{1.293}{3600} 
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -1695,8 +1697,7 @@ V_{AC,ahu,oa,i} =
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-V_{AC,ahu,aex,i} = 
-V_{AC,ahu,aex,i,unit} \times N_{AC,ahu,aex,i}
+V_{AC,ahu,aex,i} = \sum_{j} ( V_{AC,ahu,aex,i,j} \times N_{AC,ahu,i,j} )
 \times
 \frac{1.293}{3600} 
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -1729,20 +1730,36 @@ H_{AC,oa,d,nighttime} &,(\mbox{夜間運転})
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
-
-空調機群iが室負荷のみ処理するか否か stem:[OnlyRoomLoad_{AC,ahu,i}] は、空調機群iの名称が空調機群iに属する室rの外気負荷処理用の空調機群名称 stem:[EquipmentName_{AC,ahu,oa,i,r}] に1つでも一致すれば偽、それ以外を真とする。
+空調機群iが室負荷のみ処理するかを表す stem:[OnlyRoomLoad_{AC,ahu,i}] は、
+空調機群iの名称が空調機群iに属する室rの外気負荷処理用の空調機群名称 stem:[EquipmentName_{AC,ahu,oa,i,r}] に1つでも一致すれば偽、それ以外を真とする。
 
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 OnlyRoomLoad_{AC,ahu,i} = \begin{cases}
-{\rm False} & ,(EquipmentName_{AC,ahu,oa,i,r} = \mbox{空調機群i名称}) \\
+{\rm False} & ,(EquipmentName_{AC,ahu,oa,i,r} = EquipmentName_{AC,ahu,i}) \\
 {\rm True} & ,(\mbox{それ以外})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
 <<<<
+空調機群iの全熱交換器の自動換気切換機能が有効であるかを表す stem:[AutoChangeCtrl_{ahu,aex,i}] は、
+空調機群iに属する送風機jの全熱交換器のうち1つでも自動換気切換機能が有効であれば有、それ以外の場合は無とする。
+====
+a) 自動換気切換機能が有効である全熱交換器（ stem:[AutoChangeCtrl_{ahu,aex,i,j} = \mbox{有}] ）が1つ以上ある場合
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+AutoChangeCtrl_{ahu,aex,i} = \mbox{有}
+++++++++++++++++++++++++++++++++++++++++++++
+
+b) それ以外の場合
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+AutoChangeCtrl_{ahu,aex,i} = \mbox{無}
+++++++++++++++++++++++++++++++++++++++++++++
+====
+
 日付dにおける空調機群iの外気負荷 stem:[q_{AC,ahu,oa,i,d}] は次式により算出する。
 外気負荷を算出する際に、各空調機群に全熱交換器がある場合の負荷削減効果を見込むが、
 全熱交換器に自動換気切換機能が採用されているかどうかで算出方法が異なる。
@@ -1810,10 +1827,28 @@ stem:[C_{bal}] は給気量と排気量のバランスに関する係数であ�
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-\eta'_{ahu,aex,i} = \frac{\eta_{ahu,aex,i}}{100} \times C_{tol} \times C_{eff} \times C_{bal} \\
+\eta'_{ahu,aex,i} = \begin{cases}
+\frac{\eta_{ahu,aex,i}}{100} \times C_{tol} \times C_{eff} \times C_{bal} & ,(\eta_{ahu,aex,i} > 0) \\
+0 & ,(\eta_{ahu,aex,i} = 0)
+\end{cases} \\
 C_{tol} = 0.95  \\
 C_{eff} = 1-(\frac{1}{0.85}-1) \times \frac{1-\frac{\eta_{ahu,aex,i}}{100}}{\frac{\eta_{ahu,aex,i}}{100}} \\
 C_{bal} = 0.67
+++++++++++++++++++++++++++++++++++++++++++++
+====
+
+式中の stem:[\eta_{ahu,aex,i}] [%]は、補正前の空調機群iに属する全熱交換器の全熱交換効率であり、
+空調機群iに属する送風機jの全熱交換器のうち最も悪い全熱交換効率を採用する。
+====
+a) 全熱交換器がある（ stem:[TotalHeatExchanger_{AC,ahu,i,j} = \mbox{有}] ）送風機が1つ以上ある場合
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+\eta_{ahu,aex,i} = \min \{ \eta_{ahu,aex,i,j} \mid TotalHeatExchanger_{AC,ahu,i,j} = \mbox{有} \}
+++++++++++++++++++++++++++++++++++++++++++++
+b) それ以外の場合
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+\eta_{ahu,aex,i} = 0
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -1838,8 +1873,8 @@ stem:[C_{bal}] は建築設備設計基準(国土交通省大臣官房官庁営�
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[N_{AC,ahu,i}]|空調機群iに属する空調機の台数|台|様式2-7：②台数|
-stem:[V_{AC,ahu,oacool,i,max,unit}]|空調機群iに属する空調機1台あたりの設計最大外気風量|m^3^/(h・台)|様式2-7：⑥設計最大外気風量|
+stem:[N_{AC,ahu,i,j}]|空調機群iに属する空調機jの台数|台|様式2-7：②台数|
+stem:[V_{AC,ahu,oacool,i,j,max,unit}]|空調機群iに属する空調機jの1台あたりの設計最大外気風量|m^3^/(h・台)|様式2-7：⑥設計最大外気風量|
 stem:[OACoolingCtrl_{AC,ahu,i}]|外気冷房制御の有無|有/無|様式2-7：⑭外気冷房制御の有無|
 stem:[T_{AC,ahu,c,i,d}]|空調機群iの日付dにおける空調（冷房）の運転時間数|時間/日|2.5.2|
 stem:[Q_{AC,ahu,room,c,i,d}]|空調機群iの日付dにおける日積算室負荷（冷房）|MJ/日|2.5.1|
@@ -1860,8 +1895,8 @@ stem:[Q_{AC,ahu,oacool,i,d}]|日付dにおける空調機群iの外気冷房制�
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-V_{AC,ahu,oacool,max,i} = 
-V_{AC,ahu,oacool,max,i,unit} \times N_{AC,ahu,i}
+V_{AC,ahu,oacool,max,i} =
+\sum ( V_{AC,ahu,oacool,max,i,j,unit} \times N_{AC,ahu,i,j} )
 \times
 \frac{1.293}{3600} 
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -2429,22 +2464,22 @@ Q_{AC,ahu,heat,h,i,d}=0
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[E_{AC,ahu,aex,R,i}]|空調機群iに属する全熱交換器ローターの定格消費電力|kW/台|様式2-7：⑲ローター消費電力|
-stem:[N_{AC,ahu,aex,i}]|空調機群iに属する全熱交換器の台数|台|様式2-7：②台数|
+stem:[E_{AC,ahu,aex,R,i,j}]|空調機群iに属する送風機jの全熱交換器ローターの定格消費電力|kW/台|様式2-7：⑲ローター消費電力|
+stem:[N_{AC,ahu,i,j}]|空調機群iに属する空調機jの台数|台|様式2-7：②台数|
 |=================================
 
 .出力
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照元|
-stem:[E_{AC,ahu,aex,i,d}]|日付dにおける空調機群iに属する全熱交換器ローターの消費電力|kW|2.5.12|
+stem:[E_{AC,ahu,aex,i,d}]|空調機群iに属する全熱交換器ローターの消費電力|kW|2.5.12|
 |=================================
 
 空調機群iに属する全熱交換器の消費電力 stem:[E_{AC,ahu,aex,i,d}] は次式により算出する。
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-E_{AC,ahu,aex,i,d} = E_{AC,ahu,aex,R,i} \times N_{AC,ahu,aex,i}
+E_{AC,ahu,aex,i,d} = \sum_{j} ( E_{AC,ahu,aex,R,i,j} \times N_{AC,ahu,i,j} )
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -2461,7 +2496,7 @@ E_{AC,ahu,aex,i,d} = E_{AC,ahu,aex,R,i} \times N_{AC,ahu,aex,i}
 |変数名|説明|単位|参照先|
 stem:[E_{AC,ahu,c,i,d}]|日付dにおける空調機群iに属する送風機の冷房運転時の消費電力|kW|2.5.9|
 stem:[E_{AC,ahu,h,i,d}]|日付dにおける空調機群iに属する送風機の暖房運転時の消費電力|kW|2.5.9|
-stem:[E_{AC,ahu,aex,i,d}]|日付dにおける空調機群iに属する全熱交換器の消費電力|kW|2.5.11|
+stem:[E_{AC,ahu,aex,i,d}]|空調機群iに属する全熱交換器の消費電力|kW|2.5.11|
 stem:[T_{AC,ahu,c,i,d}]|空調機群iの日付dにおける空調（冷房）の運転時間数|時間/日|2.5.2|
 stem:[T_{AC,ahu,h,i,d}]|空調機群iの日付dにおける空調（暖房）の運転時間数|時間/日|2.5.2|
 stem:[T_{AC,ahu,aex,i,d}]|空調機群iの日付dにおける全熱交換器の運転時間数|時間/日|2.5.2|

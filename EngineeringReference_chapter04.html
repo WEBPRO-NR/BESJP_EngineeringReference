@@ -720,16 +720,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3">
 <h4 id="_4_1_4_入出力"><a class="link" href="#_4_1_4_入出力">4.1.4 入出力</a></h4>
 <div class="paragraph">
-<p>　本章全体における入力、出力は下表の通りである。</p>
+<p>本章全体における入力、出力は下表の通りである。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 2. 入力</caption>
 <colgroup>
-<col style="width: 11.7647%;">
-<col style="width: 29.4117%;">
-<col style="width: 11.7647%;">
-<col style="width: 23.5294%;">
-<col style="width: 23.5295%;">
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 30.7693%;">
 </colgroup>
 <thead>
 <tr>
@@ -737,7 +736,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <th class="tableblock halign-left valign-top">説明</th>
 <th class="tableblock halign-left valign-top">単位</th>
 <th class="tableblock halign-left valign-top">入力シート</th>
-<th class="tableblock halign-left valign-top">XML要素</th>
 </tr>
 </thead>
 <tbody>
@@ -746,91 +744,78 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの建物用途、室用途</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ①建物用途、①室用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素にあるBuildingType、RoomType</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(H_{r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの器具高さ（天井高）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ①天井高</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素のRoomHeight</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの間口寸法</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ②室の間口</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素のWidth</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの奥行寸法</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ③室の奥行</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素のDepth</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(K_{L,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの室指数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ④室指数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素のRoomIndex</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの一台あたりの消費電力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">W/台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑥定格消費電力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のPower</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{L,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの設置台数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑦台数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のCount</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC1,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">選択</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑧在室検知制御</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のOccupantSensing</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC2,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">選択</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑨明るさ検知制御</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のIlluminanceSensing</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC3,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">選択</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑩タイムスケジュール制御</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のTimeSchedule</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{LC4,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の方式</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">選択</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式4 ⑪初期照度補正機能</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingUnit要素のInitialIlluminationCorrection</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{room}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">建築物全体における照明計算対象室の数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素の個数</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{L,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rに設置される照明器具の種類の数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LightingRoom要素にあるLightingUnit要素の個数</p></td>
 </tr>
 </tbody>
 </table>
@@ -1038,8 +1023,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{L,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの制御等の方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -1047,7 +1032,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[F_{L,r,i} = F_{LC1,r,i} × F_{LC2,r,i} × F_{LC3,r,i} × F_{LC4,r,i}\]
+\[F_{L,r,i} = F_{LC1,r,i} \times F_{LC2,r,i} \times F_{LC3,r,i} \times F_{LC4,r,i}\]
 </div>
 </div>
 </div>
@@ -1594,7 +1579,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[K_{L,r} = \frac { L_{r} × D_{r} }{ H_{r} × (L_{r} + D_{r}) }\]
+\[K_{L,r} = \frac { L_{r} \times D_{r} }{ H_{r} \times (L_{r} + D_{r}) }\]
 </div>
 </div>
 </div>
@@ -2032,7 +2017,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-01 13:13:09 +0900
+Last updated 2020-04-03 23:17:26 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

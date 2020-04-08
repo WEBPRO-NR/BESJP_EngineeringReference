@@ -1663,7 +1663,7 @@ stem:[T_{AC,ahu,i,d}]|日付dの空調機群iの運転時間|時間/日|2.5.2|
 stem:[H_{AC,oa,d,alltime}]|日付dにおける外気エンタルピー|kJ/kg|2.2.4|
 stem:[H_{AC,oa,d,daytime}]|日付dの昼間における外気エンタルピー|kJ/kg|2.2.4|
 stem:[H_{AC,oa,d,nighttime}]|日付dの夜間における外気エンタルピー|kJ/kg|2.2.4|
-stem:[H_{AC,room,r,d}]|日付dにおける室rの空調時の室内空気エンタルピー|kJ/kg|2.3.2|
+stem:[H_{AC,room,d}]|日付dにおける空調時の室内空気エンタルピー|kJ/kg|2.3.2|
 stem:[Season_{d}]|日付dの冷暖房期間（冷房期、中間期、暖房期）|-|2.2.2|
 stem:[OperatingTime_{AC,room,r}]|室rの空調機の稼働時間帯（終日、昼、夜）|-|2.3.3|
 |=================================
@@ -1726,7 +1726,7 @@ H_{AC,oa,d,nighttime} &,(\mbox{夜間運転})
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-\Delta H_{AC,oa,d} = H_{AC,oa,d} - H_{AC,room,r,d}
+\Delta H_{AC,oa,d} = H_{AC,oa,d} - H_{AC,room,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 

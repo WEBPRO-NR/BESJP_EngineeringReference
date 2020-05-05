@@ -453,17 +453,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_4_1_4_入出力">4.1.4 入出力</a></li>
 </ul>
 </li>
-<li><a href="#_4_2_照明設備の年間一次エネルギー消費量">4.2 照明設備の年間一次エネルギー消費量</a></li>
-<li><a href="#_4_3_制御等の方式に応じて定められる係数">4.3 制御等の方式に応じて定められる係数</a>
+<li><a href="#_4_2_制御等の方式に応じて定められる係数">4.2 制御等の方式に応じて定められる係数</a>
 <ul class="sectlevel3">
-<li><a href="#_4_3_1_在室検知制御の方式によって決まる係数">4.3.1 在室検知制御の方式によって決まる係数</a></li>
-<li><a href="#_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更">4.3.2 明るさ検知制御の方式によって決まる係数【Ver.2.4から変更】</a></li>
-<li><a href="#_4_3_3_タイムスケジュール制御の方式によって決まる係数">4.3.3 タイムスケジュール制御の方式によって決まる係数</a></li>
-<li><a href="#_4_3_4_初期照度補正機能の有無によって決まる係数">4.3.4 初期照度補正機能の有無によって決まる係数</a></li>
+<li><a href="#_4_2_1_在室検知制御の方式によって決まる係数">4.2.1 在室検知制御の方式によって決まる係数</a></li>
+<li><a href="#_4_2_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更">4.2.2 明るさ検知制御の方式によって決まる係数【Ver.2.4から変更】</a></li>
+<li><a href="#_4_2_3_タイムスケジュール制御の方式によって決まる係数">4.2.3 タイムスケジュール制御の方式によって決まる係数</a></li>
+<li><a href="#_4_2_4_初期照度補正機能の有無によって決まる係数">4.2.4 初期照度補正機能の有無によって決まる係数</a></li>
 </ul>
 </li>
-<li><a href="#_4_4_室の形状に応じて定められる係数">4.4 室の形状に応じて定められる係数</a></li>
-<li><a href="#_4_5_照明点灯時間">4.5 照明点灯時間</a></li>
+<li><a href="#_4_3_室の形状に応じて定められる係数">4.3 室の形状に応じて定められる係数</a></li>
+<li><a href="#_4_4_照明点灯時間">4.4 照明点灯時間</a></li>
+<li><a href="#_4_5_室毎の照明設備の電力消費量">4.5 室毎の照明設備の電力消費量</a></li>
+<li><a href="#_4_6_照明設備の年間一次エネルギー消費量">4.6 照明設備の年間一次エネルギー消費量</a></li>
 <li><a href="#_附属書c照明">附属書C（照明）</a>
 <ul class="sectlevel3">
 <li><a href="#_c_1_室の形状に応じて定められる係数の設定根拠">C.1 室の形状に応じて定められる係数の設定根拠</a></li>
@@ -845,9 +846,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_4_2_照明設備の年間一次エネルギー消費量"><a class="link" href="#_4_2_照明設備の年間一次エネルギー消費量">4.2 照明設備の年間一次エネルギー消費量</a></h3>
+<h3 id="_4_2_制御等の方式に応じて定められる係数"><a class="link" href="#_4_2_制御等の方式に応じて定められる係数">4.2 制御等の方式に応じて定められる係数</a></h3>
 <div class="paragraph">
-<p>照明設備の年間一次エネルギー消費量 \(E_{L}\) [MJ/年]を算出する。</p>
+<p>制御等の方式に応じて定められる係数 \(F_{L,r,i}\)を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 4. 入力</caption>
@@ -867,46 +868,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの一台あたりの消費電力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">W/台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{L,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの設置台数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{room}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">建築物全体における照明計算対象室の数</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{L,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rに設置される照明器具の種類の数</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{L,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの制御等の方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC1,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2.1</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{L,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rの形状によって定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC2,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{L,r}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rの照明設備の年間点灯時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC3,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2.3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC4,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の有無によって定まる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2.4</p></td>
 </tr>
 </tbody>
 </table>
@@ -928,103 +911,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">照明設備の一次エネルギー消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">出力</p></td>
-</tr>
-</tbody>
-</table>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[E_{L} = \sum_{r=1}^{N_{room}} ( \sum_{i=1}^{N_{L,r}}(E_{L,r,i}×n_{L,r,i}×F_{L,r,i}) × C_{L,r} × T_{L,r} ) × f_{prim,e} × 10^{-6}\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>照明器具の消費電力 \(E_{L,r,i}\)［W］は、室rに設置される照明器具iの1台あたりの消費電力であり、安定器を必要とする照明器具はその損失を含んだ値であるとする。<br>
-申請時点において、照明器具の消費電力が不明である場合は、一般社団法人照明器具工業会のガイド114の最新版を参照して値を決定することも可能である。</p>
-</div>
-<div class="paragraph">
-<p>照明設備の年間運転時間\(T_{L,r}\)[時間] には、当該照明設備が設置される室rの建物用途・室用途によって定まる標準室使用条件における年間照明点灯時間を用いる。<br>
-照明設備の制御の方式に応じて定められる係数 \(F_{L,r,i}\)［－］は、照明器具iに対して各種自動制御（自動的に行えるもののみを対象とする）を導入した場合のエネルギー削減係数である。係数 \(F_{L,r,i}\) の算出方法は次の「4.3 制御等の方式に応じて定められる係数」で規定される。<br>
-照明設備が設置される室rの形状によって定められる係数\(C_{L,r}\)［－］は、照明対象室の室指数による補正係数である。係数 \(C_{L,r}\) の算出方法は次の「4.4 室の形状に応じて定められる係数」で規定される。</p>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-<div class="sect2">
-<h3 id="_4_3_制御等の方式に応じて定められる係数"><a class="link" href="#_4_3_制御等の方式に応じて定められる係数">4.3 制御等の方式に応じて定められる係数</a></h3>
-<div class="paragraph">
-<p>制御等の方式に応じて定められる係数 \(F_{L,r,i}\)を算出する。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 入力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照先</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC1,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式によって定まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC2,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式によって定まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC3,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式によって定まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC4,r,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の有無によって定まる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3.4</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 出力</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">変数名</th>
-<th class="tableblock halign-left valign-top">説明</th>
-<th class="tableblock halign-left valign-top">単位</th>
-<th class="tableblock halign-left valign-top">参照元</th>
-</tr>
-</thead>
-<tbody>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{L,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの制御等の方法に応じて定められる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.5</p></td>
 </tr>
 </tbody>
 </table>
@@ -1050,9 +940,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div style="page-break-after: always;"></div>
 <div class="sect3">
-<h4 id="_4_3_1_在室検知制御の方式によって決まる係数"><a class="link" href="#_4_3_1_在室検知制御の方式によって決まる係数">4.3.1 在室検知制御の方式によって決まる係数</a></h4>
+<h4 id="_4_2_1_在室検知制御の方式によって決まる係数"><a class="link" href="#_4_2_1_在室検知制御の方式によって決まる係数">4.2.1 在室検知制御の方式によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 8. 入力</caption>
+<caption class="title">表 6. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1077,7 +967,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 9. 出力</caption>
+<caption class="title">表 7. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1097,15 +987,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC1,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの在室検知制御の方式によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 10</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
+<p>　在室検知制御とは、人の在・不在を検知するセンサ等からの制御信号等に基づき照明器具を点滅・減光させる制御のことをいう。係数 \(F_{LC1,r,i} \) は、<a href="#Table441A">表 8</a>に示すとおり、採用する在室検知制御の方式によって定まる。</p>
 </div>
 <table id="Table441A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 10. 在室検知制御の方式による係数</caption>
+<caption class="title">表 8. 在室検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -1159,9 +1049,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
-<h4 id="_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更"><a class="link" href="#_4_3_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更">4.3.2 明るさ検知制御の方式によって決まる係数【Ver.2.4から変更】</a></h4>
+<h4 id="_4_2_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更"><a class="link" href="#_4_2_2_明るさ検知制御の方式によって決まる係数ver_2_4から変更">4.2.2 明るさ検知制御の方式によって決まる係数【Ver.2.4から変更】</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 11. 入力</caption>
+<caption class="title">表 9. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1186,7 +1076,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 12. 出力</caption>
+<caption class="title">表 10. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1206,15 +1096,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC2,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの明るさ検知制御の方式によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 13</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>明るさ検知制御とは、センサ等で検知した昼光を含む実際の明るさと設定した明るさとの比較に基づき、照明器具を調光・点滅させる制御をいう。係数 \(F_{LC2,r,i}\) は、<a href="#Table442A">表 11</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table442A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 13. 明るさ検知制御の方式による係数</caption>
+<caption class="title">表 11. 明るさ検知制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -1298,9 +1188,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
-<h4 id="_4_3_3_タイムスケジュール制御の方式によって決まる係数"><a class="link" href="#_4_3_3_タイムスケジュール制御の方式によって決まる係数">4.3.3 タイムスケジュール制御の方式によって決まる係数</a></h4>
+<h4 id="_4_2_3_タイムスケジュール制御の方式によって決まる係数"><a class="link" href="#_4_2_3_タイムスケジュール制御の方式によって決まる係数">4.2.3 タイムスケジュール制御の方式によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 14. 入力</caption>
+<caption class="title">表 12. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1325,7 +1215,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 15. 出力</caption>
+<caption class="title">表 13. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1345,15 +1235,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC3,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iのタイムスケジュール制御の方式によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 16</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
+<p>タイムスケジュール制御とは、予め設定された時間に応じて照明器具を点滅・減光する制御をいう。係数 \(F_{LC3,r,i}\)は、<a href="#Table443A">表 14</a>に示すとおり、採用する明るさ検知制御の方式によって定まる。</p>
 </div>
 <table id="Table443A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 16. タイムスケジュール制御の方式による係数</caption>
+<caption class="title">表 14. タイムスケジュール制御の方式による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -1393,9 +1283,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
-<h4 id="_4_3_4_初期照度補正機能の有無によって決まる係数"><a class="link" href="#_4_3_4_初期照度補正機能の有無によって決まる係数">4.3.4 初期照度補正機能の有無によって決まる係数</a></h4>
+<h4 id="_4_2_4_初期照度補正機能の有無によって決まる係数"><a class="link" href="#_4_2_4_初期照度補正機能の有無によって決まる係数">4.2.4 初期照度補正機能の有無によって決まる係数</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 17. 入力</caption>
+<caption class="title">表 15. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1420,7 +1310,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 18. 出力</caption>
+<caption class="title">表 16. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1440,15 +1330,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{LC4,r,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの初期照度補正機能の有無によって定まる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 19</a>に示すとおり、機能の有無によって係数 は定まる。</p>
+<p>初期照度補正制御とは、定格光束に保守率を乗じた光束で点灯を開始し、保守の期間ほぼ一定の光束を保つ機能をいう。なお機能の実装においては、点灯時間を記憶する器具内蔵タイマを用いるもの、あるいは明るさセンサ等による調光信号を用いるもののどちらかとする。<a href="#Table444A">表 17</a>に示すとおり、機能の有無によって係数 は定まる。</p>
 </div>
 <table id="Table444A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 19. 初期照度補正機能の有無による係数</caption>
+<caption class="title">表 17. 初期照度補正機能の有無による係数</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 62.5%;">
@@ -1499,12 +1389,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_4_4_室の形状に応じて定められる係数"><a class="link" href="#_4_4_室の形状に応じて定められる係数">4.4 室の形状に応じて定められる係数</a></h3>
+<h3 id="_4_3_室の形状に応じて定められる係数"><a class="link" href="#_4_3_室の形状に応じて定められる係数">4.3 室の形状に応じて定められる係数</a></h3>
 <div class="paragraph">
 <p>室の形状によって定められる係数 \(C_{L,r}\)[-]は、室rの室指数 \(K_{L,r}\)[-]によって定める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 20. 入力</caption>
+<caption class="title">表 18. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1547,7 +1437,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 21. 出力</caption>
+<caption class="title">表 19. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1567,7 +1457,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{L,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの形状によって定められる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.5</p></td>
 </tr>
 </tbody>
 </table>
@@ -1585,10 +1475,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph">
-<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 22</a>にて規定される。</p>
+<p>係数 \(C_{L,r}\)[-]は、室指数 \(K_{L,r}\)[-]の値により<a href="#Table34A">表 20</a>にて規定される。</p>
 </div>
 <table id="Table34A" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 22. 室の形状によって定められる係数</caption>
+<caption class="title">表 20. 室の形状によって定められる係数</caption>
 <colgroup>
 <col style="width: 7.6923%;">
 <col style="width: 15.3846%;">
@@ -1633,12 +1523,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_4_5_照明点灯時間"><a class="link" href="#_4_5_照明点灯時間">4.5 照明点灯時間</a></h3>
+<h3 id="_4_4_照明点灯時間"><a class="link" href="#_4_4_照明点灯時間">4.4 照明点灯時間</a></h3>
 <div class="paragraph">
 <p>室rの照明点灯時間 \(T_{L,r}\) を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 23. 入力</caption>
+<caption class="title">表 21. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1663,7 +1553,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 24. 出力</caption>
+<caption class="title">表 22. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1683,12 +1573,177 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{L,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室rの照明設備の年間点灯時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.5</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
 <p>\(T_{L,r}\) は 室ｒの建物用途・室用途に応じて、標準室使用条件にて定められている。</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_4_5_室毎の照明設備の電力消費量"><a class="link" href="#_4_5_室毎の照明設備の電力消費量">4.5 室毎の照明設備の電力消費量</a></h3>
+<div class="paragraph">
+<p>室毎の照明設備の電力消費量 \(E_{L,r}\) [Wh/年]を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 23. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの一台あたりの消費電力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">W/台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(n_{L,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの設置台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(F_{L,r,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rにある照明器具iの制御等の方法に応じて定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの形状によって定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの照明設備の年間点灯時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.4</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 24. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの照明設備の電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/年</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.6</p></td>
+</tr>
+</tbody>
+</table>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[E_{L,r} = \sum_{i=1}(E_{L,r,i} \times n_{L,r,i} \times F_{L,r,i}) \times C_{L,r} \times T_{L,r}\]
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>照明器具の消費電力 \(E_{L,r,i}\)［W］は、室rに設置される照明器具iの1台あたりの消費電力であり、安定器を必要とする照明器具はその損失を含んだ値であるとする。<br>
+申請時点において、照明器具の消費電力が不明である場合は、一般社団法人照明器具工業会のガイド114の最新版を参照して値を決定することも可能である。</p>
+</div>
+<div class="paragraph">
+<p>照明設備の年間運転時間\(T_{L,r}\)[時間] には、当該照明設備が設置される室rの建物用途・室用途によって定まる標準室使用条件における年間照明点灯時間を用いる。<br>
+照明設備の制御の方式に応じて定められる係数 \(F_{L,r,i}\)［－］は、照明器具iに対して各種自動制御（自動的に行えるもののみを対象とする）を導入した場合のエネルギー削減係数である。係数 \(F_{L,r,i}\) の算出方法は次の「4.3 制御等の方式に応じて定められる係数」で規定される。<br>
+照明設備が設置される室rの形状によって定められる係数\(C_{L,r}\)［－］は、照明対象室の室指数による補正係数である。係数 \(C_{L,r}\) の算出方法は次の「4.3 室の形状に応じて定められる係数」で規定される。</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_4_6_照明設備の年間一次エネルギー消費量"><a class="link" href="#_4_6_照明設備の年間一次エネルギー消費量">4.6 照明設備の年間一次エネルギー消費量</a></h3>
+<div class="paragraph">
+<p>照明設備の年間一次エネルギー消費量 \(E_{L}\) [MJ/年]を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 25. 入力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室rの照明設備の電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/年</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.5</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 26. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{L}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">照明設備の一次エネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">出力</p></td>
+</tr>
+</tbody>
+</table>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[E_{L} = \sum_{r=1} E_{L,r} \times f_{prim,e} \times 10^{-6}\]
+</div>
+</div>
+</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1734,10 +1789,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 　建築物の廊下など、主として視作業を伴わない執務者等の移動のための室において、人感センサ等により在室していると判断される箇所の照明設備を、急激な明るさの変化による光環境の質的な低下が生じないよう、在室時には100%点灯、それ以外の場合に調光により減光することでエネルギー消費削減を図る制御の方式である。国土交通省による建築基準整備促進事業の実態調査における廊下及び階段におけるOn-Off制御の場合の削減率のデータ等より推定し、減光の場合においても20%程度の削減が見込まれることからエネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table441B">表 25</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table441B">表 27</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table441B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 25. 在室検知制御の各方式の判断条件</caption>
+<caption class="title">表 27. 在室検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 21.4285%;">
@@ -1820,10 +1875,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 　平成21年基準のCEC/Lにおける評価法と同様に、20%のエネルギー削減効果があると想定し、エネルギー削減係数は0.80とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table442B">表 26</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table442B">表 28</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table442B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 26. 明るさ検知制御の各方式の判断条件</caption>
+<caption class="title">表 28. 明るさ検知制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 21.4285%;">
@@ -1901,10 +1956,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 　建築物の照明設備に要求される照度レベルが、事務所ビルの始業前や昼休みと残業時間のように、時刻で異なる場合に、あらかじめ設定された時刻に消灯する照明制御システムである。建築基準整備促進事業の実態調査における消灯による削減率のデータ等より10%程度の削減率が見込まれることから、エネルギー削減係数は0.90とした。<br></p>
 </div>
 <div class="paragraph">
-<p>どの方式に属するかについては、<a href="#Table443B">表 27</a>に示すハードウェア等の条件によるものとする。</p>
+<p>どの方式に属するかについては、<a href="#Table443B">表 29</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table443B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 27. タイムスケジュール制御の各方式の判断条件</caption>
+<caption class="title">表 29. タイムスケジュール制御の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 16.6666%;">
@@ -1954,10 +2009,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>　明るさセンサ・タイマーを利用した点灯時間による光源の光束低下を見込んだ調光制御であり、建築物の完成直後あるいはランプ交換及び器具清掃初期の過剰照度を抑制（初期照度を補正）し、消費電力量の低減を図るものである。初期照度補正制御は、平成21年基準のCEC/Lにおいては「適正照度制御」と表されている。平成5年に照明設備が省エネ法の規制対象に追加されたときに、「初期照度補正制御」の用語で提案されたが、法律用語に馴染まないとして「適正照度制御」となったいきさつがあるが、本基準では、後述するカテゴリ（f）明るさセンサ等による照度調整調光制御との違いを明確にするため、制御の内容をより適切に示す当初の「初期照度補正制御」とした。<br>
 　経年による光束量の低下を考慮した初期照度の補正の既存の予測カーブより、初期照度補正制御のエネルギー削減係数は、平成21年基準のCEC/Lと同じ0.85とした。LEDの係数については、照明工業会技術仕様の設計例の保守率0.885を安全側に四捨五入して0.90と想定し、この条件下で係数を算出すると0.95とした。<br>
 なお、初期照度補正制御の方法には、天井面に明るさ検知センサを設置し、作業面の明るさを検出することにより調整する方法（明るさセンサを利用した方法）と、明るさの減衰予測カーブのデータをあらかじめ照明設備に記憶させて、点灯時間に応じてタイマにより明るさを変化させる方法（タイマを利用した方法）の2つがあり、両方とも評価対象とし、同じエネルギー削減係数を適用する。
-どの方式に属するかについては、<a href="#Table444B">表 28</a>に示すハードウェア等の条件によるものとする。</p>
+どの方式に属するかについては、<a href="#Table444B">表 30</a>に示すハードウェア等の条件によるものとする。</p>
 </div>
 <table id="Table444B" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 28. 初期照度補正機能の各方式の判断条件</caption>
+<caption class="title">表 30. 初期照度補正機能の各方式の判断条件</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -2017,7 +2072,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-03 23:17:26 +0900
+Last updated 2020-05-05 19:43:57 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

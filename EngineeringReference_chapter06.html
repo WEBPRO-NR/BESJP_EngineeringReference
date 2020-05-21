@@ -447,20 +447,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_6_1_はじめに">6.1 はじめに</a>
 <ul class="sectlevel3">
-<li><a href="#_6_1_1_用語の定義">6.1.1 用語の定義</a>
-<ul class="sectlevel4">
-<li><a href="#_6_1_1_1昇降機">6.1.1.1　昇降機</a></li>
-<li><a href="#_6_1_1_2昇降機系統">6.1.1.2　昇降機系統</a></li>
-<li><a href="#_6_1_1_3積載質量">6.1.1.3　積載質量</a></li>
-<li><a href="#_6_1_1_4定格速度">6.1.1.4　定格速度</a></li>
-<li><a href="#_6_1_1_5速度制御方式による補正係数">6.1.1.5　速度制御方式による補正係数</a></li>
+<li><a href="#_6_1_1_適用範囲">6.1.1 適用範囲</a></li>
+<li><a href="#_6_1_2_用語の定義">6.1.2 用語の定義</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#_6_2_昇降機の設計一次エネルギー消費量">6.2 昇降機の設計一次エネルギー消費量</a></li>
+<li><a href="#_6_2_速度制御方式に応じて定められる係数">6.2 速度制御方式に応じて定められる係数</a></li>
 <li><a href="#_6_3_昇降機系統に属する昇降機1台あたりの年間電力消費量">6.3 昇降機系統に属する昇降機1台あたりの年間電力消費量</a></li>
-<li><a href="#_6_4_速度制御方式に応じて定められる係数">6.4 速度制御方式に応じて定められる係数</a></li>
+<li><a href="#_6_4_昇降機の設計一次エネルギー消費量">6.4 昇降機の設計一次エネルギー消費量</a></li>
 </ul>
 </li>
 </ul>
@@ -486,44 +479,83 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_6_1_はじめに"><a class="link" href="#_6_1_はじめに">6.1 はじめに</a></h3>
 <div class="sect3">
-<h4 id="_6_1_1_用語の定義"><a class="link" href="#_6_1_1_用語の定義">6.1.1 用語の定義</a></h4>
-<div class="sect4">
-<h5 id="_6_1_1_1昇降機"><a class="link" href="#_6_1_1_1昇降機">6.1.1.1　昇降機</a></h5>
+<h4 id="_6_1_1_適用範囲"><a class="link" href="#_6_1_1_適用範囲">6.1.1 適用範囲</a></h4>
 <div class="paragraph">
-<p>　一定の昇降路、経路その他これに類する部分を介して、動力を用いて人または物を建築物のある階またはある部分から他の階または他の部分へ移動・運搬するための設備。</p>
+<p>計算の対象とする昇降機は次の通りである。</p>
 </div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>トラクションタイプのロープ式乗用エレベータ</p>
+<div class="ulist">
+<ul>
+<li>
+<p>人荷用エレベータ、非常用エレベータ、主動線にないエレベータも評価の対象とする。</p>
+</li>
+<li>
+<p>定員が定められているエレベータは原則として評価の対象とする。例えば、病院向けの寝台用エレベータは定員が定められるため、評価の対象とする。</p>
+</li>
+</ul>
 </div>
-<div class="sect4">
-<h5 id="_6_1_1_2昇降機系統"><a class="link" href="#_6_1_1_2昇降機系統">6.1.1.2　昇降機系統</a></h5>
+</li>
+</ol>
+</div>
 <div class="paragraph">
-<p>　一体として制御される昇降機群のことをいう。複数の昇降機で構成される場合もあれば、1台で系統が構成される場合もある。</p>
+<p>次に示す昇降機は対象とはしない。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>巻胴式、油圧式、リニアモーター式等の種々の駆動方式のエレベータ</p>
+</li>
+<li>
+<p>小荷物専用昇降機や荷物用エレベータ、自動車用エレベータ、共同住宅で見られる地上階と屋内の駐輪場置場をつなぐエレベータ(自転車等の運搬を目的としたエレベータ)など、荷物の運搬を目的とした昇降機</p>
+</li>
+<li>
+<p>工場等の生産エリアにおいて、物品の製造や運搬のために専用で利用する人荷用エレベータ(生 産に従事する作業員が生産物品を台車で上下階に運ぶために専用で利用するトラクションタイプ のロープ式エレベータ等)</p>
+</li>
+<li>
+<p>エスカレーター</p>
+</li>
+<li>
+<p>いす式階段昇降機、段差解消機</p>
+</li>
+</ol>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_6_1_1_3積載質量"><a class="link" href="#_6_1_1_3積載質量">6.1.1.3　積載質量</a></h5>
-<div class="paragraph">
-<p>　かごに乗り込む利用者及び搭載する荷物などの自重により生ずるかごの定格質量。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_6_1_1_4定格速度"><a class="link" href="#_6_1_1_4定格速度">6.1.1.4　定格速度</a></h5>
-<div class="paragraph">
-<p>　かごが上昇、下降するときの毎分の定格速度。</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_6_1_1_5速度制御方式による補正係数"><a class="link" href="#_6_1_1_5速度制御方式による補正係数">6.1.1.5　速度制御方式による補正係数</a></h5>
-<div class="paragraph">
-<p>　消費電力量を求めるための係数。消費電力は制御方式毎にエレベータの積載質量、速度、起動頻度に比例している。これらより各々の制御方式毎に導き出した換算係数。</p>
+<div class="sect3">
+<h4 id="_6_1_2_用語の定義"><a class="link" href="#_6_1_2_用語の定義">6.1.2 用語の定義</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>昇降機</strong><br>
+　一定の昇降路、経路その他これに類する部分を介して、動力を用いて人または物を建築物のある階またはある部分から他の階または他の部分へ移動・運搬するための設備。</p>
+</li>
+<li>
+<p><strong>昇降機系統</strong><br>
+　一体として制御される昇降機群のことをいう。複数の昇降機で構成される場合もあれば、1台で系統が構成される場合もある。</p>
+</li>
+<li>
+<p><strong>積載質量</strong><br>
+　かごに乗り込む利用者及び搭載する荷物などの自重により生ずるかごの定格質量。</p>
+</li>
+<li>
+<p><strong>定格速度</strong><br>
+　かごが上昇、下降するときの毎分の定格速度。</p>
+</li>
+<li>
+<p><strong>速度制御方式による補正係数</strong><br>
+　消費電力量を求めるための係数。消費電力は制御方式毎にエレベータの積載質量、速度、起動頻度に比例している。これらより各々の制御方式毎に導き出した換算係数。</p>
+</li>
+</ol>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="_6_2_昇降機の設計一次エネルギー消費量"><a class="link" href="#_6_2_昇降機の設計一次エネルギー消費量">6.2 昇降機の設計一次エネルギー消費量</a></h3>
+<h3 id="_6_2_速度制御方式に応じて定められる係数"><a class="link" href="#_6_2_速度制御方式に応じて定められる係数">6.2 速度制御方式に応じて定められる係数</a></h3>
 <div class="paragraph">
-<p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
+<p>昇降機の速度制御方式に応じて定められる効果係数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 1. 入力</caption>
@@ -543,16 +575,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機1台あたりの年間電力消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機の数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：③台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式の種類</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑦速度制御方式</p></td>
 </tr>
 </tbody>
 </table>
@@ -574,32 +600,60 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機の設計一次エネルギー消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式によって定められる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.3</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 3. 制御方式によって定められる係数</caption>
+<colgroup>
+<col style="width: 71.4285%;">
+<col style="width: 28.5715%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">速度制御方式の種類 \(CtrlType_{EV,i}\)</th>
+<th class="tableblock halign-left valign-top">係数の値 \(C_{EV,i}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">可変電圧可変周波数制御方式（電力回生ありかつギアレス巻上機）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1/50</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">可変電圧可変周波数制御方式（電力回生あり）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1/45</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">可変電圧可変周波数制御方式（電力回生なしかつギアレス巻上機）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1/45</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">可変電圧可変周波数制御方式（電力回生なし）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1/40</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">交流帰還制御方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1/20</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>また、
-\(f_{prim,e}\) は電気の量1キロワット時を熱量に換算する係数である。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[E_{EV} = \sum_{i=1} (E_{EV,i} \times N_{EV,i} ) \times f_{prim,e} \times 10^{-3}\]
-</div>
-</div>
-</div>
+<p>なお、速度制御方式の種類が指定されていない（入力シートの当該欄が空欄である）場合は「交流帰還制御方式」が選択されたものとする。</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_6_3_昇降機系統に属する昇降機1台あたりの年間電力消費量"><a class="link" href="#_6_3_昇降機系統に属する昇降機1台あたりの年間電力消費量">6.3 昇降機系統に属する昇降機1台あたりの年間電力消費量</a></h3>
+<div class="paragraph">
+<p>昇降機1台あたりの年間電力消費量を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 3. 入力</caption>
+<caption class="title">表 4. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -643,7 +697,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{EV,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式によって定められる係数</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{EV,i}\)</p></td>
@@ -654,7 +708,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 4. 出力</caption>
+<caption class="title">表 5. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -674,7 +728,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機1台あたりの年間電力消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kWh/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.4</p></td>
 </tr>
 </tbody>
 </table>
@@ -745,9 +799,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_6_4_速度制御方式に応じて定められる係数"><a class="link" href="#_6_4_速度制御方式に応じて定められる係数">6.4 速度制御方式に応じて定められる係数</a></h3>
+<h3 id="_6_4_昇降機の設計一次エネルギー消費量"><a class="link" href="#_6_4_昇降機の設計一次エネルギー消費量">6.4 昇降機の設計一次エネルギー消費量</a></h3>
+<div class="paragraph">
+<p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. 入力</caption>
+<caption class="title">表 6. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -764,15 +821,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式の種類</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑦速度制御方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機1台あたりの年間電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/年</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機の数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：③台数</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 出力</caption>
+<caption class="title">表 7. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -789,50 +852,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式によって定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機の設計一次エネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.3</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 制御方式によって定められる係数</caption>
-<colgroup>
-<col style="width: 71.4285%;">
-<col style="width: 28.5715%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">速度制御方式の種類 \(CtrlType_{EV,i}\)</th>
-<th class="tableblock halign-left valign-top">係数の値 \(C_{EV,i}\)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">可変電圧可変周波数制御方式（電力回生ありかつギアレス巻上機）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1/50</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">可変電圧可変周波数制御方式（電力回生あり）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1/45</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">可変電圧可変周波数制御方式（電力回生なしかつギアレス巻上機）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1/45</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">可変電圧可変周波数制御方式（電力回生なし）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1/40</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">交流帰還制御方式</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1/20</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>なお、速度制御方式の種類が指定されていない（入力シートの当該欄が空欄である）場合は「交流帰還制御方式」が選択されたものとする。</p>
+<p>また、
+\(f_{prim,e}\) は電気の量1キロワット時を熱量に換算する係数である。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[E_{EV} = \sum_{i=1} (E_{EV,i} \times N_{EV,i} ) \times f_{prim,e} \times 10^{-3}\]
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -840,7 +878,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-01 13:53:33 +0900
+Last updated 2020-05-21 17:54:27 +0900
 </div>
 </div>
 <script type="text/x-mathjax-config">

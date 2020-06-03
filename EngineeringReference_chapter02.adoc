@@ -3489,6 +3489,7 @@ stem:[\theta_{AC,ref,base,i,j,d}]|日付dにおける熱源群iに属する熱�
 日付dにおける熱源群iに属する熱源機器jの熱源水等の温度 stem:[\theta_{AC,ref,base,i,j,d}] は次式で算出する。
 
 熱源群iに属する熱源機器jの冷却モード stem:[CoolingType_{i,j}] は、熱源機種 stem:[RefType_{i,j}] 毎に規定されている。
+ただし、地中熱方式については、地中熱タイプ1〜5に該当する熱源機種は「クローズドループ」、地中熱タイプA〜Gに該当する熱源機種は「オープンループ」と判断することとする。
 
 <<<<
 
@@ -3511,20 +3512,41 @@ b) stem:[CoolingType_{i,j}] が 空冷式　の場合
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 
-c) stem:[CoolingType_{i,j}] が 地中熱方式　の場合
+c) stem:[CoolingType_{i,j}] が 地中熱方式（クローズドループ）　の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 \theta_{AC,ref,base,i,j,d} = \begin{cases}
-\theta_{AC,w,c,i,j,d}  & ,( CtrlMode_{AC,ref,i} = \mbox{冷熱源} ) \\
-\theta_{AC,w,h,i,j,d}  & ,( CtrlMode_{AC,ref,i} = \mbox{温熱源} )
+\theta_{AC,wc,c,i,j,d}  & ,( CtrlMode_{AC,ref,i} = \mbox{冷熱源} ) \\
+\theta_{AC,wc,h,i,j,d}  & ,( CtrlMode_{AC,ref,i} = \mbox{温熱源} )
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
-d) 上記以外の場合
+
+d) stem:[CoolingType_{i,j}] が 地中熱方式（オープンループ）　の場合
+[stem]
+++++++++++++++++++++++++++++++++++++++++++++
+\theta_{AC,ref,base,i,j,d} = \begin{cases}
+\theta_{AC,wo,c,i,j,d}  & ,( CtrlMode_{AC,ref,i} = \mbox{冷熱源} ) \\
+\theta_{AC,wo,h,i,j,d}  & ,( CtrlMode_{AC,ref,i} = \mbox{温熱源} )
+\end{cases}
+++++++++++++++++++++++++++++++++++++++++++++
+
+e) 上記以外の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 \theta_{AC,ref,base,i,j,d} = \theta_{AC,oa,i,j,d}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
+
+なお、任意評定制度により月別の熱源水温度が評定された場合は、任意の熱源水温度を読み込んで計算をすることができることとする。
+この場合、日付dが何月に属するかによって、熱源水温度 stem:[\theta_{AC,ref,base,i,j,d}]を決定する。
+各月の日数については、次の通りとする。
+
+.月別の日数
+[options="header" cols="12"]
+|=================================
+|1月|2月|3月|4月|5月|6月|7月|8月|9月|10月|11月|12月
+|31|28|31|30|31|30|31|31|30|31|30|31
+|=================================
 
 
 
@@ -3643,7 +3665,7 @@ stem:[a_{cw}] は冷却水温度変換係数であり、+3.0 とする。
 
 
 <<<<
-===== 2.7.4.4 地中熱交換器からの熱源水温度
+===== 2.7.4.4 地中熱交換器（クローズドループ）からの熱源水温度
 
 地中熱交換器のタイプに基づき、地盤からの冷却水還り温度を算出する。
 
@@ -3674,8 +3696,8 @@ stem:[R_{Q,i,d}]|日積算温熱生成量の年間最大値と、日積算冷熱
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[\theta_{AC,w,c,i,j,d}]|日付dにおける熱源群iに属する熱源機器jの冷房運転時の地中熱交換器からの日平均熱源水温度|	℃|2.7.4|
-stem:[\theta_{AC,w,h,i,j,d}]|日付dにおける熱源群iに属する熱源機器jの暖房運転時の地中熱交換器からの日平均熱源水温度|℃|2.7.4|
+stem:[\theta_{AC,wc,c,i,j,d}]|日付dにおける熱源群iに属する熱源機器jの冷房運転時の地中熱交換器からの日平均熱源水温度|	℃|2.7.4|
+stem:[\theta_{AC,wc,h,i,j,d}]|日付dにおける熱源群iに属する熱源機器jの暖房運転時の地中熱交換器からの日平均熱源水温度|℃|2.7.4|
 |=================================
 
 地中滅交換器のタイプに基づき、地盤からの冷却水還り温度 stem:[\theta_{AC,w,c,i,d}] 及び stem:[\theta_{AC,w,h,i,d}] を算出する。
@@ -3685,8 +3707,8 @@ stem:[\theta_{AC,w,h,i,j,d}]|日付dにおける熱源群iに属する熱源機�
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-\theta_{AC,w,h,i,j,d} = k_{h,i,j,d} \times (\theta_{AC,oa,d} - \theta_{AC,oa,h,ave} ) + (\theta_{AC,oa,ave} + \theta'_{w,h,i,j,d}) \\
-\theta_{AC,w,c,i,j,d} = k_{c,i,j,d} \times (\theta_{AC,oa,d} - \theta_{AC,oa,c,ave} ) + (\theta_{AC,oa,ave} + \theta'_{w,c,i,j,d})
+\theta_{AC,wc,h,i,j,d} = k_{h,i,j,d} \times (\theta_{AC,oa,d} - \theta_{AC,oa,h,ave} ) + (\theta_{AC,oa,ave} + \theta'_{wc,h,i,j,d}) \\
+\theta_{AC,wc,c,i,j,d} = k_{c,i,j,d} \times (\theta_{AC,oa,d} - \theta_{AC,oa,c,ave} ) + (\theta_{AC,oa,ave} + \theta'_{wc,c,i,j,d})
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
@@ -3695,8 +3717,8 @@ stem:[\theta_{AC,w,h,i,j,d}]|日付dにおける熱源群iに属する熱源機�
 ====
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-\theta'_{w,h,i,j,d} = a_{h,i,j} \times R_{Q,i,d} + b_{h,i,j} \\
-\theta'_{w,c,i,j,d} = a_{c,i,j} \times R_{Q,i,d} + b_{c,i,j}
+\theta'_{wc,h,i,j,d} = a_{h,i,j} \times R_{Q,i,d} + b_{h,i,j} \\
+\theta'_{wc,c,i,j,d} = a_{c,i,j} \times R_{Q,i,d} + b_{c,i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 ====
@@ -3777,6 +3799,13 @@ Q_{AC,ref,c,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d}) \\
 Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
+
+<<<<
+===== 2.7.4.5 地中熱交換器（オープンループ）からの熱源水温度
+
+
+
+
 
 
 

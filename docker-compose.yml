@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  asciidoctor:
+    image: asciidoctor/docker-asciidoctor:1.1.0
+    volumes:
+      - .:/documents
+    command: /bin/bash /documents/convert_adoc_to_html.sh

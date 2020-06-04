@@ -1,0 +1,4 @@
+*.adoc  text
+*.html  text
+*.yml   text
+*.sh    text eol=lf

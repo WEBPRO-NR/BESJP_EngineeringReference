@@ -40,3 +40,9 @@ https://webpro-nr.github.io/BESJP_EngineeringReference/index.html
 [3]:http://www.latex-cmd.com/
 [4]:https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
 
+## DockerによるAsciiDocの変換
+Dockerがインストールされていれば、以下のコマンドでAsciiDocファイルをHTMLに変換できます。
+
+```
+docker-compose run asciidoctor
+```

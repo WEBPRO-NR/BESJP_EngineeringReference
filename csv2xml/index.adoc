@@ -1,0 +1,43 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 3
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 5
+:sectlinks:
+:linkattrs:
+:icons: font
+// :source-highlighter: coderay
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+
+:docname: = 入力シートからXMLへの変換仕様
+:revdate: 2018/10/31
+:stem: latexmath
+
+
+= 入力シートからXMLへの変換仕様
+
+include::common.adoc[]
+include::basic_information.adoc[]
+include::room.adoc[]
+include::air_conditioning_zone.adoc[]
+include::wall_configuration.adoc[]
+include::window_configuration.adoc[]
+include::envelope.adoc[]
+include::heat_source.adoc[]
+include::secondary_pump.adoc[]
+include::air_handling_unit.adoc[]
+include::ventilation_room.adoc[]
+include::ventilation_fan.adoc[]
+include::ventilation_air_conditioner.adoc[]
+include::lighting.adoc[]
+include::hot_water_room.adoc[]
+include::hot_water_boiler.adoc[]
+include::elevator.adoc[]
+include::photovoltaic_generation.adoc[]
+include::cogeneration.adoc[]
+include::cogeneration_details.adoc[]
+include::non_ac_envelope.adoc[]

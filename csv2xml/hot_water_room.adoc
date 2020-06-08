@@ -1,0 +1,45 @@
+== 様式5-1. 給湯対象室入力シート
+
+①階および①室名が入力されている行を1つの給湯対象室の開始行とする。
+給湯対象室の2行目以降では、①階および①室名は入力されない。
+いずれかが入力されている場合、次の照明対象室の開始行とする。
+
+1行目（①階と①室名が入力されている行）に基づいて、Model/HotwaterSystems/HotwaterRoom要素に変換する。
+ただし、①室用途が「非主要室」の場合、HotwaterRoom要素に変換せず、代わりに<<MinorRoom>>に従いMinorRoom要素に変換する。
+
+.HotwaterRoom要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Floor |①階
+|Name |①室名
+|BuildingType |①建物用途 <<building-type>>に基づいて変換
+|RoomType |①室用途 <<building-type>>に基づいて変換
+|Area |①室面積
+|BoilerRef |給湯対象室の行に対して1つのBoilerRef要素
+|Info |⑤備考
+|===
+
+給湯対象室の行に対して1つのBoilerRef要素を以下の通り変換する。
+
+.BoilerRef要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Location |②給湯箇所
+|WaterSaving |③節湯器具を<<WaterSaving>>に基づいて変換
+|Name |④給湯機器名称
+|===
+
+.WaterSavingの変換
+[[WaterSaving]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|None |無
+|MixingTap |自動給湯栓
+|WaterSavingB1 |節湯B1
+|===

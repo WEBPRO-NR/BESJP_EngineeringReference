@@ -1,0 +1,44 @@
+== 様式3-1. 換気対象室入力シート
+
+①階、①室名、①建物用途、①室用途のいずれかが入力されている行を1つの換気対象室の開始行とする。
+換気対象室の2行目以降では、①階、①室名、①建物用途および①室用途は入力されない。
+いずれかが入力されている場合、次の換気対象室の開始行とする。
+
+1行目（換気対象室の開始行）に基づいて、Model/VentilationSystems/VentilationRoom要素に変換する。
+ただし、①室用途が「非主要室」の場合、VentilationRoom要素に変換せず、代わりに<<MinorRoom>>に従いMinorRoom要素に変換する。
+
+.VentilationRoom要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Floor |①階
+|Name |①室名
+|BuildingType |①建物用途
+|RoomType |①室用途
+|Area |①室面積
+|VentilationUnitRef |換気対象室の行に対して1つのVentilationUnitRef要素
+|===
+
+換気対象室の行に対して1つのVentilationUnitRef要素を以下の通り変換する。
+
+.VentilationUnitRef要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|UnitType |②換気種類を<<UnitType>>に基づいて変換
+|Name |③換気機器名称
+|===
+
+.UnitTypeの変換
+[[UnitType]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|SupplyFan |給気
+|ExhaustFan |排気
+|CirculationFan |循環
+|AC |空調
+|===

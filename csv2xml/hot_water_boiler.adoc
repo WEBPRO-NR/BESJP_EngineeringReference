@@ -1,0 +1,49 @@
+== 様式5-2. 給湯機器入力シート
+
+1行につきModel/HotwaterSystems/HotwaterBoiler要素1つに変換する。
+
+.HotwaterBoiler要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①給湯機器名称
+|FuelType |②燃料種類を<<FuelType>>に基づいて変換
+|Capacity |③定格加熱能力
+|Efficiency |④熱源効率(一次エネルギー換算)
+|Insulation |⑤配管保温仕様を<<Insulation>>に基づいて変換
+|PipeSize |⑥接続口径
+|SolarSystem |太陽熱利用 ⑦有効集熱面積 が入力されていれば `True` 、そうでなければ `False`
+|SolarSystemArea |太陽熱利用 ⑦有効集熱面積
+|SolarSystemDirection |太陽熱利用 ⑧集熱面の方位角
+|SolarSystemAngle |太陽熱利用 ⑨集熱面の傾斜角
+|Info |⑩備考
+|===
+
+.FuelTypeの変換
+[[FuelType]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|Electricity |電力
+|Electricity |電気
+|CityGas |都市ガス
+|LPG |液化石油ガス
+|Oil |重油
+|Kerosene |灯油
+|HotWater |他人から供給された熱(温水)
+|Steam |他人から供給された熱(蒸気)
+|===
+
+.Insulationの変換
+[[Insulation]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|Level0 |裸管
+|Level1 |保温仕様1
+|Level2 |保温仕様2
+|Level3 |保温仕様3
+|===

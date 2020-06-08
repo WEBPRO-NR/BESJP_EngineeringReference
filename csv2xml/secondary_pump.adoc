@@ -1,0 +1,45 @@
+== 様式2-6. 二次ポンプ入力シート
+
+①二次ポンプ群名称が入力されている行を1つの二次ポンプ群の開始行とする。
+二次ポンプ群の2行目以降では、①二次ポンプ群名称は入力されない。
+入力されている場合、次の二次ポンプ群の開始行とする。
+
+1行目（二次ポンプ群の開始行）に基づいて、Model/AirConditioningSystems/SecondaryPumpSet要素に変換する。
+
+.SecondaryPumpSet要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①二次ポンプ群名称
+|QuantityControl |②台数制御の有無を<<Boolean>>に基づいて変換
+|CoolingTempDiff |③冷房時温度差
+|HeatingTempDiff |③暖房時温度差
+|SecondaryPump |二次ポンプ群の行に対して1つのSecondaryPump要素
+|===
+
+二次ポンプ群の行に対して1つのSecondaryPump要素を以下の通り変換する。
+
+.SecondaryPump要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Order |④運転順位を<<Order>>に基づいて変換
+|Count |⑤台数。ただし、未入力の場合 `"0.0"`
+|RatedFlow |⑥定格流量
+|RatedPower |⑦定格消費電力
+|FlowControl |⑧流量制御方式を<<SecondaryPumpFlowControl>>に基づいて変換
+|MinValveOpening |stem:[\frac{⑨変流量時最小流量比}{100}]
+|Info |⑩備考
+|===
+
+.SecondaryPumpFlowControlの変換
+[[SecondaryPumpFlowControl]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|CWV |定流量制御
+|VWVInverter |回転数制御
+|===

@@ -1,0 +1,37 @@
+== 様式3-2. 給排気送風機入力シート
+
+1行につきModel/VentilationSystems/VentilationFanUnit要素1つに変換する。
+
+.VentilationFanUnit要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①換気機器名称
+|FanVolume |②設計風量
+|FanPower |③電動機定格出力
+|Motor |④高効率電動機の有無を<<Motor>>に基づいて変換
+|Inverter |⑤インバータの有無を<<Boolean>>に基づいて変換
+|VolumeControl |⑥送風量制御を<<VolumeControl>>に基づいて変換
+|===
+
+.Motorの変換
+[[Motor]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|Standard |無
+|HighEfficiency |有
+|===
+
+.VolumeControlの変換
+[[VolumeControl]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|None |無
+|Temperature |温度制御
+|COconcentration |CO濃度制御
+|===

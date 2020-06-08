@@ -1,0 +1,47 @@
+== 様式3-3. 換気代替空調機入力シート
+
+①換気機器名称が入力されている行を1つの換気代替空調機の開始行とする。
+換気代替空調機の2行目以降では、①換気機器名称は入力されない。
+入力されている場合、次の換気代替空調機の開始行とする。
+
+1行目（換気代替空調機の開始行）に基づいて、Model/VentilationSystems/VentilationACUnit要素に変換する。
+
+.VentilationACUnit要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①換気機器名称
+|RoomType |②換気対象室の用途を<<RoomType>>に基づいて変換
+|CoolingCapacity |③必要冷却能力
+|COP |④熱源効率(一次換算値)
+|PumpPower |⑤ポンプ定格出力
+|VentilationACFan |換気代替空調機の行に対して1つのVentilationACFan要素
+|===
+
+.RoomTypeの変換
+[[RoomType]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|ElevatorMechanicalRoom |エレベータ機械室
+|ElectricalRoom |電気室
+|MechanicalRoom |機械室
+|Other |その他
+|===
+
+換気代替空調機の行に対して1つのVentilationACFan要素を以下の通り変換する。
+
+.VentilationACFan要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Type |⑥送風機の種類を<<UnitType>>に基づいて変換
+|Volume |⑦設計風量
+|MotorPower |⑧電動機定格出力
+|HighEfficiencyMotor |⑨高効率電動機の有無を<<Motor>>に基づいて変換
+|Inverter |⑩インバータの有無を<<Inverter>>に基づいて変換
+|VolumeControl |⑪送風量制御を<<VolumeControl>>に基づいて変換
+|===

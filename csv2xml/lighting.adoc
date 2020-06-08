@@ -1,0 +1,96 @@
+== 様式4. 照明入力シート
+
+①階、①室名、①建物用途、①室用途のいずれかが入力されている行を1つの照明対象室の開始行とする。
+照明対象室の2行目以降では、①階、①室名、①建物用途および①室用途は入力されない。
+いずれかが入力されている場合、次の照明対象室の開始行とする。
+
+1行目（照明対象室の開始行）に基づいて、Model/LightingSystems/LightingRoom要素に変換する。
+ただし、①室用途が「非主要室」の場合、LightingRoom要素に変換せず、代わりに<<MinorRoom>>に従いMinorRoom要素に変換する。
+
+.LightingRoom要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Floor |①階
+|Name |①室名
+|BuildingType |①建物用途を<<building-type>>に基づいて変換
+|RoomType |①室用途を<<building-type>>に基づいて変換
+|Area |①室面積
+|FloorHeight |①階高
+|RoomHeight |①天井高
+|Width |①室の間口
+|Depth |①室の奥行
+|RoomIndex |①室指数
+|LightingUnit |照明対象室の行に対して1つのLightingUnit要素
+|===
+
+照明対象室の行に対して1つのLightingUnit要素を以下の通り変換する。
+
+.LightingUnit要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|UnitName |⑤機器名称
+|Power |⑥定格消費電力
+|Count |⑦台数
+|OccupantSensing |⑧在室検知制御を<<OccupantSensing>>に基づいて変換
+|IlluminanceSensing |⑨明るさ検知制御を<<IlluminanceSensing>>に基づいて変換
+|TimeSchedule |⑩タイムスケジュール制御を<<TimeSchedule>>に基づいて変換
+|InitialIlluminationCorrection |⑪初期照度補正制御を<<InitialIlluminationCorrection>>に基づいて変換
+|===
+
+.OccupantSensingの変換
+[[OccupantSensing]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|None |無
+|ContinuousDimmer |下限調光方式
+|OnOff |点滅方式
+|Dimmer |減光方式
+|===
+
+.IlluminanceSensingの変換
+[[IlluminanceSensing]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|None |無
+|Dimmer |調光方式
+|DimmerBL |調光方式BL
+|DimmerW15 |調光方式W15
+|DimmerW15BL |調光方式W15BL
+|DimmerW20 |調光方式W20
+|DimmerW20BL |調光方式W20BL
+|DimmerW25 |調光方式W25
+|DimmerW25BL |調光方式W25BL
+|OnOff |点滅方式
+|===
+
+.TimeScheduleの変換
+[[TimeSchedule]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|None |無
+|Dimmer |減光
+|OnOff |消灯
+|===
+
+.InitialIlluminationCorrection
+[[InitialIlluminationCorrection]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|None |無
+|TimerLED |タイマ方式(LED)
+|TimerFluorescentLamp |タイマ方式(蛍光灯)
+|SensorLED |センサ方式(LED)
+|SensorFluorescentLamp |センサ方式(蛍光灯)
+|===

@@ -1,0 +1,39 @@
+== 様式7-2. コージェネレーション設備入力シート(CASCADE用)
+
+①コージェネレーションシステム名称が入力されている行を1つのコージェネレーションシステムの開始行とする。
+コージェネレーションシステムの2行目以降では、①コージェネレーションシステム名称は入力されない。
+入力されている場合、次のコージェネレーションシステムの開始行とする。
+
+1行目（コージェネレーションシステムの開始行）に基づいて、CogenerationUnitSet要素に変換する。
+
+.CogenerationUnitSet要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①コージェネレーションシステム名称
+|ACElectricDemand |②年間電力需要 空調
+|VentilationElectricDemand |②年間電力需要 換気
+|LightingElectricDemand |②年間電力需要 照明
+|HotwaterElectricDemand |②年間電力需要 給湯
+|ElevatorElectricDemand |②年間電力需要 昇降機
+|OtherElectricDemand |②年間電力需要 その他
+|CogenerationUnit |コージェネレーションシステムの行に対して1つのCogenerationUnit要素
+|===
+
+コージェネレーションシステムの行に対して1つのCogenerationUnit要素を以下の通り変換する。
+
+.CogenerationUnit要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |③機器名称
+|GeneratingEfficiency |④発電効率
+|ExhaustHeatRecoveryRatio |⑤排熱回収率
+|ElectricalDependencyRatio |⑥発電依存率
+|HeatUtilizationRatio |⑦有効熱利用率
+|CoolingRatio |⑧有効排熱量の冷熱利用比
+|RefrigeratorCOP |⑨温水吸収冷凍機または排熱投入型冷温水機の成績係数
+|Info |⑩備考
+|===

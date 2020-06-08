@@ -1,0 +1,26 @@
+== 様式0. 基本情報入力シート
+
+基本情報入力シートの内容に基づいて1つのModel要素に変換する。
+
+.Model要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|SheetCreateDate |①シート作成月日
+|PersonInCharge |②入力責任者
+|Name |③建物の名称
+|Address1 |④建築物所在地 都道府県
+|Address2 |④建築物所在地 市区町村
+|Address3 |④建築物所在地（下の行）
+|Region |⑤省エネ基準地域区分
+|Structure |⑥構造
+|GroundFloor |⑦階数 地上
+|BasementFloor |⑦階数 地下
+|SiteArea |⑧敷地面積
+|BuildingArea |⑨建築面積
+|TotalArea |⑩延べ面積
+|AnnualSolarLevel |⑪年間日射地域区分
+|DHCReducedValueCooling |⑫「他人から供給された熱」の一次エネルギー換算値(冷熱)
+|DHCReducedValueHeating |⑬「他人から供給された熱」の一次エネルギー換算値(温熱)
+|===

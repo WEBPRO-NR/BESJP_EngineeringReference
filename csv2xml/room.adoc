@@ -1,0 +1,51 @@
+== 様式1. 室仕様入力シート
+
+1行につきModel/Rooms/Room要素1つに変換する。
+
+.Room要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Floor |①階
+|Name |①室名
+|BuildingType |②建物用途を<<building-type>>に基づいて変換
+|RoomType |②室用途を<<building-type>>に基づいて変換
+|RoomArea |③室面積
+|FloorHeight |④階高
+|RoomHeight |⑤天井高
+|AirConditioning |⑥空調計算対象室に<<TargetSign>>のいずれかの文字が入力されていたら `True` 、そうでなければ `False`
+|Ventilation |⑥換気計算対象室に<<TargetSign>>のいずれかの文字が入力されていたら `True` 、そうでなければ `False`
+|Lighting |⑥照明計算対象室に<<TargetSign>>のいずれかの文字が入力されていたら `True` 、そうでなければ `False`
+|Hotwater |⑥給湯計算対象室に<<TargetSign>>のいずれかの文字が入力されていたら `True` 、そうでなければ `False`
+|NonAC |`True`
+|ModelBuilding |⑦モデル建物
+|Info |⑧備考
+|===
+
+.計算対象室であることを表す記号
+[[TargetSign]]
+[options="header"]
+|===
+|記号
+
+|`＃`
+|`＊`
+|`＠`
+|`☆`
+|`★`
+|`○`
+|`●`
+|`◎`
+|`◇`
+|`◆`
+|`□`
+|`■`
+|`△`
+|`▲`
+|`▽`
+|`▼`
+|`※`
+|`X`
+|`x`
+|===

@@ -1,0 +1,44 @@
+== 様式7-3. コージェネレーション設備入力シート
+
+①コージェネレーション設備名称が入力されている行を1つのコージェネレーションシステムの開始行とする。
+コージェネレーションシステムの2行目以降では、①コージェネレーション設備名称は入力されない。
+入力されている場合、次のコージェネレーションシステムの開始行とする。
+
+1行目（コージェネレーションシステムの開始行）に基づいて、CogenerationDetails要素に変換する。
+
+.CogenerationDetails要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①コージェネレーション設備名称
+|RatedCapacity |②定格発電出力
+|Number |③設置台数
+|RatedGenerationEfficiency |④発電効率 負荷率1.00
+|GenerationEfficiency75 |⑤発電効率 負荷率0.75
+|GenerationEfficiency50 |⑥発電効率 負荷率0.50
+|RatedHeatRecoveryEfficiency |⑦排熱効率 負荷率1.00
+|HeatRecoveryEfficiency75 |⑧排熱効率 負荷率0.75
+|HeatRecoveryEfficiency50 |⑨排熱効率 負荷率0.50
+|HeatRecoveryPriorityCooling |⑩排熱利用優先順位 空調冷熱源を<<Order>>に基づいて変換
+|HeatRecoveryPriorityHeating |⑪排熱利用優先順位 空調温熱源を<<Order>>に基づいて変換
+|HeatRecoveryPriorityHotWater |⑫排熱利用優先順位 給湯を<<Order>>に基づいて変換
+|Work24Hour |⑬24時間運転の有無を<<Boolean>>に基づいて変換
+|CoolingHeatSourceSet |⑭排熱利用系統 空調熱源群 冷熱源が入力されている行につき1つのHeatRecoveryUseRef要素
+|HeatingHeatSourceSet |⑭排熱利用系統 空調熱源群 温熱源が入力されている行につき1つのHeatRecoveryUseRef要素
+|HotWaterBoiler |⑭排熱利用系統 給湯機器が入力されている行につき1つのHeatRecoveryUseRef要素
+|Info
+|===
+
+.HeatRecoveryUseRef要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name
+|CoolingHeatSourceSetの場合、⑭排熱利用系統 空調熱源群 冷熱源
+
+HeatingHeatSourceSetの場合、⑭排熱利用系統 空調熱源群 温熱源
+
+HotWaterBoilerの場合、⑭排熱利用系統 給湯機器
+|===

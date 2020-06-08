@@ -1,0 +1,39 @@
+== 様式2-3. 窓仕様入力シート
+
+1行につきModel/AirConditioningSystems/WindowConfigure要素1つに変換する。
+
+.WindowConfigure要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①開口部名称
+|Uvalue |②窓の熱貫流率
+|EtaValue |③窓の日射熱取得率
+|Joinery |④建具の種類を<<Joinery>>に基づいて変換
+|GlassType |⑤ガラスの種類
+|GlassUvalue |⑥ガラスの性能 熱貫流率
+|GlassEtaValue |⑦ガラスの性能 日射熱取得率
+|Info |⑧ 備考
+|===
+
+.Joineryの変換
+[[Joinery]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|Resin(single pane) |樹脂製(単板ガラス)
+|Resin(multi-pane) |樹脂製(複層ガラス)
+|Resin(multi-pane) |樹脂
+|Wooden(single pane) |木製(単板ガラス)
+|Wooden(multi-pane) |木製(複層ガラス)
+|ResinCompound(single pane) |金属樹脂複合製(単板ガラス)
+|ResinCompound(multi-pane) |金属樹脂複合製(複層ガラス)
+|ResinCompound(multi-pane) |アルミ樹脂複合
+|WoodCompound(single pane) |金属木複合製(単板ガラス)
+|WoodCompound(multi-pane) |金属木複合製(複層ガラス)
+|Aluminium(single pane) |金属製(単板ガラス)
+|Aluminium(multi-pane) |金属製(複層ガラス)
+|Aluminium(multi-pane) |アルミ
+|===

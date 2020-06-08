@@ -1,0 +1,59 @@
+== 様式2-1. 空調ゾーン入力シート
+
+②空調ゾーン 階、②空調ゾーン 空調ゾーン名、③室負荷処理、④外気負荷処理のいずれかが入力されている行を1つの空調ゾーンの開始行とする。
+空調ゾーンの2行目以降では、②空調ゾーン 階、②空調ゾーン 空調ゾーン名、③室負荷処理および④外気負荷処理は入力されない。
+いずれかが入力されている場合、次の空調ゾーンの開始行とする。
+
+1行目（空調ゾーンの開始行）に基づいて、Model/AirConditioningSystems/AirConditioningZone要素に変換する。
+ただし、①室用途が「非主要室」の場合、AirConditioningZone要素に変換せず、代わりに<<MinorRoom>>に従いModel/AirConditioningSystems/MinorRoom要素に変換する。
+
+.AirConditioningZone要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Floor |②空調ゾーン 階
+|Name |②空調ゾーン 空調ゾーン名
+|Info |⑤備考
+|NonAC |`False`
+|RoomRef |空調ゾーンの行に対して1つのRoomRef要素
+|AirHandlingUnitSetRef |空調ゾーン1つに対して1つまたは2つのAirHandlingUnitSetRef要素
+|===
+
+空調ゾーンの行に対して1つのRoomRef要素を以下の通り変換する。
+
+.RoomRef要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Floor |①階
+|Name |①室名
+|BuildingType |①建物用途を<<building-type>>に基づいて変換
+|RoomType |①室用途を<<building-type>>に基づいて変換
+|Area |①室面積
+|FloorHeight |①階高
+|RoomHeight |①天井高
+|===
+
+1行目の③室負荷処理が入力されている場合、AirHandlingUnitSetRef要素1つを以下の通り追加する。
+
+.AirHandlingUnitSetRef要素への変換（室負荷処理）
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |③室負荷処理
+|Load |`"Room"`
+|===
+
+1行目の④外気負荷処理が入力されている場合、AirHandlingUnitSetRef要素1つを以下の通り追加する。
+
+.AirHandlingUnitSetRef要素への変換（外気負荷処理）
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |④外気負荷処理
+|Load |`"OutsideAir"`
+|===

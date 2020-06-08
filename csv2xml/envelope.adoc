@@ -1,0 +1,52 @@
+== 様式2-4. 外皮仕様入力シート
+
+①階、①空調ゾーン名のいずれかが入力されている行を1つの空調ゾーンの開始行とする。
+空調ゾーンの2行目以降では、①階、①空調ゾーン名は入力されない。
+いずれかが入力されている場合、次の空調ゾーンの開始行とする。
+
+1行目（空調ゾーンの開始行）に基づいて、Model/AirConditioningSystems/EnvelopeSet要素に変換する。
+
+.EnvelopeSet要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|ACZoneFloor |①階
+|ACZoneName |①空調ゾーン名
+|Envelope |空調ゾーンの行に対して1つのEnvelope要素
+|===
+
+空調ゾーンの行に対して1つのEnvelope要素を以下の通り変換する。
+
+.Envelope要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Direction |②方位を<<Direction>>に基づいて変換
+|CoolingEaves |③日よけ効果係数(冷房)
+|HeatingEaves |③日よけ効果係数(暖房)
+|WallName |④外壁名称
+|Area |⑤外皮面積(窓含)
+|WindowName |⑥開口部名称
+|WindowArea |⑦窓面積
+|Blind |⑧ブラインドの有無を<<Boolean>>に基づいて変換
+|===
+
+.Directionの変換
+[[Direction]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|N |北
+|NE |北東
+|E |東
+|SE |南東
+|S |南
+|SW |南西
+|W |西
+|NW |北西
+|Horizontal |水平
+|Shade |日陰
+|===

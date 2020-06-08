@@ -1,0 +1,42 @@
+== 様式2-2. 外壁構成入力シート
+
+外壁構成入力シートでは、11行ごとに1つの外壁構成を表す。
+11n行目の①外壁名称が入力されていれば、11n行目から11n+10行目までを1つの外壁構成とする。
+
+11n行目（外壁構成の開始行）に基づいて、Model/AirConditioningSystems/WallConfigure要素に変換する。
+
+.WallConfigure要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①外壁名称
+|Type |②壁の種類を<<WallType>>に基づいて変換
+|Uvalue |③熱貫流率
+|Material |外壁構成の11n+1行目から11n+9行目に対して1つのMaterial要素
+|===
+
+.WallTypeの変換
+[[WallType]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|Air |外壁
+|Ground |接地壁
+|===
+
+外壁構成の11n+1行目から11n+9行目に対して1つのMaterial要素を以下の通り変換する。
+ただし、④建材番号が入力されていない行は無視する。
+
+.Material要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Layer |同じ外壁構成のMaterial要素で1から始まる連番。④建材番号が入力されていない行は数えない
+|Number |④建材番号
+|Name |⑤建材名称
+|Thickness |⑥厚み。ただし、未入力の場合 `"0.0"`
+|Info |⑦備考
+|===

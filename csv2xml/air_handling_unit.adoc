@@ -1,0 +1,89 @@
+== 様式2-7. 空調機入力シート
+
+①空調機群名称が入力されている行を1つの空調機群の開始行とする。
+空調機群の2行目以降では、①空調機群名称は入力されない。
+入力されている場合、次の空調機群の開始行とする。
+
+1行目（空調機群の開始行）に基づいて、Model/AirConditioningSystems/AirHandlingUnitSet要素に変換する。
+
+.AirHandlingUnitSet要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①空調機群名称
+|HeatSourceSetRef |空調機群1つに対して1つのHeatSourceSetRef要素
+|SecondaryPumpRef |空調機群1つに対して1つのSecondaryPumpRef要素
+|AirHandlingUnit |空調機群の行に対して1つのAirHandlingUnit要素
+|===
+
+.HeatSourceSetRef要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|CoolingName |㉒熱源群名称 冷熱
+|HeatingName |㉓熱源群名称 温熱
+|===
+
+.SecondaryPumpRef要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|CoolingName |⑳二次ポンプ群名称 冷熱
+|HeatingName |㉑二次ポンプ群名称 温熱
+|===
+
+空調機群の行に対して1つのAirHandlingUnit要素を以下の通り変換する。
+
+.AirHandlingUnit要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Count |②台数
+|Type |③空調機タイプを<<AirHandlingUnitType>>に基づいて変換
+|CoolingCapacity |④定格冷却能力
+|HeatingCapacity |⑤定格加熱能力
+|SupplyAirVolume |⑥設計最大外気風量
+|SupplyFanPower |⑦送風機定格消費電力 給気
+|ReturnFanPower |⑧送風機定格消費電力 還気
+|OutsideAirFanPower |⑨送風機定格消費電力 外気
+|ExhaustFanPower |⑩送風機定格消費電力 排気
+|FlowControl |⑪風量制御方式を<<AirHandlingUnitFlowControl>>に基づいて変換
+|MinDamperOpening |stem:[\frac{⑫変風量時 最小風量比}{100}]
+|OutsideAirCutControl |⑬予熱時外気取り入れ停止の有無を<<Boolean>>に基づいて変換
+|FreeCoolingControl |⑭外気冷房制御の有無を<<Boolean>>に基づいて変換
+|HeatExchanger |⑮全熱交換器の有無を<<Boolean>>に基づいて変換
+|HeatExchangerVolume |⑯全熱交換器の設計風量
+|HeatExchangerEffciency |stem:[\frac{⑰全熱交換効率}{100}]
+|HeatExchangerBypass |⑱自動換気切替機能の有無を<<Boolean>>に基づいて変換
+|HeatExchangerPower |⑲ローター消費電力
+|Info |㉔備考
+|===
+
+.空調機タイプの変換
+[[AirHandlingUnitType]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|AirHandlingUnit |空調機
+|FanCoilUnit |FCU
+|IndoorUnit |室内機
+|AirHeatExchanger |全熱交ユニット
+|Fan |送風機
+|Radiator |放熱器
+|基準設定仕様 |基準設定仕様
+|===
+
+.風量制御方式の変換
+[[AirHandlingUnitFlowControl]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|CAV |定風量制御
+|VAVInverter |回転数制御
+|===

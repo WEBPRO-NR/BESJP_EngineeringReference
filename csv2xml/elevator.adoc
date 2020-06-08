@@ -1,0 +1,22 @@
+== 様式6. 昇降機入力シート
+
+1行につきModel/Elevators/Elevator要素1つに変換する。
+
+.Elevator要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |②機器名称
+|RoomFloor |主要な対象室 ①階
+|RoomName |主要な対象室 ①室名
+|BuildingType |主要な対象室 ①建物用途 <<building-type>>に基づいて変換
+|RoomType |主要な対象室 ①室用途 <<building-type>>に基づいて変換
+|Count |③台数
+|LoadLimit |④積載量
+|Velocity |⑤速度
+|TransportCapacityFactor |⑥輸送能力係数
+|ControlType |⑦速度制御方式が「VVVF(…)」なら `"VVVF"` 、「交流帰還制御」なら `"ACFeedback"`
+|Regeneration |⑦速度制御方式が「VVVF(電力回生あり、ギアレス)」または「VVVF(電力回生あり)」なら `True` 、そうでなければ `False`
+|GearLess |⑦速度制御方式が「VVVF(電力回生あり、ギアレス)」または「VVVF(電力回生なし、ギアレス)」なら `True` 、そうでなければ `False`
+|===

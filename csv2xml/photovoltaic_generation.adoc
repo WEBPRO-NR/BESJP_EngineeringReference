@@ -1,0 +1,39 @@
+== 様式7-1. 太陽光発電システム入力シート
+
+1行につきPhotovoltaicGeneration要素1つに変換する。
+
+.PhotovoltaicGeneration要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①太陽光発電システム名称
+|PowerConditionerEfficiency |②パワーコンディショナの効率
+|Cell |③太陽電池の種類を<<Cell>>に基づいて変換
+|Setup |④アレイ設置方式を<<Setup>>に基づいて変換
+|Capacity |⑤アレイのシステム容量
+|Direction |⑥パネルの方位角
+|Angle |⑦パネルの傾斜角
+|Info |⑧備考
+|===
+
+.Cellの変換
+[[Cell]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|Crystal |結晶系
+|Other |結晶系以外
+|===
+
+.Setupの変換
+[[Setup]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|Frame |架台設置形
+|RoofMount |屋根置き形
+|Other |その他
+|===

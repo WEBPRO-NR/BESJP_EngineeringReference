@@ -1,0 +1,58 @@
+== 様式8. 非空調外皮仕様入力シート
+
+①階、①非空調ゾーン名のいずれかが入力されている行を1つの非空調ゾーンの開始行とする。
+非空調ゾーンの2行目以降では、①階、①非空調ゾーン名は入力されない。
+いずれかが入力されている場合、次の非空調ゾーンの開始行とする。
+
+1行目（非空調ゾーンの開始行）に基づいて、1つのModel/AirConditioningSystems/AirConditioningZone要素と1つのModel/AirConditioningSystems/EnvelopeSet要素に変換する。
+
+.AirConditioningZone要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Floor |①階
+|Name |`"非空調_"` + ①非空調ゾーン名
+|NonAC |`True`
+|RoomRef |非空調ゾーン1つに対して1つのRoomRef要素
+|===
+
+.非空調ゾーンのRoomRef要素
+[options="header"]
+|===
+|XML要素 |値
+
+|Floor |①階
+|Name |`"非空調_"` + ①非空調ゾーン名
+|BuildingType |①建物用途を<<building-type>>に基づいて変換
+|RoomType |①室用途を<<building-type>>に基づいて変換
+|Area |①室面積
+|FloorHeight |①階高
+|===
+
+.EnvelopeSet要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|ACZoneFloor |①階
+|ACZoneName |`"非空調_"` + ①非空調ゾーン名
+|Envelope |非空調ゾーンの行に対して1つのEnvelope要素
+|===
+
+非空調ゾーンの行に対して1つのEnvelope要素を以下の通り変換する。
+
+.Envelope要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Direction |②方位を<<Direction>>に基づいて変換
+|CoolingEaves |③日よけ効果係数(冷房)
+|HeatingEaves |③日よけ効果係数(暖房)
+|WallName |④外壁名称
+|Area |⑤外皮面積(窓含)
+|WindowName |⑥開口部名称
+|WindowArea |⑦窓面積
+|Blind |⑧ブラインドの有無を<<Boolean>>に基づいて変換
+|===

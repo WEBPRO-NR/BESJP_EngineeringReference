@@ -1,0 +1,148 @@
+== 様式2-5. 熱源入力シート
+
+①熱源群名称、④運転モードのいずれかが入力されている行を1つの熱源群の開始行とする。
+熱源群の2行目以降では、①熱源群名称、④運転モードは入力されない。
+いずれかが入力されている場合、次の熱源群の開始行とする。
+
+1行目（熱源群の開始行）に基づいて、Model/AirConditioningSystems/HeatSourceSet要素に変換する。
+
+.HeatSourceSet要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Name |①熱源群名称。ただし、未入力の場合、直前の熱源群のName
+|Simultaneous |②冷暖同時供給有無を<<Boolean>>に基づいて変換
+|QuantityConrol |③台数制御を<<Boolean>>に基づいて変換
+|StorageMode |④運転モードを<<StorageMode>>に基づいて変換
+|StorageSize |⑤蓄熱容量。ただし、未入力かつ①熱源群名称が未入力または直前の熱源群と同じである場合、直前の熱源群の⑤蓄熱容量とする
+|HeatSource |熱源群の行に対して1つのHeatSource要素
+|===
+
+熱源群の行に対して1つのHeatSource要素を以下の通り変換する。
+
+.HeatSource要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
+|Type |⑥熱源機種を<<HeatSourceType>>に基づいて変換
+|CoolingOrder |⑦冷熱生成 運転順位を<<Order>>に基づいて変換
+|CoolingCount |⑧冷熱生成 台数
+|CoolingSupplyWaterTemp |⑨冷熱生成 送水温度
+|CoolingCapacity |⑩冷熱生成 定格冷却能力
+|CoolingMainPower |⑪冷熱生成 主機 定格消費エネルギー
+|CoolingSubPower |⑫冷熱生成 補機 定格消費電力
+|CoolingPrimaryPumpPower |⑬冷熱生成 一次ポンプ定格消費電力
+|CoolingCTCapacity |⑭冷熱生成 冷却塔仕様 定格冷却能力
+|CoolingCTFanPower |⑮冷熱生成 冷却塔仕様 冷却塔ファン消費電力
+|CoolingCTPumpPower |⑯冷熱生成 冷却塔仕様 冷却水ポンプ消費電力
+|HeatingOrder |⑦温熱生成 運転順位を<<Order>>に基づいて変換
+|HeatingCount |⑧温熱生成 台数
+|HeatingSupplyWaterTemp |⑨温熱生成 送水温度
+|HeatingCapacity |⑩温熱生成 定格加熱能力
+|HeatingMainPower |⑪温熱生成 主機 定格消費エネルギー
+|HeatingSubPower |⑫温熱生成 補機 定格消費電力
+|HeatingPrimaryPumpPower |⑬温熱生成 一次ポンプ定格消費電力
+|Info |⑰備考
+|===
+
+.StorageModeの変換
+[[StorageMode]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|None |無
+|CompressorAided |追掛
+|IceStorage |氷蓄熱
+|WaterStorageStratified |水蓄熱(成層型)
+|WaterStorageMixed |水蓄熱(混合型)
+|===
+
+.HeatSourceTypeの変換
+[[HeatSourceType]]
+[options="header"]
+|===
+|XMLの値 |CSVの値
+
+|WaterChillingUnit_AirSource |ウォータチリングユニット(空冷式)
+|WaterChillingUnit_AirSource_Module |ウォータチリングユニット(空冷式モジュール形)
+|WaterChillingUnit_WaterSource |ウォータチリングユニット(水冷式)
+|WaterChillingUnit_GroundSource_T1 |ウォータチリングユニット(水冷式地中熱タイプ1)
+|WaterChillingUnit_GroundSource_T2 |ウォータチリングユニット(水冷式地中熱タイプ2)
+|WaterChillingUnit_GroundSource_T3 |ウォータチリングユニット(水冷式地中熱タイプ3)
+|WaterChillingUnit_GroundSource_T4 |ウォータチリングユニット(水冷式地中熱タイプ4)
+|WaterChillingUnit_GroundSource_T5 |ウォータチリングユニット(水冷式地中熱タイプ5)
+|ScrewChiller |スクリュー冷凍機
+|TurboChiller |ターボ冷凍機
+|TurboChiller_INV |インバータターボ冷凍機
+|BrineTurboChiller_Storage |ブラインターボ冷凍機(蓄熱時)
+|BrineTurboChiller |ブラインターボ冷凍機(追掛時)
+|WaterChillingUnit_AirSource_ICE |ウォータチリングユニット(空冷式氷蓄熱用)
+|WaterChillingUnit_AirSource_Module_ICE |ウォータチリングユニット(空冷式モジュール形氷蓄熱用)
+|ScrewChiller_ICE |スクリュー冷凍機(氷蓄熱用)
+|AbcorptionChiller_CityGas |吸収式冷凍機(都市ガス)
+|AbcorptionChiller_CityGas_CTVWV |吸収式冷凍機(冷却水変流量、都市ガス)
+|AbcorptionChiller_LPG |吸収式冷凍機(LPG)
+|AbcorptionChiller_LPG_CTVWV |吸収式冷凍機(冷却水変流量、LPG)
+|AbcorptionChiller_Oil |吸収式冷凍機(重油)
+|AbcorptionChiller_Oil_CTVWV |吸収式冷凍機(冷却水変流量、重油)
+|AbcorptionChiller_Kerosene |吸収式冷凍機(灯油)
+|AbcorptionChiller_Kerosene_CTVWV |吸収式冷凍機(冷却水変流量、灯油)
+|AbcorptionChiller_Steam |吸収式冷凍機(蒸気)
+|AbcorptionChiller_Steam_CTVWV |吸収式冷凍機(冷却水変流量、蒸気)
+|AbcorptionChiller_HotWater |吸収式冷凍機(温水)
+|AbcorptionChiller_Combination_CityGas |吸収式冷凍機(一重二重併用形、都市ガス)
+|AbcorptionChiller_Combination_CityGas_CTVWV |吸収式冷凍機(一重二重併用形、冷却水変流量、都市ガス)
+|AbcorptionChiller_Combination_LPG |吸収式冷凍機(一重二重併用形、LPG)
+|AbcorptionChiller_Combination_LPG_CTVWV |吸収式冷凍機(一重二重併用形、冷却水変流量、LPG)
+|AbcorptionChiller_Combination_Steam |吸収式冷凍機(一重二重併用形、蒸気)
+|AbcorptionChiller_Combination_Steam_CTVWV |吸収式冷凍機(一重二重併用形、冷却水変流量、蒸気)
+|OnePassBoiler_CityGas |小型貫流ボイラ(都市ガス)
+|OnePassBoiler_LPG |小型貫流ボイラ(LPG)
+|OnePassBoiler_Oil |小型貫流ボイラ(重油)
+|OnePassBoiler_Kerosene |小型貫流ボイラ(灯油)
+|OnePassBoiler_L_CityGas |貫流ボイラ(都市ガス)
+|OnePassBoiler_L_LPG |貫流ボイラ(LPG)
+|OnePassBoiler_L_Oil |貫流ボイラ(重油)
+|OnePassBoiler_L_Kerosene |貫流ボイラ(灯油)
+|HotwaterBoiler_CityGas |温水ボイラ(都市ガス)
+|HotwaterBoiler_LPG |温水ボイラ(LPG)
+|HotwaterBoiler_Oil |温水ボイラ(重油)
+|HotwaterBoiler_Kerosene |温水ボイラ(灯油)
+|SteamBoiler_CityGas |蒸気ボイラ(都市ガス)
+|SteamBoiler_LPG |蒸気ボイラ(LPG)
+|SteamBoiler_Oil |蒸気ボイラ(重油)
+|SteamBoiler_Kerosene |蒸気ボイラ(灯油)
+|HotWaterGenerator_CityGas |温水発生機(都市ガス)
+|HotWaterGenerator_LPG |温水発生機(LPG)
+|HotWaterGenerator_Oil |温水発生機(重油)
+|HotWaterGenerator_Kerosene |温水発生機(灯油)
+|PackagedAirConditioner_AirSource |パッケージエアコンディショナ(空冷式)
+|PackagedAirConditioner_WaterSource_HR |パッケージエアコンディショナ(水冷式熱回収形)
+|PackagedAirConditioner_WaterSource |パッケージエアコンディショナ(水冷式)
+|PackagedAirConditioner_GroundSource_T1 |パッケージエアコンディショナ(水冷式地中熱タイプ1)
+|PackagedAirConditioner_GroundSource_T2 |パッケージエアコンディショナ(水冷式地中熱タイプ2)
+|PackagedAirConditioner_GroundSource_T3 |パッケージエアコンディショナ(水冷式地中熱タイプ3)
+|PackagedAirConditioner_GroundSource_T4 |パッケージエアコンディショナ(水冷式地中熱タイプ4)
+|PackagedAirConditioner_GroundSource_T5 |パッケージエアコンディショナ(水冷式地中熱タイプ5)
+|GasHeatPumpAirConditioner_CityGas |ガスヒートポンプ冷暖房機(都市ガス)
+|GasHeatPumpAirConditioner_LPG |ガスヒートポンプ冷暖房機(LPG)
+|RoomAirConditioner |ルームエアコンディショナ
+|FFtypeHeater_CityGas |FF式ガス暖房機(都市ガス)
+|FFtypeHeater_LPG |FF式ガス暖房機(LPG)
+|FFtypeHeater_Kerosene |FF式石油暖房機
+|DHC_CoolingWater |地域熱供給(冷水)
+|DHC_HeatingWater |地域熱供給(温水)
+|DHC_Steam |地域熱供給(蒸気)
+|HEX |熱交換器
+|ElectricalHeater |電気式ヒーター
+|ElectricalHeater_Storage |電気蓄熱暖房器
+|WarmAirHeater_CityGas |温風暖房機(都市ガス)
+|WarmAirHeater_LPG |温風暖房機(LPG)
+|WarmAirHeater_Oil |温風暖房機(重油)
+|WarmAirHeater_Kerosene |温風暖房機(灯油)
+|GasHeatPumpAirConditioner_GE_CityGas |ガスヒートポンプ冷暖房機(消費電力自給装置付、都市ガス)
+|GasHeatPumpAirConditioner_GE_LPG |ガスヒートポンプ冷暖房機(消費電力自給装置付、LPG)
+|===

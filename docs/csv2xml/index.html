@@ -2673,15 +2673,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_様式2_4_外皮仕様入力シート"><a class="link" href="#_様式2_4_外皮仕様入力シート">7. 様式2-4. 外皮仕様入力シート</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>①階、①空調ゾーン名のいずれかが入力されている行を1つの空調ゾーンの開始行とする。
-空調ゾーンの2行目以降では、①階、①空調ゾーン名は入力されない。
-いずれかが入力されている場合、次の空調ゾーンの開始行とする。</p>
+<p>①階、①空調ゾーン名のいずれかが入力されている行を1つの外皮の開始行とする。
+外皮の2行目以降では、①階、①空調ゾーン名は入力されない。
+いずれかが入力されている場合、次の外皮の開始行とする。</p>
 </div>
 <div class="paragraph">
-<p>1行目（空調ゾーンの開始行）に基づいて、Model/AirConditioningSystems/EnvelopeSet要素に変換する。</p>
+<p>1行目（外皮の開始行）に基づいて、Model/AirConditioningSystems/Envelope要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 15. EnvelopeSet要素への変換</caption>
+<caption class="title">表 15. Envelope要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2702,16 +2702,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">①空調ゾーン名</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Envelope</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調ゾーンの行に対して1つのEnvelope要素</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">②方位を<a href="#Direction">Directionの変換</a>に基づいて変換</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WallConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">④外壁名称</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Area</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">⑤外皮面積(窓含)</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>空調ゾーンの行に対して1つのEnvelope要素を以下の通り変換する。</p>
+<p>外皮の行に対して1つのModel/AirConditioningSystems/Envelope/Window要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 16. Envelope要素への変換</caption>
+<caption class="title">表 16. Window要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2724,10 +2732,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">②方位を<a href="#Direction">Directionの変換</a>に基づいて変換</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CoolingEaves</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">③日よけ効果係数(冷房)</p></td>
 </tr>
@@ -2736,19 +2740,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">③日よけ効果係数(暖房)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WallName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">④外壁名称</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Area</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">⑤外皮面積(窓含)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WindowName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WindowSpecification</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">⑥開口部名称</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WindowArea</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Area</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">⑦窓面積</p></td>
 </tr>
 <tr>
@@ -5113,7 +5109,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-08 07:40:25 UTC
+Last updated 2020-06-09 04:29:39 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

@@ -1,8 +1,18 @@
-# 建築物省エネ基準（非住宅）Webプログラムの計算ロジック
+# 建築物省エネ基準（非住宅建築物）<br>Webプログラムの一次エネルギー消費量算定方法の解説
+
+<br>
 
 ## 公開用URL（HTML）
+
+### 1. 一次エネルギー消費量算定方法の解説
+
 https://webpro-nr.github.io/BESJP_EngineeringReference/index.html
 
+### 2. 入力シートからXMLへの変換仕様
+
+https://webpro-nr.github.io/BESJP_EngineeringReference/csv2xml/index.html
+
+<br>
 
 ## 編集される方へ
 誤字脱字のご指摘、分かりにくい箇所のご指摘等、大歓迎です。気軽にプルリクエストをお願いします。
@@ -14,7 +24,7 @@ https://webpro-nr.github.io/BESJP_EngineeringReference/index.html
 <br>
 
 編集される場合は、.adocファイルを編集してください。
-設備ごとにファイルを分けており、対応は以下の通りです。
+「一次エネルギー消費量算定方法の解説」については、設備ごとにファイルを分けており、対応は以下の通りです。
 
 空気調和設備 <br>
 　EngineeringReference_chapter02.adoc <br>
@@ -31,9 +41,50 @@ https://webpro-nr.github.io/BESJP_EngineeringReference/index.html
 基準一次エネルギー消費量 <br>
 　EngineeringReference_chapter10.adoc <br>
 
-→ htmlファイルの生成は、マージした後、管理者の方で行います。
+「入力シートからXMLへの変換仕様」については、入力シート毎にファイルを分けており、対応は以下の通りです。
 
-
+様式0 基本情報入力シート <br>
+　basic_information.adoc <br>
+様式1 室仕様入力シート <br>
+　room.adoc <br>
+様式2-1 空調ゾーン入力シート <br>
+　air_conditioning_zone.adoc <br>
+様式２-2 外皮構成入力シート <br>
+　wall_configuration.adoc <br>
+様式２-3 窓仕様入力シート <br>
+　window_configuration.adoc <br>
+様式2-4 外皮構成入力シート <br>
+　envelope.adoc <br>
+様式2-5 熱源入力シート <br>
+　heat_source.adoc <br>
+様式2-6 二次ポンプ入力シート <br>
+　secondary_pump.adoc <br>
+様式2-7 空調機入力シート <br>
+　air_handling_unit.adoｃ <br>
+様式3-1 換気対象室入力シート <br>
+　ventilation_room.adoc <br>
+様式3-2 給排気送風機入力シート <br>
+　ventilation_fan.adoc <br>
+様式3-3 換気代替空調機入力シート <br>
+　ventilation_air_conditioner.adoc <br>
+様式4 照明入力シート <br>
+　lighting.adoc <br>
+様式5-1 給湯対象室入力シート <br>
+　hot_water_room.adoc <br>
+様式5-2 給湯機器入力シート <br>
+　hot_water_boiler.adoc <br>
+様式6 昇降機入力シート <br>
+　elevator.adoc <br>
+様式7-1 太陽光発電システム入力シート <br>
+　photovoltaic_generation.adoc <br>
+様式7-2 コージェネレーション設備入力シート（CASCADE用） <br>
+　cogeneration.adoc <br>
+様式7-3 コージェネレーション設備入力シート <br>
+　cogeneration_details.adoc <br>
+様式8 非空調室の外皮仕様入力シート <br>
+　non_ac_envelope.adoc <br>
+各シート共通の変換ルール <br>
+　common.adoc <br>
 
 [1]:https://asciidoctor.org/docs/user-manual/
 [2]:https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/

@@ -449,6 +449,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_6_1_1_適用範囲">6.1.1 適用範囲</a></li>
 <li><a href="#_6_1_2_用語の定義">6.1.2 用語の定義</a></li>
+<li><a href="#_6_1_3_入出力">6.1.3 入出力</a></li>
 </ul>
 </li>
 <li><a href="#_6_2_速度制御方式に応じて定められる係数">6.2 速度制御方式に応じて定められる係数</a></li>
@@ -551,6 +552,90 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div style="page-break-after: always;"></div>
 </div>
+<div class="sect3">
+<h4 id="_6_1_3_入出力"><a class="link" href="#_6_1_3_入出力">6.1.3 入出力</a></h4>
+<div class="paragraph">
+<p>本章全体における入力、出力は下表の通りである。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. 入力</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 30.7693%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">入力シート</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式の種類</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑦速度制御方式</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(BuildingType\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">建物用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：①建物用途・室用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：①建物用途・室用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの積載質量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：④積載量</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの定格速度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m/min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑤速度</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機の数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：③台数</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 2. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機の設計一次エネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_6_2_速度制御方式に応じて定められる係数"><a class="link" href="#_6_2_速度制御方式に応じて定められる係数">6.2 速度制御方式に応じて定められる係数</a></h3>
@@ -558,7 +643,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>昇降機の速度制御方式に応じて定められる効果係数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 1. 入力</caption>
+<caption class="title">表 3. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -583,7 +668,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 2. 出力</caption>
+<caption class="title">表 4. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -608,7 +693,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 3. 制御方式によって定められる係数</caption>
+<caption class="title">表 5. 制御方式によって定められる係数</caption>
 <colgroup>
 <col style="width: 71.4285%;">
 <col style="width: 28.5715%;">
@@ -653,7 +738,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>昇降機1台あたりの年間電力消費量を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 4. 入力</caption>
+<caption class="title">表 6. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -708,7 +793,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. 出力</caption>
+<caption class="title">表 7. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -804,7 +889,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 入力</caption>
+<caption class="title">表 8. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -835,7 +920,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 出力</caption>
+<caption class="title">表 9. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -878,7 +963,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-21 17:54:27 +0900
+Last updated 2020-06-10 07:05:31 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

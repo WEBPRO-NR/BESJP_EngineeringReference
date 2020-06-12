@@ -2,6 +2,9 @@
 
 [![CircleCI Build Status](https://circleci.com/gh/WEBPRO-NR/BESJP_EngineeringReference.svg?style=shield)](https://app.circleci.com/pipelines/github/WEBPRO-NR/BESJP_EngineeringReference)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/WEBPRO-NR/BESJP_EngineeringReference/blob/master/LICENSE)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/WEBPRO-NR/BESJP_EngineeringReference)
+![GitHub developping](https://img.shields.io/badge/developping-ver.3.0%CE%B2-orange)
+
 
 <br>
 

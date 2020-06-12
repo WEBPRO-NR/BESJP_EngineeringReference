@@ -1,24 +1,44 @@
 == 様式2-4. 外皮仕様入力シート
 
-①階、①空調ゾーン名のいずれかが入力されている行を1つの外皮の開始行とする。
-外皮の2行目以降では、①階、①空調ゾーン名は入力されない。
-いずれかが入力されている場合、次の外皮の開始行とする。
+①階、①空調ゾーン名が入力されている行を1つの外皮群の開始行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+外皮群の2行目以降では、①階、①空調ゾーン名は入力されない。
+①階、①空調ゾーン名が入力されている場合、次の外皮群の開始行とする。
 
-1行目（外皮の開始行）に基づいて、Model/AirConditioningSystems/Envelope要素に変換する。
+1行目（外皮群の開始行）に基づいて、Model/AirConditioningSystems/EnvelopeSet要素に変換する。
 
-.Envelope要素への変換
+.EnvelopeSet要素への変換
 [options="header"]
 |===
 |XML要素 |値
 
 |ACZoneFloor |①階
 |ACZoneName |①空調ゾーン名
+|Envelope |外皮の開始行に対して1つのEnvelope要素
+|===
+
+②方位、④外壁名称、⑤外皮面積が入力されている行を1つの外皮の開始行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+外皮群の1行目は、必ず外皮の1行目も兼ねる（つまり、①階、①空調ゾーン名、②方位、④外壁名称、⑤外皮面積が入力されていなければならない）。
+②方位、④外壁名称、⑤外皮面積が入力されている場合、次の外皮の開始行とする。
+
+外皮の行に対して1つのModel/AirConditioningSystems/EnvelopeSet/Envelope要素を以下の通り変換する。
+
+.Envelope要素への変換
+[options="header"]
+|===
+|XML要素 |値
+
 |Direction |②方位を<<Direction>>に基づいて変換
 |WallConfiguration |④外壁名称
 |Area |⑤外皮面積(窓含)
+|Window |開口部の行に対して1つのWindow要素。開口部がない場合、Window要素は存在しない。
 |===
 
-外皮の行に対して1つのModel/AirConditioningSystems/Envelope/Window要素を以下の通り変換する。
+⑥開口部名称、⑦窓面積が入力されている行を1つの開口部の行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+外皮の開始行に⑥開口部名称、⑦窓面積が入力されていない場合、当該外皮には開口部がないものとする。
+該当する行に対して1つのModel/AirConditioningSystems/EnvelopeSet/Envelope/Window要素を以下の通り変換する。
 
 .Window要素への変換
 [options="header"]

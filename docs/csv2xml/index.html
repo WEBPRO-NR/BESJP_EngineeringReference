@@ -2673,15 +2673,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_様式2_4_外皮仕様入力シート"><a class="link" href="#_様式2_4_外皮仕様入力シート">7. 様式2-4. 外皮仕様入力シート</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>①階、①空調ゾーン名のいずれかが入力されている行を1つの外皮の開始行とする。
-外皮の2行目以降では、①階、①空調ゾーン名は入力されない。
-いずれかが入力されている場合、次の外皮の開始行とする。</p>
+<p>①階、①空調ゾーン名が入力されている行を1つの外皮群の開始行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+外皮群の2行目以降では、①階、①空調ゾーン名は入力されない。
+①階、①空調ゾーン名が入力されている場合、次の外皮群の開始行とする。</p>
 </div>
 <div class="paragraph">
-<p>1行目（外皮の開始行）に基づいて、Model/AirConditioningSystems/Envelope要素に変換する。</p>
+<p>1行目（外皮群の開始行）に基づいて、Model/AirConditioningSystems/EnvelopeSet要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 15. Envelope要素への変換</caption>
+<caption class="title">表 15. EnvelopeSet要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2702,6 +2703,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">①空調ゾーン名</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Envelope</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">外皮の開始行に対して1つのEnvelope要素</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>②方位、④外壁名称、⑤外皮面積が入力されている行を1つの外皮の開始行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+外皮群の1行目は、必ず外皮の1行目も兼ねる（つまり、①階、①空調ゾーン名、②方位、④外壁名称、⑤外皮面積が入力されていなければならない）。
+②方位、④外壁名称、⑤外皮面積が入力されている場合、次の外皮の開始行とする。</p>
+</div>
+<div class="paragraph">
+<p>外皮の行に対して1つのModel/AirConditioningSystems/EnvelopeSet/Envelope要素を以下の通り変換する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 16. Envelope要素への変換</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">XML要素</th>
+<th class="tableblock halign-left valign-top">値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">②方位を<a href="#Direction">Directionの変換</a>に基づいて変換</p></td>
 </tr>
@@ -2713,13 +2742,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">Area</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">⑤外皮面積(窓含)</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">開口部の行に対して1つのWindow要素。開口部がない場合、Window要素は存在しない。</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>外皮の行に対して1つのModel/AirConditioningSystems/Envelope/Window要素を以下の通り変換する。</p>
+<p>⑥開口部名称、⑦窓面積が入力されている行を1つの開口部の行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+外皮の開始行に⑥開口部名称、⑦窓面積が入力されていない場合、当該外皮には開口部がないものとする。
+該当する行に対して1つのModel/AirConditioningSystems/EnvelopeSet/Envelope/Window要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 16. Window要素への変換</caption>
+<caption class="title">表 17. Window要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2754,7 +2790,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="Direction" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 17. Directionの変換</caption>
+<caption class="title">表 18. Directionの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2822,7 +2858,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行目（熱源群の開始行）に基づいて、Model/AirConditioningSystems/HeatSourceSet要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 18. HeatSourceSet要素への変換</caption>
+<caption class="title">表 19. HeatSourceSet要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2864,7 +2900,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>熱源群の行に対して1つのHeatSource要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 19. HeatSource要素への変換</caption>
+<caption class="title">表 20. HeatSource要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2955,7 +2991,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="StorageMode" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 20. StorageModeの変換</caption>
+<caption class="title">表 21. StorageModeの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2990,7 +3026,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="HeatSourceType" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 21. HeatSourceTypeの変換</caption>
+<caption class="title">表 22. HeatSourceTypeの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3334,7 +3370,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行目（二次ポンプ群の開始行）に基づいて、Model/AirConditioningSystems/SecondaryPumpSet要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 22. SecondaryPumpSet要素への変換</caption>
+<caption class="title">表 23. SecondaryPumpSet要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3372,7 +3408,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>二次ポンプ群の行に対して1つのSecondaryPump要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 23. SecondaryPump要素への変換</caption>
+<caption class="title">表 24. SecondaryPump要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3415,7 +3451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="SecondaryPumpFlowControl" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 24. SecondaryPumpFlowControlの変換</caption>
+<caption class="title">表 25. SecondaryPumpFlowControlの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3451,7 +3487,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行目（空調機群の開始行）に基づいて、Model/AirConditioningSystems/AirHandlingUnitSet要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 25. AirHandlingUnitSet要素への変換</caption>
+<caption class="title">表 26. AirHandlingUnitSet要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3482,7 +3518,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 26. HeatSourceSetRef要素への変換</caption>
+<caption class="title">表 27. HeatSourceSetRef要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3505,7 +3541,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 27. SecondaryPumpRef要素への変換</caption>
+<caption class="title">表 28. SecondaryPumpRef要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3531,7 +3567,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>空調機群の行に対して1つのAirHandlingUnit要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 28. AirHandlingUnit要素への変換</caption>
+<caption class="title">表 29. AirHandlingUnit要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3622,7 +3658,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="AirHandlingUnitType" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 29. 空調機タイプの変換</caption>
+<caption class="title">表 30. 空調機タイプの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3665,7 +3701,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="AirHandlingUnitFlowControl" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 30. 風量制御方式の変換</caption>
+<caption class="title">表 31. 風量制御方式の変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3702,7 +3738,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 ただし、①室用途が「非主要室」の場合、VentilationRoom要素に変換せず、代わりに<a href="#MinorRoom">非主要室の変換</a>に従いMinorRoom要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 31. VentilationRoom要素への変換</caption>
+<caption class="title">表 32. VentilationRoom要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3744,7 +3780,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>換気対象室の行に対して1つのVentilationUnitRef要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 32. VentilationUnitRef要素への変換</caption>
+<caption class="title">表 33. VentilationUnitRef要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3767,7 +3803,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="UnitType" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 33. UnitTypeの変換</caption>
+<caption class="title">表 34. UnitTypeの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3806,7 +3842,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行につきModel/VentilationSystems/VentilationFanUnit要素1つに変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 34. VentilationFanUnit要素への変換</caption>
+<caption class="title">表 35. VentilationFanUnit要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3845,7 +3881,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="Motor" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 35. Motorの変換</caption>
+<caption class="title">表 36. Motorの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3868,7 +3904,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="VolumeControl" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 36. VolumeControlの変換</caption>
+<caption class="title">表 37. VolumeControlの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3908,7 +3944,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行目（換気代替空調機の開始行）に基づいて、Model/VentilationSystems/VentilationACUnit要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 37. VentilationACUnit要素への変換</caption>
+<caption class="title">表 38. VentilationACUnit要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3947,7 +3983,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="RoomType" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 38. RoomTypeの変換</caption>
+<caption class="title">表 39. RoomTypeの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3981,7 +4017,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>換気代替空調機の行に対して1つのVentilationACFan要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 39. VentilationACFan要素への変換</caption>
+<caption class="title">表 40. VentilationACFan要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4034,7 +4070,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 ただし、①室用途が「非主要室」の場合、LightingRoom要素に変換せず、代わりに<a href="#MinorRoom">非主要室の変換</a>に従いMinorRoom要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 40. LightingRoom要素への変換</caption>
+<caption class="title">表 41. LightingRoom要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4096,7 +4132,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>照明対象室の行に対して1つのLightingUnit要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 41. LightingUnit要素への変換</caption>
+<caption class="title">表 42. LightingUnit要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4139,7 +4175,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="OccupantSensing" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 42. OccupantSensingの変換</caption>
+<caption class="title">表 43. OccupantSensingの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4170,7 +4206,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="IlluminanceSensing" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 43. IlluminanceSensingの変換</caption>
+<caption class="title">表 44. IlluminanceSensingの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4225,7 +4261,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="TimeSchedule" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 44. TimeScheduleの変換</caption>
+<caption class="title">表 45. TimeScheduleの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4252,7 +4288,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="InitialIlluminationCorrection" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 45. InitialIlluminationCorrection</caption>
+<caption class="title">表 46. InitialIlluminationCorrection</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4301,7 +4337,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 ただし、①室用途が「非主要室」の場合、HotwaterRoom要素に変換せず、代わりに<a href="#MinorRoom">非主要室の変換</a>に従いMinorRoom要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 46. HotwaterRoom要素への変換</caption>
+<caption class="title">表 47. HotwaterRoom要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4347,7 +4383,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>給湯対象室の行に対して1つのBoilerRef要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 47. BoilerRef要素への変換</caption>
+<caption class="title">表 48. BoilerRef要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4374,7 +4410,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="WaterSaving" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 48. WaterSavingの変換</caption>
+<caption class="title">表 49. WaterSavingの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4409,7 +4445,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行につきModel/HotwaterSystems/HotwaterBoiler要素1つに変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 49. HotwaterBoiler要素への変換</caption>
+<caption class="title">表 50. HotwaterBoiler要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4468,7 +4504,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="FuelType" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 50. FuelTypeの変換</caption>
+<caption class="title">表 51. FuelTypeの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4515,7 +4551,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="Insulation" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 51. Insulationの変換</caption>
+<caption class="title">表 52. Insulationの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4554,7 +4590,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行につきModel/Elevators/Elevator要素1つに変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 52. Elevator要素への変換</caption>
+<caption class="title">表 53. Elevator要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4625,7 +4661,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行につきPhotovoltaicGeneration要素1つに変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 53. PhotovoltaicGeneration要素への変換</caption>
+<caption class="title">表 54. PhotovoltaicGeneration要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4672,7 +4708,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="Cell" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 54. Cellの変換</caption>
+<caption class="title">表 55. Cellの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4695,7 +4731,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table id="Setup" class="tableblock frame-all grid-all stretch">
-<caption class="title">表 55. Setupの変換</caption>
+<caption class="title">表 56. Setupの変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4735,7 +4771,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行目（コージェネレーションシステムの開始行）に基づいて、CogenerationUnitSet要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 56. CogenerationUnitSet要素への変換</caption>
+<caption class="title">表 57. CogenerationUnitSet要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4785,7 +4821,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>コージェネレーションシステムの行に対して1つのCogenerationUnit要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 57. CogenerationUnit要素への変換</caption>
+<caption class="title">表 58. CogenerationUnit要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4845,7 +4881,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>1行目（コージェネレーションシステムの開始行）に基づいて、CogenerationDetails要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 58. CogenerationDetails要素への変換</caption>
+<caption class="title">表 59. CogenerationDetails要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4924,7 +4960,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 59. HeatRecoveryUseRef要素への変換</caption>
+<caption class="title">表 60. HeatRecoveryUseRef要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4950,15 +4986,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_様式8_非空調外皮仕様入力シート"><a class="link" href="#_様式8_非空調外皮仕様入力シート">21. 様式8. 非空調外皮仕様入力シート</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>①階、①非空調ゾーン名のいずれかが入力されている行を1つの非空調ゾーンの開始行とする。
-非空調ゾーンの2行目以降では、①階、①非空調ゾーン名は入力されない。
-いずれかが入力されている場合、次の非空調ゾーンの開始行とする。</p>
+<p>①階、①非空調ゾーン名、①建物用途、①室用途、①室面積、①階高が入力されている行を1つの非空調ゾーンの開始行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+非空調ゾーンの2行目以降では、①階、①非空調ゾーン名、①建物用途、①室用途、①室面積、①階高は入力されない。
+①階、①非空調ゾーン名、①建物用途、①室用途、①室面積、①階高が入力されている場合、次の非空調ゾーンの開始行とする。</p>
 </div>
 <div class="paragraph">
 <p>1行目（非空調ゾーンの開始行）に基づいて、1つのModel/AirConditioningSystems/AirConditioningZone要素と1つのModel/AirConditioningSystems/EnvelopeSet要素に変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 60. AirConditioningZone要素への変換</caption>
+<caption class="title">表 61. AirConditioningZone要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4989,7 +5026,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 61. 非空調ゾーンのRoomRef要素</caption>
+<caption class="title">表 62. 非空調ゾーンのRoomRef要素</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5028,7 +5065,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 62. EnvelopeSet要素への変換</caption>
+<caption class="title">表 63. EnvelopeSet要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5055,10 +5092,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div class="paragraph">
-<p>非空調ゾーンの行に対して1つのEnvelope要素を以下の通り変換する。</p>
+<p>②方位、④外壁名称、⑤外皮面積が入力されている行を1つの外皮の開始行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+非空調ゾーンの1行目は、必ず外皮の1行目も兼ねる（つまり、①階、①空調ゾーン名、①建物用途、①室用途、①室面積、①階高、②方位、④外壁名称、⑤外皮面積が入力されていなければならない）。
+②方位、④外壁名称、⑤外皮面積が入力されている場合、次の外皮の開始行とする。</p>
+</div>
+<div class="paragraph">
+<p>非空調ゾーンの行に対して1つのModel/AirConditioningSystems/EnvelopeSet/Envelope要素を以下の通り変換する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 63. Envelope要素への変換</caption>
+<caption class="title">表 64. Envelope要素への変換</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5075,6 +5118,39 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">②方位を<a href="#Direction">Directionの変換</a>に基づいて変換</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WallConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">④外壁名称</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Area</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">⑤外皮面積(窓含)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">開口部の行に対して1つのWindow要素。開口部がない場合、Window要素は存在しない。</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>⑥開口部名称、⑦窓面積が入力されている行を1つの開口部の行とする。
+これらは全て入力されているか、全て空欄でなければならない。
+外皮の開始行に⑥開口部名称、⑦窓面積が入力されていない場合、当該外皮には開口部がないものとする。
+該当する行に対して1つのModel/AirConditioningSystems/EnvelopeSet/Envelope/Window要素を以下の通り変換する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 65. Window要素への変換</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">XML要素</th>
+<th class="tableblock halign-left valign-top">値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CoolingEaves</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">③日よけ効果係数(冷房)</p></td>
 </tr>
@@ -5083,19 +5159,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">③日よけ効果係数(暖房)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WallName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">④外壁名称</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Area</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">⑤外皮面積(窓含)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WindowName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WindowSpecification</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">⑥開口部名称</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WindowArea</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Area</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">⑦窓面積</p></td>
 </tr>
 <tr>
@@ -5109,7 +5177,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-12 05:34:45 UTC
+Last updated 2020-06-23 08:24:26 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

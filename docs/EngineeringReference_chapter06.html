@@ -453,8 +453,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_6_2_速度制御方式に応じて定められる係数">6.2 速度制御方式に応じて定められる係数</a></li>
-<li><a href="#_6_3_昇降機系統に属する昇降機1台あたりの年間電力消費量">6.3 昇降機系統に属する昇降機1台あたりの年間電力消費量</a></li>
-<li><a href="#_6_4_昇降機の設計一次エネルギー消費量">6.4 昇降機の設計一次エネルギー消費量</a></li>
+<li><a href="#_6_3_昇降機系統の年間運転時間">6.3 昇降機系統の年間運転時間</a></li>
+<li><a href="#_6_4_昇降機系統の年間電力消費量">6.4 昇降機系統の年間電力消費量</a></li>
+<li><a href="#_6_5_昇降機の設計一次エネルギー消費量">6.5 昇降機の設計一次エネルギー消費量</a></li>
 </ul>
 </li>
 </ul>
@@ -647,8 +648,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
-<col style="width: 20%;">
 <col style="width: 10%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -733,17 +734,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_6_3_昇降機系統に属する昇降機1台あたりの年間電力消費量"><a class="link" href="#_6_3_昇降機系統に属する昇降機1台あたりの年間電力消費量">6.3 昇降機系統に属する昇降機1台あたりの年間電力消費量</a></h3>
+<h3 id="_6_3_昇降機系統の年間運転時間"><a class="link" href="#_6_3_昇降機系統の年間運転時間">6.3 昇降機系統の年間運転時間</a></h3>
 <div class="paragraph">
-<p>昇降機1台あたりの年間電力消費量を算出する。</p>
+<p>昇降機系統の年間運転時間を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 6. 入力</caption>
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 50%;">
-<col style="width: 20%;">
-<col style="width: 10%;">
+<col style="width: 18.1818%;">
+<col style="width: 45.4545%;">
+<col style="width: 9.0909%;">
+<col style="width: 27.2728%;">
 </colgroup>
 <thead>
 <tr>
@@ -756,7 +757,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(BuildingType\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">建物用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの建物用途</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式6：①建物用途・室用途</p></td>
 </tr>
@@ -765,30 +766,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式6：①建物用途・室用途</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの積載質量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：④積載量</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの定格速度</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">m/min</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑤速度</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式によって定められる係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの年間運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">標準室使用条件</p></td>
 </tr>
 </tbody>
 </table>
@@ -810,19 +787,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機1台あたりの年間電力消費量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/年</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの年間運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6.4</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>なお、昇降機系統iの年間運転時間は、照明設備の年間点灯時間と等しいとする。
-照明設備の年間点灯時間は標準室使用条件で室用途毎に定められている。</p>
-</div>
-<div class="paragraph">
-<p>各室用途の照明設備の年間点灯時間は「ROOM_SPEC.csv」、 このファイルを使用する際に必要となる検索キーは「ROOM_NAME.csv」で規定されている。</p>
+<p>昇降機系統iの年間運転時間は、照明設備の年間点灯時間と等しいとする。
+照明設備の年間点灯時間は標準室使用条件で室用途毎に定められている。
+各室用途の照明設備の年間点灯時間は「ROOM_SPEC.csv」、 このファイルを使用する際に必要となる検索キーは「ROOM_NAME.csv」で規定されている。</p>
 </div>
 <div style="page-break-after: always;"></div>
 <div class="ulist">
@@ -859,18 +834,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>昇降機系統iに属する昇降機1台あたりの年間電力消費量 \(E_{EV,i}\) [kWh/年]は次式により算出される。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[E_{EV,i} = \frac{ L_{EV,i} \times V_{EV,i} \times C_{EV,i} \times T_{EV,i} }{860}\]
-</div>
-</div>
-</div>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -884,12 +847,105 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_6_4_昇降機の設計一次エネルギー消費量"><a class="link" href="#_6_4_昇降機の設計一次エネルギー消費量">6.4 昇降機の設計一次エネルギー消費量</a></h3>
+<h3 id="_6_4_昇降機系統の年間電力消費量"><a class="link" href="#_6_4_昇降機系統の年間電力消費量">6.4 昇降機系統の年間電力消費量</a></h3>
+<div class="paragraph">
+<p>昇降機系統ごとの年間電力消費量を算出する。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 8. 入力</caption>
+<colgroup>
+<col style="width: 18.1818%;">
+<col style="width: 45.4545%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機の数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：③台数</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの積載質量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：④積載量</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの定格速度</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m/min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：⑤速度</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(C_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの速度制御方式によって定められる係数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの年間運転時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">時間</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.3</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 9. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">参照元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの年間電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kWh/年</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>昇降機系統iの年間電力消費量 \(E_{EV,i}\) [kWh/年]は次式により算出する。</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="stemblock">
+<div class="content">
+\[E_{EV,i} = \frac{ L_{EV,i} \times V_{EV,i} \times C_{EV,i} \times T_{EV,i} \times N_{EV,i} }{860}\]
+</div>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_6_5_昇降機の設計一次エネルギー消費量"><a class="link" href="#_6_5_昇降機の設計一次エネルギー消費量">6.5 昇降機の設計一次エネルギー消費量</a></h3>
 <div class="paragraph">
 <p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 8. 入力</caption>
+<caption class="title">表 10. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -907,20 +963,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機1台あたりの年間電力消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iの年間電力消費量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kWh/年</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{EV,i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">昇降機系統iに属する昇降機の数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式6：③台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.4</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 9. 出力</caption>
+<caption class="title">表 11. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -945,14 +995,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div class="paragraph">
-<p>また、
-\(f_{prim,e}\) は電気の量1キロワット時を熱量に換算する係数である。</p>
+<p>昇降機の年間一次エネルギー消費量 \(E_{EV}\) [MJ/年]は次式により算出する。
+なお、\(f_{prim,e}\) は電気の量1キロワット時を熱量に換算する係数である。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{EV} = \sum_{i=1} (E_{EV,i} \times N_{EV,i} ) \times f_{prim,e} \times 10^{-3}\]
+\[E_{EV} = \sum_{i=1} (E_{EV,i}) \times f_{prim,e} \times 10^{-3}\]
 </div>
 </div>
 </div>
@@ -963,7 +1013,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-23 08:24:25 UTC
+Last updated 2020-06-23 08:26:24 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

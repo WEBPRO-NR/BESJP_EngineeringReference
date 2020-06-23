@@ -1,0 +1,52 @@
+version: 2.1
+jobs:
+  convert:
+    docker:
+      - image: asciidoctor/docker-asciidoctor:1.1.0
+    working_directory: /documents
+    steps:
+      - checkout
+      - run:
+          name: Convert adoc to HTML
+          command: bash /documents/convert_adoc_to_html.sh
+      - persist_to_workspace:
+          root: .
+          paths: docs
+  commit_and_push:
+    docker:
+      - image: alpine/git
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /workspace
+      - run:
+          name: Copy HTML files
+          command: cp -r /workspace/docs ./
+      - run:
+          name: Set Git user info
+          command: |
+            git config user.email "auto_converter@noreply.kenken.go.jp"
+            git config user.name "Auto AsciiDoc converter"
+      - run:
+          name: Commit
+          command: |
+            find . -name '*.html' | xargs git add
+            git commit -m "Auto conversion. (${CIRCLE_BUILD_URL}) [skip ci]"
+      - add_ssh_keys:
+          fingerprints:
+            - "18:0f:fa:7f:17:31:2b:d2:dc:bd:d5:5f:7f:dd:3f:98"
+      - run:
+          name: Push
+          command: git push origin ${CIRCLE_BRANCH}
+workflows:
+  version: 2
+  convert:
+    jobs:
+      - convert:
+          filters:
+            branches:
+              only: master
+      - commit_and_push:
+          requires:
+            - convert

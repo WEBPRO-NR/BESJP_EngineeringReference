@@ -450,6 +450,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_5_1_1_適用範囲">5.1.1 適用範囲</a></li>
 <li><a href="#_5_1_2_用語の定義">5.1.2 用語の定義</a></li>
 <li><a href="#_5_1_3_共通の定数">5.1.3 共通の定数</a></li>
+<li><a href="#_5_1_4_入出力">5.1.4 入出力</a></li>
 </ul>
 </li>
 <li><a href="#_5_2_日積算湯使用量">5.2 日積算湯使用量</a></li>
@@ -623,6 +624,96 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 <div style="page-break-after: always;"></div>
 </div>
+<div class="sect3">
+<h4 id="_5_1_4_入出力"><a class="link" href="#_5_1_4_入出力">5.1.4 入出力</a></h4>
+<div class="paragraph">
+<p>本章全体における入力、出力は下表の通りである。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 2. 入力</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 30.7693%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">入力シート</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(BuildingType\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">建物用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-1：①建物用途・室用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-1：①建物用途・室用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(ClimateZone\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">評価対象建築物の地域区分</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式0：⑤省エネ基準地域区分</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{Wp}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">配管接続口径</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑥接続口径</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{W,i,r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯対象室rに温水を提供する給湯設備iの定格加熱能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：③定格加熱能力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{W,solar,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iに属する太陽熱温水器の有効集熱面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑦有効集熱面積</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{W,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iの運転効率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：④熱源効率（一次エネルギー換算）</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 3. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{HW}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備の設計一次エネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_5_2_日積算湯使用量"><a class="link" href="#_5_2_日積算湯使用量">5.2 日積算湯使用量</a></h3>
@@ -630,7 +721,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>給湯対象室毎に日積算湯使用量の算出を行う。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 2. 入力</caption>
+<caption class="title">表 4. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -691,7 +782,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 3. 出力</caption>
+<caption class="title">表 5. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -756,7 +847,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[V_{W,i,r,d} = V_{WR,r,d} \times \frac{Q_{W,r,i}}{ \sum_{i=1}Q_{W,r,i} }\]
+\[V_{W,i,r,d} = V_{WR,r,d} \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\]
 </div>
 </div>
 </div>
@@ -794,7 +885,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 実際の配管長さを詳細に入力するのではなく、日積算湯使用量から推定することとしている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 4. 入力</caption>
+<caption class="title">表 6. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -819,7 +910,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. 出力</caption>
+<caption class="title">表 7. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -844,7 +935,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 定数</caption>
+<caption class="title">表 8. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -897,7 +988,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>配管からの熱損失量の年間積算値を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 入力</caption>
+<caption class="title">表 9. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -940,7 +1031,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 8. 出力</caption>
+<caption class="title">表 10. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -965,7 +1056,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 9. 定数</caption>
+<caption class="title">表 11. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1002,13 +1093,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{Wp,i} = \sum_{d=1}^{365} Q_{Wp,d,i}\]
+\[Q_{Wp,i} = \sum_{d=1}^{365} Q_{Wp,i,d}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{Wp,d,i} = \begin{cases}
-(L_{W,i} \times k_{W,i} \times (\theta_{Wp} - \theta_{amb,d}) \times 3600 \times T_{W,i,d}) \times 10^{-3} &amp; ,(V_{W,d,i} &gt; 0) \\
+\[Q_{Wp,i,d} = \begin{cases}
+(L_{W,i} \times k_{W,i} \times (\theta_{Wp} - \theta_{amb,d}) \times 3600 \times T_{W,i,d}) \times 10^{-3} &amp; ,(V_{W,i,d} &gt; 0) \\
 0 &amp; ,(V_{W,i,d} = 0)
 \end{cases}\]
 </div>
@@ -1023,7 +1114,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>太陽熱利用システムの熱利用量の算出を行う。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 10. 入力</caption>
+<caption class="title">表 12. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1040,7 +1131,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{W,solar,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{Wsolar,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iに属する太陽熱温水器の有効集熱面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑦有効集熱面積</p></td>
@@ -1072,7 +1163,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 11. 出力</caption>
+<caption class="title">表 13. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1089,7 +1180,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{W,solar,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{Wsolar,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iの太陽熱利用システムの熱利用量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kJ/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.6</p></td>
@@ -1097,7 +1188,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 12. 定数</caption>
+<caption class="title">表 14. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1144,7 +1235,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{W,solar,i,d} = 0\]
+\[Q_{Wsolar,i,d} = 0\]
 </div>
 </div>
 </div>
@@ -1159,7 +1250,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{W,solar,i,d} = 0\]
+\[Q_{Wsolar,i,d} = 0\]
 </div>
 </div>
 </div>
@@ -1171,20 +1262,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{W,solar,i,d} = A_{W,solar} \times I_{Wds,d} \times c_{Weff} \times c_{Wsolar}\]
+\[Q_{Wsolar,i,d} = A_{Wsolar} \times I_{Wds,d} \times c_{Weff} \times c_{Wsolar}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>ただし、\(Q_{W,solar,i,d}\) が
+<p>ただし、\(Q_{Wsolar,i,d}\) が
 \(c_{w} \times \rho_{w} \times (\theta_{Wtap} - \theta_{Win,d}) \times V_{W,i,d}\) の90%以上となる場合は、全てを太陽熱で賄うことはできないとし、次式で算出する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{W,solar,i,d} = 0.9 \times A_{W,solar} \times I_{Wds,d} \times c_{Weff} \times c_{Wsolar}\]
+\[Q_{Wsolar,i,d} = 0.9 \times A_{Wsolar} \times I_{Wds,d} \times c_{Weff} \times c_{Wsolar}\]
 </div>
 </div>
 </div>
@@ -1200,7 +1291,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_5_6_年間給湯負荷"><a class="link" href="#_5_6_年間給湯負荷">5.6 年間給湯負荷</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 13. 入力</caption>
+<caption class="title">表 15. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1223,7 +1314,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{W,solar,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{Wsolar,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iの太陽熱利用システムの熱利用量</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kJ/日</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.5</p></td>
@@ -1237,7 +1328,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 14. 出力</caption>
+<caption class="title">表 16. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1262,7 +1353,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 15. 定数</caption>
+<caption class="title">表 17. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1293,7 +1384,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{Wr,i} = \sum_{d=1}^{365}( c_{w} \times \rho_{w} \times (\theta_{Wtap} - \theta_{Win,d}) \times V_{W,i,d} - Q_{W,solar,i,d})\]
+\[Q_{Wr,i} = \sum_{d=1}^{365}( c_{w} \times \rho_{w} \times (\theta_{Wtap} - \theta_{Win,d}) \times V_{W,i,d} - Q_{Wsolar,i,d})\]
 </div>
 </div>
 </div>
@@ -1306,7 +1397,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>給湯設備の年間一次エネルギー消費量 \(E_{HW}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 16. 入力</caption>
+<caption class="title">表 18. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1343,7 +1434,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 17. 出力</caption>
+<caption class="title">表 19. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1368,7 +1459,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 18. 定数</caption>
+<caption class="title">表 20. 定数</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1416,10 +1507,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>給湯熱源単体の燃料消費量(ガス)[kJ/h]= ガス消費量[m<sup>3</sup>/h]×ガス発熱量(高位)[kJ/m<sup>3</sup>]</p>
+<p>給湯熱源単体の燃料消費量(ガス)[kJ/h]=ガス消費量[m<sup>3</sup>/h]×ガス発熱量(高位)[kJ/m<sup>3</sup>]</p>
 </li>
 <li>
-<p>給湯熱源単体の燃料消費量(油)[kJ/h]= 油消費量 [L/h] ×比重量[kg /L]×油発熱量(高位)[kJ/kg]</p>
+<p>給湯熱源単体の燃料消費量(油)[kJ/h]=油消費量 [L/h] ×比重量[kg /L]×油発熱量(高位)[kJ/kg]</p>
 </li>
 </ul>
 </div>
@@ -1468,7 +1559,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 19. 入力</caption>
+<caption class="title">表 21. 入力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1499,7 +1590,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 20. 出力</caption>
+<caption class="title">表 22. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1692,7 +1783,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>配管保温仕様は、下表のとおり「管径」と「保温材の厚さ」から定まる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 21. 配管保温仕様</caption>
+<caption class="title">表 23. 配管保温仕様</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 77.7778%;">
@@ -1735,7 +1826,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>湯使用量削減率は、節湯器具の種類毎に定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 22. 出力</caption>
+<caption class="title">表 24. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1769,7 +1860,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>まず、節湯器具の種類及びその定義は以下の通りとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 23. 節湯器具の種類</caption>
+<caption class="title">表 25. 節湯器具の種類</caption>
 <colgroup>
 <col style="width: 28.5714%;">
 <col style="width: 71.4286%;">
@@ -1825,7 +1916,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>配管周囲温度は地域区分によって定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 24. 入力</caption>
+<caption class="title">表 26. 入力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1856,7 +1947,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 25. 出力</caption>
+<caption class="title">表 27. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1898,7 +1989,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 暖房期は22℃、中間期は24℃、冷房期は26℃とする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 26. 空調機の運転モードの設定</caption>
+<caption class="title">表 28. 空調機の運転モードの設定</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 7.1428%;">
@@ -2059,10 +2150,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3">
 <h4 id="_d_5_給湯配管の線熱損失係数"><a class="link" href="#_d_5_給湯配管の線熱損失係数">D.5 給湯配管の線熱損失係数</a></h4>
 <div class="paragraph">
-<p>給湯配管の線熱損失係数 \(k_{W,i}\) [W/m・K]は、配管の保温仕様（D.2）及び配管接続口径 \(k_{W,i}\)［㎜］（入力）を基に、下表により求める。</p>
+<p>給湯配管の線熱損失係数 \(k_{W,i}\) [W/(m・K)]は、配管の保温仕様（D.2）及び配管接続口径 \(D_{Wp}\)［mm］（入力）を基に、下表により求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 27. 入力</caption>
+<caption class="title">表 29. 入力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -2085,7 +2176,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">D.2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(k_{W,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{Wp}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">配管接続口径</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mm</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑥接続口径</p></td>
@@ -2093,7 +2184,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 28. 出力</caption>
+<caption class="title">表 30. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2118,7 +2209,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 29. 配管の熱伝導率</caption>
+<caption class="title">表 31. 配管の熱伝導率</caption>
 <colgroup>
 <col style="width: 29.4117%;">
 <col style="width: 17.647%;">
@@ -2230,7 +2321,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>日平均給水温度は地域区分毎に定められている。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 30. 出力</caption>
+<caption class="title">表 32. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -2272,7 +2363,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 なお、この算出方法は、住宅事業建築主の判断基準における日平均給水温度の算出法を引用している</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 31. 日平均給水温度推定式の係数</caption>
+<caption class="title">表 33. 日平均給水温度推定式の係数</caption>
 <colgroup>
 <col style="width: 42.8571%;">
 <col style="width: 28.5714%;">
@@ -2335,7 +2426,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-21 17:47:13 +0900
+Last updated 2020-06-12 05:34:45 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

@@ -1,5 +1,11 @@
 # 建築物省エネ基準（非住宅建築物）<br>Webプログラムの一次エネルギー消費量算定方法の解説
 
+[![CircleCI Build Status](https://circleci.com/gh/WEBPRO-NR/BESJP_EngineeringReference.svg?style=shield)](https://app.circleci.com/pipelines/github/WEBPRO-NR/BESJP_EngineeringReference)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/WEBPRO-NR/BESJP_EngineeringReference/blob/master/LICENSE)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/WEBPRO-NR/BESJP_EngineeringReference)
+![GitHub developping](https://img.shields.io/badge/developping-ver.3.0%CE%B2-orange)
+
+
 <br>
 
 ## 公開用URL（HTML）
@@ -49,9 +55,9 @@ https://webpro-nr.github.io/BESJP_EngineeringReference/csv2xml/index.html
 　room.adoc <br>
 様式2-1 空調ゾーン入力シート <br>
 　air_conditioning_zone.adoc <br>
-様式２-2 外皮構成入力シート <br>
+様式2-2 外皮構成入力シート <br>
 　wall_configuration.adoc <br>
-様式２-3 窓仕様入力シート <br>
+様式2-3 窓仕様入力シート <br>
 　window_configuration.adoc <br>
 様式2-4 外皮構成入力シート <br>
 　envelope.adoc <br>
@@ -97,3 +103,6 @@ Dockerがインストールされていれば、以下のコマンドでAsciiDoc
 ```
 docker-compose run asciidoctor
 ```
+
+## HTMLの更新
+masterブランチが更新されると、CircleCI により.adocファイルから.htmlファイルが自動生成されます。

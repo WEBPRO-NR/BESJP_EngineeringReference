@@ -450,6 +450,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_3_1_1_適用範囲">3.1.1 適用範囲</a></li>
 <li><a href="#_3_1_2_用語の定義">3.1.2 用語の定義</a></li>
 <li><a href="#_3_1_3_共通の定数">3.1.3 共通の定数</a></li>
+<li><a href="#_3_1_4_入出力">3.1.4 入出力</a></li>
 </ul>
 </li>
 <li><a href="#_3_2_送風機の制御方式に応じて定められる係数">3.2 送風機の制御方式に応じて定められる係数</a>
@@ -609,6 +610,144 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 <div style="page-break-after: always;"></div>
 </div>
+<div class="sect3">
+<h4 id="_3_1_4_入出力"><a class="link" href="#_3_1_4_入出力">3.1.4 入出力</a></h4>
+<div class="paragraph">
+<p>本章全体における入力、出力は下表の通りである。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 2. 入力</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 38.4615%;">
+<col style="width: 15.3846%;">
+<col style="width: 30.7693%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+<th class="tableblock halign-left valign-top">入力シート</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(ClimateZone\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">評価対象建築物の所在地の地域区分</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式0：⑤省エネ基準地域区分</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(BuildingType\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">建物用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-1：①建物用途・室用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-1：①建物用途・室用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Motor_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">高効率電動機の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：④高効率電動機の有無、または、様式3-3：⑨高効率電動機の有無</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Inverter_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">インバータの有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：⑤インバータの有無、または、様式3-3：⑩インバータの有無</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(CtrlType_{V,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送付量制御の種類</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：⑥送風量制御、または、様式3-3：⑪送風量制御</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{V,fan,rated,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気送風機iの電動機定格出力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：③電動機定格出力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{Vac,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jが換気を行う室の用途</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：②換気対象室の用途</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{Vac,ref,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jの必要冷却能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：③必要冷却能力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{Vac,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jの熱源効率（一次エネルギー換算）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-4：④熱源効率（一次換算）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{Vac,ref,pump,rated,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jに付属するポンプの電動機定格出力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑤ポンプ定格出力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{Vac,ref,fan,rated,j,k}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jに付属する送風機kの電動機定格出力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑤ポンプ定格出力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(P_{Vac,fan,rated,j,k}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jと併設される換気送風機kの電動機定格出力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑤ポンプ定格出力</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(Type_{Vac,fan,j,k}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jと併設される換気送風機kの種類</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑥送風機の種類</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{Vac,fan,j,k}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">換気代替空調機jと併設される換気送風機kの設計ふうりょう</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>3</sup>/h</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-3：⑦設計風量</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 3. 出力</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">変数名</th>
+<th class="tableblock halign-left valign-top">説明</th>
+<th class="tableblock halign-left valign-top">単位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{V}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">機械換気設備の設計一次エネルギー消費量</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/年</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_3_2_送風機の制御方式に応じて定められる係数"><a class="link" href="#_3_2_送風機の制御方式に応じて定められる係数">3.2 送風機の制御方式に応じて定められる係数</a></h3>
@@ -623,7 +762,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>これらの値をもとに送風機の制御方式に応じて定められる係数を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 2. 入力</caption>
+<caption class="title">表 4. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -660,7 +799,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 3. 出力</caption>
+<caption class="title">表 5. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -703,7 +842,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>入力値の参照先は、換気送風機を評価する場合は様式3-2、換気代替空調機（に併設される送風機）を評価する場合には様式3-3となる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 4. 入力</caption>
+<caption class="title">表 6. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -728,7 +867,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 5. 出力</caption>
+<caption class="title">表 7. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -757,7 +896,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 6. 高効率電動機の採用による係数</caption>
+<caption class="title">表 8. 高効率電動機の採用による係数</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 66.6666%;">
@@ -794,7 +933,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>入力値の参照先は、換気送風機を評価する場合は様式3-2、換気代替空調機（に併設される送風機）を評価する場合には様式3-3となる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 7. 入力</caption>
+<caption class="title">表 9. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -814,12 +953,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Inverter_{V,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">インバータの有無</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：⑤インバーターの有無、または、様式3-3：⑩インバーターの有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式3-2：⑤インバータの有無、または、様式3-3：⑩インバータの有無</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 8. 出力</caption>
+<caption class="title">表 10. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -848,7 +987,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 9. インバータの採用による係数</caption>
+<caption class="title">表 11. インバータの採用による係数</caption>
 <colgroup>
 <col style="width: 16.6666%;">
 <col style="width: 66.6666%;">
@@ -885,7 +1024,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>入力値の参照先は、換気送風機を評価する場合は様式3-2、換気代替空調機（に併設される送風機）を評価する場合には様式3-3となる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 10. 入力</caption>
+<caption class="title">表 12. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -910,7 +1049,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 11. 出力</caption>
+<caption class="title">表 13. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -940,7 +1079,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 選択肢が指定されていない（入力シートの当該欄が空欄である）場合は「無」が選択されたものとする。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 12. 送風機制御の採用による係数</caption>
+<caption class="title">表 14. 送風機制御の採用による係数</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 55.5555%;">
@@ -977,7 +1116,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_3_3_換気送風機の年間電力消費量"><a class="link" href="#_3_3_換気送風機の年間電力消費量">3.3 換気送風機の年間電力消費量</a></h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 13. 入力</caption>
+<caption class="title">表 15. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1014,7 +1153,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 14. 出力</caption>
+<caption class="title">表 16. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1059,7 +1198,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 次式により年間電力消費量 \(E_{Vac,j}\) [kWh]を求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 15. 入力</caption>
+<caption class="title">表 17. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1150,7 +1289,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 16. 出力</caption>
+<caption class="title">表 18. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1206,7 +1345,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>換気代替空調機jの年間平均負荷率 \(x_{Vac,j}\)　は下表より求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 17. 換気対象室の用途に応じた換気代替空調機の年間平均負荷率</caption>
+<caption class="title">表 19. 換気対象室の用途に応じた換気代替空調機の年間平均負荷率</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1240,7 +1379,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>換気代替空調機jの稼働率 \(r_{Vac,ref,j}\) 、換気代替空調機jと併設される換気送風機の稼働率 \(r_{Vac,fan,j}\) は下表より求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 18. 換気代替空調機および併設する換気送風機の年間稼働率</caption>
+<caption class="title">表 20. 換気代替空調機および併設する換気送風機の年間稼働率</caption>
 <colgroup>
 <col style="width: 55.5555%;">
 <col style="width: 22.2222%;">
@@ -1272,7 +1411,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 及び 換気代替空調機jと併設される換気送風機kの設計風量 \(V_{Vac,fan,j,k}\) を用いて、下表のように求める。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 19. 換気代替空調機jと併設される換気送風機の外気導入量</caption>
+<caption class="title">表 21. 換気代替空調機jと併設される換気送風機の外気導入量</caption>
 <colgroup>
 <col style="width: 57.1428%;">
 <col style="width: 42.8572%;">
@@ -1334,7 +1473,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>機械換気設備の年間一次エネルギー消費量 \(E_{V}\) [MJ/年]を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 20. 入力</caption>
+<caption class="title">表 22. 入力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1365,7 +1504,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 21. 出力</caption>
+<caption class="title">表 23. 出力</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 50%;">
@@ -1408,7 +1547,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>中間期平均外気温度 \(\theta_{oa,m}\) は地域区分毎に下表で定められる。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 22. 入力</caption>
+<caption class="title">表 24. 入力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1433,7 +1572,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 23. 出力</caption>
+<caption class="title">表 25. 出力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1458,7 +1597,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 24. 中間期平均外気温</caption>
+<caption class="title">表 26. 中間期平均外気温</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1523,7 +1662,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 25. 入力</caption>
+<caption class="title">表 27. 入力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1554,7 +1693,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 26. 出力</caption>
+<caption class="title">表 28. 出力</caption>
 <colgroup>
 <col style="width: 18.1818%;">
 <col style="width: 45.4545%;">
@@ -1619,7 +1758,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-01 13:01:36 +0900
+Last updated 2020-06-12 05:34:45 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

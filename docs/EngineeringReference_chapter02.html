@@ -979,7 +979,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Season_{d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dの冷暖房期間（冷房期、中間期、暖房期）</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.2.3、2.3.1、2.3.2、2.4.2.7、2.5.3、2.5.5、2.5.6、2.7.16、A.3</p></td>
 </tr>
 </tbody>
@@ -1942,7 +1942,7 @@ t_{AC,3,end}, &amp; (Ptrn_{clndr,d} = 3)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①建物用途・室用途</p></td>
 </tr>
 </tbody>
@@ -1967,19 +1967,19 @@ t_{AC,3,end}, &amp; (Ptrn_{clndr,d} = 3)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,app,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの機器発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,light,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの照明発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,human,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの在室者発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.3</p></td>
 </tr>
 </tbody>
@@ -2125,7 +2125,7 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(RoomType_{i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iの室用途</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-1：①建物用途・室用途</p></td>
 </tr>
 </tbody>
@@ -2196,19 +2196,19 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮jの方位</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">^</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,c,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(冷房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：③日よけ効果係数(冷房)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(γ_{wind,h,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(暖房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：③日よけ効果係数(暖房)</p></td>
 </tr>
 <tr>
@@ -2244,7 +2244,7 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Season_{d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dの冷暖房期間（冷房期、中間期、暖房期）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.2.2</p></td>
 </tr>
 <tr>
@@ -2274,19 +2274,19 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,light,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの照明発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.3.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,human,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの在室者発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.3.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,app,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの機器発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.3.4</p></td>
 </tr>
 <tr>
@@ -2304,25 +2304,25 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日射熱取得率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{tc1,d},  a_{tc2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(冷房)に変換する係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{th1,d},  a_{th2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(暖房)に変換する係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{sc1,d},  a_{sc2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける日射による定常熱取得を室負荷(冷房)に変換する係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.3</p></td>
 </tr>
 </tbody>
@@ -2347,13 +2347,13 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における 室i の日積算室負荷（冷房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における 室i の日積算室負荷（暖房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 </tbody>
@@ -2381,7 +2381,7 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮等jの方位</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
 </tr>
 <tr>
@@ -2436,25 +2436,25 @@ Q_{AC,room,human,i,d} = \sum_{t=1}^{24} (Q_{AC,room,human,i,d,t})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{dsr,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける方位jへの直達日射量積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.6、2.4.2.7</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I'_{dsr,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける方位jへの直達日射量積算値（入射角特性あり）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.6、2.4.2.7</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける方位jへの天空日射量積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.6、2.4.2.7</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{nsr,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける方位jへの長波長放射量積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.4、2.4.2.5</p></td>
 </tr>
 <tr>
@@ -2688,37 +2688,37 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wall,t,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの外壁等からの温度差等による定常貫流熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wind,t,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの窓等からの温度差による定常貫流熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wall,n,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの外壁等からの長波長放射による定常貫流熱損失</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wind,n,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの窓等からの長波長放射による定常貫流熱損失</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wall,s,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの外壁等からの日射による定常熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.6</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wind,s,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの窓等からの日射による定常熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2.7</p></td>
 </tr>
 <tr>
@@ -2755,13 +2755,13 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,tin,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの温度差による定常熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,sin,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの日射による定常熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.4</p></td>
 </tr>
 </tbody>
@@ -2932,7 +2932,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(WallType_{i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外壁等jの種類</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">　</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-2：②壁の種類</p></td>
 </tr>
 <tr>
@@ -2981,7 +2981,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wall,t,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの外壁等からの温度差による定常貫流熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2</p></td>
 </tr>
 </tbody>
@@ -3054,7 +3054,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮等jの方位</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
 </tr>
 <tr>
@@ -3097,7 +3097,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wind,t,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの窓等からの温度差による定常貫流熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2</p></td>
 </tr>
 </tbody>
@@ -3174,7 +3174,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{nsr,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iに属する外皮jへの長波長放射量積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 </tbody>
@@ -3199,7 +3199,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wall,n,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの外壁等からの長波長放射による定常貫流熱損失</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2</p></td>
 </tr>
 </tbody>
@@ -3265,7 +3265,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{nsr,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける外皮jへの長波長放射量積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 </tbody>
@@ -3290,7 +3290,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wind,n,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの窓等からの長波長放射による定常貫流熱損失</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2</p></td>
 </tr>
 </tbody>
@@ -3342,7 +3342,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮等jの方位</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
 </tr>
 <tr>
@@ -3360,13 +3360,13 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{dsr,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮jへの直達日射量積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮jへの天空・反射日射量積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 </tbody>
@@ -3391,7 +3391,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wall,s,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの外壁等からの日射による定常熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2</p></td>
 </tr>
 </tbody>
@@ -3460,19 +3460,19 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(D_{env,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する外皮等jの方位</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：②方位</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\gamma_{wind,c,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(冷房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：③日よけ効果係数(冷房)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\gamma_{wind,h,i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日よけ効果係数(暖房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-4：③日よけ効果係数(暖房)</p></td>
 </tr>
 <tr>
@@ -3484,31 +3484,31 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{i,j}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">室iに属する窓等jの日射熱取得率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Season_{d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dの冷暖房期間（冷房期、中間期、暖房期）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.2.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I'_{dsr,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮jへの直達日射量積算値（入射角特性あり）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{isr,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iに属する外皮jへの天空・反射日射量積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{max}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">入射角特性の最大値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1</p></td>
 </tr>
 </tbody>
@@ -3533,7 +3533,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{wind,s,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの窓等からの日射による定常熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2</p></td>
 </tr>
 </tbody>
@@ -3620,19 +3620,19 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,light,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの照明発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.3.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,human,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの在室者発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.3.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,app,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの機器発熱密度の日積算値</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.3.4</p></td>
 </tr>
 </tbody>
@@ -3657,7 +3657,7 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,in,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iの内部発熱による負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.4</p></td>
 </tr>
 </tbody>
@@ -3715,37 +3715,37 @@ e_{d}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,tin,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの温度差による定常熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,sin,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの日射による定常熱取得</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,in,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iの内部発熱</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{tc1,d}, a_{tc2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(冷房)に変換する係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{th1,d}, a_{th2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける温度差による定常熱取得を室負荷(暖房)に変換する係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(a_{sc1,d}, a_{sc2,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける日射による定常熱取得を室負荷(冷房)に変換する係数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.3</p></td>
 </tr>
 <tr>
@@ -3775,22 +3775,22 @@ e_{d}
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,c,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iの日積算室負荷（冷房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの日積算室負荷（冷房）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,h,i,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付d における室iの日積算室負荷（暖房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室iの日積算室負荷（暖房）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>まず、温度差による冷房負荷 \(Q_{AC,room,tc,i,d}\)［Wh/（m<sup>2</sup>・day）］、
-温度差による暖房負荷 \(Q_{AC,room,th,i,d}\)［Wh/（m<sup>2</sup>・day）］、
-日射による冷房負荷 \(Q_{AC,room,sc,i,d}\)［Wh/（m<sup>2</sup>・day）］をそれぞれ算出する。
+<p>まず、温度差による冷房負荷 \(Q_{AC,room,tc,i,d}\)［Wh/（m<sup>2</sup>・d）］、
+温度差による暖房負荷 \(Q_{AC,room,th,i,d}\)［Wh/（m<sup>2</sup>・d）］、
+日射による冷房負荷 \(Q_{AC,room,sc,i,d}\)［Wh/（m<sup>2</sup>・d）］をそれぞれ算出する。
 なお、便宜上、冷房負荷を正、暖房負荷を負の数値で表現することとし、
 \(Q_{AC,room,tc,i,d}≥0\)、\(Q_{AC,room,th,i,d}≤0\)、\(Q_{AC,room,sc,i,d}≥0\)とする。</p>
 </div>
@@ -3878,8 +3878,8 @@ D = 0\]
 </div>
 </div>
 <div class="paragraph">
-<p>算出されたCを室iの日積算室負荷（冷房）\(Q_{AC,room,c,i,d}\)［Wh/（m<sup>2</sup>・day）］、
-Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（m<sup>2</sup>・day）］とする。
+<p>算出されたCを室iの日積算室負荷（冷房）\(Q_{AC,room,c,i,d}\)［Wh/（m<sup>2</sup>・d）］、
+Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（m<sup>2</sup>・d）］とする。
 ただし、日付dが非空調日の場合は、これらはともに0となる。
 非空調日か否かは、各室の室用途の標準室使用条件で定められている。</p>
 </div>
@@ -3925,13 +3925,13 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（m<sup>2</sup>・
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,c,r,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室rの日積算室負荷（冷房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,room,h,r,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける室rの日積算室負荷（暖房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・day)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wh/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.4.4</p></td>
 </tr>
 </tbody>
@@ -3962,13 +3962,13 @@ Dを日積算室負荷（暖房）\(Q_{AC,room,h,i,d}\)［Wh/（m<sup>2</sup>・
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷(冷房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2、2.5.5、2.5.4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷(暖房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2、2.5.5</p></td>
 </tr>
 </tbody>
@@ -4049,13 +4049,13 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷(冷房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷(暖房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 <tr>
@@ -4086,25 +4086,25 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dの空調機群iの運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.3、2.5.5、2.5.10</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,aex,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの全熱交換器の運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.12</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.4、2.5.10、2.5.6、2.5.12</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.10、2.5.6、2.5.12</p></td>
 </tr>
 <tr>
@@ -4307,7 +4307,7 @@ Q_{AC,ahu,room,h,i,d} = \sum_{r=1} (Q_{AC,room,h,r,d} \times A_{room,i,r} ) \tim
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dの空調機群iの運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
@@ -4669,13 +4669,13 @@ C_{bal} = 0.67\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける空調（冷房）の運転時間数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷（冷房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 <tr>
@@ -4712,7 +4712,7 @@ C_{bal} = 0.67\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,oacool,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの外気冷房制御による負荷削減量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1</p></td>
 </tr>
 </tbody>
@@ -4812,19 +4812,19 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} \times 10^3}{3600 \times (- \Delta H_{AC,oa,d}) 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
@@ -4836,13 +4836,13 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} \times 10^3}{3600 \times (- \Delta H_{AC,oa,d}) 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,h,c,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷（冷房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,room,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける日積算室負荷（暖房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.1</p></td>
 </tr>
 <tr>
@@ -4879,13 +4879,13 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} \times 10^3}{3600 \times (- \Delta H_{AC,oa,d}) 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの日積算空調負荷（冷房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1、2.5.6</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの日積算空調負荷（暖房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1、2.5.6</p></td>
 </tr>
 </tbody>
@@ -4896,7 +4896,7 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} \times 10^3}{3600 \times (- \Delta H_{AC,oa,d}) 
 算出された暖房負荷の値が正である場合はその値は冷房負荷として扱うものとする。</p>
 </div>
 <div class="paragraph">
-<p>まず、次の \(Q_{ahu,c}\) [MJ/日] と \(Q_{ahu,h}\) [MJ/日] を算出する。</p>
+<p>まず、次の \(Q_{ahu,c}\) [MJ/d] と \(Q_{ahu,h}\) [MJ/d] を算出する。</p>
 </div>
 <div style="page-break-after: always;"></div>
 <div class="exampleblock">
@@ -5094,25 +5094,25 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの日積算空調負荷（冷房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの日積算空調負荷（暖房）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
@@ -5693,19 +5693,19 @@ E_{AC,ahu,h,i,d}  = \sum_{j} E_{AC,ahu,h,i,j,d}\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
@@ -5754,13 +5754,13 @@ E_{AC,ahu,h,i,d}  = \sum_{j} E_{AC,ahu,h,i,j,d}\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,heat,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iのファン発熱量(冷水運転時)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,heat,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iのファン発熱量(温水運転時)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1</p></td>
 </tr>
 </tbody>
@@ -5954,19 +5954,19 @@ Q_{AC,ahu,heat,h,i,d}=0\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける空調（冷房）の運転時間数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける空調（暖房）の運転時間数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ahu,aex,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの日付dにおける全熱交換器の運転時間数</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.2</p></td>
 </tr>
 <tr>
@@ -6223,31 +6223,31 @@ E_{AC,ahu,h,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,c,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iに接続する空調機群jの日積算空調負荷(冷房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,h,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iに接続する空調機群jの日積算空調負荷(暖房)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,heat,c,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付ｄにおける二次ポンプ群iに接続する空調機群jのファン発熱量（冷水運転時）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.10</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,heat,h,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付ｄにおける二次ポンプ群iに接続する空調機群jのファン発熱量（温水運転時）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.10</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ahu,oacool,i,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付ｄにおける二次ポンプ群iに接続する空調機群jの外気冷房制御による負荷削減量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.4</p></td>
 </tr>
 </tbody>
@@ -6272,7 +6272,7 @@ E_{AC,ahu,h,i,d} \times T_{AC,ahu,h,i,d}  \times \frac{L_{AC,ahu,h,i,d}}{|L_{AC,
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,pump,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iの二次ポンプ負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.4、2.7.2</p></td>
 </tr>
 </tbody>
@@ -6418,7 +6418,7 @@ Q_{AC,ahu,h,i,j,d} + Q_{AC,ahu,heat,h,i,j,d} &amp;
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,pump,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iの日付dにおける運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.4、2.6.9、2.6.10</p></td>
 </tr>
 <tr>
@@ -6602,13 +6602,13 @@ Q_{AC,ahu,h,i,j,d} + Q_{AC,ahu,heat,h,i,j,d} &amp;
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,pump,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iの二次ポンプ負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,pump,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iの運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2</p></td>
 </tr>
 <tr>
@@ -7307,7 +7307,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,pump,heat,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群iのポンプの発熱量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2</p></td>
 </tr>
 </tbody>
@@ -7355,7 +7355,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,pump,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">二次ポンプ群iの日付dにおける運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.2</p></td>
 </tr>
 <tr>
@@ -7594,7 +7594,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,ts,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの蓄熱槽からの熱損失量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2</p></td>
 </tr>
 <tr>
@@ -7694,19 +7694,19 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,pump,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群jの二次ポンプ負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,pump,heat,j,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける二次ポンプ群jのポンプの発熱量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.6.9</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,ts,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの蓄熱槽からの熱損失量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1</p></td>
 </tr>
 <tr>
@@ -7737,7 +7737,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源機群iの熱負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.4.4、2.7.7、2.7.15</p></td>
 </tr>
 </tbody>
@@ -7877,7 +7877,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,base,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの標準運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.6、2.7.7、2.7.15</p></td>
 </tr>
 </tbody>
@@ -8510,7 +8510,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源機群iの熱負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2</p></td>
 </tr>
 <tr>
@@ -9380,7 +9380,7 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,base,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの標準運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3</p></td>
 </tr>
 </tbody>
@@ -9487,13 +9487,13 @@ q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} &amp; ,(それ以外)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源機群iの熱負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,base,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの標準運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3</p></td>
 </tr>
 <tr>
@@ -10391,13 +10391,13 @@ L_{ref,x,i,j,max} &amp; ,(L_{ref,x,i,j,max} &lt; xL_{AC,ref,i,d})
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,base,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの標準運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源機群iの熱負荷</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2</p></td>
 </tr>
 <tr>
@@ -10446,7 +10446,7 @@ L_{ref,x,i,j,max} &amp; ,(L_{ref,x,i,j,max} &lt; xL_{AC,ref,i,d})
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.18</p></td>
 </tr>
 </tbody>
@@ -10911,7 +10911,7 @@ E_{AC,ref,ctpump,i,d} = \sum_{j=1}^{N_{AC,ref,i,d}}E_{AC,ref,ctpump,i,j,d}\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの日付dにおける運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.15</p></td>
 </tr>
 <tr>
@@ -11825,7 +11825,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-07 04:13:47 UTC
+Last updated 2020-07-13 08:15:21 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

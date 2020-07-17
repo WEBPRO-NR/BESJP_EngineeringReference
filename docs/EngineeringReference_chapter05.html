@@ -1608,34 +1608,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{WS1,r,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの標準日積算湯使用量（洗面のための湯使用量）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（洗面のための湯使用量）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/(m<sup>2</sup>・d)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{WS2,r,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの標準日積算湯使用量（シャワーのための湯使用量）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（シャワーのための湯使用量）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/(m<sup>2</sup>・d)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{WS3,r,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの標準日積算湯使用量（厨房のための湯使用量）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（厨房のための湯使用量）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/(m<sup>2</sup>・d)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{WS4,r,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの標準日積算湯使用量（その他の湯使用量）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（その他の湯使用量）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/(m<sup>2</sup>・d)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
 <p>標準日積算湯使用量の単位は室用途によって異なり、[L/人日] か [L/m<sup>2</sup>日] で規定されている。
-単位については、ROOM_SPEC_H28.csv の AE列 に記されている。
-単位が[L/人日]の場合については、ROOM_SPEC_H28.csv の J列で指定される 人員密度参照値 [人/m<sup>2</sup>] を乗じて、床面積あたりの値に変換する。</p>
+単位については、ROOM_SPEC_H28.csv の 「基準設定湯使用量」列 に記されている。
+単位が[L/人日]の場合については、ROOM_SPEC_H28.csv の「人体発熱参照値」列で指定される 人員密度参照値 [人/m<sup>2</sup>] を乗じて、床面積あたりの値に変換する。</p>
 </div>
 <div class="paragraph">
 <p>ここで、「ホテル等・客室」の「シャワー」用途の日積算湯使用量については、以下の想定で算出されている。<br>
@@ -2426,7 +2426,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-13 08:15:21 UTC
+Last updated 2020-07-17 07:43:29 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

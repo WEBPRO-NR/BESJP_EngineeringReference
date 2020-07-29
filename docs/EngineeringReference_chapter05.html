@@ -671,6 +671,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑥接続口径</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯対象室rの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-1：①室面積</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{W,i,r}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">給湯対象室rに温水を提供する給湯設備iの定格加熱能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
@@ -681,6 +687,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iに属する太陽熱温水器の有効集熱面積</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑦有効集熱面積</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\phi_{Wsolar,drct,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iに属する太陽熱温水器の集熱面の方位角</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">°</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑧集熱面の方位角</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\phi_{Wsolar,slp,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iに属する太陽熱温水器の集熱面の傾斜角</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">°</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑨集熱面の傾斜角</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\eta_{W,i}\)</p></td>
@@ -745,27 +763,33 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{WS1,r,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの標準日積算湯使用量（洗面のための湯使用量）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（洗面のための湯使用量）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">D.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{WS2,r,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの標準日積算湯使用量（シャワーのための湯使用量）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（シャワーのための湯使用量）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">D.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{WS3,r,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの標準日積算湯使用量（厨房のための湯使用量）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（厨房のための湯使用量）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">D.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{WS4,r,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの標準日積算湯使用量（その他の湯使用量）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（その他の湯使用量）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/(m<sup>2</sup>・d)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">D.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(A_{r}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯対象室rの面積</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-1：①室面積</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(\phi_{Wa,i,r}\)</p></td>
@@ -801,7 +825,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{W,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iによる日積算湯供給量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.3、5.4、5.5、5.6</p></td>
 </tr>
 </tbody>
@@ -813,7 +837,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[V_{WR,r,d} = \sum_{i=1}\left\{(V_{WS1,r,d} \times \phi_{Wa,i,r} + V_{WS2,r,d} \times \phi_{Wb,i,r} + V_{WS3,r,d} + V_{WS4,r,d}) \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\right\}\]
+\[V_{WR,r,d} = \sum_{i=1}\left\{(V_{WS1,r,d} \times A_{r} \times \phi_{Wa,i,r} + V_{WS2,r,d} \times A_{r} \times \phi_{Wb,i,r} + V_{WS3,r,d} \times A_{r} + V_{WS4,r,d} \times A_{r}) \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\right\}\]
 </div>
 </div>
 </div>
@@ -904,7 +928,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{W,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iの日積算湯使用量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 </tbody>
@@ -1007,7 +1031,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{W,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iによる日積算湯供給量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 <tr>
@@ -1081,7 +1105,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(T_{W,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iの運転時間</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">時間/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">h/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">24</p></td>
 </tr>
 </tbody>
@@ -1137,15 +1161,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑦有効集熱面積</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(I_{Wds,d}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける当該地域の集熱面日射量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MJ/(m<sup>2</sup>・日)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.4.1に集熱面の方位角と傾斜角を代入して求める</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\phi_{Wsolar,drct,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iに属する太陽熱温水器の集熱面の方位角</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">°</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑧集熱面の方位角</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(\phi_{Wsolar,slp,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">給湯設備iに属する太陽熱温水器の集熱面の傾斜角</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">°</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式5-2：⑨集熱面の傾斜角</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{W,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iによる日積算湯供給量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 <tr>
@@ -1182,7 +1212,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{Wsolar,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iの太陽熱利用システムの熱利用量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.6</p></td>
 </tr>
 </tbody>
@@ -1225,6 +1255,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>まず、日付dにおける当該地域の集熱面日射量 \(I_{Wds,d}\) [MJ/(m<sup>2</sup>・d)] を「2.4.1 外皮面への入射日射量 の計算」に従い算出する。
+ただし、傾斜角\(\theta_{env,drct,j}\) は\(\phi_{Wsolar,drct,i}\)に、傾斜角\(\theta_{env,drct,j}\) は\(\phi_{Wsolar,drct,i}\)に置換する。</p>
+</div>
 <div class="paragraph">
 <p>日付dにおける給湯設備の太陽熱利用システムの熱利用量 は、次のように算出する。</p>
 </div>
@@ -1310,13 +1344,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(V_{W,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iによる日積算湯供給量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{Wsolar,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける給湯設備iの太陽熱利用システムの熱利用量</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/日</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kJ/d</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5.5</p></td>
 </tr>
 <tr>
@@ -2426,7 +2460,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-17 07:43:29 UTC
+Last updated 2020-07-29 23:13:45 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

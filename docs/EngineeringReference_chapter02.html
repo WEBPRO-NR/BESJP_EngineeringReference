@@ -5499,27 +5499,33 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：②台数</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,i,j,fsa}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの給気送風機の定格消費電力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW/台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑦送風機定格消費電力（給気）</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,i,j,fra}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの還気送風機の定格消費電力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW/台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑦送風機定格消費電力（還気）</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,i,j,foa}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの外気送風機の定格消費電力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW/台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑦送風機定格消費電力（外気）</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(E_{AC,ahu,i,j,fea}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する送風機jの排気送風機の定格消費電力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW/台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑦送風機定格消費電力（排気）</p></td>
 </tr>
 </tbody>
@@ -5553,7 +5559,7 @@ L_{AC,ahu,h,i,d} = \min⁡(L_{AC,ahu,mix,h,i,d},-ε)\]
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ahu,i,j,rated} = E_{AC,ahu,i,j,fsa} + E_{AC,ahu,i,j,fra} + E_{AC,ahu,i,j,foa} + E_{AC,ahu,i,j,fea}\]
+\[E_{AC,ahu,i,j,rated} = ( E_{AC,ahu,i,j,fsa} + E_{AC,ahu,i,j,fra} + E_{AC,ahu,i,j,foa} + E_{AC,ahu,i,j,fea} ) \times N_{AC,ahu,i,j}\]
 </div>
 </div>
 </div>
@@ -11825,7 +11831,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-04 07:32:11 UTC
+Last updated 2020-08-11 14:06:26 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

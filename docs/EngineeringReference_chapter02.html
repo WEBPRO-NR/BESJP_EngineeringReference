@@ -5074,20 +5074,26 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ahu,c,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの定格冷却能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(N_{AC,ahu,i,j}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する空調機jの台数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：②台数</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ahu,c,i,j,rated}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する空調機jの定格冷却能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW/台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：④定格冷却能力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ahu,h,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iの定格加熱能力</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ahu,h,i,j,rated}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iに属する空調機jの定格加熱能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kW/台</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-7：⑤定格加熱能力</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(SimultenousCtrl_{AC,ref,j}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iが属する熱源群jの冷暖同時供給の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(SimultenousCtrl_{AC,ref,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空調機群iが属する熱源群iの冷暖同時供給の有無</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">様式2-5②：冷暖房同時供給の有無</p></td>
 </tr>
@@ -5143,13 +5149,13 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,c,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの冷房運転時の負荷率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.10、2.5.7、2.5.12</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ahu,h,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける空調機群iの暖房運転時の負荷率</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">－</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.5.10、2.5.7、2.5.12</p></td>
 </tr>
 </tbody>
@@ -5158,9 +5164,19 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
 <p>まず、日付dにおける空調機群iの冷房期の負荷率 \(L_{AC,ahu,mix,c,i,d}\)、日付dにおける空調機群iの暖房期の負荷率\(L_{AC,ahu,mix,h,i,d}\)を算出する。
 本計算法においては、日積算負荷を用いて日平均負荷率を算出し、一日を通してこの一定の負荷率で運転すると想定してエネルギー消費量の計算を行う。</p>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="exampleblock">
 <div class="content">
+<div style="page-break-after: always;"></div>
+<div class="stemblock">
+<div class="content">
+\[q_{AC,ahu,c,i,rated} = \sum_{j} ( q_{AC,ahu,c,i,j,rated} \times N_{AC,ahu,i,j} )\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[q_{AC,ahu,h,i,rated} = \sum_{j} ( q_{AC,ahu,h,i,j,rated} \times N_{AC,ahu,i,j} )\]
+</div>
+</div>
 <div class="stemblock">
 <div class="content">
 \[L_{AC,ahu,mix,c,i,d} = \begin{cases}
@@ -5206,12 +5222,12 @@ Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
 空調機群が完全に停止するわけではなく低負荷で動いているとしてエネルギー消費量を算出するためである。</p>
 </div>
 <div class="paragraph">
-<p>尚、空調機群iが属する熱源群jの冷暖同時供給の有無 \(SimultenousCtrl_{AC,ref,j}\) は、空調機群iが属する熱源群名称（様式2-7：㉒冷熱、㉓温熱）を検索キーとして、様式2-5：②冷暖同時供給有無の値を取得する。</p>
+<p>尚、空調機群iが属する熱源群iの冷暖同時供給の有無 \(SimultenousCtrl_{AC,ref,i}\) は、空調機群iが属する熱源群名称（様式2-7：㉒冷熱、㉓温熱）を検索キーとして、様式2-5：②冷暖同時供給有無の値を取得する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 空調機群iが「冷暖同時運転あり」の場合（ \(SimultenousCtrl_{AC,ref,j} = \mbox{有}\) ）</p>
+<p>a) 空調機群iが「冷暖同時運転あり」の場合（ \(SimultenousCtrl_{AC,ref,i} = \mbox{有}\) ）</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -5220,7 +5236,7 @@ L_{AC,ahu,h,i,d} = L_{AC,ahu,mix,h,i,d}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 空調機群iが「冷暖同時運転なし」の場合（ \(SimultenousCtrl_{AC,ref,j} = \mbox{無}\) ）</p>
+<p>b) 空調機群iが「冷暖同時運転なし」の場合（ \(SimultenousCtrl_{AC,ref,i} = \mbox{無}\) ）</p>
 </div>
 <div class="paragraph">
 <p>　b-1) 冷暖房期間 \(Season_{d}\) が「冷房期」もしくは「中間期」である場合<br>
@@ -11831,7 +11847,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-11 14:06:26 UTC
+Last updated 2020-08-13 14:17:29 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

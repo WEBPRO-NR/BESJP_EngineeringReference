@@ -145,6 +145,7 @@ stem:[c_{w}]|水の比熱|4.2|kJ/(kg・K)|
 stem:[Q_{W,i,r}]|給湯対象室rに温水を提供する給湯設備iの定格加熱能力|kW|様式5-2：③定格加熱能力|
 // stem:[n_{W,r}]|給湯対象室rに温水を提供する給湯設備の台数|台|入力|
 stem:[V_{WS1,r,d}]|日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（洗面のための湯使用量）|L/(m^2^・d)|D.1|
+stem:[V_{WS1,r,d}]|日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（洗面のための湯使用量）|L/(m^2^・d)|D.1|
 stem:[V_{WS2,r,d}]|日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（シャワーのための湯使用量）|L/(m^2^・d)|D.1|
 stem:[V_{WS3,r,d}]|日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（厨房のための湯使用量）|L/(m^2^・d)|D.1|
 stem:[V_{WS4,r,d}]|日付dにおける給湯対象室rの単位面積あたりの標準日積算湯使用量（その他の湯使用量）|L/(m^2^・d)|D.1|
@@ -318,8 +319,7 @@ Q_{Wp,i,d} = \begin{cases}
 |=================================
 |変数名|説明|単位|参照先|
 stem:[A_{Wsolar,i}]|給湯設備iに属する太陽熱温水器の有効集熱面積|m^2^|様式5-2：⑦有効集熱面積|
-stem:[\phi_{Wsolar,drct,i}]|給湯設備iに属する太陽熱温水器の集熱面の方位角|°|様式5-2：⑧集熱面の方位角|
-stem:[\phi_{Wsolar,slp,i}]|給湯設備iに属する太陽熱温水器の集熱面の傾斜角|°|様式5-2：⑨集熱面の傾斜角|
+
 stem:[V_{W,i,d}]|日付dにおける給湯設備iによる日積算湯供給量|L/d|5.2|
 stem:[\theta_{Win,d}]|日付dにおける日平均給水温度|℃|D.6|
 stem:[\theta_{AC,oa,d}]|日付dにおける日平均外気温度|℃|2.2.3|
@@ -807,3 +807,329 @@ stem:[\theta_{Win,d}]|日付dにおける日平均給水温度|℃|5.5|
 7地域 | 0.9223 | 2.097 |
 8地域 | 0.6921 | 7.167 |
 |=================================
+
+
+<<<<
+==== D.7 給湯設備の太陽熱利用における日射量
+
+.入力
+[options="header", cols="2,5,2,2"]
+|=================================
+|変数名|説明|単位|参照先|
+stem:[\psi_{Wsolar,drct,i}]|給湯設備iに属する太陽熱温水器の集熱面の方位角|°|様式5-2：⑧集熱面の方位角|
+stem:[\psi_{Wsolar,slp,i}]|給湯設備iに属する太陽熱温水器の集熱面の傾斜角|°|様式5-2：⑨集熱面の傾斜角|
+stem:[I_{DNI,d,t}]|日付d、時刻tにおける法線面直達日射量|W/m^2^|2.2.1|
+stem:[I_{DHI,d,t}]|日付d、時刻tにおける水平面天空日射量|W/m^2^|2.2.1|
+stem:[\psi_{lati}]|緯度|°|2.2.1|
+stem:[\psi_{longi}]|経度|°|2.2.1|
+|=================================
+
+.出力
+[options="header", cols="2,5,2,2"]
+|=================================
+|変数名|説明|単位|参照先|
+stem:[I_{Wds,d}]|日付dにおける当該地域の集熱面日射量|MJ/(m^2^・d)|5.5|
+|=================================
+
+
+日付dの日赤緯（declination of sun） stem:[DOS_{ d }] と、均時差（equation of time） stem:[EOT_{ d }] を以下の式で求める
+
+====
+
+////
+HASP教科書等より2項目の括弧内の2項目の係数を変更（+0.2070988 → -0.2070988）
+declination = 0.006322 - 0.405748 * math.cos(w + 0.153231) - 0.005880 * math.cos(2.0 * w - 0.207099) - 0.003233 * math.cos(3 * w + 0.620129)
+////
+[stem]
+++++
+\begin{eqnarray*}
+DOS_{ d } 
+& = & 0.006322 \\
+& \quad & - 0.405748 \times \cos(w + 0.153231) \\
+& \quad & - 0.005880 \times \cos(2 \times w - 0.207099) \\
+& \quad & - 0.003233 \times \cos(3 \times w + 0.620129)
+\end{eqnarray*}
+++++
+
+////
+equal_time_difference = - 0.0002786409 + 0.1227715 * math.cos(w + 1.498311) - 0.1654575 * math.cos(2.0 * w - 1.261546) - 0.00535383 * math.cos(3.0 * w -1.1571)
+////
+[stem]
+++++
+\begin{eqnarray*}
+EOT_{ d }
+& = & - 0.0002786409 \\
+& \quad & + 0.1227715 \times \cos(w + 1.498311) \\
+& \quad & - 0.1654575 \times \cos(2 \times w - 1.261546) \\
+& \quad & - 0.00535383 \times \cos(3 \times w -1.1571)
+\end{eqnarray*}
+++++
+
+ここで、 stem:[w] は一年を周期とする角度[rad]、
+stem:[{\rm daynum}(m, d)] はm月d日の通日を求める関数、stem:[{\rm floor}(x)] は実数 stem:[x] に対して stem:[x] 以下の最大の整数を求める関数である。
+
+////
+w = n * 2.0 * math.pi / 366.0
+////
+[stem]
+++++
+w = {\rm daynum}(　m, d　) \times \frac{ 2 \pi }{ 366 } 
+++++
+
+////
+n = math.floor( 30*(month-1) + math.floor((month+math.floor(month/8))/2) - math.floor((month+7)/10) + day)
+////
+[stem]
+++++
+\begin{eqnarray*}
+{\rm daynum}(m, d) =
+{\rm floor}\left(
+    30 \times ( m - 1 )
+    + {\rm floor}\left(
+        \frac{ m + {\rm floor}(\frac{ m }{ 8 } ) }{ 2 }
+        - {\rm floor}\left( \frac{ m + 7 }{ 10 } \right)
+        + d
+    \right) 
+\right)
+\end{eqnarray*}
+++++
+
+====
+
+
+
+日付d時刻tの時角（hour angle） stem:[HA_{ d, t }] [rad] を求める。ただし、時刻 t は 1〜24 とする。
+
+====
+
+////
+# 時角を求める
+Tim = (15.0 * t + 15.0 * equal_time_difference + longi - 315.0) * rad
+////
+[stem]
+++++
+HA_{ d, t } = ( 15 \times t + 15 \times EOT_{ d } + \psi_{ longi } - 315 ) \times \frac{ 2 \pi }{ 360 }
+++++
+====
+
+
+
+太陽高度（solar altitude）の正弦 stem:[\sin SAl_{ d, t }] を求める。
+
+====
+
+////
+# 太陽高度の正弦を求める(HASP教科書 P25 (2.25)参照 )
+sinh   = sinPhi * sinDel + cosPhi * cosDel * cosTim
+
+sinPhi = math.sin(deg2rad(phi))     # 緯度の正弦
+cosPhi = math.cos(deg2rad(phi))     # 緯度の余弦
+sinDel = math.sin(declination)      # 日赤緯の正弦
+cosDel = math.cos(declination)      # 日赤緯の余弦
+cosTim = math.cos(Tim)              # 時角の余弦
+////
+[stem]
+++++
+\sin SAl_{ d, t }　
+= \sin \Psi_{ lati } \times \sin DOS_{ d } 
++ \cos \Psi_{ lati } \times \cos DOS_{ d } \times \cos HA_{ d, t } 
+++++
+
+[stem]
+++++
+\Psi_{ lati } = \psi_{ lati } \times \frac{ 2 \pi }{ 360 }
+++++
+
+====
+
+
+
+太陽高度（solar altitude）の余弦 stem:[\cos SAl_{ d, t }] を求める。
+
+====
+
+////
+cosh   = math.sqrt(1 - sinh**2)
+////
+[stem]
+++++
+\cos SAl_{ d, t } = \sqrt{ 1 - \sin^2 SAl_{ d, t } }
+++++
+
+====
+
+
+
+太陽方位（solar azimuth）の正弦 stem:[\sin SAz_{ d, t }] を求める。
+
+====
+
+////
+sinA   = cosDel * sinTim / cosh  
+
+cosDel = math.cos(declination)      # 日赤緯の余弦
+sinTim = math.sin(Tim)              # 時角の正弦
+////
+[stem]
+++++
+\sin SAz_{ d, t } = 
+\frac
+{ \cos ( DOS_{ d } ) \times \sin ( HA_{ d, t } ) }
+{ \cos SAl_{ d, t }}
+++++
+
+====
+
+
+
+太陽方位（solar azimuth）の余弦 stem:[\cos SAz_{ d, t }] を求める。
+
+====
+
+////
+cosA   = (sinh * sinPhi - sinDel)/(cosh * cosPhi)
+
+sinPhi = math.sin(deg2rad(phi))     # 緯度の正弦
+sinDel = math.sin(declination)      # 日赤緯の正弦
+cosPhi = math.cos(deg2rad(phi))     # 緯度の余弦
+////
+[stem]
+++++
+\cos SAz_{ d, t } = 
+\frac
+{ \sin SAl_{ d, t } \times \sin \Psi_{ lati } - \sin DOS_{ d } }
+{ \cos SAl_{ d, t } \times \cos \Psi_{ lati } }
+++++
+
+[stem]
+++++
+\Psi_{ lati } = \psi_{ lati } \times \frac{ 2 \pi }{ 360 }
+++++
+
+====
+
+
+
+集熱面から見た太陽高度の正弦 stem:[\sin SAl_{ Wsolar, d, t }] を求める。
+
+====
+
+////
+sinh2  = sinh * cosBet + cosh * sinBet * (cosA * cosAlp + sinA * sinAlp)
+if sinh2 < 0:
+sinh2 = 0
+
+cosBet = math.cos(bet * rad)        # 傾斜角余弦
+sinBet = math.sin(bet * rad)        # 傾斜角正弦
+cosAlp = math.cos(alp * rad)        # 方位角余弦
+sinAlp = math.sin(alp * rad)        # 方位角正弦
+////
+[stem]
+++++
+\sin SAl_{ Wsolar, d, t } = 
+\max \{
+    0, 
+    \sin SAl_{ d, t } \times \cos \Psi_{ Wsolar, slp, i }
+    + \cos SAl_{ d, t } \times \sin \Psi_{ Wsolar, slp, i }
+    \times (
+        \cos SAz_{ d, t } \times \cos \Psi_{ Wsolar, drct, i } 
+        + \sin SAz_{ d, t } \times \sin \Psi_{ Wsolar, drct, i } 
+    )
+\}
+++++
+
+[stem]
+++++
+\Psi_{ Wsolar, slp, i } = \psi_{ Wsolar, slp, i } \times \frac{ 2 \pi }{ 360 }
+++++
+
+[stem]
+++++
+\Psi_{ Wsolar, drct, i } = \psi_{ Wsolar, drct, i } \times \frac{ 2 \pi }{ 360 }
+++++
+
+====
+
+
+
+集熱面の直達日射量（direct normal irradiance） stem:[I_{ DNI, ,panel, d, t }] を求める。
+====
+////
+# 傾斜面入射日射量(直達日射量)（W/m2）
+Id[DN,hour]  =  Iod * sinh2
+////
+[stem]
+++++
+I_{ DNI, panel, d, t } = I_{ DNI, d, t } \times \sin SAl_{ panel, d, t }
+++++
+
+====
+
+
+
+集熱面の天空日射量（diffuse horizontal irradiance） stem:[I_{ DHI, panel, d, t }] を求める。
+
+====
+
+////
+# 傾斜面入射日射量(天空日射量)（W/m2）
+if bet == 90:
+Is[DN,hour] = 0.5*Ios + 0.1*0.5*(Ios + Iod*sinh)
+elif bet == 0:
+Is[DN,hour] = Ios
+else:
+# 太陽熱利用の計算用：要検証
+rhoG = 0.8
+Is[DN,hour] = (1+cosBet)/2*Ios + (1-cosBet)/2*rhoG*(Ios + Iod*sinh)
+////
+[stem]
+++++
+I_{ DHI, panel, d, t } =
+\begin{cases}
+I_{ DHI, d, t }
+& , \psi_{ Wsolar, slp, i } = 0 \\
+0.5 \times I_{ DHI, d, t } + 0.1 \times 0.5 \times ( I_{ DHI, d, t } + I_{ DNI, d, t } \times \sin SAl_{ d, t })
+& , \psi_{ Wsolar, slp, i } = 90 \\ 
+\frac
+{ 1 + \cos \Psi_{ Wsolar, slp, i } }
+{ 2 }
+\times I_{ DHI, d, t }
++
+\frac
+{ 1 - \cos \Psi_{ Wsolar, slp, i } }
+{ 2 }
+\times 0.8 
+\times (
+    I_{ DHI, d, t } + I_{ DNI, d, t } \times \sin SAl_{ d, t }
+)
+& , \mbox{それ以外}
+\end{cases}
+++++
+
+[stem]
+++++
+\Psi_{ Wsolar, slp, i } = \psi_{ Wsolar, slp, i } \times \frac{ 2 \pi }{ 360 }
+++++
+
+====
+
+
+
+集熱面の直達日射量と天空日射量から日付dにおける当該地域の集熱面日射量 stem:[I_{Wds,d}] [MJ/(m^2^・d)]を求める。
+
+====
+
+////
+(Id + Is)*3600/1000000 * 1000
+////
+[stem]
+++++
+I_{ Wds, d } = \sum_{t=1}^{24} I_{ Wds, d, t }
+++++
+
+[stem]
+++++
+I_{ Wds, d ,t } = ( I_{ DNI, panel, d, t } + I_{ DHI, panel, d, t } ) \times 3600 \times 10^{-6}
+++++
+
+====

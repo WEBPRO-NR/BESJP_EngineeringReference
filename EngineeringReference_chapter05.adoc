@@ -1099,7 +1099,7 @@ sinAlp = math.sin(alp * rad)        # 方位角正弦
 
 
 
-集熱面の直達日射量（direct normal irradiance） stem:[I_{ DNI, ,panel, d, t }] を求める。
+集熱面の直達日射量（direct normal irradiance） stem:[I_{ DNI, Wsolar, d, t }] を求める。
 ====
 ////
 # 傾斜面入射日射量(直達日射量)（W/m2）
@@ -1107,14 +1107,14 @@ Id[DN,hour]  =  Iod * sinh2
 ////
 [stem]
 ++++
-I_{ DNI, panel, d, t } = I_{ DNI, d, t } \times \sin SAl_{ panel, d, t }
+I_{ DNI, Wsolar, d, t } = I_{ DNI, d, t } \times \sin SAl_{ panel, d, t }
 ++++
 
 ====
 
 
 
-集熱面の天空日射量（diffuse horizontal irradiance） stem:[I_{ DHI, panel, d, t }] を求める。
+集熱面の天空日射量（diffuse horizontal irradiance） stem:[I_{ DHI, Wsolar, d, t }] を求める。
 
 ====
 
@@ -1131,7 +1131,7 @@ Is[DN,hour] = (1+cosBet)/2*Ios + (1-cosBet)/2*rhoG*(Ios + Iod*sinh)
 ////
 [stem]
 ++++
-I_{ DHI, panel, d, t } =
+I_{ DHI, Wsolar, d, t } =
 \begin{cases}
 I_{ DHI, d, t }
 & , \psi_{ Wsolar, slp, i } = 0 \\
@@ -1176,7 +1176,7 @@ I_{ Wds, d } = \sum_{t=1}^{24} I_{ Wds, d, t }
 
 [stem]
 ++++
-I_{ Wds, d ,t } = ( I_{ DNI, panel, d, t } + I_{ DHI, panel, d, t } ) \times 3600 \times 10^{-6}
+I_{ Wds, d ,t } = ( I_{ DNI, Wsolar, d, t } + I_{ DHI, Wsolar, d, t } ) \times 3600 \times 10^{-6}
 ++++
 
 ====

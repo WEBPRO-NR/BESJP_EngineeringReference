@@ -891,7 +891,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="stemblock">
 <div class="content">
-\[V_{WR0,r,d} = \sum_{i=1}\left(V_{WS0,r,d} \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\right)\]
+\[V_{WR0,r,d} = \sum_{i=1}\left(V_{WS0,r,d} \times A_{r} \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\right)\]
 </div>
 </div>
 </div>
@@ -924,7 +924,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>b）給湯対象室rが給湯設備i以外の給湯設備から温水を提供される場合（例えば、給湯対象室が事務室で、男子トイレ、女子トイレに別々に給湯設備がある場合）</p>
 </div>
 <div class="paragraph">
-<p>　給湯対象室rに温水を提供する給湯設備の定格加熱能力の比率で日積算湯使用量 \(V_{WR,r,d}\) を按分する。</p>
+<p>　給湯対象室rに温水を提供する給湯設備の定格加熱能力の比率で日積算湯使用量を按分する。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1356,30 +1356,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>　b-2） 日平均外気温が5℃を超える場合</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[Q_{Wsolar,i,d} = A_{Wsolar} \times I_{Wds,d} \times c_{Weff} \times c_{Wsolar}\]
-</div>
-</div>
-</div>
-</div>
 <div class="paragraph">
-<p>ただし、\(Q_{Wsolar,i,d}\) が
-\(c_{w} \times \rho_{w} \times (\theta_{Wtap} - \theta_{Win,d}) \times V_{W,i,d}\) の90%以上となる場合は、全てを太陽熱で賄うことはできないとし、次式で算出する。</p>
+<p>給湯負荷 \(c_{w} \times \rho_{w} \times (\theta_{Wtap} - \theta_{Win,d}) \times V_{W,i,d}\) の全てを太陽熱利用システムの熱利用量 \(Q_{Wsolar,i,d}\) で賄うことはできないとし、太陽熱利用の上限は給湯負荷の90％とする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[Q_{Wsolar,i,d} = 0.9 \times A_{Wsolar} \times I_{Wds,d} \times c_{Weff} \times c_{Wsolar}\]
+\[Q_{Wsolar,i,d} = \min (
+    A_{Wsolar} \times I_{Wds,d} \times c_{Weff} \times c_{Wsolar}
+    ,
+    0.9 \times c_{w} \times \rho_{w} \times (\theta_{Wtap} - \theta_{Win,d}) \times V_{W,i,d}
+)\]
 </div>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>とする。</p>
 </div>
 <div class="paragraph">
 <p>（注）この算出方法は、（財）建築環境・省エネルギー機構「住宅事業建築主の判断の基準におけるエネルギー消費量計算方法の解説」に記載されている算出方法と同じである。</p>
@@ -2574,7 +2565,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6地域</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.8526</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.8516</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.473</p></td>
 </tr>
 <tr>
@@ -2907,7 +2898,7 @@ I_{ DHI, d, t }
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-19 12:49:01 UTC
+Last updated 2020-08-22 08:29:18 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

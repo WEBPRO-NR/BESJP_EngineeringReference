@@ -880,96 +880,49 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div class="paragraph">
-<p>まず、給湯対象室rの節湯器具による湯使用量削減効果を加味した日付dにおける室rの日積算湯使用量 \(V_{WR,r,d}\) と、給湯対象室rの日付dにおける室rの基準設定日積算湯使用量 \(V_{WR0,r,d}\) を次式で算出する。</p>
+<p>給湯対象室rに温水を提供する給湯設備iの基準設定日積算湯使用量 \(V_{W0,i,r,d}\) および、日積算湯使用量 \(V_{W,i,r,d}\) は、節湯器具による湯使用量削減率を適用した単位面積あたりの標準日積算湯使用量に室面積を乗じた値を提供する給湯設備の定格能力で案分して算出する。
+ただし、基準設定日積算湯使用量は節湯器具による湯使用量削減率は適用されない。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="stemblock">
 <div class="content">
-\[V_{WR,r,d} = \sum_{i=1}\left\{(V_{WS1,r,d} \times A_{r} \times \phi_{Wa,i,r} + V_{WS2,r,d} \times A_{r} \times \phi_{Wb,i,r} + V_{WS3,r,d} \times A_{r} + V_{WS4,r,d} \times A_{r}) \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\right\}\]
+\[V_{W0,i,r,d} = V_{WS0,r,d} \times A_{r} \times \frac{Q_{W,i,r}}{\sum_{i=1}Q_{W,i,r}}\]
 </div>
 </div>
 <div class="stemblock">
 <div class="content">
-\[V_{WR0,r,d} = \sum_{i=1}\left(V_{WS0,r,d} \times A_{r} \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\right)\]
+\[V_{W,i,r,d} =
+\{
+    (
+        V_{WS1,r,d} \times \phi_{Wa,i,r}
+        + V_{WS2,r,d} \times  \phi_{Wb,i,r}
+        + V_{WS3,r,d}
+        + V_{WS4,r,d}
+    )
+    \times A_{r}
+\}
+\times
+\frac
+{Q_{W,i,r}}
+{\sum_{i=1}Q_{W,i,r}}\]
 </div>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>次に、日付dにおける給湯対象室rに温水を提供する給湯設備iからの日積算湯供給量（給湯設備iから室rへの日積算湯供給量） \(V_{W,i,r,d}\) と \(V_{W0,i,r,d}\) を算出する。</p>
-</div>
-<div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>ただし、給湯対象室rが、a)給湯設備iからしか温水が提供されない場合と、b)給湯設備i以外の給湯設備からも温水が提供される場合で、次のように算出方法が異なる。</p>
-</div>
-<div class="paragraph">
-<p>a）給湯対象室rが給湯設備iからしか温水を提供されない場合</p>
+<p>給湯設備iによる基準設定日積算湯供給量 \(V_{W0,i,d}\) および 日積算湯供給量\(V_{W,i,d}\) は、給湯設備iの日積算湯使用量を給湯設備iが温水を提供する全ての給湯対象室rついて積算した値であるとする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
-<div class="stemblock">
-<div class="content">
-\[V_{W,i,r,d} = V_{WR,r,d}\]
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[V_{W0,i,r,d} = V_{WR0,r,d}\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>b）給湯対象室rが給湯設備i以外の給湯設備から温水を提供される場合（例えば、給湯対象室が事務室で、男子トイレ、女子トイレに別々に給湯設備がある場合）</p>
-</div>
-<div class="paragraph">
-<p>　給湯対象室rに温水を提供する給湯設備の定格加熱能力の比率で日積算湯使用量を按分する。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[V_{W,i,r,d} = V_{WR,r,d} \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\]
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[V_{W0,i,r,d} = V_{WR0,r,d} \times \frac{Q_{W,i,r}}{ \sum_{i=1}Q_{W,i,r} }\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>また、給湯対象室rが給湯設備iから温水を供給されない場合は0とする。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[V_{W,i,r,d} = 0\]
-</div>
-</div>
-<div class="stemblock">
-<div class="content">
-\[V_{W0,i,r,d} = 0\]
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>給湯設備iによる日積算湯供給量 \(V_{W,i,d}\) および \(V_{W0,i,d}\) は、給湯対象室rに温水を提供する給湯設備iからの日積算湯供給量を全ての給湯対象室について積算した値であるとする。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="stemblock">
-<div class="content">
-\[V_{W,i,d} = \sum_{r=1}V_{W,i,r,d}\]
-</div>
-</div>
 <div class="stemblock">
 <div class="content">
 \[V_{W0,i,d} = \sum_{r=1}V_{W0,i,r,d}\]
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\[V_{W,i,d} = \sum_{r=1}V_{W,i,r,d}\]
 </div>
 </div>
 </div>
@@ -2697,7 +2650,7 @@ EOT_{ d }
 </div>
 <div class="stemblock">
 <div class="content">
-\[w = {\rm daynum}(　m, d　) \times \frac{ 2 \pi }{ 366 }\]
+\[w = {\rm daynum}( m, d ) \times \frac{ 2 \pi }{ 366 }\]
 </div>
 </div>
 <div class="stemblock">
@@ -2898,7 +2851,7 @@ I_{ DHI, d, t }
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-22 08:29:18 UTC
+Last updated 2020-08-25 14:07:20 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

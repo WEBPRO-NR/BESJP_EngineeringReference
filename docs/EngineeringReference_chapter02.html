@@ -5010,7 +5010,7 @@ Q_{ahu,h} = 0\]
 </div>
 <div style="page-break-after: always;"></div>
 <div class="paragraph">
-<p>\(Q_{ahu_c}\) と \(Q_{ahu_c}\) を用いて、空調機群iの日積算空調負荷を次式で算出する。</p>
+<p>\(Q_{ahu_c}\) と \(Q_{ahu_h}\) を用いて、空調機群iの日積算空調負荷を次式で算出する。</p>
 </div>
 <div class="paragraph">
 <p>尚、空調機群iが属する熱源群jの冷暖同時供給の有無 \(SimultenousCtrl_{AC,ref,j}\) は、空調機群iが属する熱源群名称（様式2-7：㉒冷熱、㉓温熱）を検索キーとして、様式2-5：②冷暖同時供給有無の値を取得する。</p>
@@ -8635,7 +8635,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </tbody>
 </table>
 <div class="paragraph">
-<p>地中滅交換器のタイプに基づき、地盤からの冷却水還り温度 \(\theta_{AC,w,c,i,d}\) 及び \(\theta_{AC,w,h,i,d}\) を算出する。
+<p>地中熱交換器のタイプに基づき、地盤からの冷却水還り温度 \(\theta_{AC,w,c,i,d}\) 及び \(\theta_{AC,w,h,i,d}\) を算出する。
 ここで、係数 \(a_{h,i,j},b_{h,i,j},c_{h,i,j},d_{h,i,j},a_{c,i,j},b_{c,i,j},c_{c,i,j},d_{c,i,j}\) は
 熱源群iに属する熱源機器jの地中熱交換器のタイプ(1～5）によって下表によって定めるものとする。</p>
 </div>
@@ -9002,7 +9002,7 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 </tbody>
 </table>
 <div class="paragraph">
-<p>月別の地盤からの冷却水還り温度 \(\theta_{AC,wo,c,i,j,m}\) 及び \(\theta_{AC,wo,h,i,j,m}\) は、地中滅交換器のタイプ(A～F）に基づき次式で算出する。
+<p>月別の地盤からの冷却水還り温度 \(\theta_{AC,wo,c,i,j,m}\) 及び \(\theta_{AC,wo,h,i,j,m}\) は、地中熱交換器のタイプ(A～F）に基づき次式で算出する。
 なお、タイプAとB、タイプDとEは同じ冷却水還り温度となる。</p>
 </div>
 <div class="exampleblock">
@@ -11847,7 +11847,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-06 23:56:10 UTC
+Last updated 2020-09-09 09:20:43 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

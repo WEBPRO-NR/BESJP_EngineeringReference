@@ -532,7 +532,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_2_7_5_熱源群の定格能力">2.7.5 熱源群の定格能力</a></li>
-<li><a href="#_2_7_6_蓄熱を加味した仮想定格能力">2.7.6 蓄熱を加味した仮想定格能力</a></li>
+<li><a href="#_2_7_6_蓄熱槽からの放熱を加味した補正定格能力">2.7.6 蓄熱槽からの放熱を加味した補正定格能力</a></li>
 <li><a href="#_2_7_7_熱源群の負荷率帯">2.7.7 熱源群の負荷率帯</a></li>
 <li><a href="#_2_7_8_最大能力">2.7.8 最大能力</a></li>
 <li><a href="#_2_7_9_熱源機器の運転台数">2.7.9 熱源機器の運転台数</a></li>
@@ -7554,8 +7554,8 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </div>
 </div>
 <div class="paragraph">
-<p>d) それ以外の場合
-熱源群iのエネルギー消費量は出来ない。</p>
+<p>d) それ以外の場合<br>
+エラーとする。</p>
 </div>
 </div>
 </div>
@@ -7622,7 +7622,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(ThrmlStrg_{AC,ref,ts,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱槽の有無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有・追掛/有・蓄熱/無</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.2、2.7.4.1、2.7.15</p></td>
 </tr>
 </tbody>
@@ -7635,8 +7635,9 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <div class="stemblock">
 <div class="content">
 \[ThrmlStrg_{AC,ref,ts,i}= \begin{cases}
-\mbox{無} &amp; ,(StorageType_{i} = \mbox{無} \lor \mbox{追掛} \lor \mbox{未入力}) \\
-\mbox{有} &amp; ,(\mbox{それ以外})
+\mbox{無} &amp; ,(StorageType_{i} = \mbox{無} \lor \mbox{未入力}) \\
+\mbox{有・追掛} &amp; ,(StorageType_{i} = \mbox{追掛}) \\
+\mbox{有・蓄熱} &amp; ,(\mbox{それ以外})
 \end{cases}\]
 </div>
 </div>
@@ -7652,7 +7653,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 蓄熱槽がある場合( \(ThrmlStrg_{AC,ref,ts,i} = \mbox{有}\) )</p>
+<p>a) 蓄熱槽がある場合( \(ThrmlStrg_{AC,ref,ts,i} = \mbox{有・蓄熱}\) )</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7660,7 +7661,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </div>
 </div>
 <div class="paragraph">
-<p>b) 蓄熱槽がない場合( \(ThrmlStrg_{AC,ref,ts,i} = \mbox{無}\) )</p>
+<p>b) 蓄熱槽がない場合( \(ThrmlStrg_{AC,ref,ts,i} = \mbox{無} \lor \mbox{有・追掛}\) )</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7704,7 +7705,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(ThrmlStrg_{AC,ref,ts,i}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱槽の有無</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">有/無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有・追掛/有・蓄熱/無</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1</p></td>
 </tr>
 <tr>
@@ -7766,7 +7767,7 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </table>
 <div class="paragraph">
 <p>まず、次式で定義する \(Q_{AC,ref,base,i,d}\) を算出する。
-\(\sum_{j}\) は各熱源群が冷熱または温熱を供給する二ポンプ群jについて積算することを表している。</p>
+\(\sum_{j}\) は各熱源群が冷熱または温熱を供給する二次ポンプ群jについて積算することを表している。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -7796,20 +7797,21 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </div>
 <div style="page-break-after: always;"></div>
 <div class="paragraph">
-<p>次に、蓄熱槽からの放熱分を加味し、熱源負荷を算出する。</p>
+<p>次に、蓄熱槽からの放熱分を加味して、熱源負荷を算出する。
+ただし、蓄熱を行う場合の熱負荷は蓄熱総容量に蓄熱総効率を乗じた値を超えないものとする。</p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) 蓄熱槽がある場合（ \(ThrmlStrg_{AC,ref,ts,i} = \mbox{有}\) ）</p>
+<p>a) 蓄熱を行う（ \(ThrmlStrg_{AC,ref,ts,i} = \mbox{有・蓄熱}\) ）かつ \(Q_{AC,ref,base,i,d} \neq 0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[Q_{AC,ref,i,d} = \min⁡( Q_{AC,ref,base,i,d} + Q_{AC,ref,ts,i,d},   f_{ref,ts,eff} \times Q_{AC,ref,ts,i,cap} )\]
+\[Q_{AC,ref,i,d} = \min⁡( Q_{AC,ref,base,i,d} + Q_{AC,ref,ts,i,d},　f_{ref,ts,eff} \times Q_{AC,ref,ts,i,cap} )\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) 蓄熱槽がない場合（ \(ThrmlStrg_{AC,ref,ts,i} = \mbox{無}\) ）</p>
+<p>b) 上記以外</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7819,7 +7821,8 @@ a-2)では、日付dにおける二次ポンプ群iの負荷 \(q_{AC,pump,i,d}\)
 </div>
 </div>
 <div class="paragraph">
-<p>ここで、\(f_{ref,ts,eff}\)は蓄熱槽効率であり、蓄熱槽タイプによって定まる。</p>
+<p>ここで、\(f_{ref,ts,eff}\)は蓄熱槽効率であり、蓄熱槽タイプによって定まる。
+蓄熱総タイプは、蓄熱システムの運転モード \(StorageType_{i}\) で判断する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -9348,9 +9351,9 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
-<h4 id="_2_7_6_蓄熱を加味した仮想定格能力"><a class="link" href="#_2_7_6_蓄熱を加味した仮想定格能力">2.7.6 蓄熱を加味した仮想定格能力</a></h4>
+<h4 id="_2_7_6_蓄熱槽からの放熱を加味した補正定格能力"><a class="link" href="#_2_7_6_蓄熱槽からの放熱を加味した補正定格能力">2.7.6 蓄熱槽からの放熱を加味した補正定格能力</a></h4>
 <div class="paragraph">
-<p>蓄熱槽があるシステムのエネルギー消費量計算に必要となる見かけ上の熱源処理能力（仮想定格能力）を算出する。</p>
+<p>蓄熱槽からの放熱を加味した補正定格能力を算出する。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">表 123. 入力</caption>
@@ -9426,13 +9429,13 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,j,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの補正定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.8</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの補正定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.7、2.7.9、2.7.12</p></td>
 </tr>
@@ -9440,7 +9443,7 @@ Q_{AC,ref,h,i,d}^{MAX}  =  \max_{d}(Q_{AC,ref,i,d})\]
 </table>
 <div class="paragraph">
 <p>まず、熱源群に蓄熱槽があり、追掛運転時に1番目に動く熱源機器が「熱交換器」である場合は、
-追掛運転時間を8時間として見かけ上の熱源処理能力（仮想定格能力）を算出する。
+追掛運転時間を8時間として見かけ上の熱源処理能力（補正定格能力）を算出する。
 式中の \(\max_{d}(T_{AC,ref,base,i,d})\) とは、各日の運転時間について、最大となる日の運転時間を使用するという意味である。</p>
 </div>
 <div class="exampleblock">
@@ -9501,10 +9504,10 @@ q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} &amp; ,(それ以外)
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">\(StorageType_{i}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱システムの運転モード（水蓄熱（混合型）、水蓄熱（成層型）、氷蓄熱、追掛、無）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">様式2-5：④蓄熱システム 運転モード</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(ThrmlStrg_{AC,ref,ts,i}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの蓄熱槽の有無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有・追掛/有・蓄熱/無</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Q_{AC,ref,i,d}\)</p></td>
@@ -9520,7 +9523,7 @@ q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} &amp; ,(それ以外)
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの補正定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.6</p></td>
 </tr>
@@ -9558,7 +9561,7 @@ q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} &amp; ,(それ以外)
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(StrageType_{i}\)が「水蓄熱（混合型）」、「水蓄熱（成層型）」、「氷蓄熱」の場合</p>
+<p>a) \(ThrmlStrg_{AC,ref,ts,i}\)が \(\mbox{有・蓄熱}\)の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -9619,7 +9622,7 @@ L &amp; , (\mbox{それ以外})
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,j,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iに属する熱源機器jの補正定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.6</p></td>
 </tr>
@@ -9745,7 +9748,7 @@ L &amp; , (\mbox{それ以外})
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの補正定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.6</p></td>
 </tr>
@@ -10081,7 +10084,7 @@ B = \sum_{j=1}^N q_{AC,ref,i,j,max,d}\]
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q'_{AC,ref,i,rated}\)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの仮想定格能力</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">熱源群iの補正定格能力</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kW</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.6</p></td>
 </tr>
@@ -11847,7 +11850,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-09 09:20:43 UTC
+Last updated 2020-09-10 04:35:01 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

@@ -3403,13 +3403,13 @@ Q_{AC,ref,base,i,d} = \sum_{j} (Q_{AC,pump,j,d} - Q_{AC,pump,heat,j,d} )
 次に、蓄熱槽からの放熱分を加味して、熱源負荷を算出する。
 ただし、蓄熱を行う場合の熱負荷は蓄熱総容量に蓄熱総効率を乗じた値を超えないものとする。
 ====
-a) 蓄熱を行う場合（ stem:[ThrmlStrg_{AC,ref,ts,i} = \mbox{有・蓄熱}] ）
+a) 蓄熱を行う（ stem:[ThrmlStrg_{AC,ref,ts,i} = \mbox{有・蓄熱}] ）かつ stem:[Q_{AC,ref,base,i,d} \neq 0] の場合
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-Q_{AC,ref,i,d} = \min⁡( Q_{AC,ref,base,i,d} + Q_{AC,ref,ts,i,d},   f_{ref,ts,eff} \times Q_{AC,ref,ts,i,cap} )
+Q_{AC,ref,i,d} = \min⁡( Q_{AC,ref,base,i,d} + Q_{AC,ref,ts,i,d},　f_{ref,ts,eff} \times Q_{AC,ref,ts,i,cap} )
 ++++++++++++++++++++++++++++++++++++++++++++
 
-b) 蓄熱を行わない場合（ stem:[ThrmlStrg_{AC,ref,ts,i} = \mbox{無} \lor \mbox{有・追掛}] ）
+b) 上記以外
 [stem]
 ++++++++++++++++++++++++++++++++++++++++++++
 Q_{AC,ref,i,d} = Q_{AC,ref,base,i,d}

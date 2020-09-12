@@ -642,7 +642,7 @@ T_{ cgs, d } = T_{ ST }
 ++++
 ====
 
-　b) a)に該当せず、stem:[( \frac{ q_{ hr, total, d } }{ E_{ cgs, rated } \times 3.6 \times f_{ hopeMn } } \times \frac{ f_{ cgs, e, rated } }{ f_{ cgs, h, rated } } \geqq T_{ STmin, W } \land \frac{ E_{ e, total, d } \times f_{ eope, R } \times ( 1 + f_{ esub, cgs } ) }{ E_{ cgs, rated } \times f_{ eopMn } } \geqq T_{ STmin, W } \right) = \mbox{True}] の時
+　b) a)に該当せず、stem:[\left( \frac{ q_{ hr, total, d } }{ E_{ cgs, rated } \times 3.6 \times f_{ hopeMn } } \times \frac{ f_{ cgs, e, rated } }{ f_{ cgs, h, rated } } \geqq T_{ STmin, W } \land \frac{ E_{ e, total, d } \times f_{ eope, R } \times ( 1 + f_{ esub, cgs } ) }{ E_{ cgs, rated } \times f_{ eopMn } } \geqq T_{ AC, c, d } \right) = \mbox{True}] の時
 
 ====
 [stem]
@@ -670,7 +670,7 @@ T_{ cgs, d } = T_{ ST }
 ++++
 ====
 
-　b) a)に該当せず、stem:[\land \left( \frac{ q_{ hr, total, d } }{ E_{ cgs, rated } \times 3.6 \times f_{ hopeMn } } \times \frac{ f_{ cgs, e, rated } }{ f_{ cgs, h, rated } } \geqq T_{ STmin, W } \land \frac{ E_{ e, total, d } \times f_{ eope, R } \times ( 1 + f_{ esub, cgs } ) }{ E_{ cgs, rated } \times f_{ eopMn } } \geqq T_{ AC, c, d } \right) = \mbox{True}] の時
+　b) a)に該当せず、stem:[\left( \frac{ q_{ hr, total, d } }{ E_{ cgs, rated } \times 3.6 \times f_{ hopeMn } } \times \frac{ f_{ cgs, e, rated } }{ f_{ cgs, h, rated } } \geqq T_{ STmin, W } \land \frac{ E_{ e, total, d } \times f_{ eope, R } \times ( 1 + f_{ esub, cgs } ) }{ E_{ cgs, rated } \times f_{ eopMn } } \geqq T_{ AC, c, d } \right) = \mbox{True}] の時
 
 ====
 [stem]
@@ -698,7 +698,7 @@ T_{ cgs, d } = T_{ ST }
 ++++
 ====
 
-　b) a)に該当せず、stem:[\land \left( \frac{ q_{ hr, total, d } }{ E_{ cgs, rated } \times 3.6 \times f_{ hopeMn } } \times \frac{ f_{ cgs, e, rated } }{ f_{ cgs, h, rated } } \geqq T_{ STmin, W } \land \frac{ E_{ e, total, d } \times f_{ eope, R } \times ( 1 + f_{ esub, cgs } ) }{ E_{ cgs, rated } \times f_{ eopMn } } \geqq T_{ AC, c, d } \right) = \mbox{True}] の時
+　b) a)に該当せず、stem:[\left( \frac{ q_{ hr, total, d } }{ E_{ cgs, rated } \times 3.6 \times f_{ hopeMn } } \times \frac{ f_{ cgs, e, rated } }{ f_{ cgs, h, rated } } \geqq T_{ STmin, W } \land \frac{ E_{ e, total, d } \times f_{ eope, R } \times ( 1 + f_{ esub, cgs } ) }{ E_{ cgs, rated } \times f_{ eopMn } } \geqq T_{ AC, c, d } \right) = \mbox{True}] の時
 
 ====
 [stem]

@@ -9550,7 +9550,7 @@ q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} &amp; ,(それ以外)
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(L_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの負荷率帯</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.9、2.7.16、2.7.12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.9、2.7.12、2.7.16</p></td>
 </tr>
 </tbody>
 </table>
@@ -9589,8 +9589,9 @@ q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} &amp; ,(それ以外)
 <div class="stemblock">
 <div class="content">
 \[{\rm F}(L) = \begin{cases}
-\frac{{\rm floor} (L \times 10)}{10} + 0.05 &amp; , (L&gt;0)　\\
-L &amp; , (\mbox{それ以外})
+\frac{{\rm floor} (L \times 10)}{10} + 0.05 &amp; , (0 &lt; L \leq 1.0)　\\
+1.2 &amp; , (1.0&lt;L) \\
+0 &amp; , (L \leq 0)
 \end{cases}\]
 </div>
 </div>
@@ -10129,7 +10130,7 @@ B = \sum_{j=1}^N q_{AC,ref,i,j,max,d}\]
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(xL_{AC,ref,i,d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの熱源機器の部分負荷率</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.13、2.7.15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.13、2.7.15、2.7.16</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(q_{AC,ref,i,max,d}\)</p></td>
@@ -10619,6 +10620,12 @@ L_{ref,x,i,j,max} &amp; ,(L_{ref,x,i,j,max} &lt; xL_{AC,ref,i,d})
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.7.7</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\(xL_{AC,ref,i,d}\)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">日付dにおける熱源群iの熱源機器の部分負荷率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.7.12</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">\(Season_{d}\)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">日付dの冷暖房期間（冷房期、中間期、暖房期）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
@@ -10722,9 +10729,28 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 <div class="paragraph">
 <p>a) \(RefType_{i,j}\)に「消費電力自給装置付」が含まれない場合</p>
 </div>
+<div class="paragraph">
+<p>　　1) \(0 &lt; L_{AC,ref,i,d} \leqq 0.3\) の場合</p>
+</div>
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j,rated} \times \max⁡(0.3,L_{AC,ref,i,d} )\]
+\[　　E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j,rated} \times 0.3\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　2) \(0.3 &lt; L_{AC,ref,i,d} \leqq 1.0\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[　　E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j,rated} \times xL_{AC,ref,i,d}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　3) \(1.0 &lt; L_{AC,ref,i,d}\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[　　E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j,rated} \times 1.2\]
 </div>
 </div>
 <div class="paragraph">
@@ -10739,19 +10765,27 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 </div>
 </div>
 <div class="paragraph">
-<p>　　1) \(0.3 &lt; L_{AC,ref,i,d}\) の場合</p>
+<p>　　1) \(0 &lt; L_{AC,ref,i,d} \leqq 0.3\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[　　E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j,rated} \times L_{AC,ref,i,d}\]
+\[　　E_{AC,ref,sub,i,j,d} = 0.3 \times P_{AC,ref,sub,nG,i,j,d} - (P_{AC,ref,sub,nG,i,j,d} - P_{AC,ref,sub,i,j,rated} ) \times xL_{AC,ref,i,d}\]
 </div>
 </div>
 <div class="paragraph">
-<p>　　2) \(0 \leqq L_{AC,ref,i,d} \leqq 0.3\) の場合</p>
+<p>　　2) \(0.3 &lt; L_{AC,ref,i,d} \leqq 1.0\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[　　E_{AC,ref,sub,i,j,d} = 0.3 \times P_{AC,ref,sub,nG,i,j,d} - (P_{AC,ref,sub,nG,i,j,d} - P_{AC,ref,sub,i,j,rated} ) \times L_{AC,ref,i,d}\]
+\[　　E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j,rated} \times xL_{AC,ref,i,d}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　3) \(1.0 &lt; L_{AC,ref,i,d}\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[　　E_{AC,ref,sub,i,j,d} = P_{AC,ref,sub,i,j,rated} \times 1.2\]
 </div>
 </div>
 </div>
@@ -10764,7 +10798,7 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>a) \(RefType_{i,j}\)に「冷却水変流量」が含まれる場合</p>
+<p>a) \(RefType_{i,j}\)に「冷却水変流量」が含まれない場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -10772,11 +10806,30 @@ E_{AC,ref,ctfan,i,j,d} = P_{AC,ref,ctfan,i,j}\]
 </div>
 </div>
 <div class="paragraph">
-<p>b) \(RefType_{i,j}\)に「冷却水変流量」が含まれない場合</p>
+<p>b) \(RefType_{i,j}\)に「冷却水変流量」が含まれる場合</p>
+</div>
+<div class="paragraph">
+<p>　　1) \(0 &lt; L_{AC,ref,i,d} \leqq 0.5\) の場合</p>
 </div>
 <div class="stemblock">
 <div class="content">
-\[E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j} \times \max⁡(0.5,L_{AC,ref,i,d})\]
+\[　　E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j} \times 0.5\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　2) \(0.5 &lt; L_{AC,ref,i,d} \leqq 1.0\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[　　E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j} \times xL_{AC,ref,i,d}\]
+</div>
+</div>
+<div class="paragraph">
+<p>　　3) \(1.0 &lt; L_{AC,ref,i,d}\) の場合</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[　　E_{AC,ref,ctpump,i,j,d}=P_{AC,ref,ctpump,i,j} \times 1.2\]
 </div>
 </div>
 </div>
@@ -11850,7 +11903,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-10 04:35:01 UTC
+Last updated 2020-09-12 13:57:59 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

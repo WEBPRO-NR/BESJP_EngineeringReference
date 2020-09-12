@@ -42,6 +42,8 @@ https://webpro-nr.github.io/BESJP_EngineeringReference/csv2xml/index.html
 　EngineeringReference_chapter05.adoc <br>
 昇降機 <br>
 　EngineeringReference_chapter06.adoc <br>
+コージェネレーション設備 <br>
+　EngineeringReference_chapter08.adoc <br>
 その他一次エネルギー消費量 <br>
 　EngineeringReference_chapter09.adoc <br>
 基準一次エネルギー消費量 <br>

@@ -4890,162 +4890,149 @@ V= \frac{ Q_{AC,ahu,room,c,i,d} \times 10^3}{3600 \times (- \Delta H_{AC,oa,d}) 
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>日積算空調負荷は、冷房負荷と暖房負荷に分けて算出する。
-ただし、算出された冷房負荷の値が負である場合はその値は暖房負荷とし、
-算出された暖房負荷の値が正である場合はその値は冷房負荷として扱うものとする。</p>
-</div>
-<div class="paragraph">
-<p>まず、次の \(Q_{ahu,c}\) [MJ/d] と \(Q_{ahu,h}\) [MJ/d] を算出する。</p>
-</div>
 <div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>日積算空調負荷（冷房）を以下の手順で算出する。</p>
+</div>
 <div class="exampleblock">
 <div class="content">
-<div class="paragraph">
-<p>a) 外気負荷のみ処理する場合（ \(OnlyOALoad_{AC,ahu,i} = {\rm True}\) ）</p>
-</div>
-<div class="paragraph">
-<p>　　a-1) 予熱時外気取り入れ停止制御がない場合（ \(OACutCtrl_{AC,ahu,i} = \mbox{無}\) ）</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} \times T_{AC,ahu,c,i,d} \times 3600 \times 10^{-3}  \\
-Q_{ahu,h} = 0\]
-</div>
-</div>
-<div class="paragraph">
-<p>　　a-2) 予熱時外気取り入れ停止制御がある場合（ \(OACutCtrl_{AC,ahu,i} = \mbox{有}\) ）</p>
-</div>
-<div class="paragraph">
-<p>　　　　a-2-1) 空調機群iの運転時間が1より大きい場合（ \(T_{AC,ahu,i,d}&gt;1\) ）</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} \times (T_{AC,ahu,c,i,d}-1)  \times 3600 \times 10^{-3}  \\
-Q_{ahu,h} = 0\]
-</div>
-</div>
-<div class="paragraph">
-<p>　　　　a-2-2) それ以外の場合</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} \times T_{AC,ahu,c,i,d} \times 3600 \times 10^{-3}  \\
-Q_{ahu,h} = 0\]
-</div>
-</div>
-<div class="paragraph">
-<p>b) それ以外の場合</p>
-</div>
-<div class="ulist">
-<ul>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>\(Q_{ahu,c}\) の算出</p>
+<p>a) 外気負荷のみ処理する場合 （\(OnlyOALoad_{AC,ahu,i} = {\rm True}\)）</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>a-1) 予熱時外気取り入れ停止制御がない場合 （\(OACutCtrl_{AC,ahu,i} = \mbox{無}\)）</p>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} \times T_{AC,ahu,i,d} \times 3600 \times 10^{-3}\]
+</div>
+</div>
+</li>
+<li>
+<p>a-2) 予熱時外気取り入れ停止制御がある場合 （\(OACutCtrl_{AC,ahu,i} = \mbox{有}\)）</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>a-2-1) 空調機群iの運転時間が1より大きい場合 （\(T_{AC,ahu,i,d} &gt; 1\)）</p>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} \times (T_{AC,ahu,i,d} - 1)  \times 3600 \times 10^{-3}\]
+</div>
+</div>
+</li>
+<li>
+<p>a-2-2) それ以外の場合</p>
+<div class="stemblock">
+<div class="content">
+\[Q_{ahu,c} = q_{AC,ahu,oa,i,d} \times T_{AC,ahu,i,d} \times 3600 \times 10^{-3}\]
+</div>
+</div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>　　b-1,c) 空調機群iの冷房運転時間が正数の場合（ \(T_{AC,ahu,c,i,d}&gt;0\) ）</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>　　　　b-1-1,c) 予熱時外気取り入れ停止制御があり、かつ、空調機群iの冷房運転時間が暖房運転時間以上の場合<br>
-（ \(OACutCtrl_{AC,ahu,i} = \mbox{有} \land T_{AC,ahu,c,i,d} \geqq T_{AC,ahu,h,i,d}\) ）</p>
-</div>
+</li>
+<li>
+<p>b) それ以外の場合</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>b-1) 空調機群iの冷房運転時間が正数の場合 （\(T_{AC,ahu,c,i,d}&gt;0\)）</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>b-1-1) 予熱時外気取り入れ停止制御があり、かつ、空調機群iの冷房運転時間が1より大きく、かつ、空調機群iの冷房運転時間が暖房運転時間以上の場合 （\(OACutCtrl_{AC,ahu,i} = \mbox{有} \land T_{AC,ahu,c,i,d} &gt; 1 \land T_{AC,ahu,c,i,d} \geqq T_{AC,ahu,h,i,d}\)）</p>
 <div class="stemblock">
 <div class="content">
-\[Q_{ahu,c} = Q_{AC,ahu,room,c,i,d} + q_{AC,ahu,oa,i,d} \times (T_{AC,ahu,c,i,d}-1) \times 3600 \times 10^{-3}\]
+\[Q_{ahu,c} = Q_{AC,ahu,room,c,i,d} + q_{AC,ahu,oa,i,d} \times (T_{AC,ahu,c,i,d} - 1) \times 3600 \times 10^{-3}\]
 </div>
 </div>
-<div class="paragraph">
-<p>　　　　b-1-2,c) それ以外の場合</p>
-</div>
+</li>
+<li>
+<p>b-1-2) それ以外の場合</p>
 <div class="stemblock">
 <div class="content">
 \[Q_{ahu,c} = Q_{AC,ahu,room,c,i,d} + q_{AC,ahu,oa,i,d} \times T_{AC,ahu,c,i,d} \times 3600 \times 10^{-3}\]
 </div>
 </div>
-<div class="paragraph">
-<p>　　b-2,c) b-1,c) に該当しない場合</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p>b-2) それ以外の場合</p>
 <div class="stemblock">
 <div class="content">
 \[Q_{ahu,c} = 0\]
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>\(Q_{ahu,h}\) の算出</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>　b-1,h) \(T_{AC,ahu,h,i,d}&gt;0\) の場合</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>　　　　b-1-1,h) 予熱時外気取り入れ停止制御があり（ \(OACutCtrl_{AC,ahu,i} = \mbox{有}\) ）、\(T_{AC,ahu,h,i,d}&gt;1\) かつ　\(T_{AC,ahu,c,i,d} &lt; T_{AC,ahu,h,i,d}\) の場合</p>
+<p>日積算空調負荷（暖房）を以下の手順で算出する。
+ただし、外気負荷だけの場合は、処理上、外気負荷を冷房負荷として扱うため日積算空調負荷（暖房）は0となる。</p>
 </div>
-<div class="stemblock">
+<div class="exampleblock">
 <div class="content">
-\[Q_{ahu,h} = Q_{AC,ahu,room,h,i,d} + q_{AC,ahu,oa,i,d} \times (T_{AC,ahu,h,i,d}-1) \times 3600 \times 10^{-3}\]
-</div>
-</div>
-<div class="paragraph">
-<p>　　　　b-1-2,h) b-1-1,h)に該当しない場合</p>
-</div>
-<div class="stemblock">
-<div class="content">
-\[Q_{ahu,h} = Q_{AC,ahu,room,h,i,d} + q_{AC,ahu,oa,i,d} \times T_{AC,ahu,h,i,d} \times 3600 \times 10^{-3}\]
-</div>
-</div>
-<div class="paragraph">
-<p>　　b-2,h) b-1,h) に該当しない場合</p>
-</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>a) 外気負荷のみ処理する場合 （\(OnlyOALoad_{AC,ahu,i} = {\rm True}\)）</p>
 <div class="stemblock">
 <div class="content">
 \[Q_{ahu,h} = 0\]
 </div>
 </div>
-</div>
-</div>
-<div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p>\(Q_{ahu_c}\) と \(Q_{ahu_h}\) を用いて、空調機群iの日積算空調負荷を次式で算出する。</p>
-</div>
-<div class="paragraph">
-<p>尚、空調機群iが属する熱源群jの冷暖同時供給の有無 \(SimultenousCtrl_{AC,ref,j}\) は、空調機群iが属する熱源群名称（様式2-7：㉒冷熱、㉓温熱）を検索キーとして、様式2-5：②冷暖同時供給有無の値を取得する。</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>a) 空調機群iが属する熱源群jの冷暖同時供給が「有」の場合（\(SimultenousCtrl_{AC,ref,j} = \mbox{有}\) ）</p>
-</div>
+</li>
+<li>
+<p>b) それ以外の場合</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>b-1) 空調機群iの暖房運転時間が正数の場合 （\(T_{AC,ahu,c,i,d} &gt; 0\)）</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>b-1-1) 予熱時外気取り入れ停止制御があり、かつ、空調機群iの暖房運転時間が1より大きく、かつ、空調機群iの冷房運転時間が暖房運転時間より小さいの場合 （\(OACutCtrl_{AC,ahu,i} = \mbox{有} \land T_{AC,ahu,h,i,d} &gt; 1 \land T_{AC,ahu,c,i,d} &lt; T_{AC,ahu,h,i,d}\)）</p>
 <div class="stemblock">
 <div class="content">
-\[Q_{AC,ahu,c,i,d} = Q_{ahu,c}  \\
-Q_{AC,ahu,h,i,d} = Q_{ahu,h}\]
+\[Q_{ahu,h} = Q_{AC,ahu,room,h,i,d} + q_{AC,ahu,oa,i,d} \times (T_{AC,ahu,h,i,d} - 1) \times 3600 \times 10^{-3}\]
 </div>
 </div>
-<div class="paragraph">
-<p>b) 空調機群iが属する熱源群jの冷暖同時供給が「無」の場合（\(SimultenousCtrl_{AC,ref,j} = \mbox{無}\) ）</p>
-</div>
-<div class="paragraph">
-<p>　b-1) 冷暖房期間が「冷房期」もしくは「中間期」である場合（\(Season_{d} = \mbox{冷房期} \lor Season_{d} = \mbox{中間期}\)）</p>
-</div>
+</li>
+<li>
+<p>b-1-2) それ以外の場合</p>
 <div class="stemblock">
 <div class="content">
-\[Q_{AC,ahu,c,i,d} = \max⁡(0,Q_{ahu,c})  \\
-Q_{AC,ahu,h,i,d} = \max⁡(0,Q_{ahu,h})\]
+\[Q_{ahu,h} = Q_{AC,ahu,room,h,i,d} + q_{AC,ahu,oa,i,d} \times T_{AC,ahu,h,i,d} \times 3600 \times 10^{-3}\]
 </div>
 </div>
-<div class="paragraph">
-<p>　b-2) 冷暖房期間が「暖房期」である場合（\(Season_{d} = \mbox{暖房期}\)）</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p>b-2) それ以外の場合</p>
 <div class="stemblock">
 <div class="content">
-\[Q_{AC,ahu,c,i,d} = \min⁡(0,Q_{ahu,c})  \\
-Q_{AC,ahu,h,i,d} = \min⁡(0,Q_{ahu,h})\]
+\[Q_{ahu,h} = 0\]
 </div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -11903,7 +11890,7 @@ E_{AC,ref,ctpump,i} = \sum_{d=1}^{365} (E_{AC,ref,ctpump,i,d} \times T_{AC,ref,i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-12 14:27:18 UTC
+Last updated 2020-09-14 13:50:30 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

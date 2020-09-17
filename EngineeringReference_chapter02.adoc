@@ -2495,6 +2495,7 @@ n_{AC,ahu,h,h,i,d} = 0
 ++++
 { \rm F }(L) = 
 \begin{cases}
+0 & , L \leqq 0 \\
 1 & , 0 < L < 0.1 \\
 2 & , 0.1 \leqq L < 0.2 \\
 3 & , 0.2 \leqq L < 0.3 \\

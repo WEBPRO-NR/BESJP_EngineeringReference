@@ -2531,6 +2531,19 @@ T_{AC,ahu,c,c,i,d} = 0
 T_{AC,ahu,c,h,i,d} = 0
 ++++
 * b) それ以外の場合
+[none]
+** b-1) 日平均負荷率（冷房）が0の場合（ stem:[L_{AC,ahu,ave,c,i,d} = 0] ）
++
+[stem]
+++++
+T_{AC,ahu,c,c,i,d} = 0
+++++  
++
+[stem]
+++++
+T_{AC,ahu,c,h,i,d} = 0
+++++
+** b-2 ) それ以外の場合
 +
 [stem]
 ++++
@@ -2562,6 +2575,19 @@ T_{AC,ahu,h,c,i,d} = 0
 T_{AC,ahu,h,h,i,d} = 0
 ++++
 * b) それ以外の場合
+[none]
+** b-1) 日平均負荷率（暖房）が0の場合（ stem:[L_{AC,ahu,ave,h,i,d} = 0] ）
++
+[stem]
+++++
+T_{AC,ahu,h,c,i,d} = 0
+++++  
++
+[stem]
+++++
+T_{AC,ahu,h,h,i,d} = 0
+++++
+** b-2 ) それ以外の場合
 +
 [stem]
 ++++

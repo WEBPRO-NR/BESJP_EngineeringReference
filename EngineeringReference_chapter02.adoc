@@ -2896,8 +2896,8 @@ f_{AC,ahu,i,j,n} = 0
 ++++
 f_{AC,ahu,i,j,n} = 
 \begin{cases}
-{ \rm F_{AC,ahu,i,j} }( { \rm F_{L} } (n) ) & , { \rm F_{L} } (n) < \frac{ L_{AC,ahu,i,j,min} }{ 100 } \\
-{ \rm F_{AC,ahu,i,j} }( { \rm F_{L} } (n) ) & , \mbox{others}
+{ \rm F_{AC,ahu,i,j} }( \frac{ L_{AC,ahu,i,j,min} }{ 100 } ) & , { \rm F_{L} } (n) < \frac{ L_{AC,ahu,i,j,min} }{ 100 } \\
+{ \rm F_{AC,ahu,i,j} }( { \rm F_{L} } (n) ) & , \mbox{Others}
 \end{cases}
 ++++
 
@@ -2929,7 +2929,7 @@ f_{AC,ahu,i,j,n} = 1.2
 0.85 & , n = 9  \\
 0.95 & , n = 10 \\
 1.2  & , n = 11 \\
-Err  & , others
+Error  & , \mbox{Others}
 \end{cases}
 ++++
 ====

@@ -2296,7 +2296,7 @@ airconditioning.py では　Mxc[dd,0]
 +
 [stem]
 ++++
-n_{AC,ahu,c,c,i,d} = 0
+n_{AC,ahu,c,c,i,d} = \mbox{該当無し}
 ++++
 * b) それ以外の場合
 [none]
@@ -2312,7 +2312,7 @@ n_{AC,ahu,c,c,i,d} = { \rm F }( L_{AC,ahu,ave,c,i,d} )
 +
 [stem]
 ++++
-n_{AC,ahu,c,c,i,d} = 0
+n_{AC,ahu,c,c,i,d} = \mbox{該当無し}
 ++++
 ** b-2) それ以外の場合
 [none]
@@ -2320,7 +2320,7 @@ n_{AC,ahu,c,c,i,d} = 0
 +
 [stem]
 ++++
-n_{AC,ahu,c,c,i,d} = 0
+n_{AC,ahu,c,c,i,d} = \mbox{該当無し}
 ++++
 *** b-2-2) それ以外の場合
 [none]
@@ -2340,7 +2340,7 @@ n_{AC,ahu,c,c,i,d} = 1
 +
 [stem]
 ++++
-n_{AC,ahu,c,c,i,d} = 0
+n_{AC,ahu,c,c,i,d} = \mbox{該当無し}
 ++++
 ====
 
@@ -2358,7 +2358,7 @@ airconditioning.py では　Mxc[dd,1]
 +
 [stem]
 ++++
-n_{AC,ahu,c,h,i,d} = 0
+n_{AC,ahu,c,h,i,d} = \mbox{該当無し}
 ++++
 * b) それ以外の場合
 [none]
@@ -2374,7 +2374,7 @@ n_{AC,ahu,c,h,i,d} = { \rm F }( L_{AC,ahu,ave,h,i,d} )
 +
 [stem]
 ++++
-n_{AC,ahu,c,h,i,d} = 0
+n_{AC,ahu,c,h,i,d} = \mbox{該当無し}
 ++++
 ** b-2) それ以外の場合
 [none]
@@ -2382,7 +2382,7 @@ n_{AC,ahu,c,h,i,d} = 0
 +
 [stem]
 ++++
-n_{AC,ahu,c,h,i,d} = 0
+n_{AC,ahu,c,h,i,d} = \mbox{該当無し}
 ++++
 *** b-2-2) それ以外の場合
 [none]
@@ -2402,7 +2402,7 @@ n_{AC,ahu,c,h,i,d} = 1
 +
 [stem]
 ++++
-n_{AC,ahu,c,h,i,d} = 0
+n_{AC,ahu,c,h,i,d} = \mbox{該当無し}
 ++++
 ====
 
@@ -2419,7 +2419,7 @@ Mxh[dd,0]
 +
 [stem]
 ++++
-n_{AC,ahu,h,c,i,d} = 0
+n_{AC,ahu,h,c,i,d} = \mbox{該当無し}
 ++++
 * b) それ以外の場合
 [none]
@@ -2435,7 +2435,7 @@ n_{AC,ahu,h,c,i,d} = { \rm F }( -1 \times L_{AC,ahu,ave,c,i,d} )
 +
 [stem]
 ++++
-n_{AC,ahu,h,c,i,d} = 0
+n_{AC,ahu,h,c,i,d} = \mbox{該当無し}
 ++++
 ** b-2) それ以外の場合
 [none]
@@ -2457,13 +2457,13 @@ n_{AC,ahu,h,c,i,d} = 1
 +
 [stem]
 ++++
-n_{AC,ahu,h,c,i,d} = 0
+n_{AC,ahu,h,c,i,d} = \mbox{該当無し}
 ++++
 *** b-2-2) それ以外の場合
 +
 [stem]
 ++++
-n_{AC,ahu,h,c,i,d} = 0
+n_{AC,ahu,h,c,i,d} = \mbox{該当無し}
 ++++
 ====
 
@@ -2479,7 +2479,7 @@ Mxh[dd,1]
 +
 [stem]
 ++++
-n_{AC,ahu,h,h,i,d} = 0
+n_{AC,ahu,h,h,i,d} = \mbox{該当無し}
 ++++
 * b) それ以外の場合
 [none]
@@ -2495,7 +2495,7 @@ n_{AC,ahu,h,h,i,d} = { \rm F }( -1 \times L_{AC,ahu,ave,h,i,d} )
 +
 [stem]
 ++++
-n_{AC,ahu,h,h,i,d} = 0
+n_{AC,ahu,h,h,i,d} = \mbox{該当無し}
 ++++
 ** b-2) それ以外の場合
 [none]
@@ -2517,13 +2517,13 @@ n_{AC,ahu,c,h,i,d} = 1
 +
 [stem]
 ++++
-n_{AC,ahu,c,h,i,d} = 0
+n_{AC,ahu,c,h,i,d} = \mbox{該当無し}
 ++++
 *** b-2-2) それ以外の場合
 +
 [stem]
 ++++
-n_{AC,ahu,h,h,i,d} = 0
+n_{AC,ahu,h,h,i,d} = \mbox{該当無し}
 ++++
 ====
 

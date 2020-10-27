@@ -4244,15 +4244,81 @@ stem:[q_{AC,pump,i,rated}]|二次ポンプ群iの仮想定格能力|kW|2.6.3|
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照元|
-stem:[L_{AC,pump,i,d}]|日付dにおける二次ポンプ群iの負荷率|-|2.6.5、2.6.6|
+stem:[n_{AC,pump,i,d}]|日付dにおける二次ポンプ群群iの負荷率帯の区分番号|-|2.x.x|
 |=================================
+
+
+////
+stem:[L_{AC,pump,i,d}]|日付dにおける二次ポンプ群iの負荷率|-|2.6.5、2.6.6|
+////
+
 
 日付dにおける二次ポンプ群iの負荷率 stem:[L_{AC,pump,i,d}] は次式で求める。
 
 ====
 [stem]
+++++
+L_{AC,pump,i,d} =
+\begin{cases}
+\frac
+{
+    \frac
+    { Q_{AC,pump,i,d} }
+    { T_{AC,pump,i,d} }
+    \times
+    \frac
+    {1000}
+    {3600}
+}
+{ q_{AC,pump,i,rated} }
+& , T_{AC,pump,i,d} > 0
+\\
+0
+& , \mbox{Others}
+\end{cases}
+++++
+====
+
+日付dにおける二次ポンプ群iの負荷率 stem:[n_{AC,pump,i,d}] は次式で求める。
+
+====
+[stem]
+++++
+n_{AC,pump,i,d} = { \rm F } ( L_{AC,pump,i,d} )
+++++
+====
+
+
+なお、負荷率を負荷率帯の区分番号に変換する場合は、以下の関数を利用する。
+関数の引き数Lは正数（ stem:[L > 0] ）に限られる。
+====
+[stem]
+++++
+{ \rm F }(L) = 
+\begin{cases}
+1  & , 0   <     L < 0.1 \\
+2  & , 0.1 \leqq L < 0.2 \\
+3  & , 0.2 \leqq L < 0.3 \\
+4  & , 0.3 \leqq L < 0.4 \\
+5  & , 0.4 \leqq L < 0.5 \\
+6  & , 0.5 \leqq L < 0.6 \\
+7  & , 0.6 \leqq L < 0.7 \\
+8  & , 0.7 \leqq L < 0.8 \\
+9  & , 0.8 \leqq L < 0.9 \\
+10 & , 0.9 \leqq L < 1 \\
+11 & , 1   \leqq L \\
+Error & , \mbox{Others}
+\end{cases}
+++++
+====
+
+////
+
+====
+[stem]
 ++++++++++++++++++++++++++++++++++++++++++++
-L_{AC,pump,i,d} = \begin{cases}
+L_{AC,pump,i,d} = 
+\begin{cases}
 F( \frac {Q_{AC,pump,i,d} \times T_{AC,pump,i,d} \times \frac{1000}{3600}}{ q_{AC,pump,i,rated} } ) & ,( T_{AC,pump,i,d} > 0 ) \\
 0 & ,(T_{AC,pump,i,d} = 0 )
 \end{cases}
@@ -4269,6 +4335,8 @@ L & ,(\mbox{それ以外の場合})
 \end{cases}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
+
+////
 
 
 

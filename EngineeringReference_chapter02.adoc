@@ -1367,7 +1367,7 @@ Q_{AC,room,in,i,d} = 0
 |変数名|説明|単位|参照先|
 stem:[Q_{AC,room,tin,i,d}]|日付dにおける室iの温度差による定常熱取得|Wh/(m^2^・d)|2.4.2|
 stem:[Q_{AC,room,sin,i,d}]|日付dにおける室iの日射による定常熱取得|Wh/(m^2^・d)|2.4.2|
-stem:[Q_{AC,room,in,i,d}]|日付d におけ��室iの内部発熱|Wh/(m^2^・d)|2.4.3|
+stem:[Q_{AC,room,in,i,d}]|日付d におけ���室iの内部発熱|Wh/(m^2^・d)|2.4.3|
 stem:[a_{tc1,d}, a_{tc2,d}]|日付dにおける温度差による定常熱取得を室負荷(冷房)に変換する係数|-|A.3|
 stem:[a_{th1,d}, a_{th2,d}]|日付dにおける温度差による定常熱取得を室負荷(暖房)に変換する係数|-|A.3|
 stem:[a_{sc1,d}, a_{sc2,d}]|日付dにおける日射による定常熱取得を室負荷(冷房)に変換する係数|-|A.3|
@@ -1930,9 +1930,9 @@ Q_{AC,ahu,oacool,i,d} = V_{AC,ahu,oacool,i,d} \times (- \Delta H_{AC,oa,d}) \tim
 
 
 <<<<
-==== 2.5.5 日積算空調負荷
+==== 2.5.5 日積算空調負荷（コイル負荷）
 
-日積算空調負荷は、各空調機群の室負荷に外気負荷を足し合わせて算出する。この際、予熱時外気取り入れ停止制御の導入効果を見込む。
+日積算空調負荷（コイル負荷）は、各空調機群の室負荷に外気負荷を足し合わせて算出する。この際、予熱時外気取り入れ停止制御の導入効果を見込む。
 
 .入力
 [options="header", cols="2,5,2,2"]
@@ -3278,12 +3278,12 @@ stem:[L_{AC,ahu,h,i,d}]|日付dにおける空調機群iの暖房運転時の負
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照元|
-stem:[Q_{AC,ahu,heat,c,i,d}]|日付dにおける空調機群iのファン発熱量(冷水運転時)|MJ/d|2.6.1|
-stem:[Q_{AC,ahu,heat,h,i,d}]|日付dにおける空調機群iのファン発熱量(温水運転時)|MJ/d|2.6.1|
+stem:[Q_{AC,ahu,heat,pumpC,i,d}]|日付dにおける2次ポンプ群の運転モードが冷水ポンプである場合の空調機群iのファン発熱量|MJ/d|2.6.1|
+stem:[Q_{AC,ahu,heat,pumpH,i,d}]|日付dにおける2次ポンプ群の運転モードが温水ポンプである場合の空調機群iのファン発熱量|MJ/d|2.6.1|
 |=================================
 
 
-空調機群のファンによる発熱量 stem:[Q_{AC,ahu,heat,c,i,d}] 及び stem:[Q_{AC,ahu,heat,h,i,d}]は次式で算出する。
+空調機群のファンによる発熱量 stem:[Q_{AC,ahu,heat,pumpC,i,d}] 及び stem:[Q_{AC,ahu,heat,pumpH,i,d}]は次式で算出する。
 なお、発熱量を計上するのは、空調機群iに属する空調機の種類が「空調機」である場合のみとする。
 
 ここで、
@@ -3295,7 +3295,7 @@ stem:[f_{fan,heat}] はファンの発熱比率である。
 <<<<
 
 
-日付dにおける空調機群iのファン発熱量（冷水運転時） stem:[Q_{AC,ahu,heat,c,i,d}] は以下の式で求める。
+日付dにおける2次ポンプ群の運転モードが冷水ポンプである場合の空調機群iのファン発熱量 stem:[Q_{AC,ahu,heat,pumpC,i,d}] は以下の式で求める。
 
 ====
 [none]
@@ -3305,7 +3305,7 @@ stem:[f_{fan,heat}] はファンの発熱比率である。
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,c,i,d} = 
+Q_{AC,ahu,heat,pumpC,i,d} = 
 f_{fan,heat} \times 
 E_{AC,ahu,c,i} \times 
 \frac{ T_{AC,ahu,c,i,d} }{ T_{AC,ahu,i} } \times 
@@ -3320,7 +3320,7 @@ E_{AC,ahu,h,i} \times
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,c,i,d} = 
+Q_{AC,ahu,heat,pumpC,i,d} = 
 f_{fan,heat} \times 
 E_{AC,ahu,c,i} \times 
 \frac{ T_{AC,ahu,c,i,d} }{ T_{AC,ahu,i} } \times 
@@ -3330,7 +3330,7 @@ E_{AC,ahu,c,i} \times
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,c,i,d} = 
+Q_{AC,ahu,heat,pumpC,i,d} = 
 f_{fan,heat} \times 
 E_{AC,ahu,h,i} \times 
 \frac{ T_{AC,ahu,h,i,d} }{ T_{AC,ahu,i} } \times 
@@ -3340,19 +3340,19 @@ E_{AC,ahu,h,i} \times
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,c,i,d} = 0
+Q_{AC,ahu,heat,pumpC,i,d} = 0
 ++++
 * b) それ以外の場合
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,c,i,d} = 0
+Q_{AC,ahu,heat,pumpC,i,d} = 0
 ++++  
 
 ====
 
 
-日付dにおける空調機群iのファン発熱量（温水運転時） stem:[Q_{AC,ahu,heat,h,i,d}] は以下の式で求める。
+日付dにおける2次ポンプ群の運転モードが温水ポンプである場合の空調機群iのファン発熱量 stem:[Q_{AC,ahu,heat,pumpH,i,d}] は以下の式で求める。
 
 ====
 [none]
@@ -3362,7 +3362,7 @@ Q_{AC,ahu,heat,c,i,d} = 0
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,h,i,d} = 
+Q_{AC,ahu,heat,pumpH,i,d} = 
 f_{fan,heat} \times 
 E_{AC,ahu,c,i} \times 
 \frac{ T_{AC,ahu,c,i,d} }{ T_{AC,ahu,i} } \times 
@@ -3377,7 +3377,7 @@ E_{AC,ahu,h,i} \times
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,h,i,d} = 
+Q_{AC,ahu,heat,pumpH,i,d} = 
 f_{fan,heat} \times 
 E_{AC,ahu,c,i} \times 
 \frac{ T_{AC,ahu,c,i,d} }{ T_{AC,ahu,i} } \times 
@@ -3387,7 +3387,7 @@ E_{AC,ahu,c,i} \times
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,h,i,d} = 
+Q_{AC,ahu,heat,pumpH,i,d} = 
 f_{fan,heat} \times 
 E_{AC,ahu,h,i} \times 
 \frac{ T_{AC,ahu,h,i,d} }{ T_{AC,ahu,i} } \times 
@@ -3397,13 +3397,13 @@ E_{AC,ahu,h,i} \times
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,h,i,d} = 0
+Q_{AC,ahu,heat,pumpH,i,d} = 0
 ++++
 * b) それ以外の場合
 +
 [stem]
 ++++
-Q_{AC,ahu,heat,h,i,d} = 0
+Q_{AC,ahu,heat,pumpH,i,d} = 0
 ++++  
 
 ====
@@ -3652,9 +3652,19 @@ d) それ以外の場合
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[Q_{AC,ahu,c,i,d}]|日付dにおける空調機群iの室負荷が正（冷房要求）である場合の日積算空調負荷|MJ/d|2.5.5|
-stem:[Q_{AC,ahu,h,i,d}]|日付dにおける空調機群iの室負荷が負（暖房要求）である場合の日積算空調負荷|MJ/d|2.5.5|
+stem:[SimultenousCtrl_{AC,ref,i,j}]|二次ポンプ群iに接続する空調機群jが属する熱源群の冷暖同時供給の有無|有/無|様式2-5②：冷暖房同時供給の有無|
 
+stem:[Season_{d}]| 日付dの冷暖房期間（冷房期、中間期、暖房期）|	stem:[m^2]	|2.2.2|
+
+stem:[Q_{AC,ahu,oacool,i,j,d}]|日付dにおける二次ポンプ群iに接続する空調機群jの外気冷房制御による負荷削減量|MJ/d|2.5.4|
+
+stem:[Q_{AC,ahu,c,i,j,d}]|日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷|MJ/d|2.5.5|
+stem:[Q_{AC,ahu,h,i,j,d}]|日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷|MJ/d|2.5.5|
+
+stem:[Q_{AC,ahu,heat,pumpC,i,j,d}]|日付dにおける冷水運転モードの二次ポンプ群iに接続する空調機群jのファン発熱量|MJ/d|2.5.10|
+stem:[Q_{AC,ahu,heat,pumpH,i,j,d}]|日付dにおける温水運転モードの二次ポンプ群iに接続する空調機群jのファン発熱量|MJ/d|2.5.10|
+
+stem:[Type_{AC,pump,water,i}]|二次ポンプ群iが供給する水の種別|冷水/温水|2.6.1|
 |=================================
 
 ////
@@ -3676,192 +3686,376 @@ stem:[Q_{AC,ahu,oacool,i,j,d}]|日付ｄにおける二次ポンプ群iに接続
 stem:[Q_{AC,pump,i,d}]|日付dにおける二次ポンプ群iの二次ポンプ負荷|MJ/d|2.6.4、2.7.2|
 |=================================
 
-
-
-未処理負荷を以下の式で求める。
+二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の未処理負荷 stem:[Q_{AC,ahu,exCap,c,i,j,d}] 、二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の未処理負荷 stem:[Q_{AC,ahu,exCap,h,i,j,d}] 、未処理負荷の評価後の日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷 stem:[Q'_{AC,ahu,c,i,d}] 、および、未処理負荷の評価後の日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷 stem:[Q'_{AC,ahu,h,i,d}] を以下の式で求める。
 
 ====
+
 [none]
-* a) 暖房期の場合 stem:[Season_{d} = \mbox{暖房期}]
-[none]
-** a-1) stem:[Q,c>0 \and Q,h>0]
+* a) 二次ポンプ群iに接続する空調機群jが属する熱源群の冷暖同時供給がある場合（ stem:[SimultenousCtrl_{AC,ref,i,j} = \mbox{有}] ）
 +
 [stem]
 ++++
-Q_{misyori,i,d} = Q_c + C_h
-++++
-[stem]
-++++
-Q_c = 0
-++++
-[stem]
-++++
-Q_h = 0
-++++
-
-** a-2) stem:[Q,c>0 \and Q,h<=0]
+Q_{AC,ahu,exCap,c,i,j,d} = 0
+++++  
 +
 [stem]
 ++++
-Q_{misyori,i,d} = Q_c
-++++
-
-[stem]
-++++
-Q_c = 0
-++++
-[stem]
-++++
-Q_h = 0
-++++
-
-** a-3) stem:[Q,c<=0 \and Q,h>0]
+Q_{AC,ahu,exCap,h,i,j,d} = 0
+++++  
 +
 [stem]
 ++++
-Q_{misyori,i,d} = Q_c
-++++
-
-[stem]
-++++
-Q_c = 0
-++++
-[stem]
-++++
-Q_h = 0
-++++
-
-** a-4) それ以外の場合
+Q'_{AC,ahu,c,i,j,d} = Q_{AC,ahu,c,i,j,d}
+++++  
 +
 [stem]
 ++++
-Q_{misyori,i,d} = 0
+Q'_{AC,ahu,h,i,j,d} = Q_{AC,ahu,h,i,j,d}
 ++++
-
-[stem]
-++++
-Q_c = 0
-++++
-[stem]
-++++
-Q_h = 0
-++++
-
 * b) それ以外の場合
 [none]
-** b-1) stem:[Q,c>0 \and Q,h>0]
+** b-1) 暖房期である場合（ stem:[Season_{d} = \mbox{暖房期}] ）
+[none]
+*** b-1-1) 日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が正数、かつ、日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が正数である場合（ stem:[Q_{AC,ahu,c,i,j,d} > 0 \land Q_{AC,ahu,c,i,j,d} > 0 ] ）
 +
 [stem]
 ++++
-Q_{misyori,i,d} = Q_c + C_h
-++++
-[stem]
-++++
-Q_c = 0
-++++
-[stem]
-++++
-Q_h = 0
-++++
-
-** b-2) stem:[Q,c>0 \and Q,h<=0]
+Q_{AC,ahu,exCap,c,i,j,d} = 
+Q_{AC,ahu,c,i,j,d} + 
+Q_{AC,ahu,h,i,j,d}
+++++  
 +
 [stem]
 ++++
-Q_{misyori,i,d} = Q_c
-++++
-
-[stem]
-++++
-Q_c = 0
-++++
-[stem]
-++++
-Q_h = 0
-++++
-
-** b-3) stem:[Q,c<=0 \and Q,h>0]
+Q_{AC,ahu,exCap,h,i,j,d} = 0
+++++  
 +
 [stem]
 ++++
-Q_{misyori,i,d} = Q_c
-++++
-
-[stem]
-++++
-Q_c = 0
-++++
-[stem]
-++++
-Q_h = 0
-++++
-
-** b-4) それ以外の場合
+Q'_{AC,ahu,c,i,j,d} = 0
+++++  
 +
 [stem]
 ++++
-Q_{misyori,i,d} = 0
+Q'_{AC,ahu,h,i,j,d} = 0
 ++++
-
+*** b-1-2) 日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が正数、かつ、日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が正数でない場合（ stem:[Q_{AC,ahu,c,i,j,d} > 0 \land Q_{AC,ahu,c,i,j,d} \leqq 0 ] ）
++
 [stem]
 ++++
-Q_c = 0
-++++
+Q_{AC,ahu,exCap,c,i,j,d} = 
+Q_{AC,ahu,c,i,j,d}
+++++  
++
 [stem]
 ++++
-Q_h = 0
+Q_{AC,ahu,exCap,h,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,c,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,h,i,j,d} = Q_{AC,ahu,h,i,j,d}
+++++
+*** b-1-3) 日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が正数ではなく、かつ、日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が正数である場合（ stem:[Q_{AC,ahu,c,i,j,d} \leqq 0 \land Q_{AC,ahu,c,i,j,d} > 0 ] ）
++
+[stem]
+++++
+Q_{AC,ahu,exCap,c,i,j,d} = 
+Q_{AC,ahu,h,i,j,d}
+++++  
++
+[stem]
+++++
+Q_{AC,ahu,exCap,h,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,c,i,j,d} = Q_{AC,ahu,c,i,j,d}
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,h,i,j,d} = 0
+++++
+*** b-1-4) それ以外の場合
++
+[stem]
+++++
+Q_{AC,ahu,exCap,c,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q_{AC,ahu,exCap,h,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,c,i,j,d} = Q_{AC,ahu,c,i,j,d}
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,h,i,j,d} = Q_{AC,ahu,h,i,j,d}
+++++
+** b-2) それ以外の場合
+[none]
+*** b-2-1) 日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が負数、かつ、日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が負数である場合（ stem:[Q_{AC,ahu,c,i,j,d} < 0 \land Q_{AC,ahu,h,i,j,d} < 0 ] ）
++
+[stem]
+++++
+Q_{AC,ahu,exCap,c,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q_{AC,ahu,exCap,h,i,j,d} =
+-1 \times
+(
+    Q_{AC,ahu,c,i,j,d} +
+    Q_{AC,ahu,h,i,j,d}
+)
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,c,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,h,i,j,d} = 0
+++++
+*** b-2-2) 日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が負数、かつ、日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が負数でない場合（ stem:[Q_{AC,ahu,c,i,j,d} < 0 \land Q_{AC,ahu,c,i,j,d} \geqq 0 ] ）
++
+[stem]
+++++
+Q_{AC,ahu,exCap,c,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q_{AC,ahu,exCap,h,i,j,d} =
+-1 \times
+Q_{AC,ahu,c,i,j,d}
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,c,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,h,i,j,d} = Q_{AC,ahu,h,i,j,d}
+++++
+*** b-2-3) 日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が負数でなく、かつ、日付dにおける二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が負数である場合（ stem:[Q_{AC,ahu,c,i,j,d} \geqq 0 \land Q_{AC,ahu,c,i,j,d} < 0 ] ）
++
+[stem]
+++++
+Q_{AC,ahu,exCap,c,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q_{AC,ahu,exCap,h,i,j,d} =
+-1 \times
+Q_{AC,ahu,h,i,j,d}
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,c,i,j,d} = Q_{AC,ahu,c,i,j,d}
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,h,i,j,d} = 0
+++++
+*** b-2-4) それ以外の場合
++
+[stem]
+++++
+Q_{AC,ahu,exCap,c,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q_{AC,ahu,exCap,h,i,j,d} = 0
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,c,i,j,d} = Q_{AC,ahu,c,i,j,d}
+++++  
++
+[stem]
+++++
+Q'_{AC,ahu,h,i,j,d} = Q_{AC,ahu,h,i,j,d}
 ++++
 
 ====
+
+
 
 二次ポンプ負荷を以下の式で求める。
 
 
 ====
-
-stem:[tmpC]
-
-stem:[tmpH]
-
-
-stem:[Qsshu,fan]
-
-stem:[Qsahu,fan,ahu,c]
-
-
-stem:[Qsshu,fan]
-
-stem:[Qsahu,fan,ahu,h]
-
-
-
 [none]
-* a) stem:[Type_{AC,pump,water,i} = \mbox{冷水}]
-
+* a) 二次ポンプ群iが供給する水の種別が冷水の場合（ stem:[Type_{AC,pump,water,i} = \mbox{冷水}] ）
 [none]
-** a-1) stem:[Q_ahu,c >0]
-
+** a-1) 未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が正数、かつ、未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が正数である場合（ stem:[Q'_{AC,ahu,c,i,j,d} > 0 \land Q'_{AC,ahu,h,i,j,d} > 0] ）
 [none]
-*** a-1-1) stem:[|Q_ahu - Q_ahu,oac| < 1]
-
-*** a-1-2) それ以外
-
+*** a-1-1) 二次ポンプ群iに接続する空調機群jの外気冷房制御による負荷削減量が正数の場合（ stem:[Q_{AC,ahu,oacool,i,j,d} > 0] ）
 [none]
-** a-2) それ以外
-
-
-* b) それ以外
-
+**** a-1-1-1) 未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷から未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷を引いた値の絶対値が1未満の場合（ stem:[| Q'_{AC,ahu,c,i,j,d} - Q_{AC,ahu,oacool,i,j,d} | < 1] ）
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} = 
+0 +
+(
+    Q'_{AC,ahu,h,i,j,d} -
+    Q_{AC,ahu,oacool,i,j,d} +
+    Q_{AC,ahu,heat,pumpC,i,j,d}
+)
+++++
+**** a-1-1-2) それ以外の場合
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} =
+Q'_{AC,ahu,c,i,j,d} -
+Q_{AC,ahu,oacool,i,j,d} +
+(
+    Q'_{AC,ahu,h,i,j,d} -
+    Q_{AC,ahu,oacool,i,j,d} +
+    Q_{AC,ahu,heat,pumpC,i,j,d}
+)
+++++
+*** a-1-2) それ以外の場合
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} =
+Q'_{AC,ahu,c,i,j,d} -
+Q_{AC,ahu,oacool,i,j,d} +
+Q_{AC,ahu,heat,pumpC,i,j,d} +
+(
+    Q'_{AC,ahu,h,i,j,d} -
+    Q_{AC,ahu,oacool,i,j,d} +
+    Q_{AC,ahu,heat,pumpC,i,j,d}
+)
+++++
+** a-2) 未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が正数、かつ、未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が正数でない場合（ stem:[Q'_{AC,ahu,c,i,j,d} > 0 \land Q'_{AC,ahu,h,i,j,d} \leqq 0] ）
 [none]
-** b-1) stem:[Q_ahu,c >0]
-
+*** a-2-1) 二次ポンプ群iに接続する空調機群jの外気冷房制御による負荷削減量が正数の場合（ stem:[Q_{AC,ahu,oacool,i,j,d} > 0] ）
 [none]
-*** b-1-1) stem:[|Q_ahu - Q_ahu,oac| < 1]
-
-*** b-1-2) それ以外
-
+**** a-2-1-1) 未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷から未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷を引いた値の絶対値が1未満の場合（ stem:[| Q'_{AC,ahu,c,i,j,d} - Q_{AC,ahu,oacool,i,j,d} | < 1] ）
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} = 0
+++++
+**** a-2-1-2) それ以外の場合
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} =
+Q'_{AC,ahu,c,i,j,d} -
+Q_{AC,ahu,oacool,i,j,d}
+++++
+*** a-2-2) それ以外の場合
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} =
+Q'_{AC,ahu,c,i,j,d} -
+Q_{AC,ahu,oacool,i,j,d} +
+Q_{AC,ahu,heat,pumpC,i,j,d}
+++++
+** a-3) 未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が正数でなく、かつ、未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が正数である場合（ stem:[Q'_{AC,ahu,c,i,j,d} \leqq 0 \land Q'_{AC,ahu,h,i,j,d} > 0] ）
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} =
+Q'_{AC,ahu,h,i,j,d} -
+Q_{AC,ahu,oacool,i,j,d} +
+Q_{AC,ahu,heat,pumpC,i,j,d}
+++++
+** a-4) それ以外の場合
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} = 0
+++++
+* b) 二次ポンプ群iが供給する水の種別が温水の場合（ stem:[Type_{AC,pump,water,i} = \mbox{温水}] ）
 [none]
-** b-2) それ以外
+** b-1) 未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が負数であり、かつ、未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が負数である場合（ stem:[Q'_{AC,ahu,c,i,j,d} < 0 \land Q'_{AC,ahu,h,i,j,d} < 0] ）
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} =
+-1 \times
+(
+    Q'_{AC,ahu,c,i,j,d} +
+    Q_{AC,ahu,heat,pumpH,i,j,d}
+)
+-1 \times
+(
+    Q'_{AC,ahu,h,i,j,d} +
+    Q_{AC,ahu,heat,pumpH,i,j,d}
+)
+++++
+** b-2) 未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が負数であり、かつ、未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が負数でない場合（ stem:[Q'_{AC,ahu,c,i,j,d} < 0 \land Q'_{AC,ahu,h,i,j,d} \geqq 0]
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} =
+-1 \times
+(
+    Q'_{AC,ahu,c,i,j,d} +
+    Q_{AC,ahu,heat,pumpH,i,j,d}
+)
+++++
+** b-3) 未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が正（冷房要求）である場合の日積算空調負荷が負数でない、かつ、未処理負荷の評価後の二次ポンプ群iに接続する空調機群jの室負荷が負（暖房要求）である場合の日積算空調負荷が負数である場合（ stem:[Q'_{AC,ahu,c,i,j,d} \geqq 0 \land Q'_{AC,ahu,h,i,j,d} < 0]
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} =
+-1 \times
+(
+    Q'_{AC,ahu,h,i,j,d} +
+    Q_{AC,ahu,heat,pumpH,i,j,d}
+)
+++++
+** b-4) それ以外の場合
++
+[stem]
+++++
+Q_{AC,pump,i,j,d} = 0
+++++
+====
+
+
+
+日付dにおける2次ポンプ群iの日積算ポンプ負荷 stem:[Q_{AC,pump,i,d}] は以下の式で求める。
+
+====
+[stem]
+++++
+Q_{AC,pump,i,d} = \sum_{j} Q_{AC,pump,i,j,d}
+++++
+====
+
+
 
 
 ////

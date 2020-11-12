@@ -4592,8 +4592,8 @@ L_{AC,pump,i,j,n} =
     {
         q_{AC,pump,i,rated} 
         \times
-        -
         { \rm F_{L} }(n)
+        -
         q_{AC,pump,i,j,CWV,n}
     }
     { N_{AC,pump,i,j,VWV,n} }

@@ -406,8 +406,11 @@ P_{Vac,fan,j} = \sum_{k=1} ( \frac{ P_{Vac,fan,rated,j,k} }{ \eta_{m} }  \times 
 |その他
 |1.00
 
+ifdef::for-dev[]
 |数値の直接入力（任意評定を取得した場合に限る）
 |入力値
+endif::[]
+
 |===
 
 

@@ -1681,15 +1681,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div class="paragraph">
-<p>標準日積算湯使用量の単位は室用途によって異なり、[L/人日] か [L/m<sup>2</sup>日] で規定されている。
+<p>標準日積算湯使用量の単位は室用途によって異なり、[L/人日]、[L/床日]、[L/m<sup>2</sup>日]のいずれかで規定されている。
 単位については、ROOM_SPEC_H28.csv の 「基準設定湯使用量」列 に記されている。
-単位が[L/人日]の場合については、ROOM_SPEC_H28.csv の「人体発熱参照値」列で指定される 人員密度参照値 [人/m<sup>2</sup>] を乗じて、床面積あたりの値に変換する。</p>
+単位が[L/人日]、[L/床日]の場合については、ROOM_SPEC_H28.csv の「人体発熱参照値」列で指定される 人員密度参照値 [人/m<sup>2</sup>] を乗じて、床面積あたりの値に変換する。</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>ここで、「ホテル等・客室」の「シャワー」用途の日積算湯使用量については、以下の想定で算出されている。<br>
 　　10.5分／人　×　10 L/分　×　0.75（同時使用率） = 79 L/人<br></p>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>また、「病院等・病室」の「シャワー」用途については、以下の想定で算出されている。<br>
 　　2.1分／人　×　10 L/分　×　0.90（同時使用率） = 21 L/人<br></p>
@@ -2851,7 +2851,7 @@ I_{ DHI, d, t }
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-14 13:50:30 UTC
+Last updated 2020-12-08 07:48:39 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

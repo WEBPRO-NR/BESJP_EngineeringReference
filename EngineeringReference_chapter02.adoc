@@ -6276,13 +6276,17 @@ N_{AC,ref,i,d} = N_{AC,ref,i}
 [options="header", cols="2,5,2,2"]
 |=================================
 |変数名|説明|単位|参照先|
-stem:[RefType_{i,j}]|熱源群iに属する熱源機器jの熱源機種|-|様式2-5：⑥熱源機種|
+stem:[K_{prime,ex,c}]|他人から供給された熱の一次エネルギー換算値（冷熱）|-|様式0：⑫一次エネルギー換算値（冷熱）|
+stem:[K_{prime,ex,h}]|他人から供給された熱の一次エネルギー換算値（温熱）|-|様式0：⑬一次エネルギー換算値（温熱）|
 stem:[N_{AC,ref,i,j}]|熱源群iに属する熱源機器jの台数|台|様式2-5：⑧台数|
 stem:[q_{AC,ref,i,j,rated}]|熱源群iに属する熱源機器jの定格能力|kW/台|様式2-5：⑩定格冷却／加熱能力|
 stem:[P_{AC,ref,main,i,j}]|熱源群iに属する熱源機器jの主機消費エネルギー|kW/台|様式2-5：⑪主機 定格消費エネルギー|
-stem:[K_{prime,ex,c}]|他人から供給された熱の一次エネルギー換算値（冷熱）|-|様式0：⑫一次エネルギー換算値（冷熱）|
-stem:[K_{prime,ex,h}]|他人から供給された熱の一次エネルギー換算値（温熱）|-|様式0：⑬一次エネルギー換算値（温熱）|
+stem:[FuelType_{i,j}]|熱源群iに属する熱源機器jの燃料種類|-|A.4|
 |=================================
+
+////
+stem:[RefType_{i,j}]|熱源群iに属する熱源機器jの熱源機種|-|様式2-5：⑥熱源機種|
+////
 
 .出力
 [options="header", cols="2,5,2,2"]
@@ -6291,6 +6295,7 @@ stem:[K_{prime,ex,h}]|他人から供給された熱の一次エネルギー換�
 stem:[P_{AC,ref,i,j,rated}]|熱源群iに属する熱源機器jの定格一次消費エネルギー|kW|2.7.11|
 |=================================
 
+////
 熱源機器の定格一次消費エネルギーを算出する。
 熱源機器のエネルギー源が「電力」の場合は、電力の一次エネルギー換算係数を掛ける。
 熱源機器のエネルギー源が「他人から供給された熱」の場合は、他人から供給された熱の一次エネルギー換算値を掛ける。
@@ -6298,9 +6303,45 @@ stem:[P_{AC,ref,i,j,rated}]|熱源群iに属する熱源機器jの定格一次�
 燃料タイプ　stem:[FuelType_{i,j}]　は、熱源機種 stem:[RefType_{i,j}] 毎に次のファイルにて規定されている。
 
 * 熱源機種一覧： link:https://github.com/WEBPRO-NR/BESJP_Webpro_RouteB/blob/dev/database/REFLIST_H28.csv[REFLIST_H28.csv]
+////
+
+熱源機器の定格一次消費エネルギーを算出する。
+熱源機器のエネルギー源が「電力」の場合は、電力の一次エネルギー換算係数を掛ける。
+熱源機器のエネルギー源が「他人から供給された熱」の場合は、他人から供給された熱の一次エネルギー換算値を掛ける。
+これ以外の場合は、一次エネルギー換算された値が入力されているため、何も処理をしない。
+
 
 <<<<
 
+====
+[none]
+* a) stem:[FuelType_{i,j} = \mbox{電力}]　(エネルギー源が電力の場合)
++
+[stem]
+++++
+P_{AC,ref,i,j,rated} = \frac{f_{prim,e}}{3600} \times P_{AC,ref,main,i,j} \times N_{AC,ref,i,j}
+++++
+* b) stem:[FuelType_{i,j} = \{\mbox{冷水}\}]　(燃料種類が冷水の場合)
++
+[stem]
+++++
+P_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} \times K_{prime,ex,c}
+++++
+* c) stem:[FuelType_{i,j} \in \{\mbox{温水, 蒸気}\}]　(燃料種類が温水、蒸気の場合)
++
+[stem]
+++++
+P_{AC,ref,i,j,rated} = q_{AC,ref,i,j,rated} \times N_{AC,ref,i,j} \times K_{prime,ex,h}
+++++
+* d) 上記以外の場合
++
+[stem]
+++++
+P_{AC,ref,i,j,rated} = P_{AC,ref,main,i,j} \times N_{AC,ref,i,j}
+++++
+====
+
+////
 ====
 a) stem:[FuelType_{i,j} = \mbox{電力}]　(エネルギー源が電力の場合)
 [stem]
@@ -6327,7 +6368,7 @@ P_{AC,ref,i,j,rated} = P_{AC,ref,main,i,j} \times N_{AC,ref,i,j}
 ++++++++++++++++++++++++++++++++++++++++++++
 ====
 
-
+////
 
 <<<<
 ==== 2.7.11 最大入力
@@ -7117,6 +7158,7 @@ stem:[a_{ref,x,i,j},b_{ref,x,i,j},c_{ref,x,i,j},d_{ref,x,i,j},e_{ref,x,i,j}]|熱
 stem:[L_{ref,x,i,j,min},L_{ref,x,i,j,max}]|熱源群iに属する熱源機器jの部分負荷特性の最小負荷率、最大負荷率|-|2.7.13|
 stem:[a_{ref,t,i,j},b_{ref,t,i,j},c_{ref,t,i,j},d_{ref,t,i,j},e_{ref,t,i,j}]|熱源群iに属する熱源機器jの送水温度特性の係数|-|2.7.14|
 stem:[\theta_{ref,t,i,j,min},\theta_{ref,t,i,j,max}]|熱源群iに属する熱源機器jの送水温度特性の最小負荷率、最大負荷率|-|2.7.14|
+stem:[FuelType_{i,j}]|熱源群iに属する熱源機器jの燃料種類|-|2.7.10|
 |=================================
 
 熱源機器のエネルギー消費特性に関する係数は「REFCURVE_H28.csv」にて規定されている。 + 

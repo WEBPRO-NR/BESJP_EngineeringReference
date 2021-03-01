@@ -8348,7 +8348,7 @@ stem:[f_{AC,ref,t,i,j,d}]|日付dにおける熱源群iに属する熱源機器j
 
 ====
 [none]
-* a) 送水温度が送水温度特性の最小温度よりも小さい場合：stem:[\theta_{AC,ref,i,d} < \theta_{ref,t,i,j,wtr}]
+* a) 送水温度が送水温度特性の最小温度よりも小さい場合：stem:[\theta_{ref,t,i,j,wtr} < \theta_{ref,t,i,j,min}]
 +
 [stem]
 ++++
@@ -8873,6 +8873,7 @@ P_{AC,ref,ctfan,i,j}
 ====
 [none]
 * a) 冷却水変流量制御が無い場合：stem:[RefType_{i,j}]の名称に「冷却水変流量」が含まれない
++
 [stem]
 ++++
 E_{AC,ref,ctpump,i,j,d} =

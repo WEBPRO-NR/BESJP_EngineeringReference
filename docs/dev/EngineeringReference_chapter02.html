@@ -13583,7 +13583,7 @@ L_{ref,x,i,j,max}\]
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>a) 送水温度が送水温度特性の最小温度よりも小さい場合：\(\theta_{AC,ref,i,d} &lt; \theta_{ref,t,i,j,wtr}\)</p>
+<p>a) 送水温度が送水温度特性の最小温度よりも小さい場合：\(\theta_{ref,t,i,j,wtr} &lt; \theta_{ref,t,i,j,min}\)</p>
 <div class="stemblock">
 <div class="content">
 \[\theta_{i,j,d} =
@@ -14227,13 +14227,13 @@ P_{AC,ref,ctfan,i,j}\]
 <ul class="none">
 <li>
 <p>a) 冷却水変流量制御が無い場合：\(RefType_{i,j}\)の名称に「冷却水変流量」が含まれない</p>
-</li>
-</ul>
+<div class="stemblock">
+<div class="content">
+\[E_{AC,ref,ctpump,i,j,d} =
+P_{AC,ref,ctpump,i,j}\]
 </div>
-E_{AC,ref,ctpump,i,j,d} =
-P_{AC,ref,ctpump,i,j}
-<div class="ulist">
-<ul>
+</div>
+</li>
 <li>
 <p>b)  冷却水変流量制御が有る場合：\(RefType_{i,j}\)の名称に「冷却水変流量」が含まれる</p>
 <div class="ulist none">
@@ -15526,7 +15526,7 @@ E_{AC,ref,ctpump,i}\]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-01 01:46:53 UTC
+Last updated 2021-03-01 02:28:37 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

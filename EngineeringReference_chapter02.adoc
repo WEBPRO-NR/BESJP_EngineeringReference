@@ -8535,7 +8535,7 @@ T_{AC,ref,base,i,d}
 
 ====
 [none]
-* a) 運転台数が2台以上の場合：stem:[N_{AC,ref,i,d} \leqq 2]
+* a) 運転台数が2台以上の場合：stem:[N_{AC,ref,i,d} \geqq 2]
 +
 [stem]
 ++++

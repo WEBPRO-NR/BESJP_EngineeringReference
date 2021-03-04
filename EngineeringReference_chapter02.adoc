@@ -7350,37 +7350,37 @@ n_{AC,ref,i,d} =
 n_{AC,ref,i,d} =
 \begin{cases}
 1
-& , L_{AC,ref,i,d} < 0.1
+& , L_{AC,ref,i,d} \leqq 0.1
 \\
 2
-& , 0.1 \leqq L_{AC,ref,i,d} < 0.2
+& , 0.1 < L_{AC,ref,i,d} \leqq 0.2
 \\
 3
-& , 0.2 \leqq L_{AC,ref,i,d} < 0.3
+& , 0.2 < L_{AC,ref,i,d} \leqq 0.3
 \\
 4
-& , 0.3 \leqq L_{AC,ref,i,d} < 0.4
+& , 0.3 < L_{AC,ref,i,d} \leqq 0.4
 \\
 5
-& , 0.4 \leqq L_{AC,ref,i,d} < 0.5
+& , 0.4 < L_{AC,ref,i,d} \leqq 0.5
 \\
 6
-& , 0.5 \leqq L_{AC,ref,i,d} < 0.6
+& , 0.5 < L_{AC,ref,i,d} \leqq 0.6
 \\
 7
-& , 0.6 \leqq L_{AC,ref,i,d} < 0.7
+& , 0.6 < L_{AC,ref,i,d} \leqq 0.7
 \\
 8
-& , 0.7 \leqq L_{AC,ref,i,d} < 0.8
+& , 0.7 < L_{AC,ref,i,d} \leqq 0.8
 \\
 9
-& , 0.8 \leqq L_{AC,ref,i,d} < 0.9
+& , 0.8 < L_{AC,ref,i,d} \leqq 0.9
 \\
 10
-& , 0.9 \leqq L_{AC,ref,i,d} < 1.0
+& , 0.9 < L_{AC,ref,i,d} \leqq 1.0
 \\
 11
-& , 1.0 \leqq L_{AC,ref,i,d}
+& , 1.0 < L_{AC,ref,i,d}
 \end{cases}
 
 
@@ -8535,7 +8535,7 @@ T_{AC,ref,base,i,d}
 
 ====
 [none]
-* a) 運転台数が2台以上の場合：stem:[N_{AC,ref,i,d} \leqq 2]
+* a) 運転台数が2台以上の場合：stem:[N_{AC,ref,i,d} \geqq 2]
 +
 [stem]
 ++++
